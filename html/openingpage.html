@@ -94,9 +94,14 @@
           const el = document.getElementById(id);
           if (el && data[id] !== undefined) {
             el.value = data[id];
-			  
           }
         });
+
+        // ✅ Combine first and last name into full_Name
+        const fullNameEl = document.getElementById('full_Name');
+        if (fullNameEl && data.first_Name && data.last_Name) {
+          fullNameEl.value = `${data.first_Name} ${data.last_Name}`;
+        }
 
       } catch (err) {
         console.error("Error loading scenario:", err);
