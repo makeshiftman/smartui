@@ -48,8 +48,7 @@
 <input class="input-field" id="elecOrGas" style="top:180px; left:217px; height:21px; width:142px"/ title="Smart Device">
 <input class="input-field" id="BPID" style="top:264px; left:265px; height:16px; width:122px"/ title="Business Partner">
 <input class="input-field" value="Person" style="top:291px; left:265px; height:16px; width:122px"/ title="Partner Type" readonly>
-<input class="input-field" id="first_Name" style="top:316px; left:265px; height:16px; width:100px"/ title="First">
-<input class="input-field" id="last_Name" style="top:316px; left:385px; height:16px; width:100px"/ title="Last">
+<input class="input-field" id="full_Name" style="top:316px; left:265px; height:16px; width:122px"/ title="Full Name">
 <input class="input-field" id="contract_Account" style="top:345px; left:265px; height:16px; width:122px"/ title="Contract Account">
 <input class="input-field" id="contract" style="top:372px; left:265px; height:16px; width:122px"/ title="Contract">
 <input class="input-field" id="contract_Start" style="top:399px; left:265px; height:16px; width:122px"/ title="Contract Start Date">
@@ -95,6 +94,7 @@
           const el = document.getElementById(id);
           if (el && data[id] !== undefined) {
             el.value = data[id];
+			  
           }
         });
 
