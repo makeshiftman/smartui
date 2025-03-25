@@ -75,37 +75,34 @@
 <a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
 </div>
 	<script>
-window.onload = async () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const scenario = urlParams.get("scenario");
+  window.onload = async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const scenario = urlParams.get("scenario");
 
-  if (scenario) {
-    try {
-      const response = await fetch(scenario);
-      const data = await response.json();
+    if (scenario) {
+      try {
+        const response = await fetch(scenario);
+        const data = await response.json();
 
-      document.getElementById('first_Name').value = data.first_Name;
-      document.getElementById('last_Name').value = data.last_Name;
-      document.getElementById('contract_Account').value = data.contract_Account;
-      document.getElementById('contract').value = data.contract;
-      document.getElementById('contract_Start').value = data.contract_Start;
-      document.getElementById('operating_Mode').value = data.operating_Mode;
-      document.getElementById('payment_Plan').value = data.payment_Plan;
-      document.getElementById('read_Retrieval').value = data.read_Retrieval;
-      document.getElementById('last_Comm').value = data.last_Comm;
-      document.getElementById('pod').value = data.pod;
-      document.getElementById('device_Guid').value = data.device_Guid;
-      document.getElementById('meter_Serial').value = data.meter_Serial;
-      document.getElementById('device_Start').value = data.device_Start;
-      document.getElementById('device_End').value = data.device_End;
-      document.getElementById('device_Status').value = data.device_Status;
-      document.getElementById('elecOrGas').value = data.elecOrGas;
-      document.getElementById('BPID').value = data.BPID;
-    } catch (err) {
-      console.error("Error loading scenario:", err);
+        const fields = [
+          'first_Name', 'last_Name', 'contract_Account', 'contract',
+          'contract_Start', 'operating_Mode', 'payment_Plan', 'read_Retrieval',
+          'last_Comm', 'pod', 'device_Guid', 'meter_Serial', 'device_Start',
+          'device_End', 'device_Status', 'elecOrGas', 'BPID'
+        ];
+
+        fields.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && data[id] !== undefined) {
+            el.value = data[id];
+          }
+        });
+
+      } catch (err) {
+        console.error("Error loading scenario:", err);
+      }
     }
-  }
-};
+  };
 </script>
 </body>
 </html>
