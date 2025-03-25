@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "contractAccount": "1234567890",
+    "premise": "45 Sample Street",
+    "smartDevice": "EDMI Mk7",
+    "businessPartner": "Jane Smith"
+  },
+  "topups": [
+    {
+      "created": "2025-03-18T09:00",
+      "applied": "2025-03-18T09:30",
+      "value": "30",
+      "type": "Payment",
+      "utrn": "12345678901234567890",
+      "channel": "Online",
+      "status": "Success",
+      "auth": "012345"
+    }
+  ]
+}

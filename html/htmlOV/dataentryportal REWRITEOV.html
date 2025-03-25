@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>SmartUI Data Entry Portal</title>
+<style>
+  .input-field {
+      position: absolute;
+      font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+      transform: scaleX(0.97); /* subtle horizontal squash */
+      font-size: 12px;
+      padding: 2px;
+      border: 1px solid #aaa;
+      width: 160px;
+      background: none;        /* No background */
+      border: none;            /* No border */
+      outline: none;           /* No focus border */
+      font-weight: bold ;       /* Bold text */
+      color: black;          /* Text color (adjust as needed) */
+      padding-left: 4px;       /* 👈 Adjust this value to move text right */
+      font-smooth: never;
+    }
+
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      position: relative;
+      width: 1920px;
+      height: 1215px;
+      background: url('../../images/dataentryportalOV.png') no-repeat top left;
+      background-size: cover;
+    }
+    .input-field {
+      position: absolute;
+      font-family: "Segoe UI", sans-serif;
+      font-size: 11px;
+      padding: 2px;
+      border: 1px solid #aaa;
+      width: 160px;
+    }
+    .link-area {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
+<style>
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  color: black;
+  font-weight: bold;
+  padding-left: 4px;
+  font-size: 12px;
+}
+
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f2f2f2;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 5px;
+    }
+    input[type="text"], input[type="number"], select, input[type="datetime-local"] {
+      padding: 5px;
+      font-size: 14px;
+    }
+    input[readonly] {
+      background: #eee;
+    }
+    .buttons {
+      margin-bottom: 20px;
+    }
+  </style></head>
+<body>
+<div id="wrapper">
+
+<!-- Personal Details-->
+	
+<select id="title" class="input-field" style="top: 108px; left: 60px; height: 20px; width: 50px;">
+  <option value="mr">Mr</option>
+  <option value="mrs">Mrs</option>
+  <option value="ms">Miss</option>
+</select>
+<input class="input-field" id="firstname" style="top: 108px; left: 120px; height: 20px; width: 100px"/ title="First Name">
+<input class="input-field" id="middlename" style="top: 108px; left: 240px; height: 20px; width: 100px"/ title="Middle Name">
+<input class="input-field" id="lastname" style="top: 108px; left: 360px; height: 20px; width: 130px"/ title="Last Name">
+<input class="input-field" id="flatnumber" style="top: 150px; left: 60px; height: 20px; width: 50px"/ title="Flat No">
+<input class="input-field" id="housenumber" style="top:150px; left:120px; height:20px; width:30px"/ title="No">
+<input class="input-field" id="street" style="top: 150px; left: 160px; height: 20px; width: 180px"/ title="Street">
+<input class="input-field" id="city" style="top: 150px; left: 360px; height: 20px; width: 130px"/ title="City">
+<input class="input-field" id="postcode" style="top: 185px; left: 60px; height: 20px; width: 50px"/ title="Post Code">
+<input class="input-field" id="mobile" style="top: 184px; left: 240px; height: 20px; width: 100px"/ title="Mobile">
+<input class="input-field" id="workphone" style="top:185px; left:360px; height:20px; width:100px"/ title="Work Phone">
+<input class="input-field" id="homephone" style="top:185px; left:120px; height:20px; width:100px"/ title="Home Phone">
+
+<input class="input-field" id="business_partner" style="top: 220px; left: 59px; height: 20px; width: 125px"/ title="Business Partner ID">
+<input class="input-field" id="contract_account_gas" style="top: 250px; left: 60px; height: 20px; width: 125px"/ title="Contract Account Gas">
+<input class="input-field" id="contract_account_elec" style="top: 280px; left: 60px; height: 20px; width: 125px"/ title="Contract Account Elec">
+<input class="input-field" id="contract_end" style="top: 724px; left: 58px; height: 20px; width: 125px"/ title="Smart Device">
+
+<input class="input-field" id="contract_start_date" style="top: 334px; left: 60px; height: 20px; width: 125px"/ title="Contract Start Date">
+<input class="input-field" id="payment_plan" style="top: 480px; left: 60px; height: 20px; width: 125px"/ title="Payment Plan">
+<input class="input-field" id="read_retrieval_consent" style="top: 516px; left: 60px; height: 20px; width: 125px"/ title="Read Retrieval Consent">
+<input class="input-field" id="pod" style="top: 580px; left: 60px; height: 20px; width: 125px"/ title="POD">
+<input class="input-field" id="device_guid" style="top:615px; left:60px; height:20px; width:125px"/ title="Device GUID">
+<input class="input-field" id="meter_serial_number" style="top:642px; left:60px; height:20px; width:125px"/ title="Meter Serial Number">
+<input class="input-field" id="device_start" style="top:669px; left:60px; height:20px; width:125px"/ title="Device Start">
+<input class="input-field" id="device_end" style="top:696px; left:60px; height:20px; width:125px"/ title="Device End">
+<input class="input-field" id="smets_version" style="top:750px; left:60px; height:20px; width:125px"/ title="SMETS Version">
+<input class="input-field" id="device_status" style="top:804px; left:60px; height:20px; width:125px"/ title="Device Status">
+<!-- Sample Link Areas -->
+<a class="link-area" href="openingpageOV.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
+
+<div id="utrn-container" style="position: absolute; top: 115px; left: 520px;">
+<div class="buttons">
+<button onclick="deleteSelected()">Delete Selected</button>
+<button onclick="generateUTRNAndAuth()">Generate UTRN/Auth</button>
+<button onclick="addRow()">Add Row</button>
+<button onclick="collectData()">Send All Data</button>
+<button onclick="exportDataAsFile()">Export Scenario</button>
+</div><div id="utrnRows"></div>
+<div id="confirmation-message" style="position:absolute; top:210px; left:520px; color:green; font-weight:bold; display:none;">
+  ✅ Data saved successfully
+</div>
+
+
+  <!-- Debt Settings -->
+  <input class="input-field" type="text" id="debt_settings_source" style="position:absolute; top:462px; left:0px; width:194px; height:20px;" title="Debt Settings Source">
+  <input class="input-field" type="datetime-local" id="debt_settings_status_timestamp" style="position:absolute; top:462px; left:213px; width:196px; height:20px;" title="Debt Set. Status Timestamp">
+  <div style="position:absolute; top:462px; left:428px; width:100px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="debt_settings_total_debt" style="width:95px; height:20px; padding-left:15px;" title="Total Debt">
+  </div>
+  <div style="position:absolute; top:462px; left:620px; width:80px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="debt_settings_drr" style="width:75px; height:20px; padding-left:15px;" title="DRR">
+  </div>
+  <div style="position:absolute; top:462px; left:718px; width:94px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="debt_settings_mrr" style="width:89px; height:20px; padding-left:15px;" title="Max Recovery">
+  </div>
+
+  <!-- Meter Balance -->
+  <input class="input-field" type="text" id="meter_balance_source" style="position:absolute; top:520px; left:0px; width:194px; height:20px;" title="Meter Balance Source">
+  <input class="input-field" type="datetime-local" id="meter_balance_status_timestamp" style="position:absolute; top:520px; left:213px; width:196px; height:20px;" title="Meter Bal Status Timestamp">
+  <div style="position:absolute; top:520px; left:428px; width:100px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="meter_balance" style="width:95px; height:20px; padding-left:15px;" title="Meter Balance">
+  </div>
+  <div style="position:absolute; top:520px; left:620px; width:80px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="emergency_credit_remaining" style="width:75px; height:20px; padding-left:15px;" title="EC Remain">
+  </div>
+  <div style="position:absolute; top:520px; left:718px; width:94px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="meter_balance_low_credit_warning" style="width:89px; height:20px; padding-left:15px;" title="LC Warning">
+  </div>
+
+  <!-- Emergency Credit Settings -->
+  <input class="input-field" type="text" id="ec_source" style="position:absolute; top:582px; left:0px; width:194px; height:20px;" title="EC Source">
+  <input class="input-field" type="datetime-local" id="ec_status_timestamp" style="position:absolute; top:582px; left:213px; width:196px; height:20px;" title="EC Status Timestamp">
+  <div style="position:absolute; top:582px; left:428px; width:100px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="ec_limit" style="width:95px; height:20px; padding-left:15px;" title="EC Limit">
+  </div>
+  <div style="position:absolute; top:582px; left:620px; width:80px; height:20px;">
+    <span style="position:absolute; left:5px; top:50%; transform:translateY(-50%); font-size:14px;">£</span>
+    <input class="input-field" type="number" id="ec_threshold" style="width:75px; height:20px; padding-left:15px;" title="EC Thresh">
+  </div>
+
+  <!-- Non Disablement Calendar -->
+  <input class="input-field" type="text" id="ndc_source" style="position:absolute; top:646px; left:0px; width:194px; height:20px;" title="NDC Source">
+  <input class="input-field" type="datetime-local" id="ndc_status_timestamp" style="position:absolute; top:646px; left:213px; width:196px; height:20px;" title="NDC Status Timestamp">
+  <input class="input-field" type="text" id="ndc_id" style="position:absolute; top:646px; left:428px; width:100px; height:20px;" title="NDC ID">
+  <input class="input-field" type="text" id="ndc_description" style="position:absolute; top:646px; left:620px; width:192px; height:20px;" title="Description">
+</div>
+<input class="input-field" id="contract_start" style="top: 303px; left: 60px; height: 20px; width: 125px"/ title="Contract Start">
+
+</div>
+<script>
+    let maxRows = 10;
+
+    function createInput(type, placeholder, className, title, readOnly = false) {
+      const input = document.createElement("input");
+      input.type = type;
+      input.placeholder = placeholder;
+      if (className) input.className = className;
+      if (title) input.title = title;
+      if (readOnly) input.readOnly = true;
+      return input;
+    }
+
+    function createSelect(options, className) {
+      const select = document.createElement("select");
+      if (className) select.className = className;
+      options.forEach(opt => {
+        const option = document.createElement("option");
+        option.value = opt;
+        option.textContent = opt;
+        select.appendChild(option);
+      });
+      return select;
+    }
+
+    function addRow() {
+      const container = document.getElementById("utrnRows");
+      if (container.children.length >= maxRows) return;
+
+      const row = document.createElement("div");
+      row.className = "row";
+
+      const created = createInput("datetime-local", "", "created");
+      const applied = createInput("datetime-local", "", "applied");
+
+      const valueWrapper = document.createElement("div");
+      valueWrapper.style.position = "relative";
+      valueWrapper.style.display = "inline-block";
+
+      const pound = document.createElement("span");
+      pound.textContent = "£";
+      pound.style.position = "absolute";
+      pound.style.left = "5px";
+      pound.style.top = "50%";
+      pound.style.transform = "translateY(-50%)";
+      pound.style.fontSize = "14px";
+      pound.style.pointerEvents = "none";
+
+      const value = createInput("number", "", "value");
+      value.style.paddingLeft = "15px";
+      value.style.width = "70px";
+      value.min = 1;
+      value.max = 500;
+      value.oninput = () => {
+        if (value.value === "") return;
+        if (value.value > 500) value.value = 500;
+        if (value.value < 1) value.value = 1;
+        value.value = parseInt(value.value) || '';
+      };
+
+      valueWrapper.appendChild(pound);
+      valueWrapper.appendChild(value);
+
+      const type = createSelect(["Payment", "Manual"], "type");
+      const utrn = createInput("text", "UTRN Number", "utrn", "", true);
+      const channel = createSelect(["Mobile", "Online"], "channel");
+      const status = createSelect(["Error - UTRN application response", "Success", "Pending"], "status");
+      const auth = createInput("text", "Auth Code", "auth", "", true); auth.style.width = "50px";
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.className = "delete";
+
+      row.append(created, applied, valueWrapper, type, utrn, channel, status, auth, checkbox);
+      container.appendChild(row);
+    }
+
+    function deleteSelected() {
+      const rows = document.querySelectorAll("#utrnRows .row");
+      rows.forEach(row => {
+        if (row.querySelector(".delete").checked) {
+          row.remove();
+        }
+      });
+    }
+
+    function generateUTRNAndAuth() {
+      document.querySelectorAll("#utrnRows .row").forEach(row => {
+        const utrn = row.querySelector(".utrn");
+        const auth = row.querySelector(".auth");
+        if (!utrn.value) {
+          utrn.value = Array.from({ length: 20 }, () => Math.floor(Math.random() * 10)).join('');
+        }
+        if (!auth.value) {
+          auth.value = '0' + Math.floor(100000 + Math.random() * 899999).toString().slice(0, 5);
+        }
+      });
+    }
+
+    // Initialize with one row
+    addRow();
+  function collectData() {
+    const rows = document.querySelectorAll("#utrnRows .row");
+    const data = [];
+
+    rows.forEach(row => {
+      const getValue = (selector) => {
+        const el = row.querySelector(selector);
+        return el ? el.value.trim() : '';
+      };
+
+      const entry = {};
+
+      const created = getValue('.created');
+      if (created) entry.created = created;
+
+      const applied = getValue('.applied');
+      if (applied) entry.applied = applied;
+
+      const value = getValue('.value');
+      if (value) entry.value = value;
+
+      const type = getValue('.type');
+      if (type) entry.type = type;
+
+      const utrn = getValue('.utrn');
+      if (utrn) entry.utrn = utrn;
+
+      const channel = getValue('.channel');
+      if (channel) entry.channel = channel;
+
+      const status = getValue('.status');
+      if (status) entry.status = status;
+
+      const auth = getValue('.auth');
+      if (auth) entry.auth = auth;
+
+      if (Object.keys(entry).length > 0) {
+        data.push(entry);
+      }
+    });
+
+    console.log("Collected Data:", data);
+  }
+</script>
+	
+	</body>
+</html>
