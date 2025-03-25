@@ -84,7 +84,8 @@ window.onload = async () => {
       const response = await fetch(scenario);
       const data = await response.json();
 
-      document.getElementById('first_Name_Last_Name').value = data.firstNameLastName;
+      document.getElementById('first_Name').value = data.first_Name;
+      document.getElementById('last_Name').value = data.last_Name;
       document.getElementById('contract_Account').value = data.contract_Account;
       document.getElementById('contract').value = data.contract;
       document.getElementById('contract_Start').value = data.contract_Start;
