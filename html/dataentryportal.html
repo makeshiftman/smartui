@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="../styles.css" />
 <meta charset="utf-8"/>
 <title>SmartUI Data Entry Portal</title>
 <style>
@@ -180,148 +181,44 @@
 
 
 </div>
+
 <script>
-    let maxRows = 10;
+  fetch("/smartui/fragments/smartui-core.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("wrapper").innerHTML = html;
+    })
+    .then(() => {
+      const script = document.createElement("script");
+      script.src = "/smartui/scripts/smartui-loader.js";
+      script.onload = async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        let scenario = urlParams.get("scenario");
+        let data;
 
-    function createInput(type, placeholder, className, title, readOnly = false) {
-      const input = document.createElement("input");
-      input.type = type;
-      input.placeholder = placeholder;
-      if (className) input.className = className;
-      if (title) input.title = title;
-      if (readOnly) input.readOnly = true;
-      return input;
-    }
+        if (scenario) {
+          try {
+            const response = await fetch(scenario);
+            data = await response.json();
+            localStorage.setItem("smartui_data", JSON.stringify(data));
+          } catch (err) {
+            console.error("Error fetching scenario:", err);
+            return;
+          }
+        } else {
+          const stored = localStorage.getItem("smartui_data");
+          if (!stored) {
+            console.warn("No scenario and no stored data.");
+            return;
+          }
+          data = JSON.parse(stored);
+        }
 
-    function createSelect(options, className) {
-      const select = document.createElement("select");
-      if (className) select.className = className;
-      options.forEach(opt => {
-        const option = document.createElement("option");
-        option.value = opt;
-        option.textContent = opt;
-        select.appendChild(option);
-      });
-      return select;
-    }
-
-    function addRow() {
-      const container = document.getElementById("utrnRows");
-      if (container.children.length >= maxRows) return;
-
-      const row = document.createElement("div");
-      row.className = "row";
-
-      const created = createInput("datetime-local", "", "created");
-      const applied = createInput("datetime-local", "", "applied");
-
-      const valueWrapper = document.createElement("div");
-      valueWrapper.style.position = "relative";
-      valueWrapper.style.display = "inline-block";
-
-      const pound = document.createElement("span");
-      pound.textContent = "£";
-      pound.style.position = "absolute";
-      pound.style.left = "5px";
-      pound.style.top = "50%";
-      pound.style.transform = "translateY(-50%)";
-      pound.style.fontSize = "14px";
-      pound.style.pointerEvents = "none";
-
-      const value = createInput("number", "", "value");
-      value.style.paddingLeft = "15px";
-      value.style.width = "70px";
-      value.min = 1;
-      value.max = 500;
-      value.oninput = () => {
-        if (value.value === "") return;
-        if (value.value > 500) value.value = 500;
-        if (value.value < 1) value.value = 1;
-        value.value = parseInt(value.value) || '';
+        smartuiLoadAndPopulate(data);
       };
-
-      valueWrapper.appendChild(pound);
-      valueWrapper.appendChild(value);
-
-      const type = createSelect(["Payment", "Manual"], "type");
-      const utrn = createInput("text", "UTRN Number", "utrn", "", true);
-      const channel = createSelect(["Mobile", "Online"], "channel");
-      const status = createSelect(["Error - UTRN application response", "Success", "Pending"], "status");
-      const auth = createInput("text", "Auth Code", "auth", "", true); auth.style.width = "50px";
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.className = "delete";
-
-      row.append(created, applied, valueWrapper, type, utrn, channel, status, auth, checkbox);
-      container.appendChild(row);
-    }
-
-    function deleteSelected() {
-      const rows = document.querySelectorAll("#utrnRows .row");
-      rows.forEach(row => {
-        if (row.querySelector(".delete").checked) {
-          row.remove();
-        }
-      });
-    }
-
-    function generateUTRNAndAuth() {
-      document.querySelectorAll("#utrnRows .row").forEach(row => {
-        const utrn = row.querySelector(".utrn");
-        const auth = row.querySelector(".auth");
-        if (!utrn.value) {
-          utrn.value = Array.from({ length: 20 }, () => Math.floor(Math.random() * 10)).join('');
-        }
-        if (!auth.value) {
-          auth.value = '0' + Math.floor(100000 + Math.random() * 899999).toString().slice(0, 5);
-        }
-      });
-    }
-
-    // Initialize with one row
-    addRow();
-  function collectData() {
-    const rows = document.querySelectorAll("#utrnRows .row");
-    const data = [];
-
-    rows.forEach(row => {
-      const getValue = (selector) => {
-        const el = row.querySelector(selector);
-        return el ? el.value.trim() : '';
-      };
-
-      const entry = {};
-
-      const created = getValue('.created');
-      if (created) entry.created = created;
-
-      const applied = getValue('.applied');
-      if (applied) entry.applied = applied;
-
-      const value = getValue('.value');
-      if (value) entry.value = value;
-
-      const type = getValue('.type');
-      if (type) entry.type = type;
-
-      const utrn = getValue('.utrn');
-      if (utrn) entry.utrn = utrn;
-
-      const channel = getValue('.channel');
-      if (channel) entry.channel = channel;
-
-      const status = getValue('.status');
-      if (status) entry.status = status;
-
-      const auth = getValue('.auth');
-      if (auth) entry.auth = auth;
-
-      if (Object.keys(entry).length > 0) {
-        data.push(entry);
-      }
+      document.body.appendChild(script);
     });
+</script>
 
-    console.log("Collected Data:", data);
-  }
-</script></body>
+</body>
 </html>

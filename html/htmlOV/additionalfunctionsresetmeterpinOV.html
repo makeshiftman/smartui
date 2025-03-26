@@ -2,25 +2,11 @@
 
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="../styles.css" />
 <meta charset="utf-8"/>
 <title>SmartUI Reset Meter Pin</title>
 <style>
-  .input-field {
-      position: absolute;
-      font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
-      transform: scaleX(0.97); /* subtle horizontal squash */
-      font-size: 12px;
-      padding: 2px;
-      border: 1px solid #aaa;
-      width: 160px;
-      background: none;        /* No background */
-      border: none;            /* No border */
-      outline: none;           /* No focus border */
-      font-weight: bold ;       /* Bold text */
-      color: black;          /* Text color (adjust as needed) */
-      padding-left: 4px;       /* 👈 Adjust this value to move text right */
-      font-smooth: never;
-    }
+  
 
 
     body {
@@ -88,40 +74,44 @@
 <a class="link-area" href="additionalfunctionsOV.html" style="top: 146px; left: 514px; height:25px; width:38px"></a>
 <a class="link-area" href="additionalfunctionsreplayjoindevicesOV.html" style="top: 416px; left: 514px; height:25px; width:38px"></a>
 </div>
-	<script>
-  function getScenario() {
-    // Get the query string from the URL
-    const queryString = window.location.search;
-    // Parse the query string using URLSearchParams
-    const params = new URLSearchParams(queryString);
+	
+<script>
+  fetch("/smartui/fragments/smartui-core.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("wrapper").innerHTML = html;
+    })
+    .then(() => {
+      const script = document.createElement("script");
+      script.src = "/smartui/scripts/smartui-loader.js";
+      script.onload = async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        let scenario = urlParams.get("scenario");
+        let data;
 
-    // Loop through all key-value pairs
-    let found = null;
-    params.forEach((value, key) => {
-      console.log(`${key}: ${value}`);
-      if (key === "scenario") {
-        found = value;
-      }
+        if (scenario) {
+          try {
+            const response = await fetch(scenario);
+            data = await response.json();
+            localStorage.setItem("smartui_data", JSON.stringify(data));
+          } catch (err) {
+            console.error("Error fetching scenario:", err);
+            return;
+          }
+        } else {
+          const stored = localStorage.getItem("smartui_data");
+          if (!stored) {
+            console.warn("No scenario and no stored data.");
+            return;
+          }
+          data = JSON.parse(stored);
+        }
+
+        smartuiLoadAndPopulate(data);
+      };
+      document.body.appendChild(script);
     });
-    if (found == null) {
-      console.error("No scenario found in the URL");
-    }
-    return found;
-  }
-
-  async function loadScenario(path) {
-    try {
-      const response = await fetch(path); // Load JSON file
-      if (!response.ok) throw new Error('Failed to load JSON');
-
-      const data = await response.json(); // Parse JSON
-      document.getElementById('first_name_last_name').value = data.first_name_last_name; // Set input value
-    } catch (error) {
-      console.error('Error loading JSON:', error);
-    }
-  }
-
-  loadScenario("../scenarios/"+getScenario()+".json");
 </script>
+
 </body>
 </html>
