@@ -49,6 +49,7 @@
       .then(() => {
         const script = document.createElement("script");
         script.src = "/smartui/scripts/smartui-loader.js";
+        script.onload = () => runSmartUILoader();
         document.body.appendChild(script);
       });
   </script>
