@@ -1,28 +1,5 @@
-async function runSmartUILoader() {
-  const urlParams = new URLSearchParams(window.location.search);
-  let scenario = urlParams.get("scenario");
-  let data;
 
-  if (scenario) {
-    try {
-      const response = await fetch(scenario);
-      data = await response.json();
-      localStorage.setItem("smartui_data", JSON.stringify(data));
-      console.log("✅ Scenario loaded and saved to localStorage:", scenario);
-    } catch (err) {
-      console.error("❌ Error fetching scenario:", err);
-      return;
-    }
-  } else {
-    const stored = localStorage.getItem("smartui_data");
-    if (!stored) {
-      console.warn("⚠️ No scenario in URL and no saved data in localStorage.");
-      return;
-    }
-    data = JSON.parse(stored);
-    console.log("✅ Loaded data from localStorage.");
-  }
-
+function smartuiLoadAndPopulate(data) {
   const fields = [
     'contract_Account', 'contract',
     'contract_Start', 'operating_Mode', 'payment_Plan', 'read_Retrieval',
