@@ -49,7 +49,7 @@
 <input class="input-field" id="BPID" style="top:264px; left:265px; height:16px; width:122px"/ title="Business Partner" readonly>
 <input class="input-field" value="Person" style="top:291px; left:265px; height:16px; width:122px"/ title="Partner Type" readonly>
 <input class="input-field" id="full_Name" style="top:316px; left:265px; height:16px; width:122px"/ title="Full Name" readonly>
-<input class="input-field" id="contract_Account" style="top:345px; left:265px; height:16px; width:122px"/ title="Contract Account" readonly>
+<input class="input-field duplicate-field" data-field="contract_Account" readonly ... />
 <input class="input-field" id="contract" style="top:372px; left:265px; height:16px; width:122px"/ title="Contract" readonly>
 <input class="input-field" id="contract_Start" style="top:399px; left:265px; height:16px; width:122px"/ title="Contract Start Date" readonly>
 <input class="input-field" id="operating_Mode" style="top:426px; left:265px; height:16px; width:122px"/ title="Operating Mode" readonly>
@@ -95,6 +95,12 @@
           if (el && data[id] !== undefined) {
             el.value = data[id];
           }
+
+          // ✅ Also populate duplicate fields using data-field
+          const duplicates = document.querySelectorAll(`[data-field="${id}"]`);
+          duplicates.forEach(dup => {
+            dup.value = data[id];
+          });
         });
 
         // ✅ Combine first and last name into full_Name
