@@ -1,22 +1,40 @@
+/* General page reset */
 body {
-  font-family: "Segoe UI", sans-serif;
-  background-color: #f0f0f0;
   margin: 0;
-  padding: 20px;
+  padding: 0;
 }
-input, select, button {
-  font-size: 14px;
-  padding: 4px;
-  margin: 2px;
-  border: 1px solid #999;
-  background-color: #fff;
+
+/* Wrapper background layout */
+#wrapper {
+  position: relative;
+  width: 1920px;
+  height: 1215px;
+  background: url('../images/openingpage.png') no-repeat top left;
+  background-size: cover;
 }
-input[readonly] {
-  background-color: #e0e0e0;
+
+/* Input fields */
+.input-field {
+  position: absolute;
+  font-family: "Myriad Pro", "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  padding: 2px;
+  width: 160px;
+  background: none;
+  border: none;
+  outline: none;
+  font-weight: normal;
+  color: black;
+  padding-left: 4px;
+  font-smooth: never;
+  -webkit-font-smoothing: none; /* For Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale; /* For Firefox */
 }
-.legacy-box {
-  border: 1px solid #aaa;
-  padding: 10px;
-  background: #fff;
-  width: 600px;
+
+/* Clickable link areas */
+.link-area {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  cursor: pointer;
 }
