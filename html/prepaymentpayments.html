@@ -70,7 +70,7 @@
   fetch("/smartui/fragments/smartui-core.html")
     .then(res => res.text())
     .then(html => {
-      document.getElementById("wrapper").insertAdjacentHTML("afterbegin", html);
+      document.getElementById("wrapper").innerHTML = html;
     })
     .then(() => {
       const script = document.createElement("script");
