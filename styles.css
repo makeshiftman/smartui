@@ -4,19 +4,11 @@ body {
   padding: 0;
 }
 
-/* Wrapper background layout */
-#wrapper {
-  position: relative;
-  width: 1920px;
-  height: 1215px;
-  background: url('../images/openingpage.png') no-repeat top left;
-  background-size: cover;
-}
 
 /* Input fields */
 .input-field {
   position: absolute;
-  font-family: "Myriad Pro", "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
   padding: 2px;
   width: 160px;
@@ -29,12 +21,4 @@ body {
   font-smooth: never;
   -webkit-font-smoothing: none; /* For Chrome/Safari */
   -moz-osx-font-smoothing: grayscale; /* For Firefox */
-}
-
-/* Clickable link areas */
-.link-area {
-  position: absolute;
-  width: 100px;
-  height: 20px;
-  cursor: pointer;
 }
