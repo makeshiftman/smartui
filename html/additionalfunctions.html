@@ -12,7 +12,7 @@
       position: relative;
       width: 1920px;
       height: 1215px;
-      background: url('../images/additionalfunctions.png') no-repeat top left;
+      background: url('/smartui/images/additionalfunctions.png') no-repeat top left;
       background-size: cover;
     }
     .input-field {
@@ -41,8 +41,8 @@
   <div id="wrapper"></div>
 
   <script>
-    // Load shared SmartUI markup from fragment
-    fetch("../fragments/smartui-core.html")
+    // Load shared SmartUI markup from fragment (absolute path for GitHub Pages)
+    fetch("/smartui/fragments/smartui-core.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("wrapper").innerHTML = html;
@@ -55,6 +55,6 @@
       });
   </script>
 
-  <script src="../scripts/smartui-loader.js"></script>
+  <script src="/smartui/scripts/smartui-loader.js"></script>
 </body>
 </html>
