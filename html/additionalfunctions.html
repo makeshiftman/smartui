@@ -41,20 +41,16 @@
   <div id="wrapper"></div>
 
   <script>
-    // Load shared SmartUI markup from fragment (absolute path for GitHub Pages)
     fetch("/smartui/fragments/smartui-core.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("wrapper").innerHTML = html;
       })
       .then(() => {
-        if (typeof smartuiOnLoadExtra === "function") {
-          const data = JSON.parse(localStorage.getItem("smartui_data") || "{}");
-          smartuiOnLoadExtra(data);
-        }
+        const script = document.createElement("script");
+        script.src = "/smartui/scripts/smartui-loader.js";
+        document.body.appendChild(script);
       });
   </script>
-
-  <script src="/smartui/scripts/smartui-loader.js"></script>
 </body>
 </html>
