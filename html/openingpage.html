@@ -66,6 +66,8 @@
       try {
         const response = await fetch(scenario);
         const data = await response.json();
+	// ✅ Store full data in localStorage
+        localStorage.setItem("smartui_data", JSON.stringify(data));
 
         const fields = [
           'contract_Account', 'contract',
