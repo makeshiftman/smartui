@@ -181,6 +181,14 @@
           data = JSON.parse(stored);
         }
 
+        
+    document.querySelectorAll("a.link-area").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href) window.location.href = href;
+      });
+    });
+
         smartuiLoadAndPopulate(data);
       };
       document.body.appendChild(script);
