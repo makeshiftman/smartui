@@ -74,39 +74,74 @@
 <a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
 </div>
 <script>
-  function getScenario() {
-    // Get the query string from the URL
-    const queryString = window.location.search;
-    // Parse the query string using URLSearchParams
-    const params = new URLSearchParams(queryString);
+  window.onload = async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const scenario = urlParams.get("scenario");
 
-    // Loop through all key-value pairs
-    let found = null;
-    params.forEach((value, key) => {
-      console.log(`${key}: ${value}`);
-      if (key === "scenario") {
-        found = value;
+    if (scenario) {
+      try {
+        const response = await fetch(scenario);
+        const data = await response.json();
+
+        const fields = [
+          'contract_Account', 'contract',
+          'contract_Start', 'operating_Mode', 'payment_Plan', 'read_Retrieval',
+          'last_Comm', 'pod', 'device_Guid', 'meter_Serial', 'device_Start',
+          'device_End', 'device_Status', 'elecOrGas', 'BPID'
+        ];
+
+        fields.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && data[id] !== undefined) {
+            el.value = data[id];
+          }
+
+          // ✅ Also populate duplicate fields using data-field
+          const duplicates = document.querySelectorAll(`[data-field="${id}"]`);
+          duplicates.forEach(dup => {
+            dup.value = data[id];
+          });
+        });
+
+        // ✅ Combine first and last name into full_Name
+        const fullNameEl = document.getElementById('full_Name');
+        if (fullNameEl && data.first_Name && data.last_Name) {
+          fullNameEl.value = `${data.first_Name} ${data.last_Name}`;
+        }
+
+        // ✅ Combine address parts into full_Address (auto-capitalised)
+        const addressEl = document.getElementById('full_address');
+        if (addressEl) {
+          const parts = [];
+
+          if (data.flatnumber) {
+            parts.push(`FLAT ${data.flatnumber.toString().toUpperCase()}`);
+          }
+
+          if (data.housenumber && data.street) {
+            parts.push(`${data.housenumber.toString().toUpperCase()} ${data.street.toUpperCase()}`);
+          } else if (data.housenumber) {
+            parts.push(data.housenumber.toString().toUpperCase());
+          } else if (data.street) {
+            parts.push(data.street.toUpperCase());
+          }
+
+          if (data.city) {
+            parts.push(data.city.toUpperCase());
+          }
+
+          if (data.postcode) {
+            parts.push(data.postcode.toUpperCase());
+          }
+
+          addressEl.value = parts.join(', ');
+        }
+
+      } catch (err) {
+        console.error("Error loading scenario:", err);
       }
-    });
-    if (found == null) {
-      console.error("No scenario found in the URL");
     }
-    return found;
-  }
-
-  async function loadScenario(path) {
-    try {
-      const response = await fetch(path); // Load JSON file
-      if (!response.ok) throw new Error('Failed to load JSON');
-
-      const data = await response.json(); // Parse JSON
-      document.getElementById('first_name_last_name').value = data.first_name_last_name; // Set input value
-    } catch (error) {
-      console.error('Error loading JSON:', error);
-    }
-  }
-
-  loadScenario("../scenarios/"+getScenario()+".json");
+  };
 </script>
 	
 </body>
