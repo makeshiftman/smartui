@@ -113,25 +113,7 @@
           data = JSON.parse(stored);
         }
 
-        
-    document.querySelectorAll("a.link-area").forEach(link => {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
-        if (href) window.location.href = href;
-      });
-    });
-
-        
-  smartuiLoadAndPopulate(data);
-
-  // ✅ Attach link clicks at the end
-  document.querySelectorAll("a.link-area").forEach(link => {
-    link.addEventListener("click", () => {
-      const href = link.getAttribute("href");
-      if (href) window.location.href = href;
-    });
-  });
-
+        smartuiLoadAndPopulate(data);
       };
       document.body.appendChild(script);
     });
