@@ -28,6 +28,10 @@ function populateUTRNTable(utrnList) {
       });
   
       container.appendChild(row);
+
+      // Fix pointer behavior
+      row.style.pointerEvents = "auto";
+      [...row.children].forEach(cell => cell.style.pointerEvents = "none");
   
       // ✅ Highlight row on click
       row.addEventListener("click", () => {
@@ -38,12 +42,11 @@ function populateUTRNTable(utrnList) {
       // ✅ Right-click context menu
       row.addEventListener("contextmenu", (e) => {
         e.preventDefault();
+        const target = e.currentTarget; // Always the .utrn-row
         const menu = document.getElementById("context-menu");
         menu.style.top = `${e.clientY}px`;
         menu.style.left = `${e.clientX}px`;
         menu.style.display = "block";
-  
-        // Store this row's UTRN for later use
         menu.dataset.utrn = entry.utrn;
       });
     });
