@@ -166,43 +166,8 @@
   <input class="input-field" type="text" id="ndc_description" style="position:absolute; top:646px; left:620px; width:192px; height:20px;" title="Description">
 </div></div>
 
-<script>
-  fetch("/smartui/fragments/smartui-core.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("wrapper").innerHTML = html;
-    })
-    .then(() => {
-      const script = document.createElement("script");
-      script.src = "/smartui/scripts/smartui-loader.js";
-      script.onload = async () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        let scenario = urlParams.get("scenario");
-        let data;
 
-        if (scenario) {
-          try {
-            const response = await fetch(scenario);
-            data = await response.json();
-            localStorage.setItem("smartui_data", JSON.stringify(data));
-          } catch (err) {
-            console.error("Error fetching scenario:", err);
-            return;
-          }
-        } else {
-          const stored = localStorage.getItem("smartui_data");
-          if (!stored) {
-            console.warn("No scenario and no stored data.");
-            return;
-          }
-          data = JSON.parse(stored);
-        }
 
-        smartuiLoadAndPopulate(data);
-      };
-      document.body.appendChild(script);
-    });
-</script>
-
+  <script src="../scripts/smartui-loader.js"></script>
 </body>
 </html>
