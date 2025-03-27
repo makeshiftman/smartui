@@ -21,3 +21,10 @@ body {
   -webkit-font-smoothing: none; /* For Chrome/Safari */
   -moz-osx-font-smoothing: grayscale; /* For Firefox */
 }
+
+/* UTRN table in historicUTRN turns blue on select */
+.utrn-row.selected {
+  background-color: #0078d7;
+  color: black;
+}
+

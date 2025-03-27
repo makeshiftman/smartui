@@ -80,3 +80,13 @@ async function loadScenario(path) {
     console.error("Error loading JSON:", error);
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const rows = document.querySelectorAll(".utrn-row");
+  rows.forEach(row => {
+    row.addEventListener("click", () => {
+      rows.forEach(r => r.classList.remove("selected"));
+      row.classList.add("selected");
+    });
+  });
+});
