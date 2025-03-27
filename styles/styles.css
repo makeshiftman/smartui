@@ -24,7 +24,11 @@ body {
 
 /* UTRN table in historicUTRN turns blue on select */
 .utrn-row.selected {
-  background-color: #0078d7;
-  color: black;
+  background-color: #cce6ff !important;
+}
+
+.utrn-row.selected > div {
+  background-color: #cce6ff !important;
+  color: black !important;
 }
 
