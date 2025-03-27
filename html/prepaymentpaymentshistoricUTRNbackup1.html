@@ -4,8 +4,6 @@
 <head>
 <meta charset="utf-8"/>
 <title>SmartUI Historic UTRN</title>
-<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
-<link rel="stylesheet" href="../styles/styles.css" />
 <style>
     body {
       margin: 0;
@@ -18,7 +16,22 @@
       background: url('../images/prepaymentpaymentshistoricUTRN.png') no-repeat top left;
       background-size: cover;
     }
-   
+    .input-field {
+      position: absolute;
+      font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+      transform: scaleX(0.97); /* subtle horizontal squash */
+      font-size: 12px;
+      padding: 2px;
+      border: 1px solid #aaa;
+      width: 160px;
+      background: none;        /* No background */
+      border: none;            /* No border */
+      outline: none;           /* No focus border */
+      font-weight: bold ;       /* Bold text */
+      color: black;          /* Text color (adjust as needed) */
+      padding-left: 4px;       /* 👈 Adjust this value to move text right */
+      font-smooth: never;
+    }
     .link-area {
       position: absolute;
       width: 100px;
@@ -29,9 +42,28 @@
 </head>
 <body>
 <div id="wrapper">
-<!-- Left side fields from core-input-fields.html inject here -->
-
-<!-- Top Link Areas -->
+<!-- Sample Input Fields with prefilled values -->
+<input class="input-field" style="top:129px; left:217px; height:16px; width:154px" />
+<input class="input-field" style="top:153px; left:217px; height:21px; width:237px" />
+<input class="input-field" style="top:180px; left:217px; height:21px; width:142px" />
+<input class="input-field" style="top:264px; left:265px; height:16px; width:123px" />
+<input class="input-field" style="top:291px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:316px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:345px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:372px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:399px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:426px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:453px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:480px; left:265px; height:16px; width:122px" />
+<input class="input-field" style="top:507px; left:265px; height:16px; width:82px" />
+<input class="input-field" style="top:588px; left:265px; height:16px; width:138px" />
+<input class="input-field" style="top:615px; left:265px; height:16px; width:201px" />
+<input class="input-field" style="top:642px; left:265px; height:16px; width:138px" />
+<input class="input-field" style="top:669px; left:265px; height:16px; width:82px" />
+<input class="input-field" style="top:696px; left:265px; height:16px; width:82px" />
+<input class="input-field" style="top:750px; left:265px; height:16px; width:138px" />
+<input class="input-field" style="top:804px; left:265px; height:16px; width:218px" />
+<!-- Top Bar Link Areas -->
 <a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
 <a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
 <a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
@@ -66,7 +98,7 @@
   }
   .table-header, .table-row {
     display: grid;
-    grid-template-columns: 165px 178px 92px 71px 160px 100px 80px 80px 60px 80px;
+    grid-template-columns: 165px 178px 92px 71px 160px 100px 220px 80px 60px 80px;
     min-width: 1050px;
     height: 25px; 
     font: "MS Sans Serif"
@@ -76,7 +108,7 @@
     background-color: #e5e5e5;
     border-bottom: 1px solid #d0d0d0;
     position: sticky;
-    font-weight: normal;
+    font-weight: bold;
     font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
 
     top: 0;
@@ -86,7 +118,7 @@
     padding: 3px 4px;
     border-right: 1px solid #d0d0d0;
     white-space: nowrap;
-    font-weight: normal;
+    font-weight: regular;
     text-align: right;
     padding-right: 6px;
   }
@@ -115,8 +147,6 @@
 </div>
 
 </div>
-	
-	<script src="/smartui/scripts/smartui-loader.js"></script>
 	<script>
   function getScenario() {
     // Get the query string from the URL
@@ -150,9 +180,7 @@
     }
   }
 
- const scenario = getScenario() || "default";
-loadScenario("../scenarios/" + scenario + ".json");
+  loadScenario("../scenarios/"+getScenario()+".json");
 </script>
-	
 </body>
 </html>

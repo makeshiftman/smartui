@@ -64,14 +64,14 @@
     transform: scaleX(0.97); /* subtle horizontal squash */
     scrollbar-width: auto; /* Firefox: always show scrollbar */
   }
-  .table-header, .table-row {
-    display: grid;
-    grid-template-columns: 165px 178px 92px 71px 160px 100px 80px 80px 60px 80px;
-    min-width: 1050px;
-    height: 25px; 
-    font: "MS Sans Serif"
-    font-weight: bold;
-  }
+  ..table-header, .table-row {
+  display: grid;
+  grid-template-columns: 165px 178px 92px 71px 160px 100px 80px 80px 60px 80px;
+  min-width: 1050px;
+  height: 25px; 
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-weight: normal;
+}
   .table-header {
     background-color: #e5e5e5;
     border-bottom: 1px solid #d0d0d0;
@@ -106,53 +106,10 @@
     <div>Creation Date & Time</div><div>Applied Date & Time</div><div>UTRN Value</div><div>Type</div>
     <div>UTRN Number</div><div>Channel</div><div>Status</div><div>Payout</div><div>BPEM</div><div>Auth Code</div>
   </div>
-  <div class="table-row"><div>27.02.2025 13:29:00</div><div>27.02.2025 13:30:00</div><div>30.00</div><div>Payment</div><div>17719863134708955853</div><div>Mobile</div><div>Success</div><div>Complete</div><div>Open</div><div>206997</div></div>
-  <div class="table-row"><div>27.02.2025 13:27:00</div><div>27.02.2025 13:28:00</div><div>30.00</div><div>Payment</div><div>16573695929512744416</div><div>Mobile</div><div>Success</div><div>Complete</div><div>Open</div><div>656631</div></div>
-  <div class="table-row"><div>27.02.2025 13:25:00</div><div>27.02.2025 13:26:00</div><div>30.00</div><div>Payment</div><div>05030957354608635193</div><div>Mobile</div><div>Success</div><div>Complete</div><div>Open</div><div>872713</div></div>
-  <div class="table-row"><div>27.02.2025 13:23:00</div><div>27.02.2025 13:24:00</div><div>30.00</div><div>Payment</div><div>56295092306959248672</div><div>Mobile</div><div>Success</div><div>Complete</div><div>Open</div><div>182593</div></div>
-  <div class="table-row"><div>27.02.2025 13:21:00</div><div>27.02.2025 13:22:00</div><div>30.00</div><div>Payment</div><div>41612081825072734304</div><div>Mobile</div><div>Success</div><div>Complete</div><div>Open</div><div>793127</div></div>
-  <div class="table-row"><div>27.02.2025 13:19:00</div><div>27.02.2025 13:20:00</div><div>30.00</div><div>Payment</div><div>64023137448744483980</div><div>Mobile</div><div>Success</div><div>Complete</div><div>Open</div><div>280974</div></div>
+  <div id="utrn-table"></div>
 </div>
-
-</div>
-	
-	<script src="/smartui/scripts/smartui-loader.js"></script>
-	<script>
-  function getScenario() {
-    // Get the query string from the URL
-    const queryString = window.location.search;
-    // Parse the query string using URLSearchParams
-    const params = new URLSearchParams(queryString);
-
-    // Loop through all key-value pairs
-    let found = null;
-    params.forEach((value, key) => {
-      console.log(`${key}: ${value}`);
-      if (key === "scenario") {
-        found = value;
-      }
-    });
-    if (found == null) {
-      console.error("No scenario found in the URL");
-    }
-    return found;
-  }
-
-  async function loadScenario(path) {
-    try {
-      const response = await fetch(path); // Load JSON file
-      if (!response.ok) throw new Error('Failed to load JSON');
-
-      const data = await response.json(); // Parse JSON
-      document.getElementById('first_name_last_name').value = data.first_name_last_name; // Set input value
-    } catch (error) {
-      console.error('Error loading JSON:', error);
-    }
-  }
-
- const scenario = getScenario() || "default";
-loadScenario("../scenarios/" + scenario + ".json");
-</script>
-	
+<script src="/smartui/scripts/smartui-loader.js"></script>
+<script src="/smartui/scripts/scenario-fallback-loader.js"></script>
+<script src="/smartui/scripts/utrn-table-loader.js"></script>
 </body>
 </html>
