@@ -2,7 +2,6 @@
 
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="../styles.css" />
 <meta charset="utf-8"/>
 <title>SmartUI Opening Page Mockup</title>
 <style>
@@ -74,7 +73,40 @@
 <a class="link-area" href="diagnostics.html" style="top: 69px; left: 1313px; height:18px; width:76px"></a>
 <a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
 </div>
-	
-  <script src="../scripts/smartui-loader.js"></script>
+	<script>
+  function getScenario() {
+    // Get the query string from the URL
+    const queryString = window.location.search;
+    // Parse the query string using URLSearchParams
+    const params = new URLSearchParams(queryString);
+
+    // Loop through all key-value pairs
+    let found = null;
+    params.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+      if (key === "scenario") {
+        found = value;
+      }
+    });
+    if (found == null) {
+      console.error("No scenario found in the URL");
+    }
+    return found;
+  }
+
+  async function loadScenario(path) {
+    try {
+      const response = await fetch(path); // Load JSON file
+      if (!response.ok) throw new Error('Failed to load JSON');
+
+      const data = await response.json(); // Parse JSON
+      document.getElementById('first_Name_Last_Name').value = data.first_Name_Last_Name; // Set input value
+    } catch (error) {
+      console.error('Error loading JSON:', error);
+    }
+  }
+
+  loadScenario("../scenarios/"+getScenario()+".json");
+</script>
 </body>
 </html>

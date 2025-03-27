@@ -2,7 +2,6 @@
 
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="../styles.css" />
 <meta charset="utf-8"/>
 <title>SmartUI Opening Page Mockup</title>
 <style>
@@ -112,7 +111,40 @@
 <input class="input-field" id="ndc_id" style="position:absolute; top:744px; left:958px; width:214px; height:20px;" title="NDC ID">
 <input class="input-field" id="ndc_description" style="position:absolute; top:744px; left:1180px; width:180px; height:20px;" title="Description">
 </div>
-	
-  <script src="../scripts/smartui-loader.js"></script>
+	<script>
+  function getScenario() {
+    // Get the query string from the URL
+    const queryString = window.location.search;
+    // Parse the query string using URLSearchParams
+    const params = new URLSearchParams(queryString);
+
+    // Loop through all key-value pairs
+    let found = null;
+    params.forEach((value, key) => {
+      console.log(`${key}: ${value}`);
+      if (key === "scenario") {
+        found = value;
+      }
+    });
+    if (found == null) {
+      console.error("No scenario found in the URL");
+    }
+    return found;
+  }
+
+  async function loadScenario(path) {
+    try {
+      const response = await fetch(path); // Load JSON file
+      if (!response.ok) throw new Error('Failed to load JSON');
+
+      const data = await response.json(); // Parse JSON
+      document.getElementById('first_name_last_name').value = data.first_name_last_name; // Set input value
+    } catch (error) {
+      console.error('Error loading JSON:', error);
+    }
+  }
+
+  loadScenario("../scenarios/"+getScenario()+".json");
+</script>
 </body>
 </html>
