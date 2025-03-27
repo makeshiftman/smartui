@@ -73,8 +73,8 @@ async function loadScenario(path) {
       if (data.postcode) parts.push(data.postcode.toUpperCase());
       addressEl.value = parts.join(", ");
     }
-    if (data.utrn_history) {
-      populateUTRNTable(data.utrn_history);
+    if (data.utrnRows) {
+      populateUTRNTable(data.utrnRows);
     }
   } catch (error) {
     console.error("Error loading JSON:", error);
