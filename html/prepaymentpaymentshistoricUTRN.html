@@ -151,6 +151,9 @@
   }
 
   loadScenario("../scenarios/"+getScenario()+".json");
+		
+const scenario = getScenario() || "default";
+loadScenario("../scenarios/" + scenario + ".json");
 </script>
 	
 </body>
