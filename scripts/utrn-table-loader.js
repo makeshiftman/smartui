@@ -6,7 +6,7 @@ function populateUTRNTable(utrnList) {
 
   utrnList.forEach(entry => {
     const row = document.createElement('div');
-    row.classList.add('table-row');
+    row.classList.add('table-row', 'utrn-row');
 
     const fields = [
       entry.created,
