@@ -30,28 +30,9 @@
 </head>
 <body>
 <div id="wrapper">
-<!-- Sample Input Fields with prefilled values -->
-<input class="input-field" id="contract_Account" style="top:129px; left:217px; height:16px; width:154px" title="Partner" readonly>
-<input class="input-field" id="full_address" style="top:153px; left:217px; height:21px; width:237px" title="Full Address" readonly />
-<input class="input-field" id="elecOrGas" style="top:180px; left:217px; height:21px; width:142px" title="Smart Device" readonly>
-<input class="input-field" id="BPID" style="top:264px; left:265px; height:16px; width:122px" title="Business Partner" readonly>
-<input class="input-field" value="Person" style="top:291px; left:265px; height:16px; width:122px" title="Partner Type" readonly>
-<input class="input-field" id="full_Name" style="top:316px; left:265px; height:16px; width:122px" title="Full Name" readonly>
-<input class="input-field duplicate-field" data-field="contract_Account" value="" style="top:345px; left:265px; height:16px; width:122px;" title="Contract Account (Duplicate)" readonly>
-<input class="input-field" id="contract" style="top:372px; left:265px; height:16px; width:122px" title="Contract" readonly>
-<input class="input-field" id="contract_Start" style="top:399px; left:265px; height:16px; width:122px" title="Contract Start Date" readonly>
-<input class="input-field" id="operating_Mode" style="top:426px; left:265px; height:16px; width:122px" title="Operating Mode" readonly>
-<input class="input-field" id="payment_Plan" style="top:453px; left:265px; height:16px; width:122px" title="Payment Plan" readonly>
-<input class="input-field" id="read_Retrieval" style="top:480px; left:265px; height:16px; width:122px" title="Read Retrieval Consent" readonly>
-<input class="input-field" id="last_Comm" style="top:507px; left:265px; height:16px; width:82px" title="Last Communication Date" readonly>
-<input class="input-field" id="pod" style="top:588px; left:265px; height:16px; width:138px" title="POD" readonly>
-<input class="input-field" id="device_Guid" style="top:615px; left:265px; height:16px; width:201px" title="Device GUID" readonly>
-<input class="input-field" id="meter_Serial" style="top:642px; left:265px; height:16px; width:138px" title="Meter Serial Number" readonly>
-<input class="input-field" id="device_Start" style="top:669px; left:265px; height:16px; width:82px" title="Device Start" readonly>
-<input class="input-field" id="device_End" style="top:696px; left:265px; height:16px; width:82px" title="Device End" readonly>
-<input class="input-field" value="S2" style="top:750px; left:265px; height:16px; width:138px" title="SMETS Version" readonly>
-<input class="input-field" id="device_Status" style="top:804px; left:265px; height:16px; width:218px" title="Device Status" readonly>
-<!-- Sample Link Areas -->
+<!-- Left side fields from core-input-fields.html inject here -->
+	
+<!-- Top Link Areas -->
 <a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
 <a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
 <a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
@@ -70,5 +51,12 @@
 <a class="link-area" href="diagnosticstariffinfo.html" style="top: 551px; left: 514px; height:25px; width:38px"></a>
 
 </div>
+<script>
+  fetch("../fragments/core-input-fields.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("wrapper").insertAdjacentHTML("beforeend", html);
+    });
+</script>
 </body>
 </html>
