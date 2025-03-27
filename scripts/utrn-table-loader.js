@@ -52,9 +52,12 @@ function populateUTRNTable(utrnList) {
     });
   
     // ✅ Global listener to hide menu on click anywhere else
-    document.addEventListener("click", () => {
-      document.getElementById("context-menu").style.display = "none";
-    });
+    document.addEventListener("click", (e) => {
+        // Don't hide if right-click just triggered
+        if (e.button !== 2) {
+          document.getElementById("context-menu").style.display = "none";
+        }
+      });
   
     // ✅ "Find..." logic
     document.getElementById("context-find").addEventListener("click", () => {
