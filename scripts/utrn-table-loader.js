@@ -9,7 +9,7 @@ function populateUTRNTable(utrnList) {
     row.classList.add('table-row');
 
     const fields = [
-      entry.creation,
+      entry.created,
       entry.applied,
       entry.value,
       entry.type,
