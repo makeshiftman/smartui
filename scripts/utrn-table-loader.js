@@ -28,5 +28,9 @@ function populateUTRNTable(utrnList) {
     });
 
     container.appendChild(row);
+    row.addEventListener("click", () => {
+        document.querySelectorAll('.utrn-row').forEach(r => r.classList.remove('selected'));
+        row.classList.add('selected');
+      });
   });
 }
