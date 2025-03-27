@@ -4,6 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <title>SmartUI Prepayment Payments</title>
+<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
+<link rel="stylesheet" href="../styles/styles.css" />
 <style>
     body {
       margin: 0;
@@ -16,22 +18,7 @@
       background: url('../images/prepaymentpayments.png') no-repeat top left;
       background-size: cover;
     }
-    .input-field {
-      position: absolute;
-      font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
-      transform: scaleX(0.97); /* subtle horizontal squash */
-      font-size: 12px;
-      padding: 2px;
-      border: 1px solid #aaa;
-      width: 160px;
-      background: none;        /* No background */
-      border: none;            /* No border */
-      outline: none;           /* No focus border */
-      font-weight: bold ;       /* Bold text */
-      color: black;          /* Text color (adjust as needed) */
-      padding-left: 4px;       /* 👈 Adjust this value to move text right */
-      font-smooth: never;
-    }
+   
     .link-area {
       position: absolute;
       width: 100px;
@@ -42,28 +29,9 @@
 </head>
 <body>
 <div id="wrapper">
-<!-- Sample Input Fields with prefilled values -->
-<input class="input-field" style="top:129px; left:217px; height:16px; width:154px" value="Contract Account"/>
-<input class="input-field" style="top:153px; left:217px; height:21px; width:237px" value="Premise"/>
-<input class="input-field" style="top:180px; left:217px; height:21px; width:142px" value="Smart Device"/>
-<input class="input-field" style="top:264px; left:265px; height:16px; width:123px" value="Business Partner"/>
-<input class="input-field" style="top:291px; left:265px; height:16px; width:122px" value="Partner Type"/>
-<input class="input-field" style="top:316px; left:265px; height:16px; width:122px" value="First Name Last Name"/>
-<input class="input-field" style="top:345px; left:265px; height:16px; width:122px" value="Contract Account"/>
-<input class="input-field" style="top:372px; left:265px; height:16px; width:122px" value="Contract"/>
-<input class="input-field" style="top:399px; left:265px; height:16px; width:122px" value="Contract Start Date"/>
-<input class="input-field" style="top:426px; left:265px; height:16px; width:122px" value="Operating Mode"/>
-<input class="input-field" style="top:453px; left:265px; height:16px; width:122px" value="Payment Plan"/>
-<input class="input-field" style="top:480px; left:265px; height:16px; width:122px" value="Read Retrieval Consent"/>
-<input class="input-field" style="top:507px; left:265px; height:16px; width:82px" value="Last Communication Date"/>
-<input class="input-field" style="top:588px; left:265px; height:16px; width:138px" value="POD"/>
-<input class="input-field" style="top:615px; left:265px; height:16px; width:201px" value="Device GUID"/>
-<input class="input-field" style="top:642px; left:265px; height:16px; width:138px" value="Meter Serial Number"/>
-<input class="input-field" style="top:669px; left:265px; height:16px; width:82px" value="Device Start"/>
-<input class="input-field" style="top:696px; left:265px; height:16px; width:82px" value="Device End"/>
-<input class="input-field" style="top:750px; left:265px; height:16px; width:138px" value="SMETS Version"/>
-<input class="input-field" style="top:804px; left:265px; height:16px; width:218px" value="Device Status"/>
-<!-- Top Bar Link Areas -->
+<!-- Left side fields from core-input-fields.html inject here -->
+
+<!-- Top Link Areas -->
 <a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
 <a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
 <a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
@@ -79,40 +47,6 @@
 <a class="link-area" href="prepaymentpaymentsUTRNgenerate.html" style="top: 308px; left: 514px; height:25px; width:38px"></a>
 <a class="link-area" href="prepaymentpaymentsoldsupplier.html" style="top: 362px; left: 514px; height:25px; width:38px"></a>
 </div>
-	<script>
-  function getScenario() {
-    // Get the query string from the URL
-    const queryString = window.location.search;
-    // Parse the query string using URLSearchParams
-    const params = new URLSearchParams(queryString);
-
-    // Loop through all key-value pairs
-    let found = null;
-    params.forEach((value, key) => {
-      console.log(`${key}: ${value}`);
-      if (key === "scenario") {
-        found = value;
-      }
-    });
-    if (found == null) {
-      console.error("No scenario found in the URL");
-    }
-    return found;
-  }
-
-  async function loadScenario(path) {
-    try {
-      const response = await fetch(path); // Load JSON file
-      if (!response.ok) throw new Error('Failed to load JSON');
-
-      const data = await response.json(); // Parse JSON
-      document.getElementById('first_name_last_name').value = data.first_name_last_name; // Set input value
-    } catch (error) {
-      console.error('Error loading JSON:', error);
-    }
-  }
-
-  loadScenario("../scenarios/"+getScenario()+".json");
-</script>
+	<script src="/smartui/scripts/smartui-loader.js"></script>
 </body>
 </html>
