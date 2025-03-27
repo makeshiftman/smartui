@@ -66,9 +66,19 @@
   }
   .table-header, .table-row {
   display: grid;
-  grid-template-columns: 165px 178px 92px 71px 160px 100px 80px 80px 60px 80px;
+  grid-template-columns: 
+    160px   /* Creation Date & Time */
+    160px   /* Applied Date & Time */
+    65px    /* UTRN Value */
+    65px    /* Type */
+    160px   /* UTRN Number */
+    70px   /* Channel */
+    240px    /* Status */
+    50px    /* Payout */
+    50px    /* BPEM */
+    60px;   /* Auth Code */
   min-width: 1050px;
-  height: 25px; 
+  height: 25px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-weight: normal;
 }
