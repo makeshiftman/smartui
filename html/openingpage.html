@@ -42,43 +42,61 @@
 <a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
 </div>
 	<script>
-window.onload = async () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const scenario = urlParams.get("scenario");
+  window.addEventListener('DOMContentLoaded', () => {
+    // Step 1: Inject fields
+    fetch("../fragments/core-input-fields.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("wrapper").insertAdjacentHTML("beforeend", html);
+      })
+      .then(() => {
+        // Step 2: After fields are injected, load scenario data
+        const urlParams = new URLSearchParams(window.location.search);
+        const scenario = urlParams.get("scenario");
 
-  if (scenario) {
-    try {
-      const response = await fetch(scenario);
-      const data = await response.json();
+        if (scenario) {
+          fetch(scenario)
+            .then(response => response.json())
+            .then(data => {
+              // Populate fields once available
+              document.getElementById('contract_Account').value = data.contract_Account;
+              document.getElementById('contract').value = data.contract;
+              document.getElementById('contract_Start').value = data.contract_Start;
+              document.getElementById('operating_Mode').value = data.operating_Mode;
+              document.getElementById('payment_Plan').value = data.payment_Plan;
+              document.getElementById('read_Retrieval').value = data.read_Retrieval;
+              document.getElementById('last_Comm').value = data.last_Comm;
+              document.getElementById('pod').value = data.pod;
+              document.getElementById('device_Guid').value = data.device_Guid;
+              document.getElementById('meter_Serial').value = data.meter_Serial;
+              document.getElementById('device_Start').value = data.device_Start;
+              document.getElementById('device_End').value = data.device_End;
+              document.getElementById('device_Status').value = data.device_Status;
+              document.getElementById('elecOrGas').value = data.elecOrGas;
+              document.getElementById('BPID').value = data.BPID;
+              document.getElementById('full_Name').value = `${data.first_Name} ${data.last_Name}`;
+              
+              const addressParts = [];
+              if (data.flatnumber) addressParts.push(`FLAT ${data.flatnumber.toUpperCase()}`);
+              if (data.housenumber && data.street) {
+                addressParts.push(`${data.housenumber.toUpperCase()} ${data.street.toUpperCase()}`);
+              } else if (data.housenumber) {
+                addressParts.push(data.housenumber.toUpperCase());
+              } else if (data.street) {
+                addressParts.push(data.street.toUpperCase());
+              }
+              if (data.city) addressParts.push(data.city.toUpperCase());
+              if (data.postcode) addressParts.push(data.postcode.toUpperCase());
 
-      document.getElementById('first_Name_Last_Name').value = data.firstNameLastName;
-      document.getElementById('contract_Account').value = data.contract_Account;
-      document.getElementById('contract').value = data.contract;
-      document.getElementById('contract_Start').value = data.contract_Start;
-      document.getElementById('operating_Mode').value = data.operating_Mode;
-      document.getElementById('payment_Plan').value = data.payment_Plan;
-      document.getElementById('read_Retrieval').value = data.read_Retrieval;
-      document.getElementById('last_Comm').value = data.last_Comm;
-      document.getElementById('pod').value = data.pod;
-      document.getElementById('device_Guid').value = data.device_Guid;
-      document.getElementById('meter_Serial').value = data.meter_Serial;
-      document.getElementById('device_Start').value = data.device_Start;
-      document.getElementById('device_End').value = data.device_End;
-      document.getElementById('device_Status').value = data.device_Status;
-      document.getElementById('elecOrGas').value = data.elecOrGas;
-      document.getElementById('BPID').value = data.BPID;
-    } catch (err) {
-      console.error("Error loading scenario:", err);
-    }
-  }
-};
-</script>
-	<script>
-  fetch("../fragments/core-input-fields.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("wrapper").insertAdjacentHTML("beforeend", html);
-    });
+              const addressField = document.getElementById('full_address');
+              if (addressField) {
+                addressField.value = addressParts.join(', ');
+              }
+            })
+            .catch(err => console.error("Error loading scenario:", err));
+        }
+      });
+  });
 </script>
 </body>
 </html>
