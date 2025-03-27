@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta charset="utf-8"/>
+  <title>SmartUI Additional Functions</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      position: relative;
+      width: 1920px;
+      height: 1215px;
+      background: url('/smartui/images/additionalfunctions.png') no-repeat top left;
+      background-size: cover;
+    }
+    .link-area {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper"></div>
+
+  
+<script>
+  fetch("/smartui/fragments/smartui-core.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("wrapper").innerHTML = html;
+    })
+    .then(() => {
+      const script = document.createElement("script");
+      script.src = "/smartui/scripts/smartui-loader.js";
+      script.onload = async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        let scenario = urlParams.get("scenario");
+        let data;
+
+        if (scenario) {
+          try {
+            const response = await fetch(scenario);
+            data = await response.json();
+            localStorage.setItem("smartui_data", JSON.stringify(data));
+          } catch (err) {
+            console.error("Error fetching scenario:", err);
+            return;
+          }
+        } else {
+          const stored = localStorage.getItem("smartui_data");
+          if (!stored) {
+            console.warn("No scenario and no stored data.");
+            return;
+          }
+          data = JSON.parse(stored);
+        }
+
+        smartuiLoadAndPopulate(data);
+      };
+      document.body.appendChild(script);
+    });
+</script>
+
+</body>
+</html>

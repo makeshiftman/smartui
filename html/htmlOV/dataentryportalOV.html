@@ -6,7 +6,22 @@
 <meta charset="utf-8"/>
 <title>SmartUI Data Entry Portal</title>
 <style>
-  
+  .input-field {
+      position: absolute;
+      font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+      transform: scaleX(0.97); /* subtle horizontal squash */
+      font-size: 12px;
+      padding: 2px;
+      border: 1px solid #aaa;
+      width: 160px;
+      background: none;        /* No background */
+      border: none;            /* No border */
+      outline: none;           /* No focus border */
+      font-weight: bold ;       /* Bold text */
+      color: black;          /* Text color (adjust as needed) */
+      padding-left: 4px;       /* 👈 Adjust this value to move text right */
+      font-smooth: never;
+    }
 
 
     body {
@@ -165,9 +180,6 @@
   <input class="input-field" type="text" id="ndc_id" style="position:absolute; top:646px; left:428px; width:100px; height:20px;" title="NDC ID">
   <input class="input-field" type="text" id="ndc_description" style="position:absolute; top:646px; left:620px; width:192px; height:20px;" title="Description">
 </div></div>
-
-
-
   <script src="../scripts/smartui-loader.js"></script>
 </body>
 </html>
