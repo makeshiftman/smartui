@@ -94,7 +94,7 @@ body {
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
   border: none;
-  background-color: white;
+  background-color: white; !important;
   color: black;
   z-index: 10000;
   -webkit-appearance: none;
