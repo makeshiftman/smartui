@@ -44,8 +44,8 @@ function populateUTRNTable(utrnList) {
         e.preventDefault();
         const target = e.currentTarget; // Always the .utrn-row
         const menu = document.getElementById("context-menu");
-        menu.style.top = `${e.clientY}px`;
-        menu.style.left = `${e.clientX}px`;
+       // menu.style.top = `${e.clientY}px`;
+       // menu.style.left = `${e.clientX}px`;
         menu.style.display = "block";
         menu.dataset.utrn = entry.utrn;
       });
@@ -66,7 +66,7 @@ document.addEventListener("click", (e) => {
       popup.style.display = "none";
     }
   });
-  
+
     // ✅ "Find..." logic
     document.getElementById("context-find").addEventListener("click", () => {
         const utrn = document.getElementById("context-menu").dataset.utrn;
