@@ -74,11 +74,11 @@ body {
 #find-popup-utrn {
   position: absolute;
   top: 40px;
-  left: 150px;
-  width: 240px;
+  left: 148px;
+  width: 200px;
   height: 13px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: normal;
   border: none;
   background: none;
