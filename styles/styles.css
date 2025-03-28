@@ -68,6 +68,7 @@ body {
   z-index: 10000;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
+  border: 1px dashed red !important; 
 }
 
 /* UTRN number in popup */
@@ -84,5 +85,5 @@ body {
   background: none;
   color: black;
   text-align: left;
-  border: 1px dashed red !important; 
+
 }
