@@ -110,7 +110,7 @@ body {
 
 /* Dropdown option styling */
 #generate_Reason option {
-  background-color: white;
+  background-color: white; !important;
   color: black;
   font-size: 13px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
