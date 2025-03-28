@@ -47,12 +47,18 @@ body {
 }
 
 .context-item {
-  padding: 6px 12px;
-  cursor: pointer;
+  padding: 3px 10px;
+  cursor: default;
+  white-space: nowrap;
 }
 
 .context-item:hover {
-  background-color: #0078d7;
+  background-color: #0a246a;
   color: white;
 }
 
+.context-separator {
+  height: 1px;
+  background-color: #ccc;
+  margin: 4px 6px;
+}
