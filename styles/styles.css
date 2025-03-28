@@ -4,7 +4,6 @@ body {
   padding: 0;
 }
 
-
 /* Input fields */
 .input-field {
   position: absolute;
@@ -57,12 +56,7 @@ body {
   color: white;
 }
 
-.context-separator {
-  height: 1px;
-  background-color: #ccc;
-  margin: 4px 6px;
-}
-
+/* Find popup box */
 #find-popup {
   position: absolute;
   top: 250px;
@@ -76,52 +70,18 @@ body {
   font-size: 13px;
 }
 
-.popup-input {
+/* UTRN number in popup */
+#find-popup-utrn {
   position: absolute;
-  left: 188px;
-  width: 245px;
-  height: 18px;
-  border: none;
-  background: transparent;
-  color: black;
-  font-weight: bold;
-}
-
-.popup-input:nth-of-type(1) { top: 30px; }
-.popup-input.direction       { top: 52px; }
-
-.popup-label {
-  position: absolute;
-  left: 187px;
+  top: 44px;
+  left: 194px;
+  width: 240px;
+  height: 20px;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 12px;
+  font-weight: bold;
+  border: none;
+  background: none;
   color: black;
-}
-
-.fake-checkbox {
-  display: inline-block;
-  width: 13px;
-  height: 13px;
-  border: 1px solid #999;
-  margin-right: 6px;
-  vertical-align: middle;
-  background-color: white;
-}
-
-.popup-btn {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  background-size: contain;
-}
-
-.popup-btn.green {
-  bottom: 10px;
-  right: 42px;
-  background-image: url('../images/green-tick.png'); /* Replace if needed */
-}
-
-.popup-btn.red {
-  bottom: 10px;
-  right: 10px;
-  background-image: url('../images/red-cross.png'); /* Replace if needed */
+  text-align: left;
 }
