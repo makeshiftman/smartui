@@ -27,7 +27,7 @@
       {
         "created": "2025-03-20 12:00",
         "applied": "2025-03-21 11:00",
-        "value": "40",
+        "value": "40.00",
         "type": "Manual",
         "utrn": "51850353141359423383",
         "channel": "Mobile",
@@ -37,7 +37,7 @@
       {
         "created": "2025-02-20 11:00",
         "applied": "2025-02-21 10:00",
-        "value": "30",
+        "value": "30.00",
         "type": "Manual",
         "utrn": "21850353141259423380",
         "channel": "Mobile",
@@ -48,7 +48,7 @@
       {
         "created": "2025-02-20 11:00",
         "applied": "",
-        "value": "50",
+        "value": "50.00",
         "type": "Manual",
         "utrn": "11111111111111113380",
         "channel": "Mobile",
@@ -58,7 +58,7 @@
       {
         "created": "2025-02-20T11:00",
         "applied": "2025-02-21T10:00",
-        "value": "30",
+        "value": "30.00",
         "type": "Manual",
         "utrn": "22222222222222223380",
         "channel": "Mobile",
