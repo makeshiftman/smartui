@@ -116,7 +116,14 @@
   .table-row div:nth-child(2) {
     text-align: right;
   }
-</style>
+ /* Align UTRN Value (3rd) and UTRN Number (5th) to the left */
+  .table-header div:nth-child(3),
+  .table-row div:nth-child(3),
+  .table-header div:nth-child(5),
+  .table-row div:nth-child(5) {
+    text-align: left;
+  }
+	</style>
 
 <div class="utrn-frame">
   <div class="table-header">
