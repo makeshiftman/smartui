@@ -32,3 +32,25 @@ body {
   color: black !important;
 }
 
+/* Right-click context menu for HistoricUTRN */
+#context-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-size: 12px;
+  display: none;
+  z-index: 99999;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.context-item {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.context-item:hover {
+  background-color: #0078d7;
+  color: white;
+}
+
