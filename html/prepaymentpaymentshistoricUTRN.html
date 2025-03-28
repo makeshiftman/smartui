@@ -150,5 +150,33 @@
   <div class="context-separator"></div>
   <div class="context-item">Spreadsheet...</div>
 </div>
+	<!-- Find Popup (visual only, UTRN autofills top field) -->
+<div id="find-popup" style="
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 540px;
+  width: 460px;
+  height: 180px;
+  background: url('../images/findpopup.png') no-repeat;
+  background-size: cover;
+  z-index: 10000;
+  font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+">
+  <input type="text" id="find-popup-utrn" class="popup-input" />
+  <input type="text" class="popup-input direction" />
+  
+  <div class="popup-label" style="top: 82px">
+    <span class="fake-checkbox"></span> Find only entire word or value
+  </div>
+  
+  <div class="popup-label" style="top: 102px">
+    <span class="fake-checkbox"></span> Display Number of Hits
+  </div>
+
+  <a href="#" id="find-ok" class="popup-btn green" title="OK"></a>
+  <a href="#" id="find-cancel" class="popup-btn red" title="Cancel"></a>
+</div>
 </body>
 </html>

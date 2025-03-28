@@ -58,10 +58,26 @@ function populateUTRNTable(utrnList) {
           document.getElementById("context-menu").style.display = "none";
         }
       });
+
+  // ✅ Hide the popup if clicking outside of it or the menu
+document.addEventListener("click", (e) => {
+    const popup = document.getElementById("find-popup");
+    if (!e.target.closest("#find-popup") && !e.target.closest("#context-menu")) {
+      popup.style.display = "none";
+    }
+  });
   
     // ✅ "Find..." logic
     document.getElementById("context-find").addEventListener("click", () => {
-      const utrn = document.getElementById("context-menu").dataset.utrn;
-      alert(`Simulated Find for UTRN:\n${utrn}`);
-    });
+        const utrn = document.getElementById("context-menu").dataset.utrn;
+        const popup = document.getElementById("find-popup");
+        const input = document.getElementById("find-popup-utrn");
+      
+        input.value = utrn;
+        popup.style.display = "block";
+        popup.style.position = "absolute";
+        popup.style.top = "150px";
+        popup.style.left = "600px";
+        popup.style.zIndex = "99999";
+      });
   }
