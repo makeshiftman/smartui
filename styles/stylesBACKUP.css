@@ -1,4 +1,3 @@
-
 /* General page reset */
 body {
   margin: 0;
@@ -18,14 +17,15 @@ body {
   color: black;
   padding-left: 4px;
   font-smooth: never;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: none; /* For Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale; /* For Firefox */
 }
 
 /* UTRN table in historicUTRN turns blue on select */
 .utrn-row.selected {
   background-color: #c7e0eb !important;
 }
+
 .utrn-row.selected > div {
   background-color: #c7e0eb !important;
   color: black !important;
@@ -44,11 +44,13 @@ body {
   min-width: 160px;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
+
 .context-item {
   padding: 3px 10px;
   cursor: default;
   white-space: nowrap;
 }
+
 .context-item:hover {
   background-color: #0a246a;
   color: white;
@@ -66,6 +68,7 @@ body {
   z-index: 20000;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
+  
 }
 
 /* UTRN number in popup */
@@ -82,9 +85,9 @@ body {
   background: none;
   color: black;
   text-align: left;
+  
 }
 
-/* Generate Reason Dropdown */
 #generate_Reason {
   position: absolute;
   top: 393px;
@@ -103,12 +106,12 @@ body {
   padding-left: 8px;
 }
 
-/* Highlight the dropdown for dev purposes */
+/* Optional dashed outline for dev alignment – remove later */
 #generate_Reason.dev-highlight {
   border: 1px dashed red;
 }
 
-/* Dropdown option styling */
+/* Make the dropdown list itself white */
 #generate_Reason option {
   background-color: white;
   color: black;
