@@ -59,8 +59,8 @@ body {
 /* Find popup box */
 #find-popup {
   position: absolute;
-  top: 430px;
-  left: 820px;
+  top: initial;
+  left: initial;
   width: 580px;
   height: 254px;
   background: url('../images/findpopup.png') no-repeat;
