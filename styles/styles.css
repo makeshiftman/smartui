@@ -87,3 +87,37 @@ body {
   text-align: left;
   
 }
+
+#generate_Reason {
+  position: absolute;
+  top: 393px;
+  left: 625px;
+  height: 20px;
+  width: 266px;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  z-index: 10000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-left: 8px;
+}
+
+/* Optional dashed outline for dev alignment – remove later */
+#generate_Reason.dev-highlight {
+  border: 1px dashed red;
+}
+
+/* Make the dropdown list itself white */
+#generate_Reason option {
+  background-color: white;
+  color: black;
+  font-size: 13px;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  padding: 4px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
