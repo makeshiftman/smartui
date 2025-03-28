@@ -73,8 +73,8 @@ body {
 /* UTRN number in popup */
 #find-popup-utrn {
   position: absolute;
-  top: 44px;
-  left: 194px;
+  top: 40px;
+  left: 170px;
   width: 240px;
   height: 20px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
@@ -84,4 +84,5 @@ body {
   background: none;
   color: black;
   text-align: left;
+  border: 1px dashed red;
 }
