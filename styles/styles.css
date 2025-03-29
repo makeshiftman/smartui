@@ -83,37 +83,39 @@ body {
   text-align: left;
 }
 
-/* Generate Reason Dropdown */
-#generate_Reason {
+
+/* ✅ Custom Dropdown Styles */
+.custom-dropdown {
   position: absolute;
-  top: 393px;
-  left: 625px;
-  height: 20px;
   width: 266px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
-  border: none;
-  background-color: white !important;
-  color: black;
+  background-color: white;
+  border: 1px solid #aaa;
   z-index: 10000;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding-left: 8px;
 }
 
-/* Highlight the dropdown for dev purposes */
-#generate_Reason.dev-highlight {
-  border: 1px dashed red;
+.custom-dropdown .selected-option {
+  padding: 2px 6px;
+  height: 20px;
+  line-height: 20px;
+  cursor: default;
+  background-color: white;
+  border: none;
 }
 
-/* Dropdown option styling */
-#generate_Reason option {
-  background-color: white !important;
-  color: black;
-  font-size: 13px;
-  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
-  padding: 4px;
-  white-space: nowrap;
-  text-transform: uppercase;
+.custom-dropdown .dropdown-options {
+  display: none;
+  background-color: white;
+  border-top: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.custom-dropdown .dropdown-options div {
+  padding: 2px 6px;
+  cursor: default;
+}
+
+.custom-dropdown .dropdown-options div:hover {
+  background-color: #cce6ff;
 }
