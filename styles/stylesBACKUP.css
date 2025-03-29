@@ -17,15 +17,14 @@ body {
   color: black;
   padding-left: 4px;
   font-smooth: never;
-  -webkit-font-smoothing: none; /* For Chrome/Safari */
-  -moz-osx-font-smoothing: grayscale; /* For Firefox */
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* UTRN table in historicUTRN turns blue on select */
 .utrn-row.selected {
   background-color: #c7e0eb !important;
 }
-
 .utrn-row.selected > div {
   background-color: #c7e0eb !important;
   color: black !important;
@@ -44,13 +43,11 @@ body {
   min-width: 160px;
   box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
-
 .context-item {
   padding: 3px 10px;
   cursor: default;
   white-space: nowrap;
 }
-
 .context-item:hover {
   background-color: #0a246a;
   color: white;
@@ -68,7 +65,6 @@ body {
   z-index: 20000;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
-  
 }
 
 /* UTRN number in popup */
@@ -85,39 +81,41 @@ body {
   background: none;
   color: black;
   text-align: left;
-  
 }
 
-#generate_Reason {
+
+/* ✅ Custom Dropdown Styles */
+.custom-dropdown {
   position: absolute;
-  top: 393px;
-  left: 625px;
-  height: 20px;
-  width: 266px;
+  width: 286px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
-  border: none;
-  background-color: transparent;
-  color: black;
-  z-index: 10000;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding-left: 8px;
-}
-
-/* Optional dashed outline for dev alignment – remove later */
-#generate_Reason.dev-highlight {
-  border: 1px dashed red;
-}
-
-/* Make the dropdown list itself white */
-#generate_Reason option {
   background-color: white;
-  color: black;
-  font-size: 13px;
-  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
-  padding: 4px;
-  white-space: nowrap;
-  text-transform: uppercase;
+  border: 1px solid #aaa;
+  z-index: 10000;
+}
+
+.custom-dropdown .selected-option {
+  padding: 2px 6px;
+  height: 20px;
+  line-height: 20px;
+  cursor: default;
+  background-color: transparent;
+  border: none;
+}
+
+.custom-dropdown .dropdown-options {
+  display: none;
+  background-color: white;
+  border-top: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.custom-dropdown .dropdown-options div {
+  padding: 2px 6px;
+  cursor: default;
+}
+
+.custom-dropdown .dropdown-options div:hover {
+  background-color: #cce6ff;
 }
