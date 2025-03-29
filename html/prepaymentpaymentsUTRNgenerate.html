@@ -104,31 +104,24 @@
 <input class="input-field" id="utrn_Generate_Amount"
   style="top:368px; left:858px; height:15px; width:55px; border: 1px dashed red; background: white; z-index: 10000;"
   title="Device Status" readonly>
-<select id="generate_Reason"
-  style="top:392px; left:625px; height:20px; width:296px;
-         position:absolute;
-         border:1px dashed red;
-         background-color: white !important;
-         color: black;
-         z-index:10000;
-         font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
-         font-size: 11px;
-         -webkit-appearance: none;
-         -moz-appearance: none;
-         appearance: none;
-         padding-left: 4px;">
-  <option value="AFFORDABILITY">AFFORDABILITY</option>
-  <option value="CREDIT_ADVANCE">CREDIT ADVANCE WITH COMMS ISSUE</option>
-  <option value="EX_GRATIA">EX-GRATIA PAYMENT / GOODWILL  WITH COMMS ISSUE</option>
-  <option value="EXCEPTION_RESOLUTION">EXCEPTION RESOLUTION WITH COMMS ISSUE</option>
-  <option value="LONG_TERM_COMMS">LONG TERM COMMS ISSUE</option>
-  <option value="NEW_SUPPLIER">NEW SUPPLIER REQUEST</option>
-  <option value="PAYMENT_CHANNEL">PAYMENT CHANNEL ISSUE</option>
-  <option value="REFUND">REFUND WITH COMMS ISSUE</option>
-</select>
+<!-- ✅ Custom Dropdown for Generate Reason -->
+<div id="generate-reason-dropdown" class="custom-dropdown" style="top: 393px; left: 625px;">
+  <div class="selected-option">SELECT REASON</div>
+  <div class="dropdown-options">
+    <div data-value="AFFORDABILITY">AFFORDABILITY</div>
+    <div data-value="CREDIT_ADVANCE">CREDIT ADVANCE WITH COMMS ISSUE</div>
+    <div data-value="EX_GRATIA">EX-GRATIA PAYMENT / GOODWILL WITH COMMS ISSUE</div>
+    <div data-value="EXCEPTION_RESOLUTION">EXCEPTION RESOLUTION WITH COMMS ISSUE</div>
+    <div data-value="LONG_TERM_COMMS">LONG TERM COMMS ISSUE</div>
+    <div data-value="NEW_SUPPLIER">NEW SUPPLIER REQUEST</div>
+    <div data-value="PAYMENT_CHANNEL">PAYMENT CHANNEL ISSUE</div>
+    <div data-value="REFUND">REFUND WITH COMMS ISSUE</div>
+  </div>
+</div>
 	
 </div>
 <script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/utrn-table-loader.js"></script>
+<script src="/smartui/scripts/dropdown-generate-reason.js"></script>
 </body>
 </html>
