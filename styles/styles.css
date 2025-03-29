@@ -136,7 +136,7 @@ body {
   padding: 6px 12px;
   top: 100%;
   left: -10px; /* slight left shift to keep alignment */
-  width: 350px; /* wider than the top field */
+  width: 315px; /* wider than the top field */
   z-index: 10001;
 }
 
