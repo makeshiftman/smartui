@@ -110,7 +110,7 @@ body {
 
 }
 
-/* Custom arrow image */
+/* Custom arrow image 
 .custom-dropdown .selected-option::after {
   content: "";
   position: absolute;
@@ -124,6 +124,7 @@ body {
   background-repeat: no-repeat;
   pointer-events: none;
 }
+*/
 
 /* Dropdown list */
 
@@ -147,10 +148,10 @@ body {
 
 /* Custom style for the Send Barcode dropdown */
 .custom-dropdown.dropdown-barcode {
-  width: 165px; /* adjust if needed to match your field */
+  width: 155px; /* adjust if needed to match your field */
 }
 
 .custom-dropdown.dropdown-barcode .dropdown-options {
-  width: 165px; /* if you want it slightly wider than the box */
+  width: 155px; /* if you want it slightly wider than the box */
 }
 
