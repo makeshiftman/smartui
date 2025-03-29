@@ -107,8 +107,7 @@ body {
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  transform: scaleX(0.94);
-  transform-origin: left;
+
 }
 
 /* Custom arrow image */
@@ -144,9 +143,4 @@ body {
 
 .custom-dropdown .dropdown-options div:hover {
   background-color: #cce6ff;
-}
-
-.custom-dropdown .dropdown-options div {
-  transform: scaleX(0.94);
-  transform-origin: left;
 }
