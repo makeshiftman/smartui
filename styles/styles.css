@@ -144,3 +144,13 @@ body {
 .custom-dropdown .dropdown-options div:hover {
   background-color: #cce6ff;
 }
+
+/* Custom style for the Send Barcode dropdown */
+.custom-dropdown.dropdown-barcode {
+  width: 165px; /* adjust if needed to match your field */
+}
+
+.custom-dropdown.dropdown-barcode .dropdown-options {
+  width: 165px; /* if you want it slightly wider than the box */
+}
+
