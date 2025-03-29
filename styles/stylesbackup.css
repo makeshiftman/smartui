@@ -87,7 +87,7 @@ body {
 
 .custom-dropdown {
   position: absolute;
-  width: 290px;
+  width: 292px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
   background-color: transparent;
@@ -107,9 +107,10 @@ body {
   position: relative;
   width: 100%;
   box-sizing: border-box;
+
 }
 
-/* Custom arrow image */
+/* Custom arrow image 
 .custom-dropdown .selected-option::after {
   content: "";
   position: absolute;
@@ -123,25 +124,34 @@ body {
   background-repeat: no-repeat;
   pointer-events: none;
 }
+*/
 
 /* Dropdown list */
+
 .custom-dropdown .dropdown-options {
   display: none;
   background-color: white;
   border: 1px solid #aaa;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   position: absolute;
+  line-height: 18px;
+  padding: 4px 8px;
   top: 100%;
-  left: 0;
-  width: 100%;
+  left: -10px; /* slight left shift to keep alignment */
+  width: 330px; /* wider than the top field */
   z-index: 10001;
-}
-
-.custom-dropdown .dropdown-options div {
-  padding: 2px 6px;
-  cursor: default;
 }
 
 .custom-dropdown .dropdown-options div:hover {
   background-color: #cce6ff;
 }
+
+/* Custom style for the Send Barcode dropdown */
+.custom-dropdown.dropdown-barcode {
+  width: 162px; /* adjust if needed to match your field */
+}
+
+.custom-dropdown.dropdown-barcode .dropdown-options {
+  width: 150px; /* if you want it slightly wider than the box */
+}
+

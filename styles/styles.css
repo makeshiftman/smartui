@@ -155,3 +155,11 @@ body {
   width: 150px; /* if you want it slightly wider than the box */
 }
 
+/* Custom style for the Replacement Reason PID dropdown */
+.custom-dropdown.dropdown-replacement {
+  width: 190px; /* match your visual layout */
+}
+
+.custom-dropdown.dropdown-replacement .dropdown-options {
+  width: 180px; /* dropdown box slightly wider */
+}
