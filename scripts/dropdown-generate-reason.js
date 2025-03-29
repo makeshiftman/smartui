@@ -1,28 +1,25 @@
-
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdown = document.getElementById("generate-reason-dropdown");
-  if (!dropdown) return;
-
+document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
   const selected = dropdown.querySelector(".selected-option");
   const options = dropdown.querySelector(".dropdown-options");
 
   selected.addEventListener("click", () => {
-    options.style.display = options.style.display === "block" ? "none" : "block";
+    const isOpen = options.style.display === "block";
+    document.querySelectorAll(".dropdown-options").forEach(opt => opt.style.display = "none");
+    options.style.display = isOpen ? "none" : "block";
   });
 
   options.querySelectorAll("div").forEach(option => {
     option.addEventListener("click", () => {
       selected.textContent = option.textContent;
       options.style.display = "none";
-
-      // ✅ Hook for triggering additional actions
       console.log("Selected value:", option.dataset.value);
     });
   });
+});
 
-  document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      options.style.display = "none";
-    }
-  });
+// Close dropdown if clicking outside
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".custom-dropdown")) {
+    document.querySelectorAll(".dropdown-options").forEach(opt => opt.style.display = "none");
+  }
 });
