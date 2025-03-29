@@ -134,7 +134,7 @@ body {
   position: absolute;
   top: 100%;
   left: -10px; /* slight left shift to keep alignment */
-  width: 320px; /* wider than the top field */
+  width: 350px; /* wider than the top field */
   z-index: 10001;
 }
 
