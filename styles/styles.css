@@ -184,6 +184,20 @@ body {
   height: 24px;
 }
 
+/* Custom style for the Update PPS Reason dropdown */
+.custom-dropdown.dropdown-reason {
+  width: 300px;      /* 👈 Change this to the desired field width */
+  height: 24px;      /* 👈 Height of the clickable field */
+}
+
+.custom-dropdown.dropdown-reason .selected-option {
+  width: 100%;       /* Make sure it fills the parent */
+  height: 100%;      /* Match the custom-dropdown height */
+  line-height: 24px; /* Vertically align text */
+  padding: 2px 6px;
+  box-sizing: border-box;
+}
+
 .custom-dropdown.dropdown-reason .dropdown-options {
-  width: 310px; /* Optional: dropdown can be wider than the field */
+  width: 310px; /* 👈 Width of dropdown list */
 }
