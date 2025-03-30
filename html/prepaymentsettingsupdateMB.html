@@ -85,6 +85,11 @@
        alt=""
        style="width: 96px; height: 27px; display: block;" />
 </a>	
+<!-- Update Date and Time -->
+	<input class="input-field" id="updatePPS_Date"
+  style="top:209px; left:719px; height:15px; width:74px; background: transparent; z-index: 10000;"
+  title="Update Date" readonly>
+</div>
 	
 <!-- Internal links Left Side -->
 <!-- Dropdown for Reason -->
@@ -96,7 +101,16 @@
     <div data-value="NOTSET">Everyone has their reasons.</div>
   </div>
 </div>	
+
+<!-- Adjustment Value -->
 	
+<input class="input-field" id="updatePPS_Adjustment_Value"
+  style="top:338px; left:764px; height:15px; width:112px; border: 1px dashed red; background: transparent; z-index: 10000;"
+  title="Adjustment Value" readonly>
+	
+<!-- Checkbox for Reset Meter Balance -->
+<input type="checkbox" id="updatePPS_Reset_MB_Checkbox" border="#7d7f7c" style="position:absolute; top:365px; left:760px; width:14px; height:14px;">
+
 <!-- Dropdown for communication requested -->
 
 <div id="updatePPS_Comm_Requested" class="custom-dropdown dropdown-commrequested" style="top: 390px; left: 770px; border: 1px dashed red; ">
@@ -107,14 +121,10 @@
   </div>
 </div>
 	
-<input class="input-field" id="updatePPS_Adjustment_Value"
-  style="top:338px; left:764px; height:15px; width:112px; border: 1px dashed red; background: transparent; z-index: 10000;"
-  title="Adjustment Value" readonly>
-	
-<!-- Checkbox for Reset Meter Balance -->
-<input type="checkbox" id="updatePPS_Reset_MB_Checkbox" border="#7d7f7c" style="position:absolute; top:365px; left:760px; width:14px; height:14px;">
-</div>
-<script src="/smartui/scripts/smartui-loader.js"></script>
+
+
+</div
+><script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/utrn-table-loader.js"></script>
 <script src="/smartui/scripts/dropdown-generate-reason.js"></script>
 </body>
