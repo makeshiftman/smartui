@@ -163,3 +163,8 @@ body {
 .custom-dropdown.dropdown-replacement .dropdown-options {
   width: 180px; /* dropdown box slightly wider */
 }
+
+/* Optional: only if you want a different width/appearance for this dropdown */
+.dropdown-commrequested {
+  width: 70x; /* Adjust width if needed */
+}
