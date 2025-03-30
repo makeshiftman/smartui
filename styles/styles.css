@@ -167,3 +167,13 @@ body {
 .custom-dropdown.dropdown-drrtype .dropdown-options {
   width: 150px; /* slightly wider if needed */
 }
+
+/* Adjustment type dropdown --> */
+
+.custom-dropdown.dropdown-adjustmenttype {
+  width: 90px; /* or whatever width suits your design */
+}
+
+.custom-dropdown.dropdown-adjustmenttype .dropdown-options {
+  width: 90px; /* slightly wider dropdown if needed */
+}
