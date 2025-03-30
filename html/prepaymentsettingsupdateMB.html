@@ -29,6 +29,10 @@
 </head>
 <body>
 <div id="wrapper">
+<input class="input-field" id="updatePPS_PPDOCno"
+  style="top:838px; left:650px; height:15px; width:112px; border: 1px dashed red; background: transparent; z-index: 10000;"
+  title="PPDOC No" readonly>
+	
 <!-- Left side fields from core-input-fields.html inject here -->
 
 <!-- Top Link Areas -->
@@ -58,7 +62,7 @@
        alt=""
        style="width: 40px; height: 27px; display: block;" />
 </a>
-	
+
 </div>
 <a class="link-area" href="prepaymentsettingsupdateDRR.html" style="top: 258px; left: 592px; height:21px; width:78px"></a>
 <a class="link-area" href="prepaymentsettingsupdatedebt.html" style="top: 258px; left: 680px; height:21px; width:116px"></a>
@@ -86,7 +90,7 @@
        style="width: 96px; height: 27px; display: block;" />
 </a>	
 <!-- Update Date and Time -->
-	<input class="input-field" id="updatePPS_Date"
+<input class="input-field" id="updatePPS_Date"
   style="top:209px; left:719px; height:15px; width:74px; background: transparent; z-index: 10000;"
   title="Update Date" readonly>
 </div>
@@ -101,12 +105,25 @@
     <div data-value="NOTSET">Everyone has their reasons.</div>
   </div>
 </div>	
-
+	
+<!-- Adjustment Type -->
+	
+<div id="updatePPS_Adj_Type" class="custom-dropdown dropdown-adjtype" style="top: 310px; left: 770px; border: 1px dashed red;">
+  <div class="selected-option"></div>
+  <div class="dropdown-options">
+    <div data-value="YES">Yes</div>
+    <div data-value="NO">No</div>
+  </div>
+</div>
+	
 <!-- Adjustment Value -->
 	
 <input class="input-field" id="updatePPS_Adjustment_Value"
   style="top:338px; left:764px; height:15px; width:112px; border: 1px dashed red; background: transparent; z-index: 10000;"
   title="Adjustment Value" readonly>
+	
+
+	
 	
 <!-- Checkbox for Reset Meter Balance -->
 <input type="checkbox" id="updatePPS_Reset_MB_Checkbox" border="#7d7f7c" style="position:absolute; top:365px; left:760px; width:14px; height:14px;">
@@ -120,12 +137,13 @@
     <div data-value="NO">No</div>
   </div>
 </div>
-	
+</div>
 
 
-</div
-><script src="/smartui/scripts/smartui-loader.js"></script>
+
+<script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/utrn-table-loader.js"></script>
 <script src="/smartui/scripts/dropdown-generate-reason.js"></script>
 </body>
+
 </html>
