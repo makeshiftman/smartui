@@ -157,3 +157,13 @@ body {
 .custom-dropdown.dropdown-commrequested .dropdown-options {
   width: 60px;
 }
+
+/* Update PPS DRR Type */
+
+.custom-dropdown.dropdown-drrtype {
+  width: 138px;
+}
+
+.custom-dropdown.dropdown-drrtype .dropdown-options {
+  width: 150px; /* slightly wider if needed */
+}
