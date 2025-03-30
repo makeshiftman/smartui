@@ -166,5 +166,5 @@ body {
 
 /* Optional: only if you want a different width/appearance for this dropdown */
 .dropdown-commrequested {
-  width: 70px; height: 24px /* Adjust width if needed */
+  width: 40px; height: 24px /* Adjust width if needed */
 }
