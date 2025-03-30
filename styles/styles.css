@@ -110,21 +110,6 @@ body {
 
 }
 
-/* Custom arrow image 
-.custom-dropdown .selected-option::after {
-  content: "";
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
-  background-image: url('../images/icons/arrowdown.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  pointer-events: none;
-}
-*/
 
 /* Dropdown list */
 
@@ -164,7 +149,11 @@ body {
   width: 180px; /* dropdown box slightly wider */
 }
 
-/* Optional: only if you want a different width/appearance for this dropdown */
+/* Update PPS Comm requested dropdown options */
 .dropdown-commrequested {
-  width: 40px; height: 24px /* Adjust width if needed */
+  width: 60px; height: 24px /* Adjust width if needed */
+}
+
+.custom-dropdown.dropdown-commrequested .dropdown-options {
+  width: 60px;
 }
