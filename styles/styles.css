@@ -151,11 +151,11 @@ body {
 
 /* Update PPS Comm requested dropdown options */
 .dropdown-commrequested {
-  width: 60px; height: 24px /* Adjust width if needed */
+  width: 60px; height: 24px; /* Adjust width if needed */
 }
 
 .custom-dropdown.dropdown-commrequested .dropdown-options {
-  width: 60px;
+  width: 60px; 
 }
 
 /* Update PPS DRR Type */
