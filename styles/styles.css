@@ -177,3 +177,13 @@ body {
 .custom-dropdown.dropdown-adjustmenttype .dropdown-options {
   width: 90px; /* slightly wider dropdown if needed */
 }
+
+/* Custom style for the Update PPS Reason dropdown */
+.custom-dropdown.dropdown-reason {
+  width: 200px; /* Adjust to match your design */
+  height: 24px;
+}
+
+.custom-dropdown.dropdown-reason .dropdown-options {
+  width: 220px; /* Optional: dropdown can be wider than the field */
+}
