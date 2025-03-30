@@ -186,7 +186,7 @@ body {
 
 /* Custom style for the Update PPS Reason dropdown */
 .custom-dropdown.dropdown-reason {
-  width: 330px;      /* 👈 Change this to the desired field width */
+  width: 336px;      /* 👈 Change this to the desired field width */
   height: 24px;      /* 👈 Height of the clickable field */
 }
 
