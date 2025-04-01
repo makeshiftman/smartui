@@ -365,7 +365,6 @@ body {
   max-height: 150px;
   overflow-y: auto;
   background-color: #ffffff;
-  border: 1px solid #7f9db9;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   z-index: 20;
 }
@@ -421,7 +420,6 @@ body {
   max-height: 150px;
   overflow-y: auto;
   background-color: #ffffff;
-  border: 1px solid #7f9db9;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   z-index: 20;
 }
