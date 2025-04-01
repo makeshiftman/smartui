@@ -125,7 +125,7 @@ body {
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
   background-color: transparent;
-  border: 1px solid #999;
+  border: 0px ;
   cursor: pointer;
   z-index: 10000;
 }
