@@ -87,12 +87,12 @@ body {
 
 .custom-dropdown {
   position: absolute;
-  width: 292px;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
   background-color: transparent;
   border: none;
   z-index: 10000;
+  cursor: pointer;
 }
 
 /* Selected item area */
@@ -292,17 +292,6 @@ body {
   background-color: #cce6ff;
 }
 
-/* SmartUI retro-style dropdown wrapper */
-.custom-dropdown {
-  position: absolute;
-  width: 120px; /* adjust to match your background */
-  font-family: 'Tahoma', sans-serif;
-  font-size: 12px;
-  background-color: #ffffff;
-  border: 1px solid #999; /* fallback if red border is removed */
-  cursor: pointer;
-  z-index: 10;
-}
 
 
 /* Specific fixes for Messages & Incidents category dropdown */
