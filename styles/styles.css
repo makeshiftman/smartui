@@ -116,14 +116,52 @@ body {
 }
 
 /* Update PPS Comm requested dropdown options */
-.dropdown-commrequested {
-  width: 60px; height: 24px; /* Adjust width if needed */
+.custom-dropdown.dropdown-commrequested {
+  position: absolute;
+  top: 443px;
+  left: 772px;
+  width: 60px;
+  height: 24px;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  background-color: transparent;
+  border: 1px solid #999;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.custom-dropdown.dropdown-commrequested .selected-option {
+  padding: 2px 4px;
+  height: 100%;
+  line-height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: black;
+  box-sizing: border-box;
 }
 
 .custom-dropdown.dropdown-commrequested .dropdown-options {
-  width: 60px; 
+  display: none;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 60px;
+  z-index: 10001;
 }
 
+.custom-dropdown.dropdown-commrequested .dropdown-options div {
+  padding: 4px 6px;
+  font-size: 13px;
+}
+
+.custom-dropdown.dropdown-commrequested .dropdown-options div:hover {
+  background-color: #cce6ff;
+  cursor: pointer;
+}
 /* Update PPS DRR Type */
 
 .custom-dropdown.dropdown-drrtype {
