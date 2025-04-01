@@ -85,17 +85,51 @@ body {
 
 /* Custom dropdown for UTRN Generate */
 
-
+.custom-dropdown {
+  position: absolute;
+  width: 292px;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+  z-index: 10000;
+}
 
 /* Selected item area */
+.custom-dropdown .selected-option {
+  padding: 2px 6px;
+  height: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: black;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 
+}
 
 
 /* Dropdown list */
 
+.custom-dropdown .dropdown-options {
+  display: none;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  line-height: 18px;
+  padding: 4px 8px;
+  top: 100%;
+  left: -10px; /* slight left shift to keep alignment */
+  width: 330px; /* wider than the top field */
+  z-index: 10001;
+}
 
-
-
+.custom-dropdown .dropdown-options div:hover {
+  background-color: #cce6ff;
+}
 
 /* Custom style for the Send Barcode dropdown */
 .custom-dropdown.dropdown-barcode {
@@ -248,7 +282,16 @@ body {
 }
 
 /* SmartUI retro-style dropdown wrapper */
-
+.custom-dropdown {
+  position: absolute;
+  width: 120px; /* adjust to match your background */
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  background-color: #ffffff;
+  border: 1px solid #999; /* fallback if red border is removed */
+  cursor: pointer;
+  z-index: 10;
+}
 
 
 /* Specific fixes for Messages & Incidents category dropdown */
