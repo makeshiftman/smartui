@@ -150,8 +150,9 @@ body {
 }
 
 /* Update PPS Comm requested dropdown options */
-.dropdown-commrequested {
-  width: 60px; height: 24px; /* Adjust width if needed */
+.custom-dropdown.dropdown-commrequested {
+  width: 60px;
+  height: 24px;
 }
 
 .custom-dropdown.dropdown-commrequested .dropdown-options {
