@@ -334,3 +334,60 @@ body {
   left: -5px;
   z-index: 10001;
 }
+
+/* 
+  Custom Dropdown: #messages_Select_Request_Status
+  Positioned absolutely on the page with legacy styling. 
+  Contains a visible selected option and a hidden dropdown menu revealed on interaction.
+*/
+
+#messages_Select_Request_Status {
+  position: absolute;
+  width: 160px; /* Adjust width to fit design */
+  height: 22px;
+  font-family: Tahoma, sans-serif;
+  font-size: 11px;
+  background-color: #ffffff;
+  border: 1px solid #7f9db9;
+  box-shadow: inset 0 0 2px #dcdcdc;
+  cursor: pointer;
+  z-index: 10; /* Ensure it's above background */
+}
+
+/* Selected visible part of the dropdown */
+#messages_Select_Request_Status .selected-option {
+  padding: 2px 4px;
+  height: 100%;
+  line-height: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Dropdown options container – hidden by default */
+#messages_Select_Request_Status .dropdown-options {
+  display: none; /* Set to 'block' via JS when open */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #7f9db9;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  z-index: 20;
+}
+
+/* Each option inside dropdown */
+#messages_Select_Request_Status .dropdown-options div {
+  padding: 4px 6px;
+  font-size: 11px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Hover style for dropdown options */
+#messages_Select_Request_Status .dropdown-options div:hover {
+  background-color: #c7e0eb;
+  cursor: pointer;
+}
