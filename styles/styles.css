@@ -149,13 +149,23 @@ body {
   width: 180px; /* dropdown box slightly wider */
 }
 
-/* Update PPS Comm requested dropdown options */
-.custom-dropdown.dropdown-commrequested {
+/* Update PPS Comm requested dropdown options on Update DRR page */
+.custom-dropdown.dropdown-commrequested1 {
   width: 60px;
   height: 24px;
 }
 
-.custom-dropdown.dropdown-commrequested .dropdown-options {
+.custom-dropdown.dropdown-commrequested1 .dropdown-options {
+  width: 60px; 
+}
+
+/* Update PPS Comm requested dropdown option on Update debt page */
+.custom-dropdown.dropdown-commrequested2 {
+  width: 60px;
+  height: 24px;
+}
+
+.custom-dropdown.dropdown-commrequested2 .dropdown-options {
   width: 60px; 
 }
 
