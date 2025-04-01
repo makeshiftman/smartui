@@ -213,7 +213,7 @@ body {
   width: 150px;    /* 👈 Adjust the field width */
   height: 24px;    /* 👈 Adjust the clickable field height */
   z-index: 10000;  /* Keep it on top of other elements */
-  border: 1px dashed red; /* TEMP styling for layout debugging */
+  
 }
 
 /* Main clickable field styling */
