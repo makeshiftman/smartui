@@ -374,7 +374,6 @@ body {
 #messages_Select_Request_Status .dropdown-options div {
   padding: 4px 6px;
   font-size: 13px;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 /* Hover style for dropdown options */
@@ -431,7 +430,6 @@ body {
 #messages_Select_Process_Description .dropdown-options div {
   padding: 4px 6px;
   font-size: 13px;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 /* Hover style for dropdown options */
