@@ -297,7 +297,7 @@ body {
 /* Specific fixes for Messages & Incidents category dropdown */
 .custom-dropdown.dropdown-messagesselectcat {
   width: 180px;               /* 👈 wider field */
-  background-color: transparent; /* remove grey background */
+  background-color: #ffffff /* remove grey background */
 }
 
 /* Adjust the selected option */
