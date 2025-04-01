@@ -8,12 +8,13 @@ document.querySelectorAll(".custom-dropdown").forEach(dropdown => {
     options.style.display = isOpen ? "none" : "block";
   });
 
-  options.querySelectorAll("div").forEach(option => {
-    option.addEventListener("click", () => {
+  options.addEventListener("click", (e) => {
+    const option = e.target.closest("div");
+    if (option && option.dataset.value !== undefined) {
       selected.textContent = option.textContent;
       options.style.display = "none";
       console.log("Selected value:", option.dataset.value);
-    });
+    }
   });
 });
 
