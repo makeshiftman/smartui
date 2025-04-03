@@ -6,7 +6,7 @@ setTimeout(() => {
   fetch('/smartui/scenarios/scenario-list.json')
     .then(res => res.json())
     .then(scenarios => {
-      dropdown.innerHTML = '<option value="">Contract Account</option>';
+      dropdown.innerHTML = '<option value="">Select scenario</option>';
       scenarios.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s.file;
@@ -24,8 +24,8 @@ setTimeout(() => {
   dropdown.addEventListener('change', () => {
     const selected = dropdown.value;
     if (selected) {
-      const currentPath = window.location.pathname;
-      window.location.href = `${currentPath}?scenario=${selected}`;
+      const baseUrl = window.location.pathname.split('/').pop();
+      window.location.href = `${baseUrl}?scenario=${selected}`;
     }
   });
 }, 300);
