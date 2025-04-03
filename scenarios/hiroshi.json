@@ -31,7 +31,9 @@
       "utrn": "51850353141359423383",
       "channel": "Mobile",
       "status": "Error - UTRN application response",
-      "auth": "099755"
+      "auth": "099755",
+      "createdTime": "12:00",
+      "appliedTime": "11:00"
     },
     {
       "createdOffset": -43,
@@ -41,7 +43,9 @@
       "utrn": "21850353141259423380",
       "channel": "Mobile",
       "status": "Applied",
-      "auth": "012345"
+      "auth": "012345",
+      "createdTime": "12:00",
+      "appliedTime": "11:00"
     }
   ]
 }

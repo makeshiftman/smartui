@@ -54,10 +54,10 @@ async function loadScenario(path) {
     if (data.utrnRows) {
       data.utrnRows.forEach(row => {
         if (row.createdOffset !== undefined) {
-          row.created = offsetToDate(row.createdOffset, "12:00");
+          row.created = offsetToDate(row.createdOffset, row.createdTime || "12:00");
         }
         if (row.appliedOffset !== undefined) {
-          row.applied = offsetToDate(row.appliedOffset, "11:00");
+          row.applied = offsetToDate(row.appliedOffset, row.appliedTime || "11:00");
         }
       });
     }
