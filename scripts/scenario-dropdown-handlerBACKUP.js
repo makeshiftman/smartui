@@ -1,5 +1,5 @@
 
-setTimeout(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const dropdown = document.getElementById('scenario_Selector');
   if (!dropdown) return;
 
@@ -28,4 +28,4 @@ setTimeout(() => {
       window.location.href = `${baseUrl}?scenario=${selected}`;
     }
   });
-}, 300);
+});
