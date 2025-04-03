@@ -1,5 +1,8 @@
 
-// 🚨 Load and inject the core input fields HTML fragment
+// smartui-loader.js
+// ✅ Clean merged loader with original logic + new offset support + error handling
+
+// Load SmartUI input fields fragment (core fields on left side)
 fetch("/smartui/fragments/core-input-fields.html")
   .then(res => {
     if (!res.ok) throw new Error("Failed to fetch core-input-fields.html");
@@ -11,6 +14,7 @@ fetch("/smartui/fragments/core-input-fields.html")
     wrapper.insertAdjacentHTML("afterbegin", html);
   })
   .then(() => {
+    // ✅ Load JSON from scenario param (or fallback)
     const urlParams = new URLSearchParams(window.location.search);
     let scenario = urlParams.get("scenario");
 
@@ -27,13 +31,14 @@ fetch("/smartui/fragments/core-input-fields.html")
     document.body.innerHTML = "<pre style='color:red; padding: 2em;'>Error loading page: " + err.message + "</pre>";
   });
 
-
-// 🧠 Load scenario JSON and populate fields
+// ✅ Function to fetch JSON and populate fields
 async function loadScenario(path) {
   try {
     const response = await fetch(path);
-    if (!response.ok) throw new Error("Failed to fetch scenario JSON: " + path);
+    if (!response.ok) throw new Error("Failed to load JSON");
+
     const data = await response.json();
+    localStorage.setItem("smartui_data", JSON.stringify(data));
 
     // 🔁 Convert offset-based fields to actual dates
     function offsetToDate(offset, time = "00:00") {
@@ -68,21 +73,66 @@ async function loadScenario(path) {
       });
     }
 
-    localStorage.setItem("smartui_data", JSON.stringify(data));
+    // ✅ Populate known fields
+    const fields = [
+      "contract_Account", "contract", "contract_Start", "operating_Mode", "payment_Plan",
+      "read_Retrieval", "last_Comm", "pod", "device_Guid", "meter_Serial",
+      "device_Start", "device_End", "device_Status", "elecOrGas", "BPID"
+    ];
 
-    // Populate all matching fields on the page
-    for (const key in data) {
-      const el = document.getElementById(key);
-      if (el) el.value = data[key];
+    fields.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && data[id] !== undefined) {
+        el.value = data[id];
+      }
 
-      const duplicates = document.querySelectorAll(`[data-field="${key}"]`);
+      const duplicates = document.querySelectorAll(`[data-field="${id}"]`);
       duplicates.forEach(dup => {
-        dup.value = data[key];
+        dup.value = data[id];
       });
+    });
+
+    // ✅ Full name assembly
+    const fullNameEl = document.getElementById("full_Name");
+    if (fullNameEl && data.first_Name && data.last_Name) {
+      fullNameEl.value = `${data.first_Name} ${data.last_Name}`;
     }
 
-  } catch (err) {
-    console.error("Scenario Load Error:", err);
-    document.body.innerHTML = "<pre style='color:red; padding: 2em;'>Error loading scenario: " + err.message + "</pre>";
+    // ✅ Full address assembly
+    const addressEl = document.getElementById("full_address");
+    if (addressEl) {
+      const parts = [];
+      if (data.flatnumber) parts.push(`FLAT ${data.flatnumber.toString().toUpperCase()}`);
+      if (data.housenumber && data.street) {
+        parts.push(`${data.housenumber.toString().toUpperCase()} ${data.street.toUpperCase()}`);
+      } else if (data.housenumber) {
+        parts.push(data.housenumber.toString().toUpperCase());
+      } else if (data.street) {
+        parts.push(data.street.toUpperCase());
+      }
+      if (data.city) parts.push(data.city.toUpperCase());
+      if (data.postcode) parts.push(data.postcode.toUpperCase());
+      addressEl.value = parts.join(", ");
+    }
+
+    // ✅ Populate UTRN table if present
+    if (data.utrnRows) {
+      populateUTRNTable(data.utrnRows);
+    }
+
+  } catch (error) {
+    console.error("Error loading JSON:", error);
+    document.body.innerHTML = "<pre style='color:red; padding: 2em;'>Error loading scenario: " + error.message + "</pre>";
   }
 }
+
+// ✅ UTRN row click highlighting
+document.addEventListener("DOMContentLoaded", () => {
+  const rows = document.querySelectorAll(".utrn-row");
+  rows.forEach(row => {
+    row.addEventListener("click", () => {
+      rows.forEach(r => r.classList.remove("selected"));
+      row.classList.add("selected");
+    });
+  });
+});
