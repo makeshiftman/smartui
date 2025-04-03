@@ -1,7 +1,7 @@
 // smartui-loader.js
 // ✅ Shared loader script for all SmartUI pages
 
-// Load SmartUI input fields fragment (core fields on left side)
+/* // Load SmartUI input fields fragment (core fields on left side)
 fetch("/smartui/fragments/core-input-fields.html")
   .then(res => res.text())
   .then(html => {
@@ -25,7 +25,7 @@ if (scenario) {
 
 loadScenario(scenario);
   });
-
+*/
 
 // ✅ Function to fetch JSON and populate fields
 async function loadScenario(path) {
