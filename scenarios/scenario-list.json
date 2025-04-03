@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Default",
+    "file": "/smartui/scenarios/default.json"
+  },
+  {
+    "name": "Hiroshi",
+    "file": "/smartui/scenarios/hiroshi.json"
+  },
+  {
+    "name": "Hiroshi (Dynamic)",
+    "file": "/smartui/scenarios/hiroshi-dynamic.json"
+  },
+  {
+    "name": "Hiroshi (With Times)",
+    "file": "/smartui/scenarios/hiroshi-dynamic-with-times.json"
+  }
+]
