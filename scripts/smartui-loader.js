@@ -33,6 +33,35 @@ async function loadScenario(path) {
     if (!response.ok) throw new Error("Failed to load JSON");
 
     const data = await response.json();
+
+    // 🔁 Convert offset-based fields to actual dates
+    function offsetToDate(offset, time = "00:00") {
+      const d = new Date();
+      d.setDate(d.getDate() + offset);
+      const [h, m] = time.split(":");
+      d.setHours(+h, +m, 0, 0);
+      return d.toISOString().slice(0, 16).replace("T", " ");
+    }
+
+    if (data.contract_Start_Offset !== undefined) {
+      data.contract_Start = offsetToDate(data.contract_Start_Offset);
+    }
+
+    if (data.last_Comm_Offset !== undefined) {
+      data.last_Comm = offsetToDate(data.last_Comm_Offset);
+    }
+
+    if (data.utrnRows) {
+      data.utrnRows.forEach(row => {
+        if (row.createdOffset !== undefined) {
+          row.created = offsetToDate(row.createdOffset, "12:00");
+        }
+        if (row.appliedOffset !== undefined) {
+          row.applied = offsetToDate(row.appliedOffset, "11:00");
+        }
+      });
+    }
+
     localStorage.setItem("smartui_data", JSON.stringify(data));
 
     // ✅ Field mapping
