@@ -13,17 +13,14 @@ fetch("/smartui/fragments/core-input-fields.html")
   .then(() => {
     // ✅ Load JSON from scenario param (or fallback)
     const urlParams = new URLSearchParams(window.location.search);
-let scenario = urlParams.get("scenario");
+    let scenario = urlParams.get("scenario");
 
-if (scenario) {
-  // Save the path so we remember it
-  localStorage.setItem("smartui_scenarioPath", scenario);
-} else {
-  // Use saved scenario if it exists
-  scenario = localStorage.getItem("smartui_scenarioPath") || "/smartui/scenarios/default.json";
-}
+    // ✅ Use default if no scenario given
+    if (!scenario) {
+      scenario = "/smartui/scenarios/default.json";
+    }
 
-loadScenario(scenario);
+    loadScenario(scenario);
   });
 
 // ✅ Function to fetch JSON and populate fields
