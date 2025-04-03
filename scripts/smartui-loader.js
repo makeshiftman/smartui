@@ -2,7 +2,7 @@
 // ✅ Shared loader script for all SmartUI pages
 
 // Load SmartUI input fields fragment (core fields on left side)
-fetch("../fragments/core-input-fields.html")
+fetch("/smartui/fragments/core-input-fields.html")
   .then(res => res.text())
   .then(html => {
     const wrapper = document.getElementById("wrapper");
