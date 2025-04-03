@@ -2,22 +2,21 @@
 <!--- core-input-fields.html -->
 <!--- Menu Bar -->
 
-<select id="Smart_Menu_Bar"
-        class="input-field"
-        title="Walkthrough Type"
-        style="top:37px; left:127px; height:20px; width:167px; position:absolute;">
-  <option>Agent Level</option>
-  <option>Bronze</option> 
-  <option>Silver</option> 
-  <option>Gold</option> 
-</select>
+<div id="Smart_Menu_Bar" class="custom-dropdown dropdown-walkthrough" style="top:37px; left:127px; width:167px;">
+  <div class="selected-option">Agent Level</div>
+  <div class="dropdown-options">
+    <div data-value="bronze">Bronze</div>
+    <div data-value="silver">Silver</div>
+    <div data-value="gold">Gold</div>
+  </div>
+</div>
 	
-<select id="scenario_Selector"
-        class="input-field"
-        title="Scenarios"
-        style="top:103px; left:217px; height:20px; width:154px; position:absolute;">
-  <option value="">Contract Account</option>
-</select>
+<div id="scenario_Selector" class="custom-dropdown dropdown-scenario" style="top:103px; left:217px;">
+  <div class="selected-option">Contract Account</div>
+  <div class="dropdown-options">
+    <!-- Scenario options will be added by JS -->
+  </div>
+</div>
 
 <input class="input-field" id="contract_Account" style="top:129px; left:217px; height:16px; width:154px" title="Partner" readonly>
 <input class="input-field" id="full_address" style="top:153px; left:217px; height:21px; width:237px" title="Full Address" readonly />
