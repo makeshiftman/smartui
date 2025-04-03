@@ -435,3 +435,37 @@ body {
   background-color: #c7e0eb;
   cursor: pointer;
 }
+
+/* Specific style for Scenario Selector dropdown */
+#scenario_Selector {
+  font-family: "MS Sans Serif", "Segoe UI", Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 2px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  width: 154px;
+  height: 20px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Specific style for Walkthrough Selector dropdown */
+#Smart_Menu_Bar {
+  font-family: "MS Sans Serif", "Segoe UI", Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 2px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  width: 154px;
+  height: 20px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
