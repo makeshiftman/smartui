@@ -8,11 +8,8 @@
     "file": "/smartui/scenarios/hiroshi.json"
   },
   {
-    "name": "Hiroshi (Dynamic)",
-    "file": "/smartui/scenarios/hiroshi-dynamic.json"
+    "name": "Priya",
+    "file": "/smartui/scenarios/priya.json"
   },
-  {
-    "name": "Hiroshi (With Times)",
-    "file": "/smartui/scenarios/hiroshi-dynamic-with-times.json"
-  }
+ 
 ]
