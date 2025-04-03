@@ -5,22 +5,6 @@ setTimeout(() => {
 
   if (!scenarioDropdown || !walkthroughDropdown) return;
 
-  // Walkthrough dropdown setup
-  const walkthroughSelected = walkthroughDropdown.querySelector(".selected-option");
-  const walkthroughOptions = walkthroughDropdown.querySelector(".dropdown-options");
-
-  const walkthroughs = [
-    { label: "Bronze Walkthrough", value: "bronze" },
-    { label: "Silver Walkthrough", value: "silver" },
-    { label: "Gold Walkthrough", value: "gold" }
-  ];
-
-  walkthroughs.forEach(w => {
-    const div = document.createElement("div");
-    div.textContent = w.label;
-    div.dataset.value = w.value;
-    walkthroughOptions.appendChild(div);
-  });
 
   walkthroughSelected.addEventListener("click", () => {
     walkthroughOptions.style.display = "block";
