@@ -53,10 +53,7 @@ setTimeout(() => {
           });
 
           const current = new URLSearchParams(window.location.search).get("scenario");
-          if (current) {
-            const match = scenarios.find(s => s.file === current);
-            if (match) scenarioSelected.textContent = match.name;
-          }
+          scenarioSelected.textContent = "Contract Account";
         });
 
       scenarioSelected.addEventListener("click", () => {
