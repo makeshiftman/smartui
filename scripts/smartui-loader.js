@@ -68,7 +68,8 @@ async function loadScenario(path) {
     }
 
     if (data.contract_Start_Offset !== undefined) {
-      data.contract_Start = offsetToDate(data.contract_Start_Offset);
+      /* data.contract_Start = offsetToDate(data.contract_Start_Offset); */
+      data.contract_Start = offsetToDate(data.contract_Start_Offset).split(" ")[0];
     }
 
     if (data.last_Comm_Offset !== undefined) {
