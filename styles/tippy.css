@@ -72,6 +72,10 @@
     left: 0
 }
 
+.tippy-box[data-placement^=right]>.tippy-arrow {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
 .tippy-box[data-placement^=right]>.tippy-arrow:before {
     left: -7px;
     border-width: 8px 8px 8px 0;
