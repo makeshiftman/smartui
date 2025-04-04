@@ -120,3 +120,23 @@
     max-width: 300px;
     line-height: 1.4;
   }
+
+  .tippy-box[data-theme~='green'] > .tippy-arrow {
+    color: #51892e;
+  }
+
+  .tippy-box[data-theme~='green'][data-placement^='right'] > .tippy-arrow:before {
+    border-right-color: #51892e;
+  }
+  
+  .tippy-box[data-theme~='green'][data-placement^='left'] > .tippy-arrow:before {
+    border-left-color: #51892e;
+  }
+  
+  .tippy-box[data-theme~='green'][data-placement^='top'] > .tippy-arrow:before {
+    border-top-color: #51892e;
+  }
+  
+  .tippy-box[data-theme~='green'][data-placement^='bottom'] > .tippy-arrow:before {
+    border-bottom-color: #51892e;
+  }
