@@ -24,9 +24,10 @@
         color: black;                                /* Black text */
         font-family: 'Trebuchet MS', sans-serif;
         font-size: 14px;
+        font-weight: 600;               /* Semi-bold — close to 'strong' */
+        letter-spacing: 0.2px;          /* Optional: makes it crisper */
         padding: 10px 16px;
-        border-radius: 30px;                         /* Large rounded corners */
-        border: 1px solid #888;
+        border-radius: 10px;                         /* Large rounded corners */
         box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
         max-width: 300px;
         line-height: 1.4;
