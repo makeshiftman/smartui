@@ -1,9 +1,14 @@
-
 // smartui-loader.js
-// ✅ Clean merged loader with original logic + new offset support + error handling
+
+// ⬇️ Detect medal level from body attribute or fallback to "bronze"
+const level = document.body.dataset.level || "bronze";
+
+// ⬇️ Load appropriate core fields fragment
+const fragmentPath = `/smartui/fragments/core-input-fields-${level}.html`;
+
 
 // Load SmartUI input fields fragment (core fields on left side)
-fetch("/smartui/fragments/core-input-fields.html")
+fetch(fragmentPath)
   .then(res => {
     if (!res.ok) throw new Error("Failed to fetch core-input-fields.html");
     return res.text();
