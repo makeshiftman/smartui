@@ -6,7 +6,7 @@
     max-width: calc(100vw - 10px)
 }
 
-/* .tippy-box {
+.tippy-box {
     position: relative;
     background-color: #333;
     color: #fff;
@@ -17,21 +17,6 @@
     outline: 0;
     transition-property: transform, visibility, opacity
 }
-    */
-
-    .tippy-box {
-        background-color: rgba(255, 255, 255, 0.8);  /* White with 80% opacity */
-        color: black;                                /* Black text */
-        font-family: 'Trebuchet MS', sans-serif;
-        font-size: 14px;
-        padding: 10px 16px;
-        border-radius: 30px;                         /* Large rounded corners */
-        border: 1px solid #888;
-        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-        max-width: 300px;
-        line-height: 1.4;
-      }
-
 
 .tippy-box[data-placement^=top]>.tippy-arrow {
     bottom: 0
