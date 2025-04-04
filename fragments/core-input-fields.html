@@ -23,14 +23,22 @@
 <input class="input-field" id="elecOrGas" style="top:180px; left:217px; height:21px; width:142px" title="Smart Device" readonly>
 <input class="input-field" 
 id="BPID" style="top:264px; left:265px; height:16px; width:122px" 
-title="Business Partner" 
+title="Business Partner"
+data-tippy-theme="white"
 data-tippy-content="A Business Partner ID (or BPID) identifies the customer on our system. So a customer and a BPID can have multiple accounts (Gas or Electricity) assigned to it." readonly>
 <input class="input-field" value="Person" style="top:291px; left:265px; height:16px; width:122px" title="Partner Type" readonly>
 <input class="input-field" id="full_Name" style="top:316px; left:265px; height:16px; width:122px" title="Full Name" readonly>
 <input class="input-field duplicate-field" data-field="contract_Account" value="" style="top:345px; left:265px; height:16px; width:122px;" title="Contract Account (Duplicate)" readonly>
 <input class="input-field" id="contract" style="top:372px; left:265px; height:16px; width:122px" title="Contract" readonly>
 <input class="input-field" id="contract_Start" style="top:399px; left:265px; height:16px; width:122px" title="Contract Start Date" readonly>
-<input class="input-field" id="operating_Mode" style="top:426px; left:265px; height:16px; width:122px" title="Operating Mode" readonly>
+
+<input class="input-field" 
+id="operating_Mode" 
+style="top:426px; left:265px; height:16px; width:122px" 
+title="Operating Mode" 
+data-tippy-theme="green"
+data-tippy-content="It's important to check this field. It can show as Credit or Prepayment mode. If it isn't as expected we need to address it. Generally with a proforma." readonly>
+
 <input class="input-field" id="payment_Plan" style="top:453px; left:265px; height:16px; width:122px" title="Payment Plan" readonly>
 <input class="input-field" id="read_Retrieval" style="top:480px; left:265px; height:16px; width:122px" title="Read Retrieval Consent" readonly>
 <input class="input-field" id="last_Comm" style="top:507px; left:265px; height:16px; width:80px" title="Last Communication Date" readonly>
@@ -38,6 +46,7 @@ data-tippy-content="A Business Partner ID (or BPID) identifies the customer on o
 id="last_Comm_Time" 
 style="top:507px; left:355px; height:16px; width:60px" 
 title="Last Communication Date"
+data-tippy-theme="white"
 data-tippy-content="This will tell us the last time our servers communicated with this meter. It can help diagnose when a meter is not communicating correctly." readonly>
 <input class="input-field" id="pod" style="top:588px; left:265px; height:16px; width:138px" title="POD" readonly>
 <input class="input-field" id="device_Guid" style="top:615px; left:265px; height:16px; width:201px" title="Device GUID" readonly>
