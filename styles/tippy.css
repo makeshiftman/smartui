@@ -20,7 +20,7 @@
     */
 
     .tippy-box[data-theme~='white'] {
-        background-color: rgba(255, 255, 255, 0.8);  /* White with 80% opacity */
+        background-color: rgba(255, 255, 255, 0.95); /* White, 95% opaque */
         color: black;                                /* Black text */
         font-family: 'Trebuchet MS', sans-serif;
         font-size: 14px;
@@ -119,6 +119,7 @@
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
     max-width: 300px;
     line-height: 1.4;
+    border: 2px solid white;
   }
 
   .tippy-box[data-theme~='green'] > .tippy-arrow {
