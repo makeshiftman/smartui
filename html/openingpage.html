@@ -74,10 +74,12 @@
 
 <!-- Activate tooltips for anything with data-tippy-content -->
 <script>
-  tippy('[data-tippy-content]', {
-    placement: 'right',
-    theme: 'light-border',
-    delay: [100, 0]
+  window.addEventListener('load', () => {
+    tippy('[data-tippy-content]', {
+      placement: 'right',
+      theme: 'light-border',
+      delay: [100, 0]
+    });
   });
 </script>
 </body>
