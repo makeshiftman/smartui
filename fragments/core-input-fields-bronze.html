@@ -1,0 +1,187 @@
+
+<!--- core-input-fields.html -->
+<!--- Menu Bar -->
+
+<div id="Smart_Menu_Bar" class="custom-dropdown dropdown-walkthrough" style="top:35px; left:127px; width:167px;">
+  <div class="selected-option">Agent Level</div>
+  <div class="dropdown-options">
+    <div data-value="bronze">Bronze</div>
+    <div data-value="silver">Silver</div>
+    <div data-value="gold">Gold</div>
+  </div>
+</div>
+	
+<div id="scenario_Selector" class="custom-dropdown dropdown-scenario" style="top:100px; left:216px;">
+  <div class="selected-option">Contract Account</div>
+  <div class="dropdown-options">
+    <!-- Scenario options will be added by JS -->
+  </div>
+</div>
+
+<input class="input-field" 
+id="contract_Account" 
+style="top:129px; left:217px; height:16px; width:154px" 
+title="Partner" 
+data-tippy-theme="green"
+data-tippy-content="You can search for an account using Contract Account, BPID or Contract number. We've repurposed this dropdown so you can load various scenarios in this simulator." readonly>
+<input class="input-field" id="full_address" style="top:153px; left:217px; height:21px; width:237px" title="Full Address" readonly />
+
+<input class="input-field" 
+id="elecOrGas" 
+style="top:180px; left:217px; height:21px; width:142px" 
+title="Smart Device" 
+data-tippy-theme="white"
+data-tippy-content="Only ever a choice between Electricity or Gas. Once an account is loaded you can switch to the other supply on the BPID." readonly>
+
+<input class="input-field" 
+id="BPID" style="top:264px; left:265px; height:16px; width:122px" 
+title="Business Partner"
+data-tippy-theme="green"
+data-tippy-content="A Business Partner ID (or BPID) identifies the customer on our system. So a customer and a BPID can have multiple accounts (Gas or Electricity) assigned to it." readonly>
+
+<input class="input-field" 
+value="Person" 
+style="top:291px; left:265px; height:16px; width:122px" 
+title="Partner Type" 
+data-tippy-theme="white"
+data-tippy-content="Different types of accounts do exist (businesses for example) but we are only ever going to see Person here." readonly>
+
+<input class="input-field" 
+id="full_Name" 
+style="top:316px; left:265px; height:16px; width:122px" 
+title="Full Name" 
+data-tippy-theme="green"
+data-tippy-content="Customer's full name" readonly>
+
+<input class="input-field duplicate-field" 
+data-field="contract_Account" 
+value="" 
+style="top:345px; left:265px; height:16px; width:122px;" 
+title="Contract Account" 
+data-tippy-theme="white"
+data-tippy-content="This is the account number for either the Gas or Electricity." readonly>
+
+<input class="input-field" id="contract" style="top:372px; left:265px; height:16px; width:122px" title="Contract" data-tippy-theme="green"
+data-tippy-content="The number for the Contract" readonly>
+
+<input class="input-field" 
+id="contract_Start" 
+style="top:399px; left:265px; height:16px; width:122px" 
+title="Contract Start Date" 
+data-tippy-theme="white"
+data-tippy-content="The date the account was opened. You can also see this in UI5." readonly>
+
+<input class="input-field" 
+id="operating_Mode" 
+style="top:426px; left:265px; height:16px; width:122px" 
+title="Operating Mode" 
+data-tippy-theme="green"
+data-tippy-content="It's important to check this field. It can show as Credit or Prepayment mode. If it isn't as expected we need to address it. Generally with a proforma." readonly>
+
+<input class="input-field" 
+id="payment_Plan" 
+style="top:453px; left:265px; height:16px; width:122px" 
+title="Payment Plan" 
+data-tippy-theme="white"
+data-tippy-content="You can check common abbreviations in OneNote to know what each acronym means. We are expecting BMW which is a prepayment account." readonly>
+
+<input class="input-field" 
+id="read_Retrieval" 
+style="top:480px; left:265px; height:16px; width:122px" 
+title="Read Retrieval Consent" 
+data-tippy-theme="green"
+data-tippy-content="Customers a have a choice between the meter automatically updating us Monthly, Daily or Half Hourly." readonly>
+
+<input class="input-field" id="last_Comm" style="top:507px; left:265px; height:16px; width:80px" title="Last Communication Date" readonly>
+
+<input class="input-field" 
+id="last_Comm_Time" 
+style="top:507px; left:355px; height:16px; width:60px" 
+title="Last Communication Date"
+data-tippy-theme="white"
+data-tippy-content="This will tell us the last time our servers communicated with this meter. It can help diagnose when a meter is not communicating correctly." readonly>
+
+<input class="input-field" 
+id="pod" 
+style="top:588px; left:265px; height:16px; width:138px" 
+title="POD" 
+data-tippy-theme="green"
+data-tippy-content="POD is another way to refer to the MP*N" readonly>
+
+<input class="input-field" 
+id="device_Guid" 
+style="top:615px; left:265px; height:16px; width:201px" 
+title="Device GUID" 
+data-tippy-theme="white"
+data-tippy-content="The Globally Unique Identifier (GUID) is a unique identifier for your smart meter's in-home display (IHD). This code is used to link your IHD with your smart meter data and is often required when setting up or connecting your IHD to an app or service" readonly>
+
+<input class="input-field" 
+id="meter_Serial" 
+style="top:642px; left:265px; height:16px; width:138px" 
+title="Meter Serial Number" 
+data-tippy-theme="green"
+data-tippy-content="We use Meter Serial Numbers often to confirm we have the right device in the right property. It can also tell us information about what kind of device we have." readonly>
+
+<input class="input-field" 
+id="device_Start" 
+style="top:669px; left:265px; height:16px; width:82px" 
+title="Device Start" 
+data-tippy-theme="white"
+data-tippy-content="While the Contract Start Date tells you how long the account has been active, the Device Start tells you when this device was installed/commissioned." readonly>
+
+<input class="input-field" id="device_End" style="top:696px; left:265px; height:16px; width:82px" title="Device End" data-tippy-theme="green"
+data-tippy-content="The date the device was removed/decommission. If it is 9999 it means it is still in service indefinitely." readonly>
+
+<input class="input-field" 
+id="SMSO_ID" 
+style="top:724px; left:265px; height:16px; width:138px" 
+title="SMSO ID" 
+data-tippy-theme="white"
+data-tippy-content="An SMSO is an organization that provides the data and communication services for smart meters. SMSO ID is a unique identifier assigned to each SMSO, ensuring that the correct SMSO is contacted for a particular meter or group of meters" readonly>
+
+<input class="input-field" 
+id="firmware_Version" 
+style="top:780px; left:265px; height:16px; width:138px" 
+title="Firmware Version" 
+data-tippy-theme="green"
+data-tippy-content="Smart Meters often have software updates. Firmware versions tell us if we have the most up to date version of that software installed." readonly>
+
+<input class="input-field" 
+value="S2" 
+style="top:750px; left:265px; height:16px; width:138px" 
+title="SMETS Version" 
+data-tippy-theme="white"
+data-tippy-content="There are two generations of Smart meters. Smets1 and Smets2. The newer models have updated features and can do more than their older siblings." readonly>
+
+<input class="input-field" 
+id="device_Status" 
+style="top:804px; left:265px; height:16px; width:218px" 
+title="Device Status" 
+data-tippy-theme="green"
+data-tippy-content="Upon installing a meter, the engineer will then commission it, which means to set it up on the network. This status will tell us at what stage in the process this meter is currently." readonly>
+
+<input class="input-field" 
+id="device_Location" 
+style="top:832px; left:265px; height:16px; width:218px" 
+title="Device Location" 
+data-tippy-theme="white"
+data-tippy-content="Gives an idea of where the meter is located in the property. Typically inside or outside but sometimes more specific." readonly>
+<input class="input-field" id="smets1_DCC" style="top:860px; left:265px; height:16px; width:56px" title="Smets1-DCC" readonly>
+	
+	<!-- Other Smart Devices -->
+	
+<input class="input-field" 
+id="OSD_COMMS_HUB" 
+style="top:980px; left:265px; height:16px; width:182px" 
+title="COMMS HUB" 
+data-tippy-theme="green"
+data-tippy-content="Unique identifier for the communications HUB." readonly>
+
+<input class="input-field" 
+id="OSD_PPMID" 
+style="top:1006px; left:265px; height:16px; width:182px" 
+title="COMMS HUB" 
+data-tippy-theme="white"
+data-tippy-content="Unique identifier for the communications HUB." readonly>
+
+
