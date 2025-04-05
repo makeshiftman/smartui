@@ -72,9 +72,14 @@ async function loadScenario(path) {
       data.contract_Start = offsetToDate(data.contract_Start_Offset).split(" ")[0];
     }
 
-    if (data.last_Comm_Offset !== undefined) {
+    /* if (data.last_Comm_Offset !== undefined) {
       data.last_Comm = offsetToDate(data.last_Comm_Offset);
-    }
+    } */
+
+      if (data.last_Comm_Offset !== undefined) {
+        const [yyyy, mm, dd] = offsetToDate(data.last_Comm_Offset).split(" ")[0].split(".");
+        data.last_Comm = `${dd}.${mm}.${yyyy}`;
+      }
 
     if (data.utrnRows) {
       data.utrnRows.forEach(row => {
