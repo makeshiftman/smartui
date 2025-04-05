@@ -13,7 +13,7 @@
   "contract_Start_Offset": -120,
   "contract_End": "31.12.9999",
   "read_Retrieval": "Half Hourly",
-  "operating_Mode": "PrePayment",
+  "operating_Mode": "Prepayment",
   "payment_Plan": "BMW",
   "last_Comm_Offset": -1,
   "pod": "5935236236",
