@@ -53,6 +53,10 @@ async function loadScenario(path) {
     const data = await response.json();
     localStorage.setItem("smartui_data", JSON.stringify(data));
 
+// ⬇️ Set default for contract_End if not provided
+if (!data.contract_End || data.contract_End.trim() === "") {
+  data.contract_End = "31.12.9999";
+}
     // 🔁 Convert offset-based fields to actual dates
     function offsetToDate(offset, time = "00:00") {
       const d = new Date();
@@ -93,11 +97,12 @@ async function loadScenario(path) {
     }
 
     // ✅ Populate known fields
-    const fields = [
-      "contract_Account", "contract", "contract_Start", "operating_Mode", "payment_Plan",
-      "read_Retrieval", "last_Comm", "pod", "device_Guid", "meter_Serial",
-      "device_Start", "device_End", "device_Status", "elecOrGas", "BPID"
-    ];
+   const fields = [
+  "contract_Account", "contract", "contract_Start", "operating_Mode", "payment_Plan",
+  "read_Retrieval", "last_Comm", "pod", "device_Guid", "meter_Serial",
+  "device_Start", "device_End", "device_Status", "elecOrGas", "BPID",
+  "firmware_Version", "SMSO_ID", "device_Location", "smets1_DCC", "contract_End"
+];
 
     fields.forEach(id => {
       const el = document.getElementById(id);
