@@ -25,7 +25,7 @@
   "device_Start": "10.10.2021",
   "device_End": "31.12.9999",
   "device_Status": "Commissioned",
-  "device_Location": "Commissioned",
+  "device_Location": "Outside",
   "smets1_DCC": "No",
 
   "utrnRows": [
