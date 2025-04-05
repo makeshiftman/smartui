@@ -1,11 +1,11 @@
 // smartui-loader.js
 
-// ⬇️ Detect medal level from body attribute or fallback to "bronze"
-const level = document.body.dataset.level || "bronze";
+// ⬇️ Detect medal level from body attribute or fallback to "standard"
 
-// ⬇️ Load appropriate core fields fragment
-const fragmentPath = `/smartui/fragments/core-input-fields-${level}.html`;
-
+const level = document.body.dataset.level;
+const fragmentPath = level
+  ? `/smartui/fragments/core-input-fields-${level}.html`
+  : `/smartui/fragments/core-input-fields.html`;
 
 // Load SmartUI input fields fragment (core fields on left side)
 fetch(fragmentPath)
