@@ -1,0 +1,57 @@
+{
+  "first_Name": "Margaret",
+  "last_Name": "Allen",
+  "flatnumber": "",
+  "housenumber": "22",
+  "street": "Hawthorne Ave",
+  "city": "Edinburgh",
+  "postcode": "EH5 4RV",
+  "BPID": "9311509234",
+  "elecOrGas": "Electricity",
+  "contract_Account": "1615929109",
+  "contract": "592481924",
+  "contract_Start_Offset": -1320,
+  "contract_End": "",
+  "read_Retrieval": "Half Hourly",
+  "operating_Mode": "Prepayment",
+  "payment_Plan": "BMW",
+  "read_Retrieval": "Half hourly",
+  "SMSO_ID": "DCC",
+  "last_Comm_Offset": -1,
+  "pod": "9241912581",
+  "firmware_Version": "V1.2.525",
+  "device_Guid": "1D-88-4F-00-00-G3-11",
+  "meter_Serial": "92P92472814",
+  "device_Start": "10.10.2021",
+  "device_End": "31.12.9999",
+  "device_Status": "Commissioned",
+  "device_Location": "Kitchen Cupboard",
+  "smets1_DCC": "No",
+
+  "utrnRows": [
+    {
+      "createdOffset": -13,
+      "appliedOffset": -12,
+      "value": "40.00",
+      "type": "Manual",
+      "utrn": "13594233835185035314",
+      "channel": "Mobile",
+      "status": "Error - UTRN application response",
+      "auth": "092405",
+      "createdTime": "12:00",
+      "appliedTime": "11:00"
+    },
+    {
+      "createdOffset": -43,
+      "appliedOffset": -42,
+      "value": "30.00",
+      "type": "Manual",
+      "utrn": "12594233802185035314",
+      "channel": "Mobile",
+      "status": "Applied",
+      "auth": "012345",
+      "createdTime": "12:00",
+      "appliedTime": "11:00"
+    }
+  ]
+}
