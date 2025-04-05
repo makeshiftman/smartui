@@ -16,7 +16,7 @@
   "operating_Mode": "Prepayment",
   "payment_Plan": "BMW",
   "read_Retrieval": "Daily",
-  "SMSO_ID": "DCC"
+  "SMSO_ID": "DCC",
   "last_Comm_Offset": -1,
   "pod": "5935236236",
   "firmware_Version": "V1.2.525",
