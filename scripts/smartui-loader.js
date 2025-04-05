@@ -4,8 +4,8 @@
 
 const level = document.body.dataset.level;
 const fragmentPath = level
-  ? `/smartui/fragments/core-input-fields-${level}.html`
-  : `/smartui/fragments/core-input-fields.html`;
+  ? `smartui/fragments/core-input-fields-${level}.html`
+  : `smartui/fragments/core-input-fields.html`;
 
 // Load SmartUI input fields fragment (core fields on left side)
 fetch(fragmentPath)
