@@ -31,7 +31,7 @@
   "utrnRows": [
     {
       "createdOffset": -13,
-      "appliedOffset": ,
+      "appliedOffset": 0,
       "value": "40.00",
       "type": "Manual",
       "utrn": "51850353141359423383",
