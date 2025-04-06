@@ -2,12 +2,13 @@
 
 // ⬇️ Detect medal level from body attribute or fallback to "standard"
 
-const level = document.body.dataset.level || "standard";
+/* const level = document.body.dataset.level;
+const fragmentPath = level
+  ? `/smartui/fragments/core-input-fields-${level}.html`
+  : `/smartui/fragments/core-input-fields.html`; */
 
-const depth = location.pathname.split("/").filter(p => p).length - 1;
-const prefix = "../".repeat(depth - 1); // adjust for /smartui root
-
-const fragmentPath = `${prefix}fragments/core-input-fields-${level}.html`;
+  const level = document.body.dataset.level || "standard";
+  const fragmentPath = `../fragments/core-input-fields-${level}.html`;
 
 // Load SmartUI input fields fragment (core fields on left side)
 fetch(fragmentPath)
