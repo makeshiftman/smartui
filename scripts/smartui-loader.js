@@ -18,12 +18,28 @@ fetch(fragmentPath)
     if (!wrapper) throw new Error("No #wrapper element found in the page");
     wrapper.insertAdjacentHTML("afterbegin", html);
     // ✅ Activate Tippy tooltips after fields are injected
-tippy('[data-tippy-content]', {
+    
+/* tippy('[data-tippy-content]', {
   placement: 'right',
   theme: 'light-border',
   delay: [100, 0],
   allowHTML: true
-});
+}); */
+
+function initTippyWhenReady() {
+  if (typeof tippy !== 'undefined') {
+    tippy('[data-tippy-content]', {
+      placement: 'right',
+      theme: 'light-border',
+      delay: [100, 0],
+      allowHTML: true
+    });
+  } else {
+    setTimeout(initTippyWhenReady, 50); // Retry until tippy is defined
+  }
+}
+
+initTippyWhenReady();
     
   })
   .then(() => {

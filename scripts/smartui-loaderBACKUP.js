@@ -1,9 +1,14 @@
-
 // smartui-loader.js
-// ✅ Clean merged loader with original logic + new offset support + error handling
+
+// ⬇️ Detect medal level from body attribute or fallback to "standard"
+
+const level = document.body.dataset.level;
+const fragmentPath = level
+  ? `/smartui/fragments/core-input-fields-${level}.html`
+  : `/smartui/fragments/core-input-fields.html`;
 
 // Load SmartUI input fields fragment (core fields on left side)
-fetch("/smartui/fragments/core-input-fields.html")
+fetch(fragmentPath)
   .then(res => {
     if (!res.ok) throw new Error("Failed to fetch core-input-fields.html");
     return res.text();
@@ -48,6 +53,10 @@ async function loadScenario(path) {
     const data = await response.json();
     localStorage.setItem("smartui_data", JSON.stringify(data));
 
+// ⬇️ Set default for contract_End if not provided
+if (!data.contract_End || data.contract_End.trim() === "") {
+  data.contract_End = "31.12.9999";
+}
     // 🔁 Convert offset-based fields to actual dates
     function offsetToDate(offset, time = "00:00") {
       const d = new Date();
@@ -59,16 +68,22 @@ async function loadScenario(path) {
       const dd = String(d.getDate()).padStart(2, '0');
       const hh = String(d.getHours()).padStart(2, '0');
       const min = String(d.getMinutes()).padStart(2, '0');
-      return `${yyyy}.${mm}.${dd} ${hh}:${min}`;
+      return `${dd}.${mm}.${yyyy} ${hh}:${min}`;
     }
 
     if (data.contract_Start_Offset !== undefined) {
-      data.contract_Start = offsetToDate(data.contract_Start_Offset);
+      /* data.contract_Start = offsetToDate(data.contract_Start_Offset); */
+      data.contract_Start = offsetToDate(data.contract_Start_Offset).split(" ")[0];
     }
 
-    if (data.last_Comm_Offset !== undefined) {
+    /* if (data.last_Comm_Offset !== undefined) {
       data.last_Comm = offsetToDate(data.last_Comm_Offset);
-    }
+    } */
+
+      if (data.last_Comm_Offset !== undefined) {
+        const [yyyy, mm, dd] = offsetToDate(data.last_Comm_Offset).split(" ")[0].split(".");
+        data.last_Comm = `${dd}.${mm}.${yyyy}`;
+      }
 
     if (data.utrnRows) {
       data.utrnRows.forEach(row => {
@@ -82,11 +97,12 @@ async function loadScenario(path) {
     }
 
     // ✅ Populate known fields
-    const fields = [
-      "contract_Account", "contract", "contract_Start", "operating_Mode", "payment_Plan",
-      "read_Retrieval", "last_Comm", "pod", "device_Guid", "meter_Serial",
-      "device_Start", "device_End", "device_Status", "elecOrGas", "BPID"
-    ];
+   const fields = [
+  "contract_Account", "contract", "contract_Start", "operating_Mode", "payment_Plan",
+  "read_Retrieval", "last_Comm", "pod", "device_Guid", "meter_Serial",
+  "device_Start", "device_End", "device_Status", "elecOrGas", "BPID",
+  "firmware_Version", "SMSO_ID", "device_Location", "smets1_DCC", "contract_End"
+];
 
     fields.forEach(id => {
       const el = document.getElementById(id);
