@@ -32,10 +32,10 @@
 <div id="wrapper">
 <input class="input-field" id="StoredMR_Date_From"
   style="top: 180px; left: 1014px; height:18px; width:76px; background: transparent; z-index: 10000;"
-  title="PID" readonly>	
+  title="Stored Meter Reads Date From" readonly>	
 <input class="input-field" id="StoreMR_Date_To"
   style="top: 180px; left: 1127px; height:18px; width:75px; background: transparent; z-index: 10000;"
-  title="PID" readonly>	
+  title="Stored Meter Reads Date To" readonly>	
 	
 <!-- Left side fields from core-input-fields.html inject here -->
 
@@ -50,13 +50,30 @@
 <a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
 	
 	<!-- Internal rollover links -->
-<a href="meterreadsstored.html"
+<a id="executeStoredReads" href="#"
    style="position: absolute; top: 176px; left: 1242px; height: 27px; width: 104px; ">
   <img src="../../images/buttons/executenormal.png"
        onmouseover="this.src='../images/buttons/executehover.png';"
        onmouseout="this.src='../images/buttons/executenormal.png';"
        alt=""
 	   style="width: 104px; height: 27px; display: block;" />
+	</a>
+	
+<!--- This is the table with the meter reads in it -->
+	
+<div id="storedreads-frame" class="utrn-frame" style="position: absolute; top: 367px; left: 573px; width: 864px; height: 122px; border: 1px solid #f2f2f2; background-color: rgba(255, 255, 255, 0.2); overflow-y: scroll; overflow-x: scroll; font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif; font-size: 13px; color: #4d4d4d; transform: scaleX(0.97); scrollbar-width: auto; display: none;">
+  <div class="table-header" style="display: grid; grid-template-columns: 160px 75px 75px 75px 75px 110px 110px; min-width: 740px; height: 25px; background-color: #e5e5e5; border-bottom: 1px solid #d0d0d0; position: sticky; top: 0; z-index: 10;">
+    <div>Date & Time</div>
+    <div>Register 1</div>
+    <div>Register 2</div>
+    <div>Register 3</div>
+    <div>Register 4</div>
+    <div>Total (kWh/m³)</div>
+    <div>Average (kWh/m³)</div>
+  </div>
+  <div id="storedreads-table"></div>
+</div>
+<!-- end of the table with the meter reads in -->
 	
 <a href="meterreadsstored.html"
    style="position: absolute; top: 392px; left: 578px; height: 27px; width: 208px; ">
@@ -103,11 +120,23 @@
        alt=""
        style="width: 96px; height: 27px; display: block;" />
 </a>	
+<!-- Radio buttons -->
+<div style="position: absolute; top: 180px; left: 574px;">
+  <input type="radio" name="SMRrange" value="7" checked title="Last 7 Days" />
+</div>
+<div style="position: absolute; top: 180px; left: 686px;">
+  <input type="radio" name="SMRrange" value="30" title="Last 30 Days" />
+</div>
+<div style="position: absolute; top: 180px; left: 806px;">
+  <input type="radio" name="SMRrange" value="custom" title="Use Date Range" />
+</div>
+
 <script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/utrn-table-loader.js"></script>
 <script src="/smartui/scripts/dropdown-generate-reason.js"></script>
 <script src="/smartui/scripts/w3.js"></script>
 <script>w3.includeHTML();</script>	
+<div w3-include-html="/smartui/fragments/storedreads-script.html"></div>
 <script src="/smartui/scripts/reset-scenario-handler.js"></script>
 <!-- Tippy tooltip styles -->
 <link rel="stylesheet" href="/smartui/styles/tippy.css" />

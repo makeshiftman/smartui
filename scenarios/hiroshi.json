@@ -12,10 +12,9 @@
   "contract": "0251251255",
   "contract_Start_Offset": -120,
   "contract_End": "",
-  "read_Retrieval": "Half Hourly",
+  "read_Retrieval": "Daily",
   "operating_Mode": "Prepayment",
   "payment_Plan": "BMW",
-  "read_Retrieval": "Daily",
   "SMSO_ID": "DCC",
   "last_Comm_Offset": -1,
   "pod": "5935236236",
@@ -27,7 +26,6 @@
   "device_End": "31.12.9999",
   "device_Status": "Commissioned",
   "smets1_DCC": "No",
-
   "utrnRows": [
     {
       "createdOffset": -13,
@@ -53,6 +51,217 @@
       "createdTime": "12:00",
       "appliedTime": "11:00"
     }
+  ],
+  "storedMeterReads": [
+    {
+      "offset": -30,
+      "register1": "5930",
+      "register2": "5933",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -29,
+      "register1": "5939",
+      "register2": "5940",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -28,
+      "register1": "5945",
+      "register2": "5948",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -27,
+      "register1": "5952",
+      "register2": "5952",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -26,
+      "register1": "5962",
+      "register2": "5962",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -25,
+      "register1": "5971",
+      "register2": "5972",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -24,
+      "register1": "5980",
+      "register2": "5983",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -23,
+      "register1": "5986",
+      "register2": "5987",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -22,
+      "register1": "5997",
+      "register2": "6000",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -21,
+      "register1": "6002",
+      "register2": "6005",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -20,
+      "register1": "6009",
+      "register2": "6011",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -19,
+      "register1": "6017",
+      "register2": "6020",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -18,
+      "register1": "6028",
+      "register2": "6031",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -17,
+      "register1": "6037",
+      "register2": "6038",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -16,
+      "register1": "6046",
+      "register2": "6049",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -15,
+      "register1": "6052",
+      "register2": "6054",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -14,
+      "register1": "6057",
+      "register2": "6057",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -13,
+      "register1": "6066",
+      "register2": "6068",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -12,
+      "register1": "6076",
+      "register2": "6077",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -11,
+      "register1": "6087",
+      "register2": "6088",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -10,
+      "register1": "6095",
+      "register2": "6095",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -9,
+      "register1": "6104",
+      "register2": "6107",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -8,
+      "register1": "6114",
+      "register2": "6114",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -7,
+      "register1": "6125",
+      "register2": "6125",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -6,
+      "register1": "6131",
+      "register2": "6133",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -5,
+      "register1": "6140",
+      "register2": "6143",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -4,
+      "register1": "6149",
+      "register2": "6150",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -3,
+      "register1": "6155",
+      "register2": "6158",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -2,
+      "register1": "6165",
+      "register2": "6165",
+      "register3": "",
+      "register4": ""
+    },
+    {
+      "offset": -1,
+      "register1": "6173",
+      "register2": "6175",
+      "register3": "",
+      "register4": ""
+    }
   ]
 }
-
