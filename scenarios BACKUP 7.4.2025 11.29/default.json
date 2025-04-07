@@ -1,0 +1,69 @@
+{
+    "first_Name": "Training",
+	"last_Name": "Account",
+	"flatnumber": "1",
+    "housenumber": "51",
+    "street": "Training St",
+    "city": "Glasgow",
+    "postcode": "G15 6NZ",
+    "BPID": "9318573654",
+    "elecOrGas": "Electricity",
+    "contract_Account": "1612924251",
+    "contract": "0251251255",
+    "contract_Start": "12.12.2024",
+    "contract_End": "31.12.9999",
+    "read_Retrieval": "Half Hourly",
+    "operating_Mode": "Prepayment",
+    "payment_Plan": "BMW",
+    "last_Comm": "14.01.2025",
+    "pod": "5935236236",
+    "device_Guid": "4D-12-3F-00-00-F4-82",
+    "meter_Serial": "L1245215125M",
+    "device_Start": "10.10.2021",
+    "device_End": "31.12.9999",
+    "device_Status": "Commissioned",
+
+    "utrnRows": [
+      {
+        "created": "2025.03.20 12:00",
+        "applied": "2025.03.21 11:00",
+        "value": "40.00",
+        "type": "Manual",
+        "utrn": "51850353141359423383",
+        "channel": "Mobile",
+        "status": "Error - UTRN application response",
+        "auth": "099755"
+      },
+      {
+        "created": "2025.02.20 11:00",
+        "applied": "2025.02.21 10:00",
+        "value": "30.00",
+        "type": "Manual",
+        "utrn": "21850353141259423380",
+        "channel": "Mobile",
+        "status": "Applied",
+        "auth": "012345"
+      },
+    
+      {
+        "created": "2025.02.20 11:00",
+        "applied": "",
+        "value": "50.00",
+        "type": "Manual",
+        "utrn": "11111111111111113380",
+        "channel": "Mobile",
+        "status": "Error - UTRN application response",
+        "auth": "012345"
+      },
+      {
+        "created": "2025.02.20 11:00",
+        "applied": "2025.02.21 10:00",
+        "value": "30.00",
+        "type": "Manual",
+        "utrn": "22222222222222223380",
+        "channel": "Mobile",
+        "status": "Applied",
+        "auth": "012345"
+      }
+    ]
+  }

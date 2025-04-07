@@ -54,6 +54,7 @@ async function loadScenario(path) {
     if (!response.ok) throw new Error("Failed to load JSON");
 
     const data = await response.json();
+    localStorage.setItem("smartui_data", JSON.stringify(data));
 
     if (!data.contract_End || data.contract_End.trim() === "") {
       data.contract_End = "31.12.9999";
@@ -102,20 +103,6 @@ async function loadScenario(path) {
     if (data.utrnRows) {
       populateUTRNTable(data.utrnRows);
     }
-
-    if (Array.isArray(data.storedMeterReads)) {
-      const today = new Date();
-      data.storedMeterReads = data.storedMeterReads.map(entry => {
-        const d = new Date(today);
-        d.setDate(d.getDate() + entry.offset);
-        const dd = String(d.getDate()).padStart(2, '0');
-        const mm = String(d.getMonth() + 1).padStart(2, '0');
-        const yyyy = d.getFullYear();
-        return { ...entry, date: `${dd}.${mm}.${yyyy}` };
-      });
-    }
-
-    localStorage.setItem("smartui_data", JSON.stringify(data));
 
   } catch (error) {
     console.error("Error loading JSON:", error);

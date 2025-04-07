@@ -85,17 +85,51 @@ body {
 
 /* Custom dropdown for UTRN Generate */
 
-
+.custom-dropdown {
+  position: absolute;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+  z-index: 10000;
+  cursor: pointer;
+}
 
 /* Selected item area */
+.custom-dropdown .selected-option {
+  padding: 2px 6px;
+  height: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: black;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
 
+}
 
 
 /* Dropdown list */
 
+.custom-dropdown .dropdown-options {
+  display: none;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  line-height: 18px;
+  padding: 4px 8px;
+  top: 100%;
+  left: -10px; /* slight left shift to keep alignment */
+  width: 330px; /* wider than the top field */
+  z-index: 10001;
+}
 
-
-
+.custom-dropdown .dropdown-options div:hover {
+  background-color: #cce6ff;
+}
 
 /* Custom style for the Send Barcode dropdown */
 .custom-dropdown.dropdown-barcode {
@@ -115,53 +149,26 @@ body {
   width: 180px; /* dropdown box slightly wider */
 }
 
-/* Update PPS Comm requested dropdown options */
-.custom-dropdown.dropdown-commrequested {
-  position: absolute;
-  top: 443px;
-  left: 772px;
-  width: 70px;
-  height: 24px;
-  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
-  font-size: 13px;
-  background-color: transparent;
-  border: 0px ;
-  cursor: pointer;
-  z-index: 10000;
-}
-
-.custom-dropdown.dropdown-commrequested .selected-option {
-  padding: 2px 4px;
-  height: 100%;
-  line-height: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: black;
-  box-sizing: border-box;
-}
-
-.custom-dropdown.dropdown-commrequested .dropdown-options {
-  display: none;
-  background-color: white;
-  border: 1px solid #aaa;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  position: absolute;
-  top: 100%;
-  left: 0;
+/* Update PPS Comm requested dropdown options on Update DRR page */
+.custom-dropdown.dropdown-commrequested1 {
   width: 60px;
-  z-index: 10001;
+  height: 24px;
 }
 
-.custom-dropdown.dropdown-commrequested .dropdown-options div {
-  padding: 4px 6px;
-  font-size: 13px;
+.custom-dropdown.dropdown-commrequested1 .dropdown-options {
+  width: 60px; 
 }
 
-.custom-dropdown.dropdown-commrequested .dropdown-options div:hover {
-  background-color: #cce6ff;
-  cursor: pointer;
+/* Update PPS Comm requested dropdown option on Update debt page */
+.custom-dropdown.dropdown-commrequested2 {
+  width: 60px;
+  height: 24px;
 }
+
+.custom-dropdown.dropdown-commrequested2 .dropdown-options {
+  width: 60px; 
+}
+
 /* Update PPS DRR Type */
 
 .custom-dropdown.dropdown-drrtype {
@@ -206,7 +213,7 @@ body {
   width: 150px;    /* 👈 Adjust the field width */
   height: 24px;    /* 👈 Adjust the clickable field height */
   z-index: 10000;  /* Keep it on top of other elements */
-  border: 1px dashed red; /* TEMP styling for layout debugging */
+  
 }
 
 /* Main clickable field styling */
@@ -284,8 +291,6 @@ body {
 .custom-dropdown.dropdown-adjtype .dropdown-options div:hover {
   background-color: #cce6ff;
 }
-
-/* SmartUI retro-style dropdown wrapper */
 
 
 
@@ -429,4 +434,106 @@ body {
 #messages_Select_Process_Description .dropdown-options div:hover {
   background-color: #c7e0eb;
   cursor: pointer;
+}
+
+/* Specific style for Scenario Selector dropdown */
+#scenario_Selector {
+  font-family: "MS Sans Serif", "Segoe UI", Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 2px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  width: 154px;
+  height: 20px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Specific style for Walkthrough Selector dropdown */
+#Smart_Menu_Bar {
+  font-family: "MS Sans Serif", "Segoe UI", Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 2px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  width: 154px;
+  height: 20px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.custom-dropdown.dropdown-scenario {
+  width: 154px;
+  height: 20px;
+}
+
+.custom-dropdown.dropdown-scenario .selected-option {
+  width: 100%;
+  height: 100%;
+  padding: 2px 6px;
+  line-height: 20px;
+  font-family: "MS Sans Serif", "Segoe UI", Tahoma, sans-serif;
+  font-size: 12px;
+  background-color: transparent;
+  color: black;
+  box-sizing: border-box;
+}
+
+.custom-dropdown.dropdown-scenario .dropdown-options {
+  width: 180px;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 100%;
+  left: -5px;
+  z-index: 10001;
+  line-height: 18px;
+  padding: 4px 8px;
+}
+
+.custom-dropdown.dropdown-scenario .dropdown-options div:hover {
+  background-color: #cce6ff;
+}
+
+.custom-dropdown.dropdown-walkthrough {
+  width: 167px;
+  height: 20px;
+}
+
+.custom-dropdown.dropdown-walkthrough .selected-option {
+  width: 100%;
+  height: 100%;
+  padding: 2px 6px;
+  line-height: 20px;
+  font-family: "MS Sans Serif", "Segoe UI", Tahoma, sans-serif;
+  font-size: 12px;
+  background-color: transparent;
+  color: black;
+  box-sizing: border-box;
+}
+
+.custom-dropdown.dropdown-walkthrough .dropdown-options {
+  width: 185px;
+  background-color: white;
+  border: 1px solid #aaa;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 100%;
+  left: -5px;
+  z-index: 10001;
+  line-height: 18px;
+  padding: 4px 8px;
+}
+
+.custom-dropdown.dropdown-walkthrough .dropdown-options div:hover {
+  background-color: #cce6ff;
 }

@@ -1,95 +1,88 @@
 <script>
->
-document.addEventListener("DOMContentLoaded", () => {
-  const executeBtn = document.getElementById("executeStoredReads");
-  const tableWrapper = document.getElementById("storedreads-frame");
-  const tableBody = document.getElementById("storedreads-table");
+const executeBtn = document.getElementById("executeStoredReads");
+const tableWrapper = document.getElementById("storedreads-frame");
+const tableBody = document.getElementById("storedreads-table");
 
-  executeBtn.addEventListener("click", e => {
-    e.preventDefault();
-    const selectedRange = document.querySelector("input[name='SMRrange']:checked").value;
-    const scenario = JSON.parse(localStorage.getItem("smartui_scenario") || "{}");
-    let rows = scenario.storedMeterReads || [];
+executeBtn.addEventListener("click", e => {
+  e.preventDefault();
+  const selectedRange = document.querySelector("input[name='SMRrange']:checked")?.value;
+  const scenario = JSON.parse(localStorage.getItem("smartui_scenario") || "{}");
+  let rows = scenario.storedMeterReads || [];
 
-    if (selectedRange === "custom") {
-      const fromInput = document.getElementById("StoredMR_Date_From").value;
-      const toInput = document.getElementById("StoreMR_Date_To").value;
-      if (!fromInput || !toInput) {
-        alert("Please enter both FROM and TO dates.");
-        return;
-      }
-
-      const fromDate = parseUKDate(fromInput);
-      const toDate = parseUKDate(toInput);
-      if (fromDate > toDate) {
-        alert("FROM date must be before TO date.");
-        return;
-      }
-
-      rows = rows.filter(row => {
-        const rowDate = new Date();
-        rowDate.setDate(rowDate.getDate() + row.offset);
-        rowDate.setHours(0, 0, 0, 0); // normalise to midnight for comparison
-        return rowDate >= fromDate && rowDate <= toDate;
-      });
-    } else {
-      const rowsToShow = parseInt(selectedRange, 10);
-      rows = rows
-        .sort((a, b) => b.offset - a.offset)
-        .slice(0, rowsToShow);
+  if (selectedRange === "custom") {
+    const fromInput = document.getElementById("StoredMR_Date_From").value;
+    const toInput = document.getElementById("StoreMR_Date_To").value;
+    if (!fromInput || !toInput) {
+      alert("Please enter both FROM and TO dates.");
+      return;
     }
 
-    tableBody.innerHTML = "";
+    const fromDate = parseUKDate(fromInput);
+    const toDate = parseUKDate(toInput);
+    if (fromDate > toDate) {
+      alert("FROM date must be before TO date.");
+      return;
+    }
 
-    rows.forEach(row => {
-      const date = new Date();
-      date.setDate(date.getDate() + row.offset);
-
-      const hour = Math.floor(Math.random() * 24).toString().padStart(2, '0');
-      const minute = Math.floor(Math.random() * 60).toString().padStart(2, '0');
-      const time = `${hour}:${minute}`;
-      const formattedDate = date.toLocaleDateString("en-GB").split('/').join('-');
-      const datetime = `${formattedDate} ${time}`;
-
-      const div = document.createElement("div");
-      div.className = "table-row";
-      div.innerHTML = `
-        <div>${datetime}</div>
-        <div>${row.register1 || ""}</div>
-        <div>${row.register2 || ""}</div>
-        <div>${row.register3 || ""}</div>
-        <div>${row.register4 || ""}</div>
-        <div>${calculateTotal(row)}</div>
-        <div>${calculateAverage(row)}</div>
-      `;
-      tableBody.appendChild(div);
+    rows = rows.filter(row => {
+      const rowDate = new Date();
+      rowDate.setDate(rowDate.getDate() + row.offset);
+      rowDate.setHours(0, 0, 0, 0);
+      return rowDate >= fromDate && rowDate <= toDate;
     });
+  } else {
+    const rowsToShow = parseInt(selectedRange, 10);
+    rows = rows
+      .sort((a, b) => b.offset - a.offset)
+      .slice(0, rowsToShow);
+  }
 
-    tableWrapper.style.display = "block";
+  tableBody.innerHTML = "";
+
+  rows.forEach(row => {
+    const date = new Date();
+    date.setDate(date.getDate() + row.offset);
+    const hour = Math.floor(Math.random() * 24).toString().padStart(2, '0');
+    const minute = Math.floor(Math.random() * 60).toString().padStart(2, '0');
+    const time = `${hour}:${minute}`;
+    const formattedDate = date.toLocaleDateString("en-GB").split('/').join('-');
+    const datetime = `${formattedDate} ${time}`;
+
+    const div = document.createElement("div");
+    div.className = "table-row";
+    div.innerHTML = `
+      <div>${datetime}</div>
+      <div>${row.register1 || ""}</div>
+      <div>${row.register2 || ""}</div>
+      <div>${row.register3 || ""}</div>
+      <div>${row.register4 || ""}</div>
+      <div>${calculateTotal(row)}</div>
+      <div>${calculateAverage(row)}</div>
+    `;
+    tableBody.appendChild(div);
   });
 
-  function calculateTotal(row) {
-    const values = [row.register1, row.register2, row.register3, row.register4]
-      .map(val => parseFloat(val))
-      .filter(val => !isNaN(val));
-    if (values.length === 0) return "";
-    const sum = values.reduce((acc, val) => acc + val, 0);
-    return sum.toFixed(2);
-  }
+  tableWrapper.style.display = "block";
+});
 
-  function calculateAverage(row) {
-    const values = [row.register1, row.register2, row.register3, row.register4]
-      .map(val => parseFloat(val))
-      .filter(val => !isNaN(val));
-    if (values.length === 0) return "";
-    const sum = values.reduce((acc, val) => acc + val, 0);
-    return (sum / values.length).toFixed(2);
-  }
+function calculateTotal(row) {
+  const values = [row.register1, row.register2, row.register3, row.register4]
+    .map(val => parseFloat(val)).filter(val => !isNaN(val));
+  if (values.length === 0) return "";
+  return values.reduce((acc, val) => acc + val, 0).toFixed(2);
+}
 
-  function parseUKDate(dateStr) {
-    const [day, month, year] = dateStr.split("-").map(Number);
-    const date = new Date(year, month - 1, day);
-    date.setHours(0, 0, 0, 0); // normalise to midnight
-    return date;
-  }
+function calculateAverage(row) {
+  const values = [row.register1, row.register2, row.register3, row.register4]
+    .map(val => parseFloat(val)).filter(val => !isNaN(val));
+  if (values.length === 0) return "";
+  return (values.reduce((acc, val) => acc + val, 0) / values.length).toFixed(2);
+}
+
+function parseUKDate(dateStr) {
+  const [day, month, year] = dateStr.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  date.setHours(0, 0, 0, 0);
+  return date;
+}
 </script>
