@@ -119,6 +119,8 @@ async function loadScenario(path) {
     }
 
     localStorage.setItem("smartui_data", JSON.stringify(data));
+    console.log("Data successfully saved to localStorage."); 
+
 
   } catch (error) {
     console.error("Error loading JSON:", error);
