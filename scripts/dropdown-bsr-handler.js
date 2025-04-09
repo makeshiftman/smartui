@@ -33,3 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// In your dropdown-bsr-handler.js or a similar file
+const dropdown = document.getElementById("readPPS_Display_Latest_Stored_Values");
+const selectedOptionDiv = dropdown.querySelector('.selected-option');
+const optionsDiv = dropdown.querySelector('.dropdown-options');
+
+// Add event listener for clicking options
+optionsDiv.querySelectorAll('div').forEach(option => {
+  option.addEventListener('click', () => {
+    const selectedValue = option.getAttribute('data-value');
+    selectedOptionDiv.textContent = option.textContent;  // Show selected option in the dropdown
+    localStorage.setItem("readPPS_Display_Latest_Stored_Values", selectedValue); // Save selection to localStorage
+  });
+});

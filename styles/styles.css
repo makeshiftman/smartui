@@ -537,3 +537,39 @@ body {
 .custom-dropdown.dropdown-walkthrough .dropdown-options div:hover {
   background-color: #cce6ff;
 }
+
+/* Custom Dropdown: #readPPS_Display_Latest_Stored_Values */
+
+/* Style for the selected option */
+#readPPS_Display_Latest_Stored_Values .selected-option {
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+/* Style for the dropdown options container */
+#readPPS_Display_Latest_Stored_Values .dropdown-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 1001;
+}
+
+/* Style for each option */
+#readPPS_Display_Latest_Stored_Values .dropdown-options div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* Change background color when hovering over options */
+#readPPS_Display_Latest_Stored_Values .dropdown-options div:hover {
+  background-color: #ddd;
+}

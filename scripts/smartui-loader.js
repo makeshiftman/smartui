@@ -113,6 +113,9 @@ async function loadScenario(path) {
         const yyyy = d.getFullYear();
         return { ...entry, date: `${dd}.${mm}.${yyyy}` };
       });
+        // Log to confirm date field is added
+  console.log("Updated storedMeterReads:", data.storedMeterReads);
+
     }
 
     localStorage.setItem("smartui_data", JSON.stringify(data));
