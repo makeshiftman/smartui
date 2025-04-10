@@ -26,7 +26,15 @@
 <body data-level="standard">
 
 <div id="wrapper">
-
+<!-- radio boxes -->
+	
+	<div style="position: absolute; top: 153px; left: 838px;">
+  <input type="radio" name="PPS_latest_Read" value="custom" title="Latest" />
+</div>
+		<div style="position: absolute; top: 153px; left: 918px;">
+  <input type="radio" name="PPS_select_Date" value="custom" title="Select Date" />
+</div>
+	
     <div id="readPPS_Display_Latest_Stored_Values" class="custom-dropdown dropdown-readPPS_Display_Latest_Stored_Values" style="top: 150px; left: 651px; width: 151px; height: 20px; /* Consider moving appearance styles to CSS */ border: 1px solid #ccc; /* Example border */ padding: 0px; /* Example padding */ z-index: 10000;">
       <div class="selected-option">Not Set</div> <div class="dropdown-options">
         <div data-value="REVIEW">Not Set</div>
@@ -35,7 +43,7 @@
       </div>
     </div>
     <input class="input-field" id="Stored_ReadPPS_Date"
-      style="top: 152px; left: 1042px; height:16px; width:80px; background: transparent; border: 1px dashed red !important; z-index: 10000;"
+      style="top: 152px; left: 1042px; height:16px; width:80px; background: transparent; z-index: 10000;"
       title="Stored Meter Reads Date From">
 
     <a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
@@ -62,6 +70,14 @@
            onmouseout="this.src='../images/buttons/executegreyxw.png';"
            alt="Execute"
            style="width: 120px; height: 27px; display: block;" />
+    </a>
+	
+	<a href="#" style="position: absolute; top: 177px; left: 898px; height: 27px; width: 152px;">
+      <img src="../images/buttons/reprocesspdocdeselected.png"
+           onmouseover="this.src='../images/buttons/reprocesspdocdeselected.png';"
+           onmouseout="this.src='../images/buttons/reprocesspdocdeselected.png';"
+           alt="#"
+           style="width: 152px; height: 27px; display: block;" />
     </a>
 
     <a href="" id="resetButton" style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
