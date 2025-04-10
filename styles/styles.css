@@ -573,3 +573,8 @@ body {
 #readPPS_Display_Latest_Stored_Values .dropdown-options div:hover {
   background-color: #ddd;
 }
+
+#readPPS_Display_Latest_Stored_Values {
+  width: 220px;
+  height: 45px;
+}
