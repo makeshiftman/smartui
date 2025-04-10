@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function calculateAndFormatDate(offset) { 
         if (typeof offset !== 'number') { console.warn("Invalid offset value received for date calculation:", offset); return "Invalid Date"; }
         try { const today = new Date(); const targetDate = new Date(today); targetDate.setDate(today.getDate() + offset);
-            const dd = String(targetDate.getDate()).padStart(2, '0'); const mm = String(targetDate.getMonth() + 1).padStart(2, '0'); const<y_bin_925> = targetDate.getFullYear();
+            const dd = String(targetDate.getDate()).padStart(2, '0'); const mm = String(targetDate.getMonth() + 1).padStart(2, '0'); const yyyy = targetDate.getFullYear();
             // Ensure year is captured correctly if not already defined globally/incorrectly
             const year = targetDate.getFullYear(); 
             return `${dd}.${mm}.${year}`; // Use captured year
