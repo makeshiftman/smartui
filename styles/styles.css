@@ -548,6 +548,7 @@ body {
   cursor: pointer;
   display: block;
   width: 163px;
+  font-size: 12px;
 }
 
 /* Style for the dropdown options container */
@@ -557,6 +558,7 @@ body {
   top: 100%;
   left: 0;
   width: 100%;
+  font-size: 12px;
   background-color: white;
   border: 0px solid #ccc;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
