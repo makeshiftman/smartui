@@ -269,14 +269,14 @@
   "ppsDebtSettings": [
     {
       "source": "SAP DATA",
-      "statusTimestampOffset": -1, // 1 day ago
+      "statusTimestampOffset": -1,
       "totalDebt": 75.50,
       "drr": 5.00,
       "maxRecoveryRate": 10
     },
     {
       "source": "METER DATA",
-      "statusTimestampOffset": -1, // 1 day ago
+      "statusTimestampOffset": -1, 
       "totalDebt": 120.00,
       "drr": 5.00,
       "maxRecoveryRate": 10
