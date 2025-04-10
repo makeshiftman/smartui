@@ -557,7 +557,7 @@ body {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 175;
+  width: 100%;
   font-size: 12px;
   background-color: white;
   border: 0px solid #ccc;
