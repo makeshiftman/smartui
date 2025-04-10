@@ -1,3 +1,4 @@
+// Suggested filename: /smartui/scripts/readprepaymentsettings-loader.js
 
 document.addEventListener('DOMContentLoaded', () => {
 
