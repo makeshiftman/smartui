@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             targetDate.setDate(today.getDate() + offset); // Add offset (can be negative)
             const dd = String(targetDate.getDate()).padStart(2, '0');
             const mm = String(targetDate.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
-            const<x_bin_325> = targetDate.getFullYear();
+            const yyyy = targetDate.getFullYear();
             return `${dd}.${mm}.${yyyy}`; // Format as DD.MM.YYYY
         } catch (dateError) {
             console.error("Error calculating date from offset:", offset, dateError);
