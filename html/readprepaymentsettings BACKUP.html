@@ -21,59 +21,46 @@
       height: 20px;
       cursor: pointer;
     }
-    /* Add specific CSS for #PPSdebtsettings-table, .table-row etc. in external CSS */
   </style>
 </head>
 <body data-level="standard">
 
 <div id="wrapper">
+<!-- debt settings table -->
+<div class="utrn-frame" style="position: absolute; top: 240px; left: 580px; width: 923px; height: 70px; /* Adjust top, left, width, height as needed for layout */ border: 1px solid #ccc; background-color: rgba(255, 255, 255, 0.2); overflow-y: auto; overflow-x: hidden; font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif; font-size: 13px; color: #4d4d4d; z-index: 1;">
 
-    <div id="readPPS_Display_Latest_Stored_Values" class="custom-dropdown dropdown-readPPS_Display_Latest_Stored_Values" style="top: 150px; left: 651px; width: 174px; height: 24px; z-index: 10000; /* Kept positioning inline, move appearance to CSS */">
-      <div class="selected-option">Not Set</div> <div class="dropdown-options">
-         <div data-value="REVIEW">Not Set</div>
-        <div data-value="ESCALATED">Escalated</div>
-        <div data-value="COMPLETED">Completed</div>
+  <div class="table-header" style="display: grid; grid-template-columns: 100px 160px 180px 150px 150px; /* Adjust column widths as needed */ min-width: 740px; height: 25px; background-color: #e5e5e5; border-bottom: 1px solid #d0d0d0; position: sticky; top: 0; z-index: 10;">
+    <div>Source</div>
+    <div>Status Timestamp</div>
+    <div>Total Debt. (Payment based)</div>
+    <div>DRR (Payment Based)</div>
+    <div>Max Recovery Rate (%)</div>
+  </div>
+
+  <div id="PPSdebtsettings-table">
+      </div>
+
+</div>
+<!-- radio boxes -->
+	
+	<div style="position: absolute; top: 153px; left: 838px;">
+  <input type="radio" name="PPS_latest_Read" value="custom" title="Latest" />
+</div>
+		<div style="position: absolute; top: 153px; left: 918px;">
+  <input type="radio" name="PPS_select_Date" value="custom" title="Select Date" />
+</div>
+	
+    <div id="readPPS_Display_Latest_Stored_Values" class="custom-dropdown dropdown-readPPS_Display_Latest_Stored_Values" style="top: 150px; left: 651px; width: 174px; height: 24px; z-index: 10000;">
+      <div class="selected-option">Display Latest Stored Values</div> 
+		<div class="dropdown-options">
+        <div data-value="DisplayLatestStoredValues">Display Latest Stored Values</div>
+      
       </div>
     </div>
-
-    <div style="position: absolute; top: 153px; left: 838px;">
-      <input type="radio" name="readMode" value="latest" title="Latest" checked /> </div>
-    <div style="position: absolute; top: 153px; left: 918px;">
-      <input type="radio" name="readMode" value="selectDate" title="Select Date" /> </div>
-
     <input class="input-field" id="Stored_ReadPPS_Date"
       style="top: 152px; left: 1042px; height:16px; width:80px; background: transparent; z-index: 10000;"
       title="Stored Meter Reads Date From">
 
-    <a href="#" id="executeReadPPS" style="position: absolute; top: 149px; left: 1154px; height: 27px; width: 120px;">
-      <img src="../images/buttons/executegreyxw.png"
-           onmouseover="this.src='../images/buttons/executebluexw.png';"
-           onmouseout="this.src='../images/buttons/executegreyxw.png';"
-           alt="Execute"
-           style="width: 120px; height: 27px; display: block;" />
-    </a>
-
-    <a href="#" style="position: absolute; top: 176px; left: 898px; height: 27px; width: 152px;">
-      <img src="../images/buttons/reprocesspdocdeselected.png"
-           onmouseover="this.src='../images/buttons/reprocesspdocdeselected.png';"
-           onmouseout="this.src='../images/buttons/reprocesspdocdeselected.png';"
-           alt="Reprocess PDOC"
-           style="width: 152px; height: 27px; display: block;" />
-    </a>
-    <div class="utrn-frame" style="position: absolute; top: 240px; left: 580px; width: 923px; height: 70px; /* Adjust size as needed */ border: 1px solid #ccc; background-color: rgba(255, 255, 255, 0.2); overflow-y: auto; overflow-x: hidden; font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif; font-size: 13px; color: #4d4d4d; z-index: 1;">
-
-      <div class="table-header" style="display: grid; grid-template-columns: 100px 160px 180px 150px 150px; /* Adjust column widths */ min-width: 740px; height: 25px; background-color: #e5e5e5; border-bottom: 1px solid #d0d0d0; position: sticky; top: 0; z-index: 10;">
-        <div>Source</div>
-        <div>Status Timestamp</div>
-        <div>Total Debt. (Payment based)</div>
-        <div>DRR (Payment Based)</div>
-        <div>Max Recovery Rate (%)</div>
-      </div>
-
-      <div id="PPSdebtsettings-table">
-          </div>
-
-    </div>
     <a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
     <a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
     <a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
@@ -92,6 +79,22 @@
            style="width: 40px; height: 27px; display: block;" />
     </a>
 
+    <a href="#" style="position: absolute; top: 149px; left: 1154px; height: 27px; width: 120px;">
+      <img src="../images/buttons/executegreyxw.png"
+           onmouseover="this.src='../images/buttons/executebluexw.png';"
+           onmouseout="this.src='../images/buttons/executegreyxw.png';"
+           alt="Execute"
+           style="width: 120px; height: 27px; display: block;" />
+    </a>
+	
+	<a href="#" style="position: absolute; top: 176px; left: 898px; height: 27px; width: 152px;">
+      <img src="../images/buttons/reprocesspdocdeselected.png"
+           onmouseover="this.src='../images/buttons/reprocesspdocdeselected.png';"
+           onmouseout="this.src='../images/buttons/reprocesspdocdeselected.png';"
+           alt="#"
+           style="width: 152px; height: 27px; display: block;" />
+    </a>
+
     <a href="" id="resetButton" style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
       <img src="../images/buttons/resetgrey.png"
            onmouseover="this.src='../images/buttons/resetblue.png';"
@@ -103,5 +106,7 @@
 </div> <script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/reset-scenario-handler.js"></script> <script src="/smartui/scripts/popper.js"></script>
 <script src="/smartui/scripts/tippy.umd.js"></script>
-<script src="/smartui/scripts/dropdown-bsr-handler.js"></script> <script src="/smartui/scripts/readprepaymentsettings-loader.js"></script> </body>
+<script src="/smartui/scripts/dropdown-bsr-handler.js"></script> </body>
+<script src="../scripts/readprepaymentsettings-loader.js"></script>
+<script src="../scripts/scenario-dropdown-handler.js"></script>
 </html>

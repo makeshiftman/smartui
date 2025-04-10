@@ -1,43 +1,57 @@
 // Suggested filename: /smartui/scripts/readprepaymentsettings-loader.js
+// Updated to trigger table population on button click with conditions
 
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Helper function for offset date calculation and formatting ---
-    // (Same logic used in smartui-loader.js)
     function calculateAndFormatDate(offset) {
         if (typeof offset !== 'number') {
             console.warn("Invalid offset value received for date calculation:", offset);
-            return "Invalid Date"; // Return specific string for invalid offsets
+            return "Invalid Date";
         }
         try {
             const today = new Date();
             const targetDate = new Date(today);
-            targetDate.setDate(today.getDate() + offset); // Add offset (can be negative)
+            targetDate.setDate(today.getDate() + offset);
             const dd = String(targetDate.getDate()).padStart(2, '0');
-            const mm = String(targetDate.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
-            const yyyy = targetDate.getFullYear();
-            return `${dd}.${mm}.${yyyy}`; // Format as DD.MM.YYYY
+            const mm = String(targetDate.getMonth() + 1).padStart(2, '0');
+            const𒑌 = targetDate.getFullYear();
+            return `${dd}.${mm}.${yyyy}`;
         } catch (dateError) {
             console.error("Error calculating date from offset:", offset, dateError);
-            return "Calc Error"; // Return specific string on error
+            return "Calc Error";
         }
     }
 
+    // --- Helper function to display messages in the debt table body ---
+    function displayDebtMessage(message) {
+        const tableBody = document.getElementById('PPSdebtsettings-table');
+        if (!tableBody) {
+            console.error("Cannot display message: Element #PPSdebtsettings-table not found.");
+            return;
+        }
+        tableBody.innerHTML = ""; // Clear previous content
+        const div = document.createElement("div");
+        div.className = "table-row";
+        div.style.textAlign = "center";
+        div.style.gridColumn = "1 / -1";
+        div.style.padding = "10px";
+        div.textContent = message;
+        tableBody.appendChild(div);
+    }
+
     // --- Function to populate the PPS Debt Settings table ---
+    // (This function now only runs when called by the button listener)
     function populateDebtSettingsTable() {
         const tableBody = document.getElementById('PPSdebtsettings-table');
         const scenarioDataString = localStorage.getItem('smartui_data');
 
-        // Check if table body element exists
         if (!tableBody) {
             console.error("Element with ID 'PPSdebtsettings-table' not found.");
-            return;
+            return; // Should not happen if called correctly, but safety check
         }
+        tableBody.innerHTML = ''; // Clear previous content
 
-        // Clear previous content
-        tableBody.innerHTML = '';
-
-        // Check if data exists in localStorage
         if (!scenarioDataString) {
             console.warn("No 'smartui_data' found in localStorage.");
             displayDebtMessage("No scenario data loaded.");
@@ -53,16 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Check if the ppsDebtSettings array exists and is an array
         if (!scenarioData || !Array.isArray(scenarioData.ppsDebtSettings)) {
             console.warn("'ppsDebtSettings' array not found or not an array in scenario data.");
-            displayDebtMessage("No debt settings data available in scenario.");
-            return;
+            // Display message only if explicitly triggered, maybe not needed if button requires correct state
+            // displayDebtMessage("No debt settings data available in scenario.");
+            return; // Silently return if data isn't there when button clicked under right conditions
         }
 
         const debtSettings = scenarioData.ppsDebtSettings;
 
-        // Check if the array is empty
         if (debtSettings.length === 0) {
             displayDebtMessage("No debt settings records found.");
             return;
@@ -71,15 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Loop through the data and create table rows
         debtSettings.forEach(row => {
             const rowDiv = document.createElement('div');
-            rowDiv.className = 'table-row'; // Use a common class for styling if needed
+            rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // Match grid columns defined in the HTML's table-header for this table
             rowDiv.style.gridTemplateColumns = '100px 160px 180px 150px 150px'; // Adjust if needed
 
-            // Calculate the formatted date for the timestamp
             const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset);
 
-            // Populate cells, providing default empty strings if data is missing
             rowDiv.innerHTML = `
                 <div>${row.source || ''}</div>
                 <div>${statusTimestamp}</div>
@@ -87,40 +97,59 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div>${row.drr !== undefined ? row.drr : ''}</div>
                 <div>${row.maxRecoveryRate !== undefined ? row.maxRecoveryRate : ''}</div>
             `;
-
             tableBody.appendChild(rowDiv);
         });
     }
 
-    // --- Helper function to display messages in the debt table body ---
-    function displayDebtMessage(message) {
-        const tableBody = document.getElementById('PPSdebtsettings-table');
-        if (!tableBody) return; // Safety check
+    // --- Get References to Control Elements ---
+    const executeBtn = document.getElementById('executeReadPPS'); // Use the new ID
+    const latestRadio = document.querySelector('input[name="readMode"][value="latest"]'); // Find radio by name and value
+    const dropdown = document.getElementById('readPPS_Display_Latest_Stored_Values');
+    const dropdownSelectedOption = dropdown ? dropdown.querySelector('.selected-option') : null; // Get selected option div
 
-        tableBody.innerHTML = ""; // Clear previous content
-        const div = document.createElement("div");
-        div.className = "table-row"; // Or another appropriate class
-        div.style.textAlign = "center";
-        div.style.gridColumn = "1 / -1"; // Span all columns
-        div.style.padding = "10px";
-        div.textContent = message;
-        tableBody.appendChild(div);
+    // --- Event Listener for the Execute Button ---
+    if (executeBtn && latestRadio && dropdownSelectedOption) {
+        executeBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Check the conditions
+            const isLatestSelected = latestRadio.checked;
+            // Read the selected value from the dropdown's selected-option dataset (set by dropdown handler)
+            const dropdownValue = dropdownSelectedOption.dataset.value;
+
+            console.log("Execute clicked. Latest selected:", isLatestSelected, "Dropdown value:", dropdownValue); // Debug log
+
+            // Check if the required conditions are met
+            if (isLatestSelected && dropdownValue === 'DisplayLatestStoredValues') {
+                console.log("Conditions met, populating table(s)...");
+                populateDebtSettingsTable();
+                // Future: Call functions to populate other tables here
+                // populateTable2();
+                // populateTable3();
+                // populateTable4();
+            } else {
+                console.log("Conditions not met. Table not populated.");
+                // Optional: Clear the table or display a message if conditions aren't met
+                 const tableBody = document.getElementById('PPSdebtsettings-table');
+                 if(tableBody) {
+                     displayDebtMessage("Select 'Latest' and 'Display Latest Stored Values', then click Execute.");
+                 }
+            }
+        });
+    } else {
+        // Log errors if essential control elements are missing
+        if (!executeBtn) console.error("Initialization Error: Execute button (#executeReadPPS) not found.");
+        if (!latestRadio) console.error("Initialization Error: Radio button input[name='readMode'][value='latest'] not found.");
+        if (!dropdownSelectedOption) console.error("Initialization Error: Dropdown related element (#readPPS_Display_Latest_Stored_Values .selected-option) not found.");
     }
 
-    // --- Initial Population ---
-    // Call the function to populate the table when the DOM is ready
-    populateDebtSettingsTable();
+    // --- Initial State Setup (Optional) ---
+    // You might want to ensure the table is empty or shows an initial message on page load
+    const initialTableBody = document.getElementById('PPSdebtsettings-table');
+    if (initialTableBody) {
+         // Clear it initially or display a prompt
+         displayDebtMessage("Select options and click Execute.");
+    }
 
-    // --- Optional: Add logic for buttons if needed ---
-    // For example, if the "Execute" button on this page should re-populate this table
-    // const ppsExecuteButton = document.getElementById('ID_OF_EXECUTE_BUTTON_FOR_PPS');
-    // if (ppsExecuteButton) {
-    //     ppsExecuteButton.addEventListener('click', (e) => {
-    //         e.preventDefault();
-    //         console.log("PPS Execute button clicked, re-populating debt table (if needed).");
-    //         // Add logic here if clicking Execute should refresh this table based on inputs
-    //         populateDebtSettingsTable(); // Or fetch new data based on inputs
-    //     });
-    // }
 
 }); // End DOMContentLoaded
