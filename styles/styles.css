@@ -567,7 +567,7 @@ body {
 
 /* Style for each option */
 #readPPS_Display_Latest_Stored_Values .dropdown-options div {
-  padding: 8px;
+  padding: 5px;
   cursor: pointer;
 }
 
