@@ -263,5 +263,25 @@
       "register3": "",
       "register4": ""
     }
+  ],
+
+
+  "ppsDebtSettings": [
+    {
+      "source": "SAP DATA",
+      "statusTimestampOffset": -1, // 1 day ago
+      "totalDebt": 75.50,
+      "drr": 5.00,
+      "maxRecoveryRate": 10
+    },
+    {
+      "source": "METER DATA",
+      "statusTimestampOffset": -1, // 1 day ago
+      "totalDebt": 120.00,
+      "drr": 5.00,
+      "maxRecoveryRate": 10
+    }
   ]
+
 }
+
