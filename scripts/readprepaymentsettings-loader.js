@@ -1,9 +1,10 @@
 // Final version for: /smartui/scripts/readprepaymentsettings-loader.js
-// Populates 3 tables. Includes validation fix, alignment fixes, number formatting, AND removed stray comment.
+// Populates All 4 Tables (Debt, Meter Balance, Emergency Credit, NDCID).
+// Includes validation fix, alignment fixes, number formatting, and random time for NDCID timestamp.
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Helper function for offset date calculation and formatting ---
+    // --- Helper function for offset date calculation and formatting (DATE ONLY) ---
     function calculateAndFormatDate(offset) {
         if (typeof offset !== 'number') { console.warn("Invalid offset value received for date calculation:", offset); return "Invalid Date"; }
         try { const today = new Date(); const targetDate = new Date(today); targetDate.setDate(today.getDate() + offset);
@@ -13,28 +14,61 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (dateError) { console.error("Error calculating date from offset:", offset, dateError); return "Calc Error"; }
     }
 
+    // --- *** NEW Helper function for Date and RANDOM Time formatting *** ---
+    function calculateAndFormatDateTime(offset) {
+        // Date Calculation Part
+        let datePart = "Invalid Date";
+        if (typeof offset !== 'number') {
+            console.warn("Invalid offset value received for date calculation:", offset);
+        } else {
+            try {
+                const today = new Date();
+                const targetDate = new Date(today);
+                targetDate.setDate(today.getDate() + offset);
+                const dd = String(targetDate.getDate()).padStart(2, '0');
+                const mm = String(targetDate.getMonth() + 1).padStart(2, '0');
+                const year = targetDate.getFullYear();
+                datePart = `${dd}.${mm}.${year}`;
+            } catch (dateError) {
+                console.error("Error calculating date from offset:", offset, dateError);
+                datePart = "Calc Error";
+            }
+        }
+
+        // Random Time Generation Part
+        const randomHour = Math.floor(Math.random() * 24); // 0-23
+        const randomMinute = Math.floor(Math.random() * 60); // 0-59
+        const randomSecond = Math.floor(Math.random() * 60); // 0-59
+
+        const hh = String(randomHour).padStart(2, '0');
+        const mi = String(randomMinute).padStart(2, '0');
+        const ss = String(randomSecond).padStart(2, '0');
+        const timePart = `${hh}:${mi}:${ss}`;
+
+        // Combine date and time
+        // If date failed, still show the random time maybe? Or return just the error?
+        // Returning combined for now.
+        return `${datePart} ${timePart}`;
+    }
+
+
     // --- Helper function to format numbers to fixed decimal places ---
     function formatDecimal(value, places = 2) {
-        if (value === null || value === undefined || value === '') {
-            return ''; // Handle null, undefined, or empty string
-        }
-        const num = Number(value); // Ensure it's treated as a number
-        if (isNaN(num)) {
-            // console.warn(`formatDecimal: Input '${value}' could not be converted to a number.`);
-            return ''; // Return empty if input is not numeric
-        }
-        return num.toFixed(places); // Format valid numbers and return as string
+        if (value === null || value === undefined || value === '') { return ''; }
+        const num = Number(value);
+        if (isNaN(num)) { return ''; }
+        return num.toFixed(places);
     }
 
     // --- Helper function to display messages in a table body ---
     function displayTableMessage(tableBodyId, message) {
         const tableBody = document.getElementById(tableBodyId);
         if (!tableBody) { console.error(`Cannot display message: Element #${tableBodyId} not found.`); return; }
-        tableBody.innerHTML = ""; // Clear previous content
+        tableBody.innerHTML = "";
         const div = document.createElement("div");
-        div.className = "table-row"; // Assuming consistent row class
+        div.className = "table-row";
         div.style.textAlign = "center";
-        div.style.gridColumn = "1 / -1"; // Span all columns
+        div.style.gridColumn = "1 / -1";
         div.style.padding = "10px";
         div.textContent = message;
         tableBody.appendChild(div);
@@ -66,9 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
             rowDiv.style.gridTemplateColumns = '140px 170px 180px 150px 230px';
-            const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset);
-            // *** Use formatDecimal for numeric fields ***
-            // *** Removed stray comment that was appearing after this block ***
+            const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset); // Uses Date Only helper
             rowDiv.innerHTML = `
                 <div>${row.source || ''}</div>
                 <div>${statusTimestamp}</div>
@@ -86,46 +118,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const tableBody = document.getElementById(tableBodyId);
         const scenarioDataString = localStorage.getItem('smartui_data');
 
-        if (!tableBody) {
-            console.error("populateMeterBalanceTable Error: Element #" + tableBodyId + " not found.");
-            return;
-        }
+        if (!tableBody) { console.error("populateMeterBalanceTable Error: Element #" + tableBodyId + " not found."); return; }
         tableBody.innerHTML = '';
 
-        if (!scenarioDataString) {
-            console.warn("populateMeterBalanceTable: No 'smartui_data' found in localStorage.");
-            displayTableMessage(tableBodyId, "No scenario data loaded.");
-            return;
-        }
-
+        if (!scenarioDataString) { console.warn("populateMeterBalanceTable: No 'smartui_data'."); displayTableMessage(tableBodyId, "No scenario data loaded."); return; }
         let scenarioData;
-        try {
-            scenarioData = JSON.parse(scenarioDataString);
-        } catch (e) {
-            console.error("populateMeterBalanceTable: Failed to parse 'smartui_data' from localStorage:", e);
-            displayTableMessage(tableBodyId, "Error reading scenario data.");
-            return;
-        }
+        try { scenarioData = JSON.parse(scenarioDataString); } catch (e) { console.error("populateMeterBalanceTable: Failed to parse 'smartui_data'.", e); displayTableMessage(tableBodyId, "Error reading scenario data."); return; }
 
         const meterBalanceData = scenarioData.ppsMeterBalanceData;
-
-        if (!Array.isArray(meterBalanceData)) {
-            console.warn("populateMeterBalanceTable: 'ppsMeterBalanceData' array not found or not an array in scenario data.");
-            displayTableMessage(tableBodyId, "No meter balance data available in scenario.");
-            return;
-        }
-
-        if (meterBalanceData.length === 0) {
-            displayTableMessage(tableBodyId, "No meter balance records found.");
-            return;
-        }
+        if (!Array.isArray(meterBalanceData)) { console.warn("populateMeterBalanceTable: 'ppsMeterBalanceData' not found or not array."); displayTableMessage(tableBodyId, "No meter balance data available."); return; }
+        if (meterBalanceData.length === 0) { displayTableMessage(tableBodyId, "No meter balance records found."); return; }
 
         meterBalanceData.forEach(row => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
-            const statusTimestamp = calculateAndFormatDate(row.mbstatusTimestampOffset);
+            const statusTimestamp = calculateAndFormatDate(row.mbstatusTimestampOffset); // Uses Date Only helper
             rowDiv.innerHTML = `
                 <div>${row.mbsource || ''}</div>
                 <div>${statusTimestamp}</div>
@@ -143,58 +152,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const tableBody = document.getElementById(tableBodyId);
         const scenarioDataString = localStorage.getItem('smartui_data');
 
-        if (!tableBody) {
-            console.error("populateEmergencyCreditTable Error: Element #" + tableBodyId + " not found.");
-            return;
-        }
+        if (!tableBody) { console.error("populateEmergencyCreditTable Error: Element #" + tableBodyId + " not found."); return; }
         tableBody.innerHTML = '';
 
-        if (!scenarioDataString) {
-            console.warn("populateEmergencyCreditTable: No 'smartui_data' found in localStorage.");
-            displayTableMessage(tableBodyId, "No scenario data loaded.");
-            return;
-        }
-
+        if (!scenarioDataString) { console.warn("populateEmergencyCreditTable: No 'smartui_data'."); displayTableMessage(tableBodyId, "No scenario data loaded."); return; }
         let scenarioData;
-        try {
-            scenarioData = JSON.parse(scenarioDataString);
-        } catch (e) {
-            console.error("populateEmergencyCreditTable: Failed to parse 'smartui_data' from localStorage:", e);
-            displayTableMessage(tableBodyId, "Error reading scenario data.");
-            return;
-        }
+        try { scenarioData = JSON.parse(scenarioDataString); } catch (e) { console.error("populateEmergencyCreditTable: Failed to parse 'smartui_data'.", e); displayTableMessage(tableBodyId, "Error reading scenario data."); return; }
 
         const emergencyCreditData = scenarioData.ppsEmergencyCreditSettingsData;
-
-        if (!Array.isArray(emergencyCreditData)) {
-            console.warn("populateEmergencyCreditTable: 'ppsEmergencyCreditSettingsData' array not found or not an array in scenario data.");
-            displayTableMessage(tableBodyId, "No emergency credit data available in scenario.");
-            return;
-        }
-
-         if (emergencyCreditData.length === 0) {
-            displayTableMessage(tableBodyId, "No emergency credit records found.");
-            return;
-        }
-
-        if (emergencyCreditData.length !== 2) {
-            console.warn(`populateEmergencyCreditTable: Expected 2 rows in 'ppsEmergencyCreditSettingsData', found ${emergencyCreditData.length}. Displaying first two if available.`);
-        }
+        if (!Array.isArray(emergencyCreditData)) { console.warn("populateEmergencyCreditTable: 'ppsEmergencyCreditSettingsData' not found or not array."); displayTableMessage(tableBodyId, "No emergency credit data."); return; }
+        if (emergencyCreditData.length === 0) { displayTableMessage(tableBodyId, "No emergency credit records found."); return; }
+        if (emergencyCreditData.length !== 2) { console.warn(`populateEmergencyCreditTable: Expected 2 rows, found ${emergencyCreditData.length}.`); }
 
         emergencyCreditData.slice(0, 2).forEach((row, index) => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
-
+            rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px'; // Uses 5 columns based on last HTML
             let source = '', statusTimestamp = '', meterBalance = '', emergencyCreditLimit = '', lowCreditThreshold = '';
 
-            if (index === 0) {
-                 source = row.ecssourceSAP; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetSAP);
+            if (index === 0) { /* SAP */
+                 source = row.ecssourceSAP; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetSAP); // Uses Date Only helper
                  meterBalance = row.ecsMeterBalanceSAP; emergencyCreditLimit = row.ecsEmergencyCreditLimitSAP;
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdSAP;
-            } else if (index === 1) {
-                 source = row.ecssourceMeter; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetMeter);
+            } else if (index === 1) { /* Meter */
+                 source = row.ecssourceMeter; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetMeter); // Uses Date Only helper
                  meterBalance = row.ecsMeterBalanceMeter; emergencyCreditLimit = row.ecsEmergencyCreditLimitMeter;
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdMeter;
             } else { return; }
@@ -205,6 +187,87 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div>${formatDecimal(meterBalance)}</div>
                 <div>${formatDecimal(emergencyCreditLimit)}</div>
                 <div>${formatDecimal(lowCreditThreshold)}</div>
+            `;
+            tableBody.appendChild(rowDiv);
+        });
+    }
+
+    // --- *** NEW Function to populate the NDCID table (Table 4) *** ---
+    function populateNdcidTable() {
+        const tableBodyId = 'ppsNdcid-table'; // Use the ID you define for this table body
+        const tableBody = document.getElementById(tableBodyId);
+        const scenarioDataString = localStorage.getItem('smartui_data');
+
+        if (!tableBody) {
+            console.error("populateNdcidTable Error: Element #" + tableBodyId + " not found.");
+            return;
+        }
+        tableBody.innerHTML = ''; // Clear previous content
+
+        if (!scenarioDataString) {
+            console.warn("populateNdcidTable: No 'smartui_data' found in localStorage.");
+            displayTableMessage(tableBodyId, "No scenario data loaded.");
+            return;
+        }
+
+        let scenarioData;
+        try {
+            scenarioData = JSON.parse(scenarioDataString);
+        } catch (e) {
+            console.error("populateNdcidTable: Failed to parse 'smartui_data' from localStorage:", e);
+            displayTableMessage(tableBodyId, "Error reading scenario data.");
+            return;
+        }
+
+        // Use the JSON key ppsNonDisablementCalendarIDData
+        const ndcidData = scenarioData.ppsNonDisablementCalendarIDData;
+
+        // Check if the data exists and is an array
+        if (!Array.isArray(ndcidData)) {
+            console.warn("populateNdcidTable: 'ppsNonDisablementCalendarIDData' array not found or not an array.");
+            displayTableMessage(tableBodyId, "No NDCID data available in scenario.");
+            return;
+        }
+
+         if (ndcidData.length === 0) {
+            displayTableMessage(tableBodyId, "No NDCID records found.");
+            return;
+        }
+
+        if (ndcidData.length !== 2) {
+            console.warn(`populateNdcidTable: Expected 2 rows, found ${ndcidData.length}. Displaying first two.`);
+        }
+
+        // Process the two specific rows
+        ndcidData.slice(0, 2).forEach((row, index) => {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'table-row';
+            rowDiv.style.display = 'grid';
+            // Use grid columns from HTML header provided ('140px 170px 120px 200px')
+            rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px';
+
+            let source = '', statusTimestamp = '', calendarId = '', description = '';
+
+            if (index === 0) { // SAP Data
+                 source = row.ndcidsourceSAP;
+                 // *** Use NEW DateTime helper for random time ***
+                 statusTimestamp = calculateAndFormatDateTime(row.ndcidstatusTimestampOffsetSAP);
+                 calendarId = row.ndcidNonDisablementCalendarIDSAP;
+                 description = row.ndcidDescriptionSAP;
+            } else if (index === 1) { // Meter Data
+                 source = row.ndcidsourceMeter;
+                 // *** Use NEW DateTime helper for random time ***
+                 statusTimestamp = calculateAndFormatDateTime(row.ndcidstatusTimestampOffsetMeter);
+                 calendarId = row.ndcidNonDisablementCalendarIDMeter;
+                 description = row.ndcidDescriptionMeter;
+            } else { return; }
+
+            // Populate the 4 columns
+            rowDiv.innerHTML = `
+                <div>${source || ''}</div>
+                <div>${statusTimestamp || ''}</div>
+                <div>${calendarId || ''}</div>
+                <div>${description || ''}</div>
             `;
             tableBody.appendChild(rowDiv);
         });
@@ -228,11 +291,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Execute clicked. Latest selected:", isLatestSelected, "Dropdown text:", dropdownText);
 
             if (isLatestSelected && dropdownText === 'Display Latest Stored Values') {
-                console.log("Conditions met, populating tables...");
+                console.log("Conditions met, populating ALL tables...");
                 populateDebtSettingsTable();
                 populateMeterBalanceTable();
                 populateEmergencyCreditTable();
-                // populateTable4(); // Add call for final table here when ready
+                populateNdcidTable(); // *** ADDED: Call for final table ***
             } else {
                 console.log("Conditions not met. Tables not populated.");
                  displayTableMessage('PPSdebtsettings-table', "Select 'Latest' and 'Display Latest Stored Values', then click Execute.");
@@ -241,7 +304,8 @@ document.addEventListener('DOMContentLoaded', () => {
                  if (meterBalanceTableBody) meterBalanceTableBody.innerHTML = '';
                  const emergencyCreditTableBody = document.getElementById('PPEmergencyCreditSettings-table');
                  if (emergencyCreditTableBody) emergencyCreditTableBody.innerHTML = '';
-                 // Clear Table 4 Body if needed
+                 const ndcidTableBody = document.getElementById('ppsNdcid-table'); // *** ADDED: Clear table 4 ***
+                 if (ndcidTableBody) ndcidTableBody.innerHTML = ''; // *** ADDED: Clear table 4 ***
             }
         });
     } else {
@@ -252,10 +316,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Initial State Setup ---
+    // Ensure tables show an initial message or are cleared on page load
     displayTableMessage('PPSdebtsettings-table', "Select options and click Execute.");
     displayTableMessage('PPSmeterbalance-table', "");
     displayTableMessage('PPEmergencyCreditSettings-table', "");
-    // Display initial message for Table 4
+    displayTableMessage('ppsNdcid-table', ""); // *** ADDED: Initial state for table 4 ***
 
 
 }); // End DOMContentLoaded
