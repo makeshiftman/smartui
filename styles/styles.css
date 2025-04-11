@@ -587,7 +587,7 @@ body {
 /* Style for individual cells WITHIN the header for ONLY these tables */
 .pps-info-table .table-header > div {
    padding: 4px 6px; 
-   font-weight: bold; 
+   font-weight: normal; 
    border-right: 1px solid #d0d0d0; 
 }
 .pps-info-table .table-header > div:last-child {
