@@ -26,6 +26,8 @@
   "device_End": "31.12.9999",
   "device_Status": "Commissioned",
   "smets1_DCC": "No",
+  "PID": "9482748572631049285"
+  
   "utrnRows": [
     {
       "createdOffset": -13,
