@@ -55,21 +55,16 @@ body {
 
 /* Find popup box */
 #find-popup {
-  display: none; /* *** ADDED: Hide by default *** */
-  position: fixed; /* *** CHANGED: Use fixed for viewport centering *** */
-  left: 50%;     /* *** ADDED: Center horizontally *** */
-  top: 50%;      /* *** ADDED: Center vertically *** */
-  transform: translate(-50%, -50%); /* *** ADDED: Precise centering adjustment *** */
-  width: 580px;  /* Keep existing dimensions */
-  height: 254px; /* Keep existing dimensions */
+  position: absolute;
+  top: 600px;
+  left: 820px;
+  width: 580px;
+  height: 254px;
   background: url('../images/findpopup.png') no-repeat;
   background-size: cover;
   z-index: 20000;
   font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
   font-size: 13px;
-  /* Removed fixed top/left which were overriding centering */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: Added subtle shadow */
-  border: 1px solid #888; /* Optional: Added subtle border */
 }
 
 /* UTRN number in popup */
@@ -86,52 +81,9 @@ body {
   background: none;
   color: black;
   text-align: left;
-  z-index: 20001; /* Ensure input is above background */
 }
-
-/* --- ADDED Rules for Close Buttons --- */
-/* Basic style for all close buttons */
-.popup-close-button {
-    position: absolute; /* Position relative to the #find-popup container */
-    cursor: pointer;
-    z-index: 20002; /* Ensure buttons are on top */
-    /* Optional: Add a semi-transparent background during testing 
-       to see the clickable area */
-    /* background-color: rgba(255, 0, 0, 0.3); */ 
-    /* border: 1px dashed red; */
-}
-
-/* Specific positions for each close button */
-/* !!! ACTION REQUIRED: Adjust top, left, right, bottom, width, height VALUES BELOW 
-       to match the exact locations of the clickable areas on your findpopup.png image !!! */
-#popup-close-x1 {
-    top: 8px;      /* EXAMPLE */
-    right: 8px;     /* EXAMPLE */
-    width: 25px;    /* EXAMPLE - Make it big enough to click */
-    height: 25px;   /* EXAMPLE */
-}
-
-#popup-close-x2 {
-    /* Add position for the second 'X' - where is it on your image? */
-    top: 8px;      /* EXAMPLE */
-    left: 8px;     /* EXAMPLE */
-    width: 25px;   /* EXAMPLE */
-    height: 25px;  /* EXAMPLE */
-}
-
-#popup-close-tick {
-     /* Add position for the 'tick' - where is it on your image? */
-    bottom: 12px;    /* EXAMPLE */
-    right: 12px;     /* EXAMPLE */
-    width: 30px;     /* EXAMPLE */
-    height: 30px;    /* EXAMPLE */
-}
-/* --- End Added Rules --- */
-
 
 /* Custom dropdown for UTRN Generate */
-/* --- ALL YOUR OTHER CUSTOM DROPDOWN STYLES --- */
-/* --- (Keep all existing styles from here down) --- */
 
 .custom-dropdown {
   position: absolute;
@@ -204,7 +156,7 @@ body {
 }
 
 .custom-dropdown.dropdown-commrequested1 .dropdown-options {
-  width: 60px;
+  width: 60px; 
 }
 
 /* Update PPS Comm requested dropdown option on Update debt page */
@@ -214,7 +166,7 @@ body {
 }
 
 .custom-dropdown.dropdown-commrequested2 .dropdown-options {
-  width: 60px;
+  width: 60px; 
 }
 
 /* Update PPS DRR Type */
@@ -261,7 +213,7 @@ body {
   width: 150px;    /* 👈 Adjust the field width */
   height: 24px;    /* 👈 Adjust the clickable field height */
   z-index: 10000;  /* Keep it on top of other elements */
-
+  
 }
 
 /* Main clickable field styling */
@@ -374,9 +326,9 @@ body {
   z-index: 10001;
 }
 
-/*
+/* 
   Custom Dropdown: #messages_Select_Request_Status
-  Positioned absolutely on the page with legacy styling.
+  Positioned absolutely on the page with legacy styling. 
   Contains a visible selected option and a hidden dropdown menu revealed on interaction.
 */
 
@@ -429,9 +381,9 @@ body {
   cursor: pointer;
 }
 
-/*
+/* 
   Custom Dropdown: #messages_Select_Process_Description
-  Positioned absolutely on the page with legacy styling.
+  Positioned absolutely on the page with legacy styling. 
   Contains a visible selected option and a hidden dropdown menu revealed on interaction.
 */
 
