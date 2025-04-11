@@ -34,7 +34,7 @@ function formatDateToDDMMYYYY(dateObj) {
   if (!(dateObj instanceof Date) || isNaN(dateObj)) { return ""; }
   const dd = String(dateObj.getDate()).padStart(2, '0');
   const mm = String(dateObj.getMonth() + 1).padStart(2, '0');
-  const<x_bin_664> = dateObj.getFullYear();
+  const yyyy = dateObj.getFullYear();
   return `${dd}.${mm}.${yyyy}`;
 }
 // *** ADDED END ***
