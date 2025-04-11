@@ -308,6 +308,20 @@
       "ecsEmergencyCreditLimitMeter": 10.00,
       "ecsEmergencyCreditThresholdMeter": 1.00
     }
+  ],
+  "ppsNonDisablementCalendarIDData": [
+    {
+      "ndcidsourceSAP": "SAP DATA",
+      "ndcidstatusTimestampOffsetSAP": -1,
+      "ndcidNonDisablementCalendarIDSAP": "01",
+      "ndcidDescriptionSAP": "SUNDAYS BANK HOLIDAYS",
+    },
+    {
+      "ndcidsourceMeter": "METER DATA",
+      "ndcidstatusTimestampOffsetMeter": -13,
+      "ndcidNonDisablementCalendarIDMeter": "01",
+      "ndcidDescriptionMeter": "SUNDAYS BANK HOLIDAYS",
+    }
   ]
 
 
