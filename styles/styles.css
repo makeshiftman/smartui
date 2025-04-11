@@ -576,3 +576,41 @@ body {
   background-color: #ddd;
 }
 
+/* --- Specific Styling for PPS Info Tables --- */
+
+/* Header Styling for ONLY these tables */
+.pps-info-table .table-header {
+  background-color: #e5e5e5; 
+  /* Other header styles */
+}
+
+/* Style for individual cells WITHIN the header for ONLY these tables */
+.pps-info-table .table-header > div {
+   padding: 4px 6px; 
+   font-weight: bold; 
+   border-right: 1px solid #d0d0d0; 
+}
+.pps-info-table .table-header > div:last-child {
+   border-right: none; 
+}
+
+/* Data Row Cell Styling for ONLY these tables */
+/* Targets every <div> immediately inside a .table-row 
+ that is itself inside a .pps-info-table */
+.pps-info-table .table-row > div {
+  background-color: #eaedf0; /* Light background for data cells */
+  border: 1px solid #dddddd; /* Light border around data cells */
+  padding: 4px 6px;          /* Add some padding inside cells */
+  border-top: none;          /* Avoid double borders between rows */
+  border-left: none;   /* Optional: Remove left border if desired */
+  overflow: hidden;          
+  text-overflow: ellipsis;   
+  white-space: nowrap;       
+}
+
+/* Optional: Remove right border from last cell in data rows for these tables */
+.pps-info-table .table-row > div:last-child {
+   border-right: none; 
+}
+
+/* --- End Specific Styling --- */
