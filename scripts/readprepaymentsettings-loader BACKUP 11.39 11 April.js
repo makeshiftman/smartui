@@ -1,5 +1,6 @@
 // Final version for: /smartui/scripts/readprepaymentsettings-loader.js
-// Populates 3 tables, includes validation fix, alignment fixes, AND number formatting.
+// Populates Debt Settings, Meter Balance, AND Emergency Credit tables.
+// Includes validation fix AND LATEST updated grid-template-columns for alignment.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,21 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         try { const today = new Date(); const targetDate = new Date(today); targetDate.setDate(today.getDate() + offset);
             const dd = String(targetDate.getDate()).padStart(2, '0'); const mm = String(targetDate.getMonth() + 1).padStart(2, '0');
             const year = targetDate.getFullYear();
-            return `<span class="math-inline">\{dd\}\.</span>{mm}.${year}`;
+            return `${dd}.${mm}.${year}`;
         } catch (dateError) { console.error("Error calculating date from offset:", offset, dateError); return "Calc Error"; }
-    }
-
-    // --- Helper function to format numbers to fixed decimal places ---
-    function formatDecimal(value, places = 2) {
-        if (value === null || value === undefined || value === '') {
-            return ''; // Handle null, undefined, or empty string
-        }
-        const num = Number(value); // Ensure it's treated as a number
-        if (isNaN(num)) {
-            // console.warn(`formatDecimal: Input '${value}' could not be converted to a number.`);
-            return ''; // Return empty if input is not numeric
-        }
-        return num.toFixed(places); // Format valid numbers and return as string
     }
 
     // --- Helper function to display messages in a table body ---
@@ -32,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!tableBody) { console.error(`Cannot display message: Element #${tableBodyId} not found.`); return; }
         tableBody.innerHTML = ""; // Clear previous content
         const div = document.createElement("div");
-        div.className = "table-row";
+        div.className = "table-row"; // Assuming consistent row class
         div.style.textAlign = "center";
-        div.style.gridColumn = "1 / -1";
+        div.style.gridColumn = "1 / -1"; // Span all columns
         div.style.padding = "10px";
         div.textContent = message;
         tableBody.appendChild(div);
@@ -65,17 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            rowDiv.style.gridTemplateColumns = '140px 170px 170px 150px 230px';
+            // *** UPDATED Grid Columns for Debt Settings Table to user's latest request ***
+            rowDiv.style.gridTemplateColumns = '140px 170px 180px 150px 230px'; // Changed 3rd value from 170px to 180px
+            // *** --- ***
             const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset);
-            // *** Use formatDecimal for numeric fields ***
-            rowDiv.innerHTML = `
-                <div><span class="math-inline">\{row\.source \|\| ''\}</div\>
-<div\></span>{statusTimestamp}</div>
-                <div><span class="math-inline">\{formatDecimal\(row\.totalDebt\)\}</div\>
-<div\></span>{formatDecimal(row.drr)}</div>
-                <div>${formatDecimal(row.maxRecoveryRate)}</div> 
-                {/* Use formatDecimal(row.maxRecoveryRate, 0) if it should be integer */}
-            `;
+            rowDiv.innerHTML = `<div>${row.source || ''}</div><div>${statusTimestamp}</div><div>${row.totalDebt !== undefined ? row.totalDebt : ''}</div><div>${row.drr !== undefined ? row.drr : ''}</div><div>${row.maxRecoveryRate !== undefined ? row.maxRecoveryRate : ''}</div>`;
             tableBody.appendChild(rowDiv);
         });
     }
@@ -124,15 +106,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
+            // Uses Grid Columns for Meter Balance Table from previous user input
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
             const statusTimestamp = calculateAndFormatDate(row.mbstatusTimestampOffset);
-            // *** Use formatDecimal for numeric fields ***
             rowDiv.innerHTML = `
-                <div><span class="math-inline">\{row\.mbsource \|\| ''\}</div\>
-<div\></span>{statusTimestamp}</div>
-                <div><span class="math-inline">\{formatDecimal\(row\.mbMeterBalance\)\}</div\>
-<div\></span>{formatDecimal(row.mbEmergencyCreditAvailable)}</div>
-                <div>${formatDecimal(row.mbLowCreditWarningThreshold)}</div>
+                <div>${row.mbsource || ''}</div>
+                <div>${statusTimestamp}</div>
+                <div>${row.mbMeterBalance !== undefined ? row.mbMeterBalance : ''}</div>
+                <div>${row.mbEmergencyCreditAvailable !== undefined ? row.mbEmergencyCreditAvailable : ''}</div>
+                <div>${row.mbLowCreditWarningThreshold !== undefined ? row.mbLowCreditWarningThreshold : ''}</div>
             `;
             tableBody.appendChild(rowDiv);
         });
@@ -186,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
+            // Use grid columns from the latest HTML header provided for THIS table
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
 
             let source = '', statusTimestamp = '', meterBalance = '', emergencyCreditLimit = '', lowCreditThreshold = '';
@@ -200,13 +183,12 @@ document.addEventListener('DOMContentLoaded', () => {
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdMeter;
             } else { return; }
 
-            // *** Use formatDecimal for numeric fields ***
             rowDiv.innerHTML = `
-                <div><span class="math-inline">\{source \|\| ''\}</div\>
-<div\></span>{statusTimestamp || ''}</div>
-                <div><span class="math-inline">\{formatDecimal\(meterBalance\)\}</div\>
-<div\></span>{formatDecimal(emergencyCreditLimit)}</div>
-                <div>${formatDecimal(lowCreditThreshold)}</div>
+                <div>${source || ''}</div>
+                <div>${statusTimestamp || ''}</div>
+                <div>${meterBalance !== undefined ? meterBalance : ''}</div>
+                <div>${emergencyCreditLimit !== undefined ? emergencyCreditLimit : ''}</div>
+                <div>${lowCreditThreshold !== undefined ? lowCreditThreshold : ''}</div>
             `;
             tableBody.appendChild(rowDiv);
         });
@@ -236,4 +218,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 populateEmergencyCreditTable();
                 // populateTable4(); // Add call for final table here when ready
             } else {
-                console.log("Conditions not met. Tables
+                console.log("Conditions not met. Tables not populated.");
+                 displayTableMessage('PPSdebtsettings-table', "Select 'Latest' and 'Display Latest Stored Values', then click Execute.");
+                 // Clear other tables if validation fails
+                 const meterBalanceTableBody = document.getElementById('PPSmeterbalance-table');
+                 if (meterBalanceTableBody) meterBalanceTableBody.innerHTML = '';
+                 const emergencyCreditTableBody = document.getElementById('PPEmergencyCreditSettings-table');
+                 if (emergencyCreditTableBody) emergencyCreditTableBody.innerHTML = '';
+                 // Clear Table 4 Body if needed
+            }
+        });
+    } else {
+        // Log errors if essential control elements are missing
+        if (!executeBtn) console.error("Initialization Error: Execute button (#executeReadPPS) not found.");
+        if (!latestRadio) console.error("Initialization Error: Radio button input[name='readMode'][value='latest'] not found.");
+        if (!dropdownSelectedOption) console.error("Initialization Error: Dropdown related element (#readPPS_Display_Latest_Stored_Values .selected-option) not found or dropdown container missing.");
+    }
+
+    // --- Initial State Setup ---
+    // Ensure tables show an initial message or are cleared on page load
+    displayTableMessage('PPSdebtsettings-table', "Select options and click Execute.");
+    displayTableMessage('PPSmeterbalance-table', ""); // Show empty or specific message for table 2 initially
+    displayTableMessage('PPEmergencyCreditSettings-table', ""); // Show empty or specific message for table 3 initially
+    // Display initial message for Table 4
+
+
+}); // End DOMContentLoaded

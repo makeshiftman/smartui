@@ -272,14 +272,14 @@
       "statusTimestampOffset": -1,
       "totalDebt": 75.50,
       "drr": 5.00,
-      "maxRecoveryRate": 10
+      "maxRecoveryRate": 10.00
     },
     {
       "source": "METER DATA",
       "statusTimestampOffset": -1, 
       "totalDebt": 120.00,
       "drr": 5.00,
-      "maxRecoveryRate": 10
+      "maxRecoveryRate": 10.00
     }
   ],
 
@@ -289,7 +289,7 @@
       "mbstatusTimestampOffset": -1,
       "mbMeterBalance": 75.50,
       "mbEmergencyCreditAvailable": 10.00,
-      "mbLowCreditWarningThreshold": 10
+      "mbLowCreditWarningThreshold": 1.00
     }
   ],
 
