@@ -15,7 +15,33 @@ function calculateAndFormatDate(offset) {
       return `${dd}.${mm}.${year}`;
   } catch (dateError) { console.error("Error calculating date from offset:", offset, dateError); return "Calc Error"; } // Keep Calc Error for actual errors
 }
+// *** Helper functions needed for date filtering ***
+/**
+ * Parses a "DD.MM.YYYY" string into a JavaScript Date object (at midnight UTC).
+ * Returns null if the format is invalid.
+ */
+function parseUKDate(dateStr) {
+    if (!dateStr || !/^\d{2}\.\d{2}\.\d{4}$/.test(dateStr)) { return null; }
+    const parts = dateStr.split(".");
+    const day = parseInt(parts[0], 10); const month = parseInt(parts[1], 10); const year = parseInt(parts[2], 10);
+    if (isNaN(day) || isNaN(month) || isNaN(year) || month < 1 || month > 12 || day < 1 || day > 31) { return null; }
+    const date = new Date(Date.UTC(year, month - 1, day));
+    if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) { return null; }
+    date.setUTCHours(0, 0, 0, 0); // Normalize to UTC midnight
+    return date;
+}
 
+// Formats a Date object to DD.MM.YYYY string
+function formatDateToDDMMYYYY(dateObj) {
+    if (!(dateObj instanceof Date) || isNaN(dateObj)) { 
+        return ""; // Return empty if not a valid Date object
+    }
+    const dd = String(dateObj.getDate()).padStart(2, '0');
+    const mm = String(dateObj.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const yyyy = dateObj.getFullYear(); // Variable defined as 'yyyy'
+    // *** CORRECTED to use 'yyyy' variable and proper template literal ***
+    return `<span class="math-inline">\{dd\}\.</span>{mm}.${yyyy}`; 
+}
 
 // --- UPDATED populateUTRNTable function ---
 function populateUTRNTable(utrnList) {
@@ -87,6 +113,78 @@ function populateUTRNTable(utrnList) {
   });
 }
 
+// *** ADDED START: Central function to filter and display UTRNs ***
+function filterAndDisplayUtrns() {
+    console.log("Applying UTRN date filter...");
+
+    // Get Filter Settings (Using correct radio name and input IDs)
+    const filterValue = document.querySelector('input[name="historicUtrnFilter"]:checked')?.value;
+    const dateFromInput = document.getElementById('Historic_Date_From');
+    const dateToInput = document.getElementById('Historic_Date_To');
+    console.log(`Selected filter type: ${filterValue}`);
+
+    // Get Full Data from localStorage
+    const scenarioDataString = localStorage.getItem('smartui_data');
+    let fullUtrnList = [];
+    if (!scenarioDataString) {
+        console.error("filterAndDisplayUtrns: smartui_data not found.");
+        populateUTRNTable([]); return;
+    }
+    try {
+        const scenarioData = JSON.parse(scenarioDataString);
+        fullUtrnList = (scenarioData && Array.isArray(scenarioData.utrnRows)) ? scenarioData.utrnRows : [];
+    } catch (e) {
+        console.error("filterAndDisplayUtrns: Error parsing smartui_data.", e);
+        populateUTRNTable([]); return;
+    }
+
+    // Apply Filter based on createdOffset
+    let filteredList = [];
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0); // Normalize
+
+    try {
+        if (filterValue === '7') {
+            const sevenDaysAgo = new Date(today); sevenDaysAgo.setUTCDate(today.getUTCDate() - 6);
+            filteredList = fullUtrnList.filter(row => {
+                if (typeof row.createdOffset !== 'number') return false;
+                const createdDate = new Date(); createdDate.setDate(createdDate.getDate() + row.createdOffset); createdDate.setUTCHours(0, 0, 0, 0);
+                return createdDate >= sevenDaysAgo && createdDate <= today;
+            });
+        } else if (filterValue === '30') {
+            const thirtyDaysAgo = new Date(today); thirtyDaysAgo.setUTCDate(today.getUTCDate() - 29);
+             filteredList = fullUtrnList.filter(row => {
+                if (typeof row.createdOffset !== 'number') return false;
+                const createdDate = new Date(); createdDate.setDate(createdDate.getDate() + row.createdOffset); createdDate.setUTCHours(0, 0, 0, 0);
+                return createdDate >= thirtyDaysAgo && createdDate <= today;
+            });
+        } else if (filterValue === 'custom') {
+             if (!dateFromInput || !dateToInput) { console.error("Custom filter: Date input elements not found."); filteredList = []; }
+             else {
+                 const fromDate = parseUKDate(dateFromInput.value); // Use helper
+                 const toDate = parseUKDate(dateToInput.value);     // Use helper
+                 if (fromDate && toDate && fromDate <= toDate) {
+                     filteredList = fullUtrnList.filter(row => {
+                         if (typeof row.createdOffset !== 'number') return false;
+                         const createdDate = new Date(); createdDate.setDate(createdDate.getDate() + row.createdOffset); createdDate.setUTCHours(0, 0, 0, 0);
+                         return createdDate >= fromDate && createdDate <= toDate;
+                     });
+                 } else { console.warn("Custom date range invalid."); filteredList = []; }
+             }
+        } else { // Default / Fallback
+            console.warn(`Unknown filter: ${filterValue}. Defaulting to 7 days.`);
+             const sevenDaysAgo = new Date(today); sevenDaysAgo.setUTCDate(today.getUTCDate() - 6);
+             filteredList = fullUtrnList.filter(row => {
+                 if (typeof row.createdOffset !== 'number') return false;
+                 const createdDate = new Date(); createdDate.setDate(createdDate.getDate() + row.createdOffset); createdDate.setUTCHours(0,0,0,0);
+                 return createdDate >= sevenDaysAgo && createdDate <= today;
+             });
+        }
+    } catch (filterError) { console.error("Error during UTRN filtering:", filterError); filteredList = []; }
+
+    // Display Results
+    populateUTRNTable(filteredList);
+}
 
 // --- Main DOMContentLoaded Listener ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -174,6 +272,54 @@ document.addEventListener("DOMContentLoaded", () => {
       }); 
   } else { console.warn("Reverse button (#reverseBtn) not found."); }
   // --- End Reverse Button Listener ---
+
+  // *** ADDED START: UTRN Date Filtering Setup ***
+    // --- UTRN Date Filtering Setup ---
+    const dateFilterRadios = document.querySelectorAll('input[name="historicUtrnFilter"]'); // Use corrected name
+    const dateFromInput = document.getElementById('Historic_Date_From'); // Use correct ID
+    const dateToInput = document.getElementById('Historic_Date_To');   // Use correct ID
+
+    // Disable date inputs initially
+    if (dateFromInput) dateFromInput.disabled = true;
+    if (dateToInput) dateToInput.disabled = true;
+
+    // Add event listener to radio buttons
+    dateFilterRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            const selectedValue = radio.value;
+            console.log(`Date filter radio changed to: ${selectedValue}`);
+
+            if (selectedValue === 'custom') {
+                if (dateFromInput) dateFromInput.disabled = false;
+                if (dateToInput) dateToInput.disabled = false;
+
+                // Pre-fill with last 30 days using helpers from this file
+                const formattedToday = calculateAndFormatDate(0);
+                const formattedThirtyAgo = calculateAndFormatDate(-29);
+                if(dateFromInput) dateFromInput.value = formattedThirtyAgo;
+                if(dateToInput) dateToInput.value = formattedToday;
+
+                // Clear the table and prompt user for next action
+                const utrnTableBody = document.getElementById('utrn-table');
+                if (utrnTableBody) {
+                    utrnTableBody.innerHTML = "<div class='table-row' style='text-align:center; grid-column: 1 / -1; padding: 10px;'>Enter custom dates and click [Apply/Execute button].</div>";
+                }
+            } else { // 7 or 30 days selected
+                if (dateFromInput) dateFromInput.disabled = true;
+                if (dateToInput) dateToInput.disabled = true;
+                filterAndDisplayUtrns(); // Apply filter immediately
+            }
+        });
+    });
+
+    // --- Apply initial filter on page load ---
+    setTimeout(() => {
+        console.log("Applying initial date filter...");
+        if (typeof filterAndDisplayUtrns === 'function') {
+           filterAndDisplayUtrns();
+        } else { console.error("Initial filter cannot apply: filterAndDisplayUtrns function not defined."); }
+    }, 300); // Small delay
+    // --- End UTRN Date Filtering Setup ---
 
   // --- !! REMOVED Filter Dropdown Listener - User confirmed not needed !! ---
 
