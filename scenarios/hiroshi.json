@@ -281,6 +281,16 @@
       "drr": 5.00,
       "maxRecoveryRate": 10
     }
+  ],
+
+"ppsMeterBalanceData": [
+    {
+      "mbsource": "METER DATA",
+      "mbstatusTimestampOffset": -1,
+      "mbMeterBalance": 75.50,
+      "mbEmergencyCreditAvailable": 10.00,
+      "mbLowCreditWarningThreshold": 10
+    }
   ]
 
 }
