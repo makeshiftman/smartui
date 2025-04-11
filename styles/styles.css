@@ -115,16 +115,16 @@ body {
     /* Add position for the second 'X' - where is it on your image? */
     bottom: 12px;    /* EXAMPLE */
     right: 15px;     /* EXAMPLE */
-    width: 30px;     /* EXAMPLE */
+    width: 33px;     /* EXAMPLE */
     height: 24px;    /* EXAMPLE */
 }
 
 #popup-close-tick {
      /* Add position for the 'tick' - where is it on your image? */
     bottom: 12px;    /* EXAMPLE */
-    right: 25px;     /* EXAMPLE */
-    width: 30px;     /* EXAMPLE */
-    height: 30px;    /* EXAMPLE */
+    right: 55px;     /* EXAMPLE */
+    width: 33px;     /* EXAMPLE */
+    height: 24px;    /* EXAMPLE */
 }
 /* --- End Added Rules --- */
 
