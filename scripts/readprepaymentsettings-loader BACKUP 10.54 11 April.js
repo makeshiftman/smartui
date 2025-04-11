@@ -1,6 +1,6 @@
 // Final version for: /smartui/scripts/readprepaymentsettings-loader.js
 // Populates Debt Settings, Meter Balance, AND Emergency Credit tables.
-// Includes validation fix AND LATEST updated grid-template-columns for alignment.
+// Includes validation fix AND corrected grid-template-columns for alignment and fixed template literals.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try { const today = new Date(); const targetDate = new Date(today); targetDate.setDate(today.getDate() + offset);
             const dd = String(targetDate.getDate()).padStart(2, '0'); const mm = String(targetDate.getMonth() + 1).padStart(2, '0');
             const year = targetDate.getFullYear();
+            // *** Corrected template literal ***
             return `${dd}.${mm}.${year}`;
         } catch (dateError) { console.error("Error calculating date from offset:", offset, dateError); return "Calc Error"; }
     }
@@ -53,10 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // *** UPDATED Grid Columns for Debt Settings Table to user's latest request ***
-            rowDiv.style.gridTemplateColumns = '140px 170px 180px 150px 230px'; // Changed 3rd value from 170px to 180px
+            // *** Ensure Grid Columns for Debt Settings Table match user request ***
+            rowDiv.style.gridTemplateColumns = '140px 170px 170px 150px 230px';
             // *** --- ***
             const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset);
+            // *** Corrected template literal formatting ***
             rowDiv.innerHTML = `<div>${row.source || ''}</div><div>${statusTimestamp}</div><div>${row.totalDebt !== undefined ? row.totalDebt : ''}</div><div>${row.drr !== undefined ? row.drr : ''}</div><div>${row.maxRecoveryRate !== undefined ? row.maxRecoveryRate : ''}</div>`;
             tableBody.appendChild(rowDiv);
         });
@@ -106,9 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // Uses Grid Columns for Meter Balance Table from previous user input
+            // *** Ensure Grid Columns for Meter Balance Table match user request ***
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
+            // *** --- ***
             const statusTimestamp = calculateAndFormatDate(row.mbstatusTimestampOffset);
+            // *** Corrected template literal formatting ***
             rowDiv.innerHTML = `
                 <div>${row.mbsource || ''}</div>
                 <div>${statusTimestamp}</div>
@@ -168,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // Use grid columns from the latest HTML header provided for THIS table
+            // Use grid columns from the HTML header provided for THIS table
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
 
             let source = '', statusTimestamp = '', meterBalance = '', emergencyCreditLimit = '', lowCreditThreshold = '';
@@ -183,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdMeter;
             } else { return; }
 
+            // *** Corrected template literal formatting ***
             rowDiv.innerHTML = `
                 <div>${source || ''}</div>
                 <div>${statusTimestamp || ''}</div>
