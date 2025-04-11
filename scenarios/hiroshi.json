@@ -291,7 +291,25 @@
       "mbEmergencyCreditAvailable": 10.00,
       "mbLowCreditWarningThreshold": 10
     }
+  ],
+
+  "ppsEmergencyCreditSettingsData": [
+    {
+      "ecssourceSAP": "SAP DATA",
+      "ecsstatusTimestampOffsetSAP": -1,
+      "ecsMeterBalanceSAP": 75.50,
+      "ecsEmergencyCreditLimitSAP": 10.00,
+      "ecsEmergencyCreditThresholdSAP": 1.00
+    },
+    {
+      "ecssourceMeter": "METER DATA",
+      "ecsstatusTimestampOffsetMeter": -1,
+      "ecsMeterBalanceMeter": 75.50,
+      "ecsEmergencyCreditLimitMeter": 10.00,
+      "ecsEmergencyCreditThresholdMeter": 1.00
+    }
   ]
+
 
 }
 
