@@ -43,6 +43,30 @@
     },
     {
       "createdOffset": -43,
+      "appliedOffset": ,
+      "value": "30.00",
+      "type": "Manual",
+      "utrn": "21850353141259423380",
+      "channel": "Mobile",
+      "status": "UTRN Generated",
+      "auth": "012345",
+      "createdTime": "12:00",
+      "appliedTime": ""
+    },
+    {
+      "createdOffset": -15,
+      "appliedOffset": 0,
+      "value": "20.00",
+      "type": "Manual",
+      "utrn": "51850353141359423383",
+      "channel": "Mobile",
+      "status": "Error - UTRN application response",
+      "auth": "099755",
+      "createdTime": "12:00",
+      "appliedTime": "11:00"
+    },
+    {
+      "createdOffset": -43,
       "appliedOffset": -42,
       "value": "30.00",
       "type": "Manual",
