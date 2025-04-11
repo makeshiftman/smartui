@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try { const today = new Date(); const targetDate = new Date(today); targetDate.setDate(today.getDate() + offset);
             const dd = String(targetDate.getDate()).padStart(2, '0'); const mm = String(targetDate.getMonth() + 1).padStart(2, '0');
             const year = targetDate.getFullYear();
-            return `<span class="math-inline">\{dd\}\.</span>{mm}.${year}`;
+            return `${dd}.${mm}.${year}`;
         } catch (dateError) { console.error("Error calculating date from offset:", offset, dateError); return "Calc Error"; }
     }
 
@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset);
             // *** Use formatDecimal for numeric fields ***
             rowDiv.innerHTML = `
-                <div><span class="math-inline">\{row\.source \|\| ''\}</div\>
-<div\></span>{statusTimestamp}</div>
-                <div><span class="math-inline">\{formatDecimal\(row\.totalDebt\)\}</div\>
-<div\></span>{formatDecimal(row.drr)}</div>
+                <div>${row.source || ''}</div>
+                <div>${statusTimestamp}</div>
+                <div>${formatDecimal(row.totalDebt)}</div>
+                <div>${formatDecimal(row.drr)}</div>
                 <div>${formatDecimal(row.maxRecoveryRate)}</div> 
                 {/* Use formatDecimal(row.maxRecoveryRate, 0) if it should be integer */}
             `;
@@ -128,10 +128,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusTimestamp = calculateAndFormatDate(row.mbstatusTimestampOffset);
             // *** Use formatDecimal for numeric fields ***
             rowDiv.innerHTML = `
-                <div><span class="math-inline">\{row\.mbsource \|\| ''\}</div\>
-<div\></span>{statusTimestamp}</div>
-                <div><span class="math-inline">\{formatDecimal\(row\.mbMeterBalance\)\}</div\>
-<div\></span>{formatDecimal(row.mbEmergencyCreditAvailable)}</div>
+                <div>${row.mbsource || ''}</div>
+                <div>${statusTimestamp}</div>
+                <div>${formatDecimal(row.mbMeterBalance)}</div>
+                <div>${formatDecimal(row.mbEmergencyCreditAvailable)}</div>
                 <div>${formatDecimal(row.mbLowCreditWarningThreshold)}</div>
             `;
             tableBody.appendChild(rowDiv);
@@ -202,10 +202,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // *** Use formatDecimal for numeric fields ***
             rowDiv.innerHTML = `
-                <div><span class="math-inline">\{source \|\| ''\}</div\>
-<div\></span>{statusTimestamp || ''}</div>
-                <div><span class="math-inline">\{formatDecimal\(meterBalance\)\}</div\>
-<div\></span>{formatDecimal(emergencyCreditLimit)}</div>
+                <div>${source || ''}</div>
+                <div>${statusTimestamp || ''}</div>
+                <div>${formatDecimal(meterBalance)}</div>
+                <div>${formatDecimal(emergencyCreditLimit)}</div>
                 <div>${formatDecimal(lowCreditThreshold)}</div>
             `;
             tableBody.appendChild(rowDiv);
@@ -236,4 +236,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 populateEmergencyCreditTable();
                 // populateTable4(); // Add call for final table here when ready
             } else {
-                console.log("Conditions not met. Tables
+                console.log("Conditions not met. Tables not populated.");
+                 displayTableMessage('PPSdebtsettings-table', "Select 'Latest' and 'Display Latest Stored Values', then click Execute.");
+                 const meterBalanceTableBody = document.getElementById('PPSmeterbalance-table');
+                 if (meterBalanceTableBody) meterBalanceTableBody.innerHTML = '';
+                 const emergencyCreditTableBody = document.getElementById('PPEmergencyCreditSettings-table');
+                 if (emergencyCreditTableBody) emergencyCreditTableBody.innerHTML = '';
+                 // Clear Table 4 Body if needed
+            }
+        });
+    } else {
+        // Log errors if essential control elements are missing
+        if (!executeBtn) console.error("Initialization Error: Execute button (#executeReadPPS) not found.");
+        if (!latestRadio) console.error("Initialization Error: Radio button input[name='readMode'][value='latest'] not found.");
+        if (!dropdownSelectedOption) console.error("Initialization Error: Dropdown related element (#readPPS_Display_Latest_Stored_Values .selected-option) not found or dropdown container missing.");
+    }
+
+    // --- Initial State Setup ---
+    displayTableMessage('PPSdebtsettings-table', "Select options and click Execute.");
+    displayTableMessage('PPSmeterbalance-table', "");
+    displayTableMessage('PPEmergencyCreditSettings-table', "");
+    // Display initial message for Table 4
+
+
+}); // End DOMContentLoaded
