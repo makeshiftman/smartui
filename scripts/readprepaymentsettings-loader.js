@@ -1,6 +1,5 @@
 // Final version for: /smartui/scripts/readprepaymentsettings-loader.js
-// Populates Debt Settings, Meter Balance, AND Emergency Credit tables.
-// Includes validation fix, alignment fixes, AND number formatting.
+// Populates 3 tables. Includes validation fix, alignment fixes, number formatting, AND removed stray comment.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -66,17 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // Grid Columns for Debt Settings Table
             rowDiv.style.gridTemplateColumns = '140px 170px 180px 150px 230px';
             const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset);
-            // Use formatDecimal for numeric fields
+            // *** Use formatDecimal for numeric fields ***
+            // *** Removed stray comment that was appearing after this block ***
             rowDiv.innerHTML = `
                 <div>${row.source || ''}</div>
                 <div>${statusTimestamp}</div>
                 <div>${formatDecimal(row.totalDebt)}</div>
                 <div>${formatDecimal(row.drr)}</div>
                 <div>${formatDecimal(row.maxRecoveryRate)}</div>
-                {/* Use formatDecimal(row.maxRecoveryRate, 0) if integer needed */}
             `;
             tableBody.appendChild(rowDiv);
         });
@@ -109,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Use the JSON key 'ppsMeterBalanceData'
         const meterBalanceData = scenarioData.ppsMeterBalanceData;
 
         if (!Array.isArray(meterBalanceData)) {
@@ -127,10 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // Grid Columns for Meter Balance Table
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
             const statusTimestamp = calculateAndFormatDate(row.mbstatusTimestampOffset);
-            // Use formatDecimal for numeric fields
             rowDiv.innerHTML = `
                 <div>${row.mbsource || ''}</div>
                 <div>${statusTimestamp}</div>
@@ -169,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Use the JSON key ppsEmergencyCreditSettingsData
         const emergencyCreditData = scenarioData.ppsEmergencyCreditSettingsData;
 
         if (!Array.isArray(emergencyCreditData)) {
@@ -191,22 +185,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // Grid columns for Emergency Credit Table
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
 
             let source = '', statusTimestamp = '', meterBalance = '', emergencyCreditLimit = '', lowCreditThreshold = '';
 
-            if (index === 0) { // SAP Data
+            if (index === 0) {
                  source = row.ecssourceSAP; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetSAP);
                  meterBalance = row.ecsMeterBalanceSAP; emergencyCreditLimit = row.ecsEmergencyCreditLimitSAP;
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdSAP;
-            } else if (index === 1) { // Meter Data
+            } else if (index === 1) {
                  source = row.ecssourceMeter; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetMeter);
                  meterBalance = row.ecsMeterBalanceMeter; emergencyCreditLimit = row.ecsEmergencyCreditLimitMeter;
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdMeter;
             } else { return; }
 
-            // Use formatDecimal for numeric fields
             rowDiv.innerHTML = `
                 <div>${source || ''}</div>
                 <div>${statusTimestamp || ''}</div>
@@ -260,7 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Initial State Setup ---
-    // Ensure tables show an initial message or are cleared on page load
     displayTableMessage('PPSdebtsettings-table', "Select options and click Execute.");
     displayTableMessage('PPSmeterbalance-table', "");
     displayTableMessage('PPEmergencyCreditSettings-table', "");
