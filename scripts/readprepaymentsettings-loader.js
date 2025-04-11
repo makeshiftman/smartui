@@ -243,8 +243,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            // Use grid columns from HTML header provided ('140px 170px 120px 200px')
-            rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px';
+            // Use grid columns from HTML header provided ('140px 170px 200px 200px')
+            rowDiv.style.gridTemplateColumns = '140px 170px 200px 200px';
 
             let source = '', statusTimestamp = '', calendarId = '', description = '';
 
