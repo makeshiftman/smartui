@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
             rowDiv.style.gridTemplateColumns = '140px 170px 180px 150px 230px';
-            const statusTimestamp = calculateAndFormatDateTime(row.statusTimestampOffset); // Use DateTime helper
+            const statusTimestamp = calculateAndFormatDate(row.statusTimestampOffset); // Uses Date Only helper
             rowDiv.innerHTML = `
                 <div>${row.source || ''}</div>
                 <div>${statusTimestamp}</div>
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
             rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
-            const statusTimestamp = calculateAndFormatDateTime(row.mbstatusTimestampOffset); // Use DateTime helper
+            const statusTimestamp = calculateAndFormatDate(row.mbstatusTimestampOffset); // Uses Date Only helper
             rowDiv.innerHTML = `
                 <div>${row.mbsource || ''}</div>
                 <div>${statusTimestamp}</div>
@@ -172,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let source = '', statusTimestamp = '', meterBalance = '', emergencyCreditLimit = '', lowCreditThreshold = '';
 
             if (index === 0) { /* SAP */
-                 source = row.ecssourceSAP; statusTimestamp = calculateAndFormatDateTime(row.ecsstatusTimestampOffsetSAP); // Use DateTime helper
+                 source = row.ecssourceSAP; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetSAP); // Uses Date Only helper
                  meterBalance = row.ecsMeterBalanceSAP; emergencyCreditLimit = row.ecsEmergencyCreditLimitSAP;
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdSAP;
             } else if (index === 1) { /* Meter */
-                 source = row.ecssourceMeter; statusTimestamp = calculateAndFormatDateTime(row.ecsstatusTimestampOffsetMeter); // Use DateTime helper
+                 source = row.ecssourceMeter; statusTimestamp = calculateAndFormatDate(row.ecsstatusTimestampOffsetMeter); // Uses Date Only helper
                  meterBalance = row.ecsMeterBalanceMeter; emergencyCreditLimit = row.ecsEmergencyCreditLimitMeter;
                  lowCreditThreshold = row.ecsEmergencyCreditThresholdMeter;
             } else { return; }
