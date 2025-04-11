@@ -612,5 +612,25 @@ body {
 .pps-info-table .table-row > div:last-child {
    border-right: none; 
 }
+/* --- Column text alignment --- */
 
+/* Optional: Explicitly set default alignment for ALL cells 
+   (header and data) in these specific tables */
+   .pps-info-table .table-header > div,
+   .pps-info-table .table-row > div {
+       text-align: left; /* Default is left */
+       /* Adjust padding as needed for visual spacing */
+       padding: 4px 6px; 
+       vertical-align: middle; /* Helps if row heights vary */
+   }
+   
+   /* Right-align the 2nd, 3rd, 4th, and 5th columns 
+      in BOTH the header and the data rows for these specific tables */
+   /* ':nth-child(n+2)' selects the 2nd child and all subsequent siblings */
+   .pps-info-table .table-header > div:nth-child(n+2),
+   .pps-info-table .table-row > div:nth-child(n+2) {
+       text-align: right; 
+   }
+   
+   /* --- End alignment rules --- */
 /* --- End Specific Styling --- */
