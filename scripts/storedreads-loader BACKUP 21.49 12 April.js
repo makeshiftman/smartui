@@ -116,59 +116,7 @@ function parseUKDate(dateStr) {
   
   // --- Main Execution Logic (Wait for DOM Ready) ---
   document.addEventListener('DOMContentLoaded', () => {
-    // Handle SMRrange radio button changes
-    const smrRadios = document.querySelectorAll("input[name='SMRrange']");
-    const smrDateFrom = document.getElementById("StoredMR_Date_From");
-    const smrDateTo = document.getElementById("StoredMR_Date_To");
   
-    // Helper: Format date as DD.MM.YYYY
-    function formatDate(date) {
-      const dd = String(date.getDate()).padStart(2, '0');
-      const mm = String(date.getMonth() + 1).padStart(2, '0');
-      const yyyy = date.getFullYear();
-      return `${dd}.${mm}.${yyyy}`;
-    }
-  
-    // On page load: disable and clear unless custom is already selected
-    const selectedRadio = document.querySelector("input[name='SMRrange']:checked");
-    if (!selectedRadio || selectedRadio.value !== "custom") {
-      if (smrDateFrom) {
-        smrDateFrom.disabled = true;
-        smrDateFrom.value = "";
-      }
-      if (smrDateTo) {
-        smrDateTo.disabled = true;
-        smrDateTo.value = "";
-      }
-    }
-  
-    // Listen for changes to the radio buttons
-    smrRadios.forEach(radio => {
-      radio.addEventListener("change", () => {
-        const val = radio.value;
-  
-        if (val === "custom") {
-          if (smrDateFrom) {
-            smrDateFrom.disabled = false;
-            smrDateFrom.value = formatDate(new Date(new Date().setDate(new Date().getDate() - 29)));
-          }
-          if (smrDateTo) {
-            smrDateTo.disabled = false;
-            smrDateTo.value = formatDate(new Date());
-          }
-        } else {
-          if (smrDateFrom) {
-            smrDateFrom.disabled = true;
-            smrDateFrom.value = "";
-          }
-          if (smrDateTo) {
-            smrDateTo.disabled = true;
-            smrDateTo.value = "";
-          }
-        }
-      });
-    });
-
       // Get references to elements *after* DOM is loaded
       const executeBtn = document.getElementById("executeStoredReads");
       const tableWrapper = document.getElementById("storedreads-frame"); // Should be found now
