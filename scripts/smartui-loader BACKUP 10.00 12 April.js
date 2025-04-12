@@ -190,25 +190,6 @@ async function loadScenario(path) {
             return { ...entry, date: "Invalid Date" }; // Add default invalid date
         }
       });
-          // --- Process utrnRows array ---
-    if (Array.isArray(data.utrnRows)) {
-      const todayForUTRN = new Date();
-      data.utrnRows = data.utrnRows.map(entry => {
-        if (typeof entry.createdOffset === 'number') {
-          const d = new Date(todayForUTRN);
-          d.setDate(todayForUTRN.getDate() + entry.createdOffset);
-          const dd = String(d.getDate()).padStart(2, '0');
-          const mm = String(d.getMonth() + 1).padStart(2, '0');
-          const yyyy = d.getFullYear();
-          return { ...entry, date: `${dd}.${mm}.${yyyy}` };
-        } else {
-          console.warn("Invalid or missing createdOffset:", entry);
-          return { ...entry, date: "Invalid Date" };
-        }
-      });
-      console.log("Updated utrnRows with .date:", data.utrnRows);
-    }
-    
       console.log("Updated storedMeterReads:", data.storedMeterReads); // Log the processed array
     } else {
         // If storedMeterReads is missing or not an array, ensure it's an empty array in the data object
