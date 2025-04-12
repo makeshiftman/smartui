@@ -247,15 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Apply initial filter on page load
-    setTimeout(() => {
-        console.log("Applying initial date filter...");
-        if (typeof filterAndDisplayUtrns === 'function') {
-           filterAndDisplayUtrns();
-        } else { console.error("Initial filter cannot apply: filterAndDisplayUtrns function not defined."); }
-    }, 500); // Increased delay slightly
+   
     // --- End UTRN Date Filtering Setup ---
-    // *** ADDED END ***
+
 
 // --- Execute Button Listener (for Historic UTRN Filter) ---
 const executeBtn = document.getElementById('executeHistoricUtrn');
