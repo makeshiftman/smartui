@@ -215,14 +215,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     utrnTableBody.innerHTML = "<div class='table-row' style='text-align:center; grid-column: 1 / -1; padding: 10px;'>Enter custom dates and click Apply Filter button.</div>"; // Updated prompt
                 }
             } else { // 7 or 30 days selected
-                if (dateFromInput) {
-                    dateFromInput.disabled = true;
-                    dateFromInput.value = "";
-                }
-                if (dateToInput) {
-                    dateToInput.disabled = true;
-                    dateToInput.value = "";
-                }
+                if (dateFromInput) dateFromInput.disabled = true;
+                if (dateToInput) dateToInput.disabled = true;
+               
             }
         });
     });
