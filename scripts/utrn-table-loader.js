@@ -210,10 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const formattedThirtyAgo = calculateAndFormatDate(-29); // Use date only helper
                 if(dateFromInput) dateFromInput.value = formattedThirtyAgo;
                 if(dateToInput) dateToInput.value = formattedToday;
-                const utrnTableBody = document.getElementById('utrn-table');
-                if (utrnTableBody) {
-                    utrnTableBody.innerHTML = "<div class='table-row' style='text-align:center; grid-column: 1 / -1; padding: 10px;'>Enter custom dates and click Apply Filter button.</div>"; // Updated prompt
-                }
+                //const utrnTableBody = document.getElementById('utrn-table');
+               // if (utrnTableBody) {
+                  //  utrnTableBody.innerHTML = "<div class='table-row' style='text-align:center; grid-column: 1 / -1; padding: 10px;'>Enter custom dates and click Apply Filter button.</div>"; // Updated prompt
+               // }
             } else { // 7 or 30 days selected
                 if (dateFromInput) {
                     dateFromInput.disabled = true;
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.warn("Apply Filter button (#applyUtrnFilterBtn) not found. Custom date range filter cannot be manually triggered.");
     }
-    
+
 // Clear table when switching to custom
     const utrnTableBody = document.getElementById('utrn-table');
     if (utrnTableBody) {
