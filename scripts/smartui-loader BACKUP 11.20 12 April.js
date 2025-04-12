@@ -163,11 +163,11 @@ async function loadScenario(path) {
     }
 
     // --- Populate UTRN Table (If data exists) ---
-    //if (data.utrnRows && typeof populateUTRNTable === 'function') { // Check if function exists too
-    //  populateUTRNTable(data.utrnRows);
-    //} else if (data.utrnRows) {
-     //   console.warn("UTRN data found (utrnRows) but populateUTRNTable function is not defined.");
-   // }
+    if (data.utrnRows && typeof populateUTRNTable === 'function') { // Check if function exists too
+      populateUTRNTable(data.utrnRows);
+    } else if (data.utrnRows) {
+        console.warn("UTRN data found (utrnRows) but populateUTRNTable function is not defined.");
+    }
 
     // --- Process storedMeterReads array ---
     // Ensure data.storedMeterReads exists and is an array before processing
