@@ -66,6 +66,30 @@
       "appliedTime": null
     },
     {
+      "createdOffset": -52,
+      "appliedOffset": 0,
+      "value": "10.00",
+      "type": "Manual",
+      "utrn": "94829482647284939012",
+      "channel": "Mobile",
+      "status": "UTRN generated",
+      "auth": "099755",
+      "createdTime": "12:00",
+      "appliedTime": null
+    },
+    {
+      "createdOffset": -4,
+      "appliedOffset": null,
+      "value": "30.00",
+      "type": "Manual",
+      "utrn": "21850353141259423380",
+      "channel": "Mobile",
+      "status": "UTRN generated",
+      "auth": "012345",
+      "createdTime": "12:00",
+      "appliedTime": null
+    },
+    {
       "createdOffset": -15,
       "appliedOffset": 0,
       "value": "20.00",
@@ -75,7 +99,7 @@
       "status": "Error - UTRN application response",
       "auth": "099755",
       "createdTime": "12:00",
-      "appliedTime": "11:00"
+      "appliedTime": null
     },
     {
       "createdOffset": -43,
