@@ -190,25 +190,37 @@ document.addEventListener("DOMContentLoaded", () => {
     if (popup) { /* ... unchanged ... */ } else { /* ... */ }
     // Event Listener for the Reverse Button
     if (reverseBtn) {
-        reverseBtn.addEventListener("click", () => {
-          console.log("Reverse button clicked");
-      
-          const selectedRow = document.querySelector('.utrn-row.selected');
-          if (!selectedRow) {
-            alert("Please select a UTRN row first.");
-            return;
-          }
-      
-          // Mark the row visually and/or with data attributes
-          selectedRow.classList.add("reversed");
-          selectedRow.dataset.reversed = "true";
-      
-          console.log("Marked as reversed:", selectedRow.dataset.utrn);
-        });
-      } else {
-        console.warn("Reverse button not found in DOM.");
-      }
-
+        reverseBtn.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            console.log("Reverse button clicked.");
+            const selectedRow = document.querySelector('.utrn-row.selected'); 
+            if (!selectedRow) { alert("Please select a UTRN transaction row to reverse."); console.log("Reverse action stopped: No row selected."); return; }
+            const utrn = selectedRow.dataset.utrn; const currentStatus = selectedRow.dataset.status;
+            const appliedDateTime = selectedRow.dataset.appliedDateTime; const rowIndex = parseInt(selectedRow.dataset.index, 10); 
+            if (isNaN(rowIndex)) { console.error("Reverse action stopped: Invalid row index found."); alert("Could not identify selected row."); return; }
+            console.log(`Attempting to reverse UTRN: ${utrn}, Status: ${currentStatus}, Applied: ${appliedDateTime}, Index: ${rowIndex}`);
+            const isAppliedDateEffectivelyEmpty = (!appliedDateTime || appliedDateTime.includes('Invalid Date') || appliedDateTime.includes('Calc Error') || appliedDateTime.trim() === '');
+            if (currentStatus === 'UTRN generated' && isAppliedDateEffectivelyEmpty) {
+                console.log("Conditions met. Proceeding with reversal.");
+                const scenarioDataString = localStorage.getItem('smartui_data');
+                if (scenarioDataString) {
+                    try {
+                        const scenarioData = JSON.parse(scenarioDataString);
+                        if (scenarioData && Array.isArray(scenarioData.utrnRows) && scenarioData.utrnRows[rowIndex]) {
+                            scenarioData.utrnRows[rowIndex].status = 'Reversed';
+                            scenarioData.utrnRows[rowIndex].appliedOffset = null; 
+                            scenarioData.utrnRows[rowIndex].appliedTime = null; 
+                            localStorage.setItem('smartui_data', JSON.stringify(scenarioData));
+                            console.log(`UTRN ${utrn} at index ${rowIndex} status updated to 'Reversed' in localStorage.`);
+                            populateUTRNTable(scenarioData.utrnRows); 
+                            console.log("UTRN table refreshed.");
+                            alert(`UTRN ${utrn} has been reversed.`);
+                        } else { console.error("Error updating localStorage: Invalid data structure or index."); alert("Error finding transaction data."); }
+                    } catch (e) { console.error("Error parsing/saving localStorage during reversal:", e); alert("Error updating status."); }
+                } else { console.error("Error updating localStorage: 'smartui_data' not found."); alert("Error: Scenario data missing."); }
+            } else { console.log("Reversal condition not met."); alert("This transaction cannot be reversed. Only 'UTRN generated' transactions that have not been applied can be reversed."); }
+        }); 
+    } else { console.warn("Reverse button (#reverseBtn) not found."); }
 
     // *** ADDED START: UTRN Date Filtering Setup ***
     // Disable date inputs initially
