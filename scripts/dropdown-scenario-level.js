@@ -1,6 +1,6 @@
-console.log("✅ Active version: dropdown-scenario-level.js (Updated 12 April 22:53)");
+console.log("✅ Active version: dropdown-scenario-level.js (Updated 12 April 22:59)");
 
-// --- Handles version and scenario dropdowns on openingpage.html only ---
+// --- Handles version and scenario dropdowns ---
 
 document.addEventListener("DOMContentLoaded", () => {
   const scenarioDropdown = document.getElementById("scenarioDropdown");
