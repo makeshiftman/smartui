@@ -58,8 +58,8 @@
       "appliedOffset": null,
       "value": "30.00",
       "type": "Manual",
-      "utrn": "21850353141259423380",
-      "channel": "Mobile",
+      "utrn": "92512492412222493582",
+      "channel": "Payment",
       "status": "UTRN generated",
       "auth": "012345",
       "createdTime": "12:00",
@@ -67,13 +67,13 @@
     },
     {
       "createdOffset": -52,
-      "appliedOffset": 0,
+      "appliedOffset": null
       "value": "10.00",
       "type": "Manual",
       "utrn": "94829482647284939012",
-      "channel": "Mobile",
+      "channel": "Payment",
       "status": "UTRN generated",
-      "auth": "099755",
+      "auth": null,
       "createdTime": "12:00",
       "appliedTime": null
     },
@@ -81,7 +81,7 @@
       "createdOffset": -4,
       "appliedOffset": null,
       "value": "30.00",
-      "type": "Manual",
+      "type": "Payment",
       "utrn": "21850353141259423380",
       "channel": "Mobile",
       "status": "UTRN generated",
@@ -91,13 +91,13 @@
     },
     {
       "createdOffset": -15,
-      "appliedOffset": 0,
+      "appliedOffset": null
       "value": "20.00",
       "type": "Manual",
       "utrn": "51850353141359423383",
       "channel": "Mobile",
       "status": "Error - UTRN application response",
-      "auth": "099755",
+      "auth": null,
       "createdTime": "12:00",
       "appliedTime": null
     },
@@ -109,7 +109,7 @@
       "utrn": "21850353141259423380",
       "channel": "Mobile",
       "status": "UTRN Applied",
-      "auth": "012345",
+      "auth": null,
       "createdTime": "12:00",
       "appliedTime": "11:00"
     }
