@@ -108,7 +108,7 @@
       "type": "Manual",
       "utrn": "21850353141259423380",
       "channel": "Mobile",
-      "status": "Applied",
+      "status": "UTRN Applied",
       "auth": "012345",
       "createdTime": "12:00",
       "appliedTime": "11:00"
