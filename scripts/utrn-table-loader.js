@@ -2,6 +2,8 @@
 // Final version including Date Filters, Reverse Button, Popup Handling, and all fixes.
 
 // --- Helper function for offset date calculation and formatting (DATE ONLY) ---
+console.log("✅ Active version: utrn-table-loader.js (Updated 12 April 22:11)");
+
 function calculateAndFormatDate(offset) {
     // Returns "" instead of "Invalid Date" for non-numbers (like null)
     if (typeof offset !== 'number') {
