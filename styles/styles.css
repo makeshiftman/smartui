@@ -134,8 +134,8 @@ body {
 /* Custom dropdown for UTRN Generate */
 
 .custom-dropdown.dropdown-utrn-generate {
-  width: 330px;
-  height: 20px;
+  width: 310px;
+  height: 24px;
 }
 
 .custom-dropdown.dropdown-utrn-generate .selected-option {
