@@ -1,6 +1,8 @@
 // Filename: /smartui/scripts/utrn-generate-handler.js
 // Handles UTRN generation, localStorage update, UI field population, and delayed status update.
 
+console.log("✅ Active version: [filename].js (Updated 13 April 23:39)");
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("utrn-generate-handler.js: DOM Loaded.");
 
