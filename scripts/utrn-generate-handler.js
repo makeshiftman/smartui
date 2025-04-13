@@ -1,4 +1,4 @@
-console.log("✅ Active version: utrn-generate-handler.js (Updated 13 April 14:52)");
+console.log("✅ Active version: utrn-generate-handler.js (Updated 13 April 16:50)");
 
 document.addEventListener("DOMContentLoaded", () => {
   const amountInput = document.getElementById("utrn_Generate_Amount");
