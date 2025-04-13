@@ -130,6 +130,27 @@ body {
 
 
 /* Custom dropdown for UTRN Generate */
+
+/* ✅ Specific styling for Generate Reason dropdown */
+#generate-reason-dropdown {
+  width: 330px; /* Adjust this value to match the field size visually */
+  height: 20px;
+}
+
+#generate-reason-dropdown .selected-option {
+  width: 200;
+  height: 100%;
+  line-height: 20px;
+  padding: 2px 6px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  box-sizing: border-box;
+}
+
+#generate-reason-dropdown .dropdown-options {
+  width: 330px; /* Match the width of the parent */
+}
 /* --- ALL YOUR OTHER CUSTOM DROPDOWN STYLES --- */
 /* --- (Keep all existing styles from here down) --- */
 
