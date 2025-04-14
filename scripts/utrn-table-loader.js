@@ -1,7 +1,8 @@
 // Suggested filename: /smartui/scripts/utrn-table-loader.js
-// Complete fixed version
-console.log("✅ Active version: utrn-table-loader.js (FIXED)");
+// Final fixed version that only loads table on Execute button click
+console.log("✅ Active version: utrn-table-loader.js (FIXED for Execute only)");
 
+// Helper functions for date handling
 function calculateAndFormatDate(offset) {
     if (typeof offset !== 'number') return "";
     try { 
@@ -39,12 +40,13 @@ function formatDateToDDMMYYYY(dateObj) {
     return `${dd}.${mm}.${year}`;
 }
 
+// Function to populate UTRN table
 function populateUTRNTable(utrnList) {
     const container = document.getElementById('utrn-table');
     if (!container || !Array.isArray(utrnList)) {
         console.error("populateUTRNTable: Container not found or utrnList not array.");
         if (container) {
-            container.innerHTML = "<div class='table-row' style='text-align:center; grid-column: 1 / -1; padding: 10px;'>Error loading UTRN data.</div>";
+            container.innerHTML = "";
         }
         return;
     }
@@ -52,13 +54,7 @@ function populateUTRNTable(utrnList) {
     container.innerHTML = '';
     
     if (utrnList.length === 0) {
-        const row = document.createElement('div');
-        row.classList.add('table-row');
-        row.style.textAlign = "center";
-        row.style.gridColumn = "1 / span 10";
-        row.style.padding = "10px";
-        row.textContent = "No historic UTRN records found matching filter.";
-        container.appendChild(row);
+        // Leave the table empty - don't show a message
         return;
     }
 
@@ -123,6 +119,7 @@ function populateUTRNTable(utrnList) {
     });
 }
 
+// Function to filter UTRNs by date range
 function filterAndDisplayUtrns() {
     console.log("Applying UTRN date filter...");
     const filterValue = document.querySelector('input[name="historicUtrnFilter"]:checked')?.value;
@@ -208,10 +205,25 @@ function filterAndDisplayUtrns() {
     populateUTRNTable(filteredList);
 }
 
+// Helper function to clear the UTRN table
+function clearUtrnTable() {
+    const utrnTableBody = document.getElementById('utrn-table');
+    if (utrnTableBody) {
+        utrnTableBody.innerHTML = "";
+    }
+}
+
+// Main initialization when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
     console.log("utrn-table-loader.js: DOM Loaded");
 
-    // Get references needed for listeners
+    // Critical change: Just leave the table empty on page load
+    const utrnTable = document.getElementById('utrn-table');
+    if (utrnTable) {
+        clearUtrnTable();
+    }
+
+    // Get references to DOM elements
     const contextMenu = document.getElementById("context-menu");
     const findButton = document.getElementById("context-find");
     const popup = document.getElementById("find-popup");
@@ -224,14 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const dateFromInput = document.getElementById('Historic_Date_From');
     const dateToInput = document.getElementById('Historic_Date_To');
     const applyFilterBtn = document.getElementById('executeHistoricUtrn');
-
-    // Helper function to display messages in UTRN table (scoped locally)
-    function displayUtrnTableMessage(message) {
-        const utrnTableBody = document.getElementById('utrn-table');
-        if (utrnTableBody) {
-            utrnTableBody.innerHTML = `<div class='table-row' style='text-align:center; grid-column: 1 / -1; padding: 10px;'>${message}</div>`;
-        }
-    }
 
     // Listener to hide context menu
     document.addEventListener("click", (e) => {
@@ -274,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("#find-popup missing.");
     }
     
-    // Event Listener for the Reverse Button - FIXED VERSION
+    // Event Listener for the Reverse Button
     if (reverseBtn) {
         reverseBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -338,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("Reverse button not found.");
     }
 
-    // --- UTRN Date Filtering Setup ---
+    // UTRN Date Filtering Setup
     if (dateFromInput) dateFromInput.disabled = true;
     if (dateToInput) dateToInput.disabled = true; // Start disabled
 
@@ -357,40 +361,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (dateFromInput) dateFromInput.value = ta;
                 if (dateToInput) dateToInput.value = t;
                 
-                displayUtrnTableMessage('Enter custom dates and click Apply Filter button.');
+                // Just clear the table when switching to custom filter
+                clearUtrnTable();
             } else {
                 if (dateFromInput) dateFromInput.disabled = true;
                 if (dateToInput) dateToInput.disabled = true;
-                filterAndDisplayUtrns();
             }
         });
     });
     
-    // Add Event Listener for Apply Filter Button
+    // Add Event Listener for Apply Filter Button - KEY CHANGE
     if (applyFilterBtn) {
         applyFilterBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log("Apply Filter clicked!");
+            console.log("Execute Filter button clicked!");
             filterAndDisplayUtrns();
         });
     } else {
-        console.warn("Apply Filter button (#executeHistoricUtrn) not found.");
+        console.warn("Execute button (#executeHistoricUtrn) not found.");
     }
     
-    // Only auto-populate if the table was previously displayed
-    const wasTablePreviouslyPopulated = localStorage.getItem('utrn_table_populated');
-    if (wasTablePreviouslyPopulated === 'true') {
-        console.log("Auto-populating table based on previous state");
-        // Short delay to ensure all event listeners are registered
-        setTimeout(filterAndDisplayUtrns, 100);
-    } else {
-        displayUtrnTableMessage('Click Execute to display UTRNs');
-    }
-    
-    // Update storage when execute is clicked to remember state for next time
-    if (applyFilterBtn) {
-        applyFilterBtn.addEventListener('click', () => {
-            localStorage.setItem('utrn_table_populated', 'true');
-        });
-    }
+    // IMPORTANT: No longer executing filterAndDisplayUtrns on page load
 });
