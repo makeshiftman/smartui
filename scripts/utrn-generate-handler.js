@@ -65,11 +65,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           // --- Create UTRN Object ---
-          const formattedValue = valueRaw.toFixed(2);
+          const formattedValue = valueRaw.toFixed(2);const formattedValue = valueRaw.toFixed(2);
           const createdTime = getCurrentTimeFormatted();
           const generatedUtrn = generate20DigitNumber(); // Store generated UTRN
+          
+          // ✅ Add today's date in DD.MM.YYYY format for display filtering
+          const now = new Date();
+          const date = `${String(now.getDate()).padStart(2, "0")}.${String(now.getMonth() + 1).padStart(2, "0")}.${now.getFullYear()}`;
+          
+          // ✅ Build UTRN object
           const newUTRN = {
-              createdOffset: 0, // Offset 0 means today
+            createdOffset: 0,
+            date: date,
+            appliedOffset: null,
+            value: formattedValue,
+            type: "Manual",
+            utrn: generatedUtrn,
+            channel: "SMART_UI - Non Payme",
+            status: "UTRN generated",
+            auth: null,
+            createdTime: createdTime,
+            appliedTime: null,
+            reason: selectedReason // 🔁 Retain dropdown value for future use
+          };
+          // --- Update localStorage (Initial Add) ---
+const scenarioRaw = localStorage.getItem("smartui_data");
+let scenarioData = scenarioRaw ? JSON.parse(scenarioRaw) : {}; // Handle parsing errors below?
+if (!scenarioData) scenarioData = {}; // Ensure scenarioData is an object
+if (!Array.isArray(scenarioData.utrnRows)) {
+    scenarioData.utrnRows = []; // Initialize array if it doesn't exist
+}
+
+scenarioData.utrnRows.push(newUTRN); // Add the new record
+
+try {
+    localStorage.setItem("smartui_data", JSON.stringify(scenarioData));
+    console.log("✅ UTRN generated and stored:", newUTRN);
+} catch (storageError) {
+    console.error("Error saving initial UTRN to localStorage:", storageError);
+    alert("Error saving generated UTRN data.");
+    return; // Stop if initial save fails
+}
               appliedOffset: null,
               value: formattedValue,
               type: "Manual",
