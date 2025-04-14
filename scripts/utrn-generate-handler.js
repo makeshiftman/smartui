@@ -1,7 +1,7 @@
 // Filename: /smartui/scripts/utrn-generate-handler.js
 // Handles UTRN generation, localStorage update, UI field population, and delayed status update.
 
-console.log("✅ Active version: [filename].js (Updated 14 April 09:58)");
+console.log("✅ Active version: [filename].js (Updated 14 April 10:03)");
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("utrn-generate-handler.js: DOM Loaded.");
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
           // --- Create UTRN Object ---
-          const formattedValue = valueRaw.toFixed(2);const formattedValue = valueRaw.toFixed(2);
+          const formattedValue = valueRaw.toFixed(2);
           const createdTime = getCurrentTimeFormatted();
           const generatedUtrn = generate20DigitNumber(); // Store generated UTRN
           
