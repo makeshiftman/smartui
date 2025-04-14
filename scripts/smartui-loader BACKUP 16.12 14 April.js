@@ -84,47 +84,6 @@ fetch(fragmentPath)
         
         // Populate fields with the fresh data
         populatePageFields(data);
-        
-        // Add a special helper function to window for the UTRN reverse functionality
-        window.smartUIHelpers = window.smartUIHelpers || {};
-        window.smartUIHelpers.reverseUTRN = function(utrn) {
-          try {
-            const data = JSON.parse(localStorage.getItem("smartui_data"));
-            if (!data || !Array.isArray(data.utrnRows)) {
-              console.error("Cannot reverse UTRN: data or utrnRows not found");
-              return false;
-            }
-            
-            // Find by UTRN value instead of index
-            const index = data.utrnRows.findIndex(row => row.utrn === utrn);
-            if (index === -1) {
-              console.error("Cannot reverse UTRN: UTRN not found in data");
-              return false;
-            }
-            
-            // Check if the UTRN can be reversed
-            const row = data.utrnRows[index];
-            if (row.status === "UTRN generated" || 
-                row.status === "UTRN Generated" || 
-                (!row.appliedTime && !row.appliedOffset)) {
-              // Update the row
-              data.utrnRows[index].status = "Reversed";
-              data.utrnRows[index].appliedOffset = null;
-              data.utrnRows[index].appliedTime = null;
-              
-              // Save back to localStorage
-              localStorage.setItem("smartui_data", JSON.stringify(data));
-              console.log(`UTRN ${utrn} reversed successfully.`);
-              return true;
-            } else {
-              console.log(`Cannot reverse UTRN ${utrn}. Status: ${row.status}`);
-              return false;
-            }
-          } catch (e) {
-            console.error("Error in reverseUTRN helper:", e);
-            return false;
-          }
-        };
       }).catch(err => {
         console.error("Error loading scenario from file:", err);
         // If loading fails but we have existing data, fall back to it
@@ -136,47 +95,6 @@ fetch(fragmentPath)
     } else {
       // Use existing data from localStorage
       populatePageFields(existingData);
-      
-      // Add the UTRN reverse helper for existing data too
-      window.smartUIHelpers = window.smartUIHelpers || {};
-      window.smartUIHelpers.reverseUTRN = function(utrn) {
-        try {
-          const data = JSON.parse(localStorage.getItem("smartui_data"));
-          if (!data || !Array.isArray(data.utrnRows)) {
-            console.error("Cannot reverse UTRN: data or utrnRows not found");
-            return false;
-          }
-          
-          // Find by UTRN value instead of index
-          const index = data.utrnRows.findIndex(row => row.utrn === utrn);
-          if (index === -1) {
-            console.error("Cannot reverse UTRN: UTRN not found in data");
-            return false;
-          }
-          
-          // Check if the UTRN can be reversed
-          const row = data.utrnRows[index];
-          if (row.status === "UTRN generated" || 
-              row.status === "UTRN Generated" || 
-              (!row.appliedTime && !row.appliedOffset)) {
-            // Update the row
-            data.utrnRows[index].status = "Reversed";
-            data.utrnRows[index].appliedOffset = null;
-            data.utrnRows[index].appliedTime = null;
-            
-            // Save back to localStorage
-            localStorage.setItem("smartui_data", JSON.stringify(data));
-            console.log(`UTRN ${utrn} reversed successfully.`);
-            return true;
-          } else {
-            console.log(`Cannot reverse UTRN ${utrn}. Status: ${row.status}`);
-            return false;
-          }
-        } catch (e) {
-          console.error("Error in reverseUTRN helper:", e);
-          return false;
-        }
-      };
     }
   })
   .catch(err => {
@@ -263,20 +181,17 @@ function processScenarioData(data) {
   // --- Process utrnRows array ---
   if (Array.isArray(data.utrnRows)) {
     const todayForUTRN = new Date();
-    data.utrnRows = data.utrnRows.map((entry, index) => {
-      // Preserve the original index for reference
-      const entryWithIndex = { ...entry, originalIndex: index };
-      
+    data.utrnRows = data.utrnRows.map(entry => {
       if (typeof entry.createdOffset === 'number') {
         const d = new Date(todayForUTRN);
         d.setDate(todayForUTRN.getDate() + entry.createdOffset);
         const dd = String(d.getDate()).padStart(2, '0');
         const mm = String(d.getMonth() + 1).padStart(2, '0');
         const yyyy = d.getFullYear();
-        return { ...entryWithIndex, date: `${dd}.${mm}.${yyyy}` };
+        return { ...entry, date: `${dd}.${mm}.${yyyy}` };
       } else {
         console.warn("Invalid or missing createdOffset:", entry);
-        return { ...entryWithIndex, date: "Invalid Date" };
+        return { ...entry, date: "Invalid Date" };
       }
     });
     console.log("Updated utrnRows with .date:", data.utrnRows);
@@ -396,50 +311,5 @@ document.addEventListener("DOMContentLoaded", () => {
         row.classList.add("selected");
       }
     });
-  }
-
-  // Special handling for the UTRN table page to prevent auto-loading
-  const isHistoricUTRNPage = window.location.href.includes("prepaymentpaymentshistoricUTRN.html");
-  const executeHistoricUtrn = document.getElementById('executeHistoricUtrn');
-  
-  if (isHistoricUTRNPage && executeHistoricUtrn) {
-    console.log("On Historic UTRN page - preventing auto-load of UTRN table");
-    
-    // If 'filterAndDisplayUtrns' is defined globally, we need to modify its behavior
-    if (typeof window.filterAndDisplayUtrns === 'function') {
-      // Save the original function
-      const originalFilterAndDisplay = window.filterAndDisplayUtrns;
-      
-      // Override it to do nothing until explicitly called from the button
-      window.filterAndDisplayUtrns = function() {
-        console.log("Auto-execution of filterAndDisplayUtrns prevented");
-        return; // Do nothing
-      };
-      
-      // Restore the real implementation when the button is clicked
-      executeHistoricUtrn.addEventListener('click', function(e) {
-        // Restore original function temporarily
-        window.filterAndDisplayUtrns = originalFilterAndDisplay;
-        // Call it
-        window.filterAndDisplayUtrns();
-        // Override again to prevent auto-loading on subsequent events
-        setTimeout(() => {
-          window.filterAndDisplayUtrns = function() {
-            console.log("Auto-execution of filterAndDisplayUtrns prevented");
-            return;
-          };
-        }, 100);
-      });
-    }
-    
-    // Prevent the setTimeout in utrn-table-loader.js from auto-executing
-    const originalSetTimeout = window.setTimeout;
-    window.setTimeout = function(callback, delay) {
-      if (delay === 500 && callback.toString().includes('filterAndDisplayUtrns')) {
-        console.log("Prevented auto-execution of UTRN table loader");
-        return;
-      }
-      return originalSetTimeout(callback, delay);
-    };
   }
 });
