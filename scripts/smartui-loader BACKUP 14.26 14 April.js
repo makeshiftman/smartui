@@ -33,60 +33,22 @@ fetch(fragmentPath)
     }
     initTippyWhenReady(); // Call the function to initialize Tippy
   })
- // ***** START: Insert this new block *****
-.then(() => {
-  // Determine scenario path and decide if reloading from file is necessary
-  const urlParams = new URLSearchParams(window.location.search);
-  let requestedScenario = urlParams.get("scenario"); 
-  let scenarioPath;
-  let loadFreshData = false; // Flag to indicate if we overwrite localStorage
+  .then(() => {
+    // Determine scenario path after fragment is loaded and Tippy setup is initiated
+    const urlParams = new URLSearchParams(window.location.search);
+    let scenario = urlParams.get("scenario");
+    let scenarioPath;
 
-  const currentStoredPath = localStorage.getItem("smartui_scenarioPath");
-  const currentDataExists = localStorage.getItem("smartui_data") !== null;
-
-  if (requestedScenario) {
-    // Scenario requested via URL
-    scenarioPath = requestedScenario.includes('/') ? requestedScenario : `/smartui/scenarios/${requestedScenario}`;
-    // Load fresh if requested path is different OR if no data currently exists
-    if (scenarioPath !== currentStoredPath || !currentDataExists) {
-        console.log(`New scenario (${scenarioPath}) requested via URL or existing data missing. Loading fresh.`);
-        localStorage.setItem("smartui_scenarioPath", scenarioPath); 
-        loadFreshData = true; 
+    if (scenario) {
+      // Construct full path if only filename is given in URL param
+      scenarioPath = scenario.includes('/') ? scenario : `/smartui/scenarios/${scenario}`;
+      localStorage.setItem("smartui_scenarioPath", scenarioPath);
     } else {
-         console.log(`Scenario (${scenarioPath}) requested via URL matches stored. Using persisted localStorage data.`);
-         loadFreshData = false; 
+      scenarioPath = localStorage.getItem("smartui_scenarioPath") || "/smartui/scenarios/default.json"; // Default scenario
     }
-  } else {
-    // No scenario requested via URL
-    scenarioPath = currentStoredPath || "/smartui/scenarios/default.json"; 
-    // Only load fresh if data doesn't exist in localStorage for this path
-    if (!currentDataExists) {
-         console.log(`No scenario in URL and no data in localStorage. Loading default/stored path: ${scenarioPath}`);
-         loadFreshData = true;
-    } else {
-        console.log(`No scenario in URL. Using existing data from localStorage associated with path: ${scenarioPath}`);
-        loadFreshData = false;
-    }
-  }
-
-  // Execute loadScenario ONLY if we need to load fresh data from the file
-  if (loadFreshData) {
-      console.log("Executing loadScenario to fetch and store:", scenarioPath);
-      loadScenario(scenarioPath); // This fetches, processes, and overwrites localStorage['smartui_data']
-  } else {
-      console.log("Using persisted data from localStorage. Dependent scripts should handle display.");
-      // Ensure scripts on pages like Historic UTRN that need data on load can still run
-      // The initial filter call in utrn-table-loader.js should handle this.
-       if (typeof filterAndDisplayUtrns === 'function') { 
-           console.log("(smartui-loader) Attempting to trigger initial UTRN filter using existing localStorage data...");
-           setTimeout(() => { 
-               if (typeof filterAndDisplayUtrns === 'function') { filterAndDisplayUtrns(); }
-           }, 50); // Tiny delay for safety
-       }
-       // Add similar triggers for other pages if needed
-  }
-})
-
+    console.log("Loading scenario:", scenarioPath);
+    loadScenario(scenarioPath); // Load the scenario data
+  })
   .catch(err => {
     console.error("SmartUI Load Error:", err);
     // Display error message gracefully without wiping entire body if possible
