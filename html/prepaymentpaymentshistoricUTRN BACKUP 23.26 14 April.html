@@ -3,32 +3,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>SmartUI UTRN Generate</title>
-	<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
+<title>SmartUI Historic UTRN</title>
+<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
 <link rel="stylesheet" href="../styles/styles.css" />
 <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
+    
     #wrapper {
       position: relative;
       width: 1920px;
       height: 1215px;
-      background: url('../images/prepaymentpaymentsUTRNgeneratedual.png') no-repeat top left;
+      background: url('../images/prepaymentpaymentshistoricUTRN.png') no-repeat top left;
       background-size: cover;
     }
+   
     .link-area {
       position: absolute;
       width: 100px;
       height: 20px;
       cursor: pointer;
-      
+
     }
+	
   </style>
 </head>
 <body>
 <div id="wrapper">
+	
 <!-- Radio buttons --> 
 	
 	<div style="position: absolute; top: 261px; left: 582px;">
@@ -40,15 +40,13 @@
 <div style="position: absolute; top: 261px; left: 814px;">
   <input type="radio" name="historicUtrnFilter" value="custom" title="Use Date Range" />
 </div>
+
 <input class="input-field" id="Historic_Date_From"
   style="top: 261px; left: 980px; height:18px; width:76px; background: transparent; z-index: 10000;"
   title="Date From">	
 <input class="input-field" id="Historic_Date_To"
   style="top: 261px; left: 1093px; height:18px; width:76px; background: transparent; z-index: 10000;"
   title="Date To">	
-	
-
-
 	
 <!-- Left side fields from core-input-fields.html inject here -->
 
@@ -72,12 +70,12 @@
        style="width: 40px; height: 27px; display: block;" />
 </a>
 
-<!-- 🔽 prepaymentpaymentshistoricUTRN.html (Sidebox) -->
-<a href="prepaymentpaymentshistoricUTRN.html"
+<!-- 🔽 prepaymentpayments.html (Downbox) -->
+<a href="prepaymentpayments.html"
    style="position: absolute; top: 173px; left: 514px; height: 27px; width: 40px;">
-  <img src="../images/buttons/sideboxgrey.png"
-       onmouseover="this.src='../images/buttons/sideboxblue.png';"
-       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+  <img src="../images/buttons/downboxgrey.png"
+       onmouseover="this.src='../images/buttons/downboxblue.png';"
+       onmouseout="this.src='../images/buttons/downboxgrey.png';"
        alt=""
        style="width: 40px; height: 27px; display: block;" />
 </a>
@@ -92,55 +90,49 @@
        style="width: 40px; height: 27px; display: block;" />
 </a>
 
-<!-- 🔽 prepaymentpayments.html (Downbox) -->
-<a href="prepaymentpayments.html"
+<!-- 🔽 prepaymentpaymentsUTRNgenerate.html (Sidebox) -->
+<a href="prepaymentpaymentsUTRNgenerate.html"
    style="position: absolute; top: 632px; left: 514px; height: 27px; width: 40px;">
-  <img src="../images/buttons/downboxgrey.png"
-       onmouseover="this.src='../images/buttons/downboxblue.png';"
-       onmouseout="this.src='../images/buttons/downboxgrey.png';"
-       alt=""
-       style="width: 40px; height: 27px; display: block;" />
-</a>
-
-<!-- 🔽 prepaymentpaymentsoldsupplier.html (Sidebox) -->
-<a href="prepaymentpaymentsoldsupplier.html"
-   style="position: absolute; top: 578px; left: 514px; height: 27px; width: 40px;">
   <img src="../images/buttons/sideboxgrey.png"
        onmouseover="this.src='../images/buttons/sideboxblue.png';"
        onmouseout="this.src='../images/buttons/sideboxgrey.png';"
        alt=""
        style="width: 40px; height: 27px; display: block;" />
 </a>
-	
-	<a href="#" id="utrnGenerateExecute"
-   style="position: absolute; top: 716px; left: 962px; height: 27px; width: 104px;">
-  <img src="../images/buttons/executenormal.png"
-       onmouseover="this.src='../images/buttons/executehover.png';"
-       onmouseout="this.src='../images/buttons/executenormal.png';"
+
+<!-- 🔽 prepaymentpaymentsoldsupplier.html (Sidebox) -->
+<a href="prepaymentpaymentsoldsupplier.html"
+   style="position: absolute; top: 686px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
        alt=""
-       style="width: 104px; height: 27px; display: block;" />
-	</a>
-	<a href="#" id="executeHistoricUtrn" style="position: absolute; border: 2px dashed red; top: 284px; left: 978px; height: 27px; width: 104px;">
-  <img src="../images/buttons/executenormal.png"
-       onmouseover="this.src='../images/buttons/executehover.png';"
-       onmouseout="this.src='../images/buttons/executenormal.png';"
-       alt="" style="width: 104px; height: 27px; display: block;" />
+       style="width: 40px; height: 27px; display: block;" />
 </a>
-	<a href="#" id="utrnGenerateRefresh"
-   style="position: absolute; top: 716px; left: 1106px; height: 27px; width: 104px;">
-  <img src="../images/buttons/refreshdeselected.png"
-       onmouseover="this.src='../images/buttons/refreshblue.png';"
-       onmouseout="this.src='../images/buttons/refreshgrey.png';"
+<!-- Hover over buttons -->
+<a href="#" id="executeHistoricUtrn" style="position: absolute; top: 284px; left: 978px; height: 27px; width: 104px;">
+  <img src="../images/buttons/executenormal.png"
+       onmouseover="this.src='../images/buttons/executehover.png';"
+       onmouseout="this.src='../images/buttons/executenormal.png';"
        alt=""
        style="width: 104px; height: 27px; display: block;" />
-	</a>
-		<a href="#" id="reverseBtn" style="position: absolute; top: 284px; left: 1354px; height: 27px; width: 104px;">
+</a>
+	<a href="#" id="reverseBtn" style="position: absolute; top: 284px; left: 1354px; height: 27px; width: 104px;">
   <img src="../images/buttons/reversegrey.png"
        onmouseover="this.src='../images/buttons/reverseblue.png';"
        onmouseout="this.src='../images/buttons/reversegrey.png';"
        alt="Reverse UTRN" style="width: 104px; height: 27px; display: block;" />
 </a>
-	<style>
+	<!--Reset Button -->
+<a href=""
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>	
+<style>
   .utrn-frame {
     position: absolute;
     top: 367px;
@@ -220,6 +212,8 @@
   </div>
   <div id="utrn-table"></div>
 </div>
+<script src="/smartui/scripts/smartui-loader.js"></script>
+<script src="/smartui/scripts/utrn-table-loader.js"></script>
 <div id="context-menu">
   <div class="context-item">Copy Text</div>
   <div class="context-separator"></div>
@@ -234,45 +228,7 @@
   <div class="context-separator"></div>
   <div class="context-item">Spreadsheet...</div>
 </div>
-	
-	<!-- Internal input fields -->
-	
-<input class="input-field" id="utrn_Generate_Amount"
-  style="top:695px; left:863px; height:15px; width:51px; background: transparent; z-index: 10000;"
-  title="Device Status">
-	
-<!-- ✅ Custom Dropdown for Generate Reason -->
-<div id="UTRN_Generate_Reason" class="custom-dropdown dropdown-utrn-generate" style="top: 717px; left: 629px; width: 290px; ">
-  <div class="selected-option">&nbsp;</div>
-  <div class="dropdown-options">
-    <div data-value="AFFORDABILITY">AFFORDABILITY</div>
-    <div data-value="CREDIT_ADVANCE">CREDIT ADVANCE WITH COMMS ISSUE</div>
-    <div data-value="EX_GRATIA">EX-GRATIA PAYMENT/GOODWILL WITH COMMS ISSUE</div>
-    <div data-value="EXCEPTION_RESOLUTION">EXCEPTION RESOLUTION WITH COMMS ISSUE</div>
-    <div data-value="LONG_TERM_COMMS">LONG TERM COMMS ISSUE</div>
-    <div data-value="NEW_SUPPLIER">NEW SUPPLIER REQUEST</div>
-    <div data-value="PAYMENT_CHANNEL">PAYMENT CHANNEL ISSUE</div>
-    <div data-value="REFUND">REFUND WITH COMMS ISSUE</div>
-  </div>
-</div>
-	
-</div>
-<!-- UTRN Generated result array -->
-	
-	<input class="input-field" id="utrn_generated_result"
-  style="top:799px; left:573px; height:22px; width:154px; background: transparent; z-index: 10000;"
-  title="UTRN result">
-	<input class="input-field" id="utrn_generated_value"
-  style="top:799px; left:740px; height:22px; width:97px; background: transparent; z-index: 10000;"
-  title="UTRN Value">
-<input class="input-field" id="utrn_generated_channel"
-  style="top:799px; left:850px; height:22px; width:152px; background: transparent; z-index: 10000;"
-  title="UTRN Channel">
-<input class="input-field" id="utrn_generated_status"
-  style="top:799px; left:1016px; height:22px; width:320px; background: transparent; z-index: 10000;"
-  title="UTRN Status">
-	
-		<!--Reset Button -->
+	<!--Reset Button -->
 <a href=""
    style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
   <img src="../images/buttons/resetgrey.png"
@@ -281,11 +237,12 @@
        alt=""
        style="width: 96px; height: 27px; display: block;" />
 </a>	
-<script src="/smartui/scripts/smartui-loader.js"></script>
-<script src="/smartui/scripts/utrn-table-loader.js"></script>
-<script src="/smartui/scripts/dropdown-utrn-generate-reason.js"></script>
-<script src="/smartui/scripts/dropdown-scenario-level.js"></script>
-<script src="../scripts/utrn-generate-handler.js"></script>
-<script src="../scripts/refresh-button-handler.js"></script>
 </body>
+	<!-- Find Popup (visual only, UTRN autofills top field) -->
+<div id="find-popup"> 
+  <input type="text" id="find-popup-utrn" class="popup-input" readonly /> 
+  <div class="popup-close-button" id="popup-close-x1" title="Close"></div> 
+  <div class="popup-close-button" id="popup-close-x2" title="Close"></div> 
+  <div class="popup-close-button" id="popup-close-tick" title="Accept/Close"></div> 
+  </div>
 </html>

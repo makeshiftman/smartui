@@ -216,6 +216,7 @@ function clearUtrnTable() {
 // Main initialization when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
     console.log("utrn-table-loader.js: DOM Loaded");
+    console.log("Checking for #executeHistoricUtrn button...");
 
     // Critical change: Just leave the table empty on page load
     const utrnTable = document.getElementById('utrn-table');
