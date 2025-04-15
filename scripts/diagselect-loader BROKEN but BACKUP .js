@@ -7,37 +7,44 @@ document.addEventListener('DOMContentLoaded', function() {
   const deviceReadDropdown = document.getElementById('Diagselect_Select_Device_Read');
   const executeButton = document.getElementById('diagSelectionExecute');
 
-  // 🔁 Function to toggle dropdown open/close on click
-  function setupDropdownToggle(dropdown) {
+   // 🔁 Function to toggle dropdown open/close on click
+   function setupDropdownToggle(dropdown) {
     const selected = dropdown.querySelector('.selected-option');
     const options = dropdown.querySelector('.dropdown-options');
   
     // Global click handler to close all dropdowns
-    document.addEventListener('click', function() {
-      document.querySelectorAll('.dropdown-options').forEach(function(opt) {
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.dropdown-options').forEach(function (opt) {
         opt.style.display = 'none';
       });
     });
   
     // Toggle this specific dropdown
-    selected.addEventListener('click', function(event) {
+    selected.addEventListener('click', function (event) {
       event.stopPropagation();
       const isVisible = options.style.display === 'block';
   
       // Close all dropdowns before opening the current one
-      document.querySelectorAll('.dropdown-options').forEach(function(opt) {
+      document.querySelectorAll('.dropdown-options').forEach(function (opt) {
         opt.style.display = 'none';
       });
   
       // Now open the one we clicked (unless it was already open)
       options.style.display = isVisible ? 'none' : 'block';
     });
-    
+  }
     // Close this dropdown if user clicks outside it
     document.addEventListener('click', function(event) {
       if (!dropdown.contains(event.target)) {
         options.style.display = 'none';
       }
+    });
+
+    // Toggle open/close on click
+    selected.addEventListener('click', function(event) {
+      event.stopPropagation(); // Prevent global click from closing it instantly
+      const isVisible = options.style.display === 'block';
+      options.style.display = isVisible ? 'none' : 'block';
     });
   }
 
@@ -137,44 +144,44 @@ document.addEventListener('DOMContentLoaded', function() {
     deviceReadDropdown.querySelector(`.dropdown-options [data-value="${storedRead}"]`).click();
   }
 
-  // 🔧 Activate toggle logic for both dropdowns
-  setupDropdownToggle(deviceTypeDropdown);
-  setupDropdownToggle(deviceReadDropdown);
+    // 🔧 Activate toggle logic for both dropdowns
+    setupDropdownToggle(deviceTypeDropdown);
+    setupDropdownToggle(deviceReadDropdown);
 
-  // Device type dropdown selection
-  deviceTypeDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
-      const selectedOption = event.target;
-      const selectedValue = selectedOption.getAttribute('data-value');
+    // Device type dropdown selection
+    deviceTypeDropdown.addEventListener('click', function(event) {
+      if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+        const selectedOption = event.target;
+        const selectedValue = selectedOption.getAttribute('data-value');
   
-      console.log("✅ Device Type option clicked:", selectedValue);
+        console.log("✅ Device Type option clicked:", selectedValue);
 
-      // Update .selected-option
-      const selectedDisplay = deviceTypeDropdown.querySelector('.selected-option');
-      selectedDisplay.setAttribute('data-value', selectedValue);
-      selectedDisplay.textContent = selectedOption.textContent;
+        // Update .selected-option
+        const selectedDisplay = deviceTypeDropdown.querySelector('.selected-option');
+        selectedDisplay.setAttribute('data-value', selectedValue);
+        selectedDisplay.textContent = selectedOption.textContent;
   
-      localStorage.setItem('smartui_diagselect_device_type', selectedValue);
-      updateDeviceReadOptions();
-    }
-  });
+        localStorage.setItem('smartui_diagselect_device_type', selectedValue);
+        updateDeviceReadOptions();
+      }
+    });
   
-  // Device read dropdown selection
-  deviceReadDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
-      const selectedOption = event.target;
-      const selectedValue = selectedOption.getAttribute('data-value');
+    // Device read dropdown selection
+    deviceReadDropdown.addEventListener('click', function(event) {
+      if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+        const selectedOption = event.target;
+        const selectedValue = selectedOption.getAttribute('data-value');
   
-      console.log("✅ Device Read option clicked:", selectedValue);
+        console.log("✅ Device Type option clicked:", selectedValue);
 
-      // Update .selected-option
-      const selectedDisplay = deviceReadDropdown.querySelector('.selected-option');
-      selectedDisplay.setAttribute('data-value', selectedValue);
-      selectedDisplay.textContent = selectedOption.textContent;
+        // Update .selected-option
+        const selectedDisplay = deviceReadDropdown.querySelector('.selected-option');
+        selectedDisplay.setAttribute('data-value', selectedValue);
+        selectedDisplay.textContent = selectedOption.textContent;
   
-      localStorage.setItem('smartui_diagselect_device_read', selectedValue);
-    }
-  });
+        localStorage.setItem('smartui_diagselect_device_read', selectedValue);
+      }
+    });
 
   // Event listener for execute button click
   executeButton.addEventListener('click', handleExecuteButtonClick);
