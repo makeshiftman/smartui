@@ -95,8 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to update the device read dropdown options based on the selected device type
   function updateDeviceReadOptions() {
-    const selectedType = deviceTypeDropdown.querySelector('.selected-option').getAttribute('data-value');
+    if (!deviceTypeDropdown || !deviceReadDropdown) return;
+    
+    const selectedElement = deviceTypeDropdown.querySelector('.selected-option');
+    if (!selectedElement) return;
+    
+    const selectedType = selectedElement.getAttribute('data-value');
+    if (!selectedType) return;
+    
     const options = deviceReadDropdown.querySelector('.dropdown-options');
+    if (!options) return;
+    
     options.innerHTML = ''; // Clear existing options
 
     if (selectionMapping[selectedType]) {
@@ -107,75 +116,103 @@ document.addEventListener('DOMContentLoaded', function() {
         options.appendChild(option);
       });
     }
-  }
-
-  // Function to handle the execute button click
-  function handleExecuteButtonClick() {
-    const selectedType = deviceTypeDropdown.querySelector('.selected-option').getAttribute('data-value');
-    const selectedRead = deviceReadDropdown.querySelector('.selected-option').getAttribute('data-value');
-
-    if (selectedType && selectedRead && selectionMapping[selectedType] && selectionMapping[selectedType][selectedRead]) {
-      const mapping = selectionMapping[selectedType][selectedRead];
-      const scenarioData = JSON.parse(localStorage.getItem('smartui_data'));
-
-      if (scenarioData && scenarioData[mapping.jsonKey]) {
-        const fieldValue = scenarioData[mapping.jsonKey];
-        localStorage.setItem(`smartui_field_${mapping.page}_${mapping.fieldId}`, fieldValue);
+    
+    // If we have a stored read value, try to select it after populating options
+    const storedRead = localStorage.getItem('smartui_diagselect_device_read');
+    if (storedRead) {
+      const readOption = options.querySelector(`[data-value="${storedRead}"]`);
+      if (readOption) {
+        readOption.click();
       }
     }
   }
 
-  // Load previous dropdown selections from localStorage
-  const storedType = localStorage.getItem('smartui_diagselect_device_type');
-  const storedRead = localStorage.getItem('smartui_diagselect_device_read');
+  // Function to handle the execute button click
+  function handleExecuteButtonClick() {
+    if (!deviceTypeDropdown || !deviceReadDropdown) return;
+    
+    const typeElement = deviceTypeDropdown.querySelector('.selected-option');
+    const readElement = deviceReadDropdown.querySelector('.selected-option');
+    
+    if (!typeElement || !readElement) return;
+    
+    const selectedType = typeElement.getAttribute('data-value');
+    const selectedRead = readElement.getAttribute('data-value');
 
-  if (storedType) {
-    deviceTypeDropdown.querySelector(`.dropdown-options [data-value="${storedType}"]`).click();
-  }
-
-  if (storedRead) {
-    deviceReadDropdown.querySelector(`.dropdown-options [data-value="${storedRead}"]`).click();
+    if (selectedType && selectedRead && selectionMapping[selectedType] && selectionMapping[selectedType][selectedRead]) {
+      const mapping = selectionMapping[selectedType][selectedRead];
+      try {
+        const scenarioData = JSON.parse(localStorage.getItem('smartui_data') || '{}');
+        
+        if (scenarioData && scenarioData[mapping.jsonKey]) {
+          const fieldValue = scenarioData[mapping.jsonKey];
+          localStorage.setItem(`smartui_field_${mapping.page}_${mapping.fieldId}`, fieldValue);
+        }
+      } catch (error) {
+        console.error("Error parsing smartui_data:", error);
+      }
+    }
   }
 
   // 🔧 Activate toggle logic for both dropdowns
-  setupDropdownToggle(deviceTypeDropdown);
-  setupDropdownToggle(deviceReadDropdown);
-
-  // Device type dropdown selection
-  deviceTypeDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
-      const selectedOption = event.target;
-      const selectedValue = selectedOption.getAttribute('data-value');
+  if (deviceTypeDropdown && deviceReadDropdown) {
+    setupDropdownToggle(deviceTypeDropdown);
+    setupDropdownToggle(deviceReadDropdown);
   
-      console.log("✅ Device Type option clicked:", selectedValue);
-
-      // Update .selected-option
-      const selectedDisplay = deviceTypeDropdown.querySelector('.selected-option');
-      selectedDisplay.setAttribute('data-value', selectedValue);
-      selectedDisplay.textContent = selectedOption.textContent;
+    // Device type dropdown selection
+    deviceTypeDropdown.addEventListener('click', function(event) {
+      if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+        const selectedOption = event.target;
+        const selectedValue = selectedOption.getAttribute('data-value');
+    
+        console.log("✅ Device Type option clicked:", selectedValue);
   
-      localStorage.setItem('smartui_diagselect_device_type', selectedValue);
-      updateDeviceReadOptions();
+        // Update .selected-option
+        const selectedDisplay = deviceTypeDropdown.querySelector('.selected-option');
+        if (selectedDisplay) {
+          selectedDisplay.setAttribute('data-value', selectedValue);
+          selectedDisplay.textContent = selectedOption.textContent;
+      
+          localStorage.setItem('smartui_diagselect_device_type', selectedValue);
+          updateDeviceReadOptions();
+        }
+      }
+    });
+    
+    // Device read dropdown selection
+    deviceReadDropdown.addEventListener('click', function(event) {
+      if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+        const selectedOption = event.target;
+        const selectedValue = selectedOption.getAttribute('data-value');
+    
+        console.log("✅ Device Read option clicked:", selectedValue);
+  
+        // Update .selected-option
+        const selectedDisplay = deviceReadDropdown.querySelector('.selected-option');
+        if (selectedDisplay) {
+          selectedDisplay.setAttribute('data-value', selectedValue);
+          selectedDisplay.textContent = selectedOption.textContent;
+      
+          localStorage.setItem('smartui_diagselect_device_read', selectedValue);
+        }
+      }
+    });
+  
+    // Event listener for execute button click
+    if (executeButton) {
+      executeButton.addEventListener('click', handleExecuteButtonClick);
     }
-  });
-  
-  // Device read dropdown selection
-  deviceReadDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
-      const selectedOption = event.target;
-      const selectedValue = selectedOption.getAttribute('data-value');
-  
-      console.log("✅ Device Read option clicked:", selectedValue);
-
-      // Update .selected-option
-      const selectedDisplay = deviceReadDropdown.querySelector('.selected-option');
-      selectedDisplay.setAttribute('data-value', selectedValue);
-      selectedDisplay.textContent = selectedOption.textContent;
-  
-      localStorage.setItem('smartui_diagselect_device_read', selectedValue);
+    
+    // Load previous device type selection from localStorage
+    const storedType = localStorage.getItem('smartui_diagselect_device_type');
+    if (storedType) {
+      const typeOption = deviceTypeDropdown.querySelector(`.dropdown-options [data-value="${storedType}"]`);
+      if (typeOption) {
+        typeOption.click();
+        // The device read selection will be handled in updateDeviceReadOptions
+      }
     }
-  });
-
-  // Event listener for execute button click
-  executeButton.addEventListener('click', handleExecuteButtonClick);
+  } else {
+    console.error("Required dropdown elements not found");
+  }
 });
