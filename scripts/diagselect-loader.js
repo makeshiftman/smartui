@@ -2,9 +2,30 @@
 console.log("✅ Active version: diagselect-loader.js (Updated 15 April 16:13)");
 
 document.addEventListener('DOMContentLoaded', function() {
+
   const deviceTypeDropdown = document.getElementById('Diagselect_Select_Device_Type');
   const deviceReadDropdown = document.getElementById('Diagselect_Select_Device_Read');
   const executeButton = document.getElementById('diagSelectionExecute');
+
+   // 🔁 Function to toggle dropdown open/close on click
+   function setupDropdownToggle(dropdown) {
+    const selected = dropdown.querySelector('.selected-option');
+    const options = dropdown.querySelector('.dropdown-options');
+
+    // Close this dropdown if user clicks outside it
+    document.addEventListener('click', function(event) {
+      if (!dropdown.contains(event.target)) {
+        options.style.display = 'none';
+      }
+    });
+
+    // Toggle open/close on click
+    selected.addEventListener('click', function(event) {
+      event.stopPropagation(); // Prevent global click from closing it instantly
+      const isVisible = options.style.display === 'block';
+      options.style.display = isVisible ? 'none' : 'block';
+    });
+  }
 
   // Mapping object for dropdown selections and corresponding field data
   const selectionMapping = {
@@ -102,6 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
     deviceReadDropdown.querySelector(`.dropdown-options [data-value="${storedRead}"]`).click();
   }
 
+    // 🔧 Activate toggle logic for both dropdowns
+    setupDropdownToggle(deviceTypeDropdown);
+    setupDropdownToggle(deviceReadDropdown);
+    
     // Device type dropdown selection
     deviceTypeDropdown.addEventListener('click', function(event) {
       if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
