@@ -11,7 +11,28 @@ document.addEventListener('DOMContentLoaded', function() {
    function setupDropdownToggle(dropdown) {
     const selected = dropdown.querySelector('.selected-option');
     const options = dropdown.querySelector('.dropdown-options');
-
+  
+    // Global click handler to close all dropdowns
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.dropdown-options').forEach(function (opt) {
+        opt.style.display = 'none';
+      });
+    });
+  
+    // Toggle this specific dropdown
+    selected.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const isVisible = options.style.display === 'block';
+  
+      // Close all dropdowns before opening the current one
+      document.querySelectorAll('.dropdown-options').forEach(function (opt) {
+        opt.style.display = 'none';
+      });
+  
+      // Now open the one we clicked (unless it was already open)
+      options.style.display = isVisible ? 'none' : 'block';
+    });
+  }
     // Close this dropdown if user clicks outside it
     document.addEventListener('click', function(event) {
       if (!dropdown.contains(event.target)) {
