@@ -101,24 +101,36 @@ document.addEventListener('DOMContentLoaded', function() {
     deviceReadDropdown.querySelector(`.dropdown-options [data-value="${storedRead}"]`).click();
   }
 
-  // Event listener for device type dropdown selection
-  deviceTypeDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
-      const selectedOption = event.target;
-      const selectedValue = selectedOption.getAttribute('data-value');
-      localStorage.setItem('smartui_diagselect_device_type', selectedValue);
-      updateDeviceReadOptions();
-    }
-  });
-
-  // Event listener for device read dropdown selection
-  deviceReadDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
-      const selectedOption = event.target;
-      const selectedValue = selectedOption.getAttribute('data-value');
-      localStorage.setItem('smartui_diagselect_device_read', selectedValue);
-    }
-  });
+    // Device type dropdown selection
+    deviceTypeDropdown.addEventListener('click', function(event) {
+      if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+        const selectedOption = event.target;
+        const selectedValue = selectedOption.getAttribute('data-value');
+  
+        // Update .selected-option
+        const selectedDisplay = deviceTypeDropdown.querySelector('.selected-option');
+        selectedDisplay.setAttribute('data-value', selectedValue);
+        selectedDisplay.textContent = selectedOption.textContent;
+  
+        localStorage.setItem('smartui_diagselect_device_type', selectedValue);
+        updateDeviceReadOptions();
+      }
+    });
+  
+    // Device read dropdown selection
+    deviceReadDropdown.addEventListener('click', function(event) {
+      if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+        const selectedOption = event.target;
+        const selectedValue = selectedOption.getAttribute('data-value');
+  
+        // Update .selected-option
+        const selectedDisplay = deviceReadDropdown.querySelector('.selected-option');
+        selectedDisplay.setAttribute('data-value', selectedValue);
+        selectedDisplay.textContent = selectedOption.textContent;
+  
+        localStorage.setItem('smartui_diagselect_device_read', selectedValue);
+      }
+    });
 
   // Event listener for execute button click
   executeButton.addEventListener('click', handleExecuteButtonClick);
