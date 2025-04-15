@@ -108,6 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedOption = event.target;
         const selectedValue = selectedOption.getAttribute('data-value');
   
+        console.log("✅ Device Type option clicked:", selectedValue);
+
         // Update .selected-option
         const selectedDisplay = deviceTypeDropdown.querySelector('.selected-option');
         selectedDisplay.setAttribute('data-value', selectedValue);
@@ -124,6 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedOption = event.target;
         const selectedValue = selectedOption.getAttribute('data-value');
   
+        console.log("✅ Device Type option clicked:", selectedValue);
+
         // Update .selected-option
         const selectedDisplay = deviceReadDropdown.querySelector('.selected-option');
         selectedDisplay.setAttribute('data-value', selectedValue);
