@@ -30,6 +30,30 @@
 </head>
 <body>
 <div id="wrapper">
+<div id="Diagselect_Select_Device_Type" class="custom-dropdown dropdown-diagselectdevicetype" style="top: 205px; left: 802px; ">
+
+<div class="selected-option"></div>
+<div class="dropdown-options">
+ <div data-value="ESME">ESME</div>
+ <div data-value="PPMID">PPMID</div>
+ <div data-value="GPF">GPF</div>
+ <div data-value="COMPLETED">COMMS HUB</div>
+ <div data-value="BLANK">&nbsp;</div>
+</div>
+</div>
+	
+<div id="Diagselect_Select_Device_Read" class="custom-dropdown dropdown-diagselectdeviceread" style="top: 255px; left: 802px; ">
+  <div class="selected-option"></div>  
+  <div class="dropdown-options">
+  <div data-value="devicecattariff">Tariff</div>
+  <div data-value="devicecatpaymentmode">Payment Mode</div>
+  <div data-value="devicecatsupplystatus">Supply Status</div>
+  <div data-value="deviceauxload">Auxillary Load Switch</div>
+  <div data-value="devicedevicelog">Device Log</div> 
+  <div data-value="BLANK">&nbsp;</div>
+</div>
+</div>	
+	
 <!-- Left side fields from core-input-fields.html inject here -->
 
 <!-- Top Link Areas -->
@@ -113,13 +137,12 @@
 </a>
 <!-- Selection execute rollover -->
 	
-	<a href="additionalfunctionsreplayjoindevices.html"
-   style="position: absolute; top: 176px; left: 930px; height: 27px; width: 112px;">
+	<a href="#" id="diagSelectionExecute" style="position: absolute; top: 176px; left: 930px; height: 27px; width: 112px;">
   <img src="../images/buttons/executenormalw.png"
        onmouseover="this.src='../images/buttons/executehoverw.png';"
        onmouseout="this.src='../images/buttons/executenormalw.png';"
        alt=""
-	   style="width: 112px; height: 27px; display: block;" /><br>
+	   style="width: 112px; height: 27px; display: block;" />
 </a>
 	<!--Reset Button -->
 <a href=""
@@ -133,6 +156,8 @@
 </div>
 <script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/utrn-table-loader.js"></script>
+<script src="/smartui/scripts/diagselect-loader.js"></script>	
+	
 </body>
 <!-- force update -->
 </html>

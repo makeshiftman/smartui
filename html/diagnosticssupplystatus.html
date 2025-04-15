@@ -30,6 +30,11 @@
 </head>
 <body>
 <div id="wrapper">
+	
+<input class="input-field" id="SupplyState"
+  style="top: 314px; left: 830px; height:18px; width:148px; background: transparent; z-index: 10000;"
+  title="Supply State" readonly>
+	
 <!-- Left side fields from core-input-fields.html inject here -->
 
 <!-- Top Link Areas -->
@@ -125,6 +130,17 @@
 </a>	
 </div>
 <script src="/smartui/scripts/smartui-loader.js"></script>
-<script src="/smartui/scripts/utrn-table-loader.js"></script>	
+<script src="/smartui/scripts/utrn-table-loader.js"></script>
+<!-- diagnosticssupplystatus.html -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const supplyStateField = document.getElementById('SupplyState');
+  const storedValue = localStorage.getItem('smartui_field_diagnosticssupplystatus_SupplyState');
+
+  if (storedValue) {
+    supplyStateField.value = storedValue;
+  }
+});
+</script>
 </body>
 </html>

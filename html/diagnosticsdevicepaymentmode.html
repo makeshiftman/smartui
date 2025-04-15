@@ -29,6 +29,9 @@
 </head>
 <body>
 <div id="wrapper">
+<input class="input-field" id="DevicePaymentMode"
+  style="top: 368px; left: 768px; height:18px; width:75px; background: transparent; z-index: 10000;"
+  title="Payment Mode" readonly>
 <!-- Left side fields from core-input-fields.html inject here -->
 
 <!-- Top Link Areas -->
@@ -126,5 +129,16 @@
 </div>
 <script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/utrn-table-loader.js"></script>
+<!-- diagnosticsdevicepaymentmode.html -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const devicePaymentModeField = document.getElementById('DevicePaymentMode');
+  const storedValue = localStorage.getItem('smartui_field_diagnosticsdevicepaymentmode_DevicePaymentMode');
+
+  if (storedValue) {
+    devicePaymentModeField.value = storedValue;
+  }
+});
+</script>
 </body>
 </html>
