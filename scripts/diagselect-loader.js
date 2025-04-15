@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 15 April 16:02)");
+console.log("✅ Active version: diagselect-loader.js (Updated 15 April 16:13)");
 
 document.addEventListener('DOMContentLoaded', function() {
   const deviceTypeDropdown = document.getElementById('Diagselect_Select_Device_Type');
