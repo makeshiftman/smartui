@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Event listener for device type dropdown selection
   deviceTypeDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+    if (event.target.matches('.dropdown-options div')) {
       const selectedOption = event.target;
       const selectedValue = selectedOption.getAttribute('data-value');
       localStorage.setItem('smartui_diagselect_device_type', selectedValue);
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Event listener for device read dropdown selection
   deviceReadDropdown.addEventListener('click', function(event) {
-    if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
+    if (event.target.matches('.dropdown-options div')) {
       const selectedOption = event.target;
       const selectedValue = selectedOption.getAttribute('data-value');
       localStorage.setItem('smartui_diagselect_device_read', selectedValue);
