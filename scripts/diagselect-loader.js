@@ -1,4 +1,5 @@
 // diagselect-loader.js
+console.log("✅ Active version: utrn-generate-handler.js (Updated 15 April 16:02)");
 
 document.addEventListener('DOMContentLoaded', function() {
   const deviceTypeDropdown = document.getElementById('Diagselect_Select_Device_Type');
