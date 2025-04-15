@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 15 April 16:13)");
+console.log("✅ Active version: diagselect-loader.js (Updated 15 April 16:31)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 🔧 Activate toggle logic for both dropdowns
     setupDropdownToggle(deviceTypeDropdown);
     setupDropdownToggle(deviceReadDropdown);
-    
+
     // Device type dropdown selection
     deviceTypeDropdown.addEventListener('click', function(event) {
       if (event.target.closest('.dropdown-options') && event.target.hasAttribute('data-value')) {
