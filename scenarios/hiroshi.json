@@ -43,7 +43,7 @@
   "metermodel": "00000401",
   "supplystatus": "On supply",
   "gasbatteryremaining": "",
-  "devicepaymentmode": "Prepayment"
+  "devicepaymentmode": "Prepayment",
 
   "utrnRows": [
     {
