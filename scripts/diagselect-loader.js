@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 16 April 09:06)");
+console.log("✅ Active version: diagselect-loader.js (Updated 16 April 09:38)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
