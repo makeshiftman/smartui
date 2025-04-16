@@ -227,24 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (executeButton) {
       executeButton.addEventListener('click', handleExecuteButtonClick);
     }
-    // Ensure a blank option appears at the top of Device Type
-const typeOptionsContainer = deviceTypeDropdown.querySelector('.dropdown-options');
-if (typeOptionsContainer && !typeOptionsContainer.querySelector('[data-value=""]')) {
-  const blankType = document.createElement('div');
-  blankType.classList.add('dropdown-option');
-  blankType.setAttribute('data-value', '');
-  blankType.textContent = '\u00A0';
-  typeOptionsContainer.insertBefore(blankType, typeOptionsContainer.firstChild);
-}
-
-// Force display blank initially
-const selectedTypeDisplay = deviceTypeDropdown.querySelector('.selected-option');
-if (selectedTypeDisplay) {
-  selectedTypeDisplay.setAttribute('data-value', '');
-  selectedTypeDisplay.textContent = '\u00A0';
-}
-localStorage.setItem('smartui_diagselect_device_type', '');
-
+    
     // Load previous device type selection from localStorage
     const storedType = localStorage.getItem('smartui_diagselect_device_type');
     if (storedType) {
