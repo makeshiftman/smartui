@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 16 April 10:09)");
+console.log("✅ Active version: diagselect-loader.js (Updated 16 April 10:50)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -213,7 +213,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load previous device type selection from localStorage
     const storedType = localStorage.getItem('smartui_diagselect_device_type');
     if (storedType) {
-      const typeOption = deviceTypeDropdown.querySelector(`.dropdown-options [data-value="${storedType}"]`);
+      const typeOptions = deviceTypeDropdown.querySelectorAll('.dropdown-options [data-value]');
+      let typeOption = null;
+      typeOptions.forEach(opt => {
+        if (opt.getAttribute('data-value') === storedType) {
+          typeOption = opt;
+        }
+      });
+
       if (typeOption) {
         typeOption.click();
         // The device read selection will be handled in updateDeviceReadOptions
