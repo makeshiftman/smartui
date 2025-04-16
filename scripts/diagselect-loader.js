@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 16 April 10:00)");
+console.log("✅ Active version: diagselect-loader.js (Updated 16 April 10:02)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -108,13 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     options.innerHTML = ''; // Clear existing options
 
-    // Add a clearly visible blank option for debugging
-const blankOption = document.createElement('div');
-blankOption.setAttribute('data-value', '');
-blankOption.classList.add('diagnostic-blank-option'); // for visual debugging
-blankOption.textContent = '[BLANK OPTION]'; // make it obvious
-options.appendChild(blankOption);
-console.log('✅ Blank option inserted into second dropdown');
+    // Add a blank option
+    const blankOption = document.createElement('div');
+    blankOption.setAttribute('data-value', '');
+    blankOption.classList.add('dropdown-option');
+    blankOption.textContent = '\u00A0'; // non-breaking space: visually blank but renders
+    options.appendChild(blankOption);
 
     if (selectionMapping[selectedType]) {
       Object.keys(selectionMapping[selectedType]).forEach(function(key) {
