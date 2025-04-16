@@ -377,11 +377,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (row) {
 
         document.addEventListener("DOMContentLoaded", () => {
-          const resetBtn = document.getElementById("scenarioresetbutton");
+          const resetBtn = document.getElementById("reset-scenario");
           if (resetBtn) {
             resetBtn.addEventListener("click", () => {
-              console.log("🔁 Scenario reset button clicked");
-              clearResetPinFields(); // Clear reset pin fields when reset is clicked
+              console.log("🔁 reset-scenario button clicked — clearing reset pin fields");
+              clearResetPinFields();
             });
           }
         });
