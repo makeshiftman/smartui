@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fieldId: 'DeviceLog',
         jsonKey: 'devicelog',
       },
+      "": {},
     },
     PPMID: {
       // Placeholder mappings for PPMID
@@ -76,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
       A2: {},
       A3: {},
       A4: {},
+      "": {},
     },
     GPF: {
       // Placeholder mappings for GPF  
@@ -83,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
       B2: {},
       B3: {},
       B4: {},
+      "": {},
     },
     'COMMS HUB': {
       // Placeholder mappings for COMMS HUB
@@ -90,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
       C2: {},
       C3: {},
       C4: {},
+      "": {},
     },
   };
 
