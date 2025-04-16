@@ -123,15 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         options.appendChild(option);
       });
     }
-
-    // Force blank selection when device type changes
-const selectedDisplay = deviceReadDropdown.querySelector('.selected-option');
-if (selectedDisplay) {
-  selectedDisplay.setAttribute('data-value', '');
-  selectedDisplay.textContent = '\u00A0'; // visually blank
-}
-localStorage.setItem('smartui_diagselect_device_read', '');
-
+    
     // If we have a stored read value, try to select it after populating options
     const storedRead = localStorage.getItem('smartui_diagselect_device_read');
     if (storedRead && storedRead !== '') {
