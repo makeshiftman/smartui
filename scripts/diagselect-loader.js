@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 16 April 09:38)");
+console.log("✅ Active version: diagselect-loader.js (Updated 16 April 09:43)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fieldId: 'DeviceLog',
         jsonKey: 'devicelog',
       },
-      "": {},
     },
     PPMID: {
       // Placeholder mappings for PPMID
@@ -77,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function() {
       A2: {},
       A3: {},
       A4: {},
-      "": {},
     },
     GPF: {
       // Placeholder mappings for GPF  
@@ -85,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
       B2: {},
       B3: {},
       B4: {},
-      "": {},
     },
     'COMMS HUB': {
       // Placeholder mappings for COMMS HUB
@@ -93,7 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
       C2: {},
       C3: {},
       C4: {},
-      "": {},
     },
   };
 
@@ -111,6 +107,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!options) return;
     
     options.innerHTML = ''; // Clear existing options
+
+    // Add a visible blank option at the top
+const blankOption = document.createElement('div');
+blankOption.setAttribute('data-value', '');
+blankOption.textContent = ''; // shows up as an empty line
+options.appendChild(blankOption);
 
     if (selectionMapping[selectedType]) {
       Object.keys(selectionMapping[selectedType]).forEach(function(key) {
