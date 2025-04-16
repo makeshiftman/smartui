@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>SmartUI Gas Device</title>
-	<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
+<title>SmartUI Supply Status</title>
+<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
 <link rel="stylesheet" href="../styles/styles.css" />
 <style>
     body {
@@ -15,23 +15,26 @@
       position: relative;
       width: 1920px;
       height: 1215px;
-      background: url('../images/diagnosticsdevicepaymentmode.png') no-repeat top left;
+      background: url('../images/diagnosticssupplystatus.png') no-repeat top left;
       background-size: cover;
-  
     }
+    
     .link-area {
       position: absolute;
       width: 100px;
       height: 20px;
       cursor: pointer;
+      
     }
   </style>
 </head>
 <body>
 <div id="wrapper">
-<input class="input-field" id="DevicePaymentMode"
-  style="top: 368px; left: 768px; height:18px; width:75px; background: transparent; z-index: 10000;"
-  title="Payment Mode" readonly>
+	
+<input class="input-field" id="SupplyState"
+  style="top: 314px; left: 830px; height:18px; width:148px; background: transparent; z-index: 10000;"
+  title="Supply State" readonly>
+	
 <!-- Left side fields from core-input-fields.html inject here -->
 
 <!-- Top Link Areas -->
@@ -58,7 +61,6 @@
 </a>
 
 <!-- 🔄 diagnosticsdevicelog.html (sidebox) -->
-	
 <a href="diagnosticsdevicelog.html"
    style="position: absolute; top: 146px; left: 514px; height: 27px; width: 40px;">
   <img src="../images/buttons/sideboxgrey.png"
@@ -78,19 +80,9 @@
        style="width: 40px; height: 27px; display: block;" />
 </a>
 
-<!-- 🔄 diagnosticssupplystatus.html (sidebox) -->
-<a href="diagnosticssupplystatus.html"
-   style="position: absolute; top: 254px; left: 514px; height: 27px; width: 40px;">
-  <img src="../images/buttons/sideboxgrey.png"
-       onmouseover="this.src='../images/buttons/sideboxblue.png';"
-       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
-       alt=""
-       style="width: 40px; height: 27px; display: block;" />
-</a>
-
 <!-- 🔽 diagnostics.html (downbox) -->
 <a href="diagnostics.html"
-   style="position: absolute; top: 308px; left: 514px; height: 27px; width: 40px;">
+   style="position: absolute; top: 254px; left: 514px; height: 27px; width: 40px;">
   <img src="../images/buttons/downboxgrey.png"
        onmouseover="this.src='../images/buttons/downboxblue.png';"
        onmouseout="this.src='../images/buttons/downboxgrey.png';"
@@ -98,9 +90,19 @@
        style="width: 40px; height: 27px; display: block;" />
 </a>
 
+<!-- 🔄 diagnosticsdevicepaymentmode.html (sidebox) -->
+<a href="diagnosticsdevicepaymentmode.html"
+   style="position: absolute; top: 416px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
 <!-- 🔄 diagnosticsgasdevice.html (sidebox) -->
 <a href="diagnosticsgasdevice.html"
-   style="position: absolute; top: 443px; left: 514px; height: 27px; width: 40px;">
+   style="position: absolute; top: 470px; left: 514px; height: 27px; width: 40px;">
   <img src="../images/buttons/sideboxgrey.png"
        onmouseover="this.src='../images/buttons/sideboxblue.png';"
        onmouseout="this.src='../images/buttons/sideboxgrey.png';"
@@ -110,7 +112,7 @@
 
 <!-- 🔄 diagnosticstariffinfo.html (sidebox) -->
 <a href="diagnosticstariffinfo.html"
-   style="position: absolute; top: 497px; left: 514px; height: 27px; width: 40px;">
+   style="position: absolute; top: 524px; left: 514px; height: 27px; width: 40px;">
   <img src="../images/buttons/sideboxgrey.png"
        onmouseover="this.src='../images/buttons/sideboxblue.png';"
        onmouseout="this.src='../images/buttons/sideboxgrey.png';"
@@ -129,28 +131,15 @@
 </div>
 <script src="/smartui/scripts/smartui-loader.js"></script>
 <script src="/smartui/scripts/utrn-table-loader.js"></script>
-	
-<!-- diagnosticsdevicepaymentmode.html -->
+<!-- diagnosticssupplystatus.html -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const devicePaymentModeField = document.getElementById('DevicePaymentMode');
+  const supplyStateField = document.getElementById('SupplyState');
+  const storedValue = localStorage.getItem('smartui_field_diagnosticssupplystatus_SupplyState');
 
-  function updateFieldValue() {
-    const storedValue = localStorage.getItem('smartui_field_diagnosticsdevicepaymentmode_DevicePaymentMode');
-    if (storedValue) {
-      devicePaymentModeField.value = storedValue;
-    }
+  if (storedValue) {
+    supplyStateField.value = storedValue;
   }
-
-  // Initial field population
-  updateFieldValue();
-
-  // Listen for changes in localStorage
-  window.addEventListener('storage', function(event) {
-    if (event.key === 'smartui_field_diagnosticsdevicepaymentmode_DevicePaymentMode') {
-      updateFieldValue();
-    }
-  });
 });
 </script>
 </body>
