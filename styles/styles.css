@@ -178,6 +178,7 @@ body {
   position: relative;
   width: 100%;
   box-sizing: border-box;
+  z-index:11003;
 
 }
 
@@ -703,5 +704,25 @@ body {
        text-align: right; 
    }
    
+
+   #Diagselect_Select_Device_Type {
+    z-index: 11000;
+  }
+  
+  #Diagselect_Select_Device_Type .dropdown-options {
+    background-color: white;  /* Ensure solid white */
+    z-index: 11001;           /* Above everything else */
+  }
+
+  #Diagselect_Select_Device_Read {
+    z-index: 10000;
+  }
+  
+  #Diagselect_Select_Device_Read .dropdown-options {
+    background-color: white;
+    z-index: 10001;
+  }
+
+
    /* --- End alignment rules --- */
 /* --- End Specific Styling --- */
