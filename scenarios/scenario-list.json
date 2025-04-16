@@ -16,6 +16,10 @@
     "file": "/smartui/scenarios/carlos.json"
   },
   {
+    "name": "Josh",
+    "file": "/smartui/scenarios/josh.json"
+  },
+  {
     "name": "Margaret",
     "file": "/smartui/scenarios/margaret.json"
   }
