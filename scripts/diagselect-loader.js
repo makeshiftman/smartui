@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
       B3: {},
       B4: {},
     },
-    'COMMS HUB': {
+    "COMMS HUB": {
       // Placeholder mappings for COMMS HUB
       C1: {},
       C2: {},
