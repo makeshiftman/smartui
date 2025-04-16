@@ -6,6 +6,17 @@
   "street": "Keal St",
   "city": "Glasgow",
   "postcode": "G15 6NZ",
+  "email": "hiroshi@scottishpower.com",
+  "mobile": "5551041999",
+  "workphone": "5551041124",
+  "phonenumber": "5551041444",
+  "gender": "male",
+  "preferredcomm": "5551041124",
+  "corrflatnumber": null,
+  "corrhousenumber": null,
+  "corrstreet": null,
+  "corrcity": null,
+  "corrpostcode": null,
   "BPID": "9318573654",
   "elecOrGas": "Electricity",
   "contract_Account": "1612924251",
@@ -27,6 +38,12 @@
   "device_Status": "Commissioned",
   "smets1_DCC": "No",
   "PID": "9482748572631049285",
+  "smartortrad": "smart",
+  "metermake": "Aclara",
+  "metermodel": "00000401",
+  "supplystatus": "On supply",
+  "gasbatteryremaining": "",
+  "devicepaymentmode": "Prepayment"
 
   "utrnRows": [
     {
