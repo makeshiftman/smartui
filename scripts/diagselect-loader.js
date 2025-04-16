@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 16 April 09:43)");
+console.log("✅ Active version: diagselect-loader.js (Updated 16 April 09:51)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -125,7 +125,7 @@ options.appendChild(blankOption);
     
     // If we have a stored read value, try to select it after populating options
     const storedRead = localStorage.getItem('smartui_diagselect_device_read');
-    if (storedRead) {
+    if (storedRead && storedRead !== '') {
       const readOption = options.querySelector(`[data-value="${storedRead}"]`);
       if (readOption) {
         readOption.click();
