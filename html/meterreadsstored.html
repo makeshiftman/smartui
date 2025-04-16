@@ -89,11 +89,8 @@
        style="width: 40px; height: 27px; display: block;" />
 </a>
 
-</div> <a href="" style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
-  <img src="../images/buttons/resetgrey.png" onmouseover="this.src='../images/buttons/resetblue.png';" onmouseout="this.src='../images/buttons/resetgrey.png';" alt="Reset"
-       style="width: 96px; height: 27px; display: block;" />
-</a>
-
+ 
+	
 <div style="position: absolute; top: 180px; left: 574px;">
   <input type="radio" name="SMRrange" value="7" checked title="Last 7 Days" />
 </div>
@@ -102,14 +99,30 @@
 </div>
 <div style="position: absolute; top: 180px; left: 806px;">
   <input type="radio" name="SMRrange" value="custom" title="Use Date Range" />
+	
+<a id="reset-scenario"
+   href="#"
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>
+	
 </div>
-
+</div>
     <script src="../scripts/smartui-loader.js"></script> 
 	<script src="../scripts/utrn-table-loader.js"></script> 
-	<script src="../scripts/dropdown-generate-reason.js"></script> 
+	<script src="../scripts/dropdown-scenario-level.js"></script> 
 	<script src="../scripts/reset-scenario-handler.js"></script> 
+	<script src="../scripts/dropdown-bsr-handler.js"></script> 
+	<script src="../scripts/storedreads-loader.js"></script> 
+	
+	<!-- Tippy -->
 	<script src="../scripts/popper.js"></script> 
 	<script src="../scripts/tippy.umd.js"></script> 
-	<script src="../scripts/dropdown-bsr-handler.js"></script> 
-	<script src="../scripts/storedreads-loader.js"></script> </body>
+	
+
+</body>
 </html>
