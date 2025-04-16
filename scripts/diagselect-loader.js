@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 16 April 08:52)");
+console.log("✅ Active version: diagselect-loader.js (Updated 16 April 09:06)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -44,27 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mapping object for dropdown selections and corresponding field data
   const selectionMapping = {
     ESME: {
-      Tariff Info: {
+      "Tariff Info": {
         page: 'devicecattariff',
         fieldId: 'TariffInfo',
         jsonKey: 'tariffinfo',
       },
-      Payment Mode: {
+      "Payment Mode": {
         page: 'devicecatpaymentmode', 
         fieldId: 'DevicePaymentMode',
         jsonKey: 'devicepaymentmode',
       },
-      Supply Status: {
+      "Supply Status": {
         page: 'devicecatsupplystatus',
         fieldId: 'SupplyState',
         jsonKey: 'supplystatus',
       },
-      Auxillary Load Switch: {
+      "Auxillary Load Switch": {
         page: 'deviceauxload',
         fieldId: 'AuxLoadSwitch',
         jsonKey: 'auxloadswitch', 
       },
-      Device Log: {
+     "Device Log": {
         page: 'devicedevicelog',
         fieldId: 'DeviceLog',
         jsonKey: 'devicelog',
