@@ -1,5 +1,5 @@
 // diagselect-loader.js
-console.log("✅ Active version: diagselect-loader.js (Updated 16 April 17:01)");
+console.log("✅ Active version: diagselect-loader.js (Updated 16 April 17:53)");
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -45,47 +45,44 @@ document.addEventListener('DOMContentLoaded', function() {
   const selectionMapping = {
     ESME: {
       "Tariff Info": {
-        page: 'devicecattariff',
+        page: 'diagnosticstariffinfo', // Corrected
         fieldId: 'TariffInfo',
         jsonKey: 'tariffinfo',
       },
       "Payment Mode": {
-        page: 'devicecatpaymentmode', 
+        page: 'diagnosticsdevicepaymentmode', // ✅ matches diagnosticsdevicepaymentmode.html
         fieldId: 'DevicePaymentMode',
         jsonKey: 'devicepaymentmode',
       },
       "Supply Status": {
-        page: 'devicecatsupplystatus',
+        page: 'diagnosticssupplystatus', // ✅ matches diagnosticssupplystatus.html
         fieldId: 'SupplyState',
         jsonKey: 'supplystatus',
       },
       "Auxillary Load Switch": {
-        page: 'deviceauxload',
+        page: 'diagnosticsloadcontrolswitchdata', // Corrected from deviceauxload
         fieldId: 'AuxLoadSwitch',
-        jsonKey: 'auxloadswitch', 
+        jsonKey: 'auxloadswitch',
       },
-     "Device Log": {
-        page: 'devicedevicelog',
+      "Device Log": {
+        page: 'diagnosticsdevicelog', // Corrected from devicedevicelog
         fieldId: 'DeviceLog',
         jsonKey: 'devicelog',
       },
     },
     PPMID: {
-      // Placeholder mappings for PPMID
       A1: {},
       A2: {},
       A3: {},
       A4: {},
     },
     GPF: {
-      // Placeholder mappings for GPF  
       B1: {},
       B2: {},
       B3: {},
       B4: {},
     },
     'COMMS HUB': {
-      // Placeholder mappings for COMMS HUB
       C1: {},
       C2: {},
       C3: {},
