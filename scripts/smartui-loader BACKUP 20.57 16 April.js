@@ -1,5 +1,4 @@
-// smartui-loader.js
-console.log("✅ Active version: smartui-loader.js (Updated 16 April 2025, 21:07)");
+// smartui-loader.js - MODIFIED VERSION
 
 const level = document.body.dataset.level || "standard";
 // Corrected fragment path logic assuming server root is parent of 'smartui'
@@ -82,8 +81,6 @@ fetch(fragmentPath)
         // Save the loaded data to localStorage
         localStorage.setItem("smartui_data", JSON.stringify(data));
         console.log("Fresh scenario data loaded and saved to localStorage");
-        clearResetPinFields(); // Clear reset pin when scenario reloads
-
         
         // Populate fields with the fresh data
         populatePageFields(data);
@@ -155,19 +152,6 @@ function setupUTRNReverseHelper() {
       return false;
     }
   };
-}
-
-// Clear reset pin fields and localStorage
-function clearResetPinFields() {
-  console.log("🧹 Clearing reset pin values");
-  localStorage.removeItem("reset_Pin_PDOC");
-  localStorage.removeItem("reset_Pin_Response");
-  localStorage.removeItem("reset_Pin_Message");
-
-  ["reset_Pin_PDOC", "reset_Pin_Response", "reset_Pin_Message"].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = "";
-  });
 }
 
 // Function to fetch JSON from file and process it (without saving to localStorage)
@@ -368,23 +352,12 @@ function populatePageFields(data) {
 // --- Optional: UTRN row click highlighting (if needed globally) ---
 // Consider moving this to a specific script if only needed on certain pages
 document.addEventListener("DOMContentLoaded", () => {
-
   // Use event delegation for potentially dynamic rows
   const tableContainer = document.querySelector(".utrn-frame"); // Adjust selector if needed
   if (tableContainer) {
     tableContainer.addEventListener("click", (event) => {
       const row = event.target.closest(".utrn-row"); // Find the clicked row
       if (row) {
-
-        document.addEventListener("DOMContentLoaded", () => {
-          const resetBtn = document.getElementById("scenarioresetbutton");
-          if (resetBtn) {
-            resetBtn.addEventListener("click", () => {
-              console.log("🔁 Scenario reset button clicked");
-              clearResetPinFields(); // Clear reset pin fields when reset is clicked
-            });
-          }
-        });
         // Remove selected class from all sibling rows within the same container
         row.parentNode.querySelectorAll(".utrn-row").forEach(r => r.classList.remove("selected"));
         // Add selected class to the clicked row
