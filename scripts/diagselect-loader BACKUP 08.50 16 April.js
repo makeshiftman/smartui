@@ -45,27 +45,27 @@ document.addEventListener('DOMContentLoaded', function() {
   const selectionMapping = {
     ESME: {
       devicecattariff: {
-        page: 'Tariff Info',
+        page: 'diagnosticstariffinfo',
         fieldId: 'TariffInfo',
         jsonKey: 'tariffinfo',
       },
       devicecatpaymentmode: {
-        page: 'Device Payment Mode', 
+        page: 'diagnosticsdevicepaymentmode', 
         fieldId: 'DevicePaymentMode',
         jsonKey: 'devicepaymentmode',
       },
       devicecatsupplystatus: {
-        page: 'Supply Status',
+        page: 'diagnosticssupplystatus',
         fieldId: 'SupplyState',
         jsonKey: 'supplystatus',
       },
       deviceauxload: {
-        page: 'Auxillary Load Switch',
+        page: 'diagnosticsloadcontrolswitchdata',
         fieldId: 'AuxLoadSwitch',
         jsonKey: 'auxloadswitch', 
       },
       devicedevicelog: {
-        page: 'Device Log',
+        page: 'diagnosticsdevicelog',
         fieldId: 'DeviceLog',
         jsonKey: 'devicelog',
       },
