@@ -1,6 +1,7 @@
 // Final version for: /smartui/scripts/readprepaymentsettings-loader.js
 // Populates All 4 Tables (Debt, Meter Balance, Emergency Credit, NDCID).
 // Includes validation fix, alignment fixes, number formatting, and random time for NDCID timestamp.
+console.log("✅ Active version: readprepaymentsettings-loader.js (Updated 18 April 00:32)");
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            rowDiv.style.gridTemplateColumns = '140px 170px 200px 210px'; // Uses 5 columns based on last HTML
+            rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px'; // Uses 5 columns based on last HTML
             let source = '', statusTimestamp = '', emergencyCreditLimit = '', lowCreditThreshold = '';
 
             if (index === 0) { /* SAP */
