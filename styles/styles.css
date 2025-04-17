@@ -136,6 +136,7 @@ body {
 .custom-dropdown.dropdown-utrn-generate {
   width: 306px;
   height: 26px;
+  z-index: 12005;
 }
 
 .custom-dropdown.dropdown-utrn-generate .selected-option {
@@ -147,6 +148,7 @@ body {
   border: 0px;
   color: black;
   box-sizing: border-box;
+  z-index: 12004;
 }
 
 .custom-dropdown.dropdown-utrn-generate .dropdown-options {
@@ -162,7 +164,7 @@ body {
   font-size: 13px;
   background-color: transparent;
   border: none;
-  z-index: 10000;
+  z-index: 11000;
   cursor: pointer;
 }
 
