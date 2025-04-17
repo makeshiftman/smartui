@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            rowDiv.style.gridTemplateColumns = '140px 170px 200px 210px';
+            rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px';
             const statusTimestamp = calculateAndFormatDateTime(row.mbstatusTimestampOffset); // Use DateTime helper
             rowDiv.innerHTML = `
                 <div>${row.mbsource || ''}</div>
@@ -168,8 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'table-row';
             rowDiv.style.display = 'grid';
-            rowDiv.style.gridTemplateColumns = '140px 170px 200px 210px'; // Uses 5 columns based on last HTML
-            let source = '', statusTimestamp = '', emergencyCreditLimit = '', lowCreditThreshold = '';
+            rowDiv.style.gridTemplateColumns = '140px 170px 120px 200px 210px'; // Uses 5 columns based on last HTML
+            let source = '', statusTimestamp = '', meterBalance = '', emergencyCreditLimit = '', lowCreditThreshold = '';
 
             if (index === 0) { /* SAP */
                  source = row.ecssourceSAP; statusTimestamp = calculateAndFormatDateTime(row.ecsstatusTimestampOffsetSAP); // Use DateTime helper
@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rowDiv.innerHTML = `
                 <div>${source || ''}</div>
                 <div>${statusTimestamp || ''}</div>
+                <div>${formatDecimal(meterBalance)}</div>
                 <div>${formatDecimal(emergencyCreditLimit)}</div>
                 <div>${formatDecimal(lowCreditThreshold)}</div>
             `;
