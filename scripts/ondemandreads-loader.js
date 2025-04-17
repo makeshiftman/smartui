@@ -3,6 +3,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get references to the key HTML elements
     const dateInput = document.getElementById("MR_On_Demand_Date");
+    /** Returns today's date in "DD.MM.YYYY" (UK) format */
+function getTodayUK() {
+    const today = new Date();               // local time (Europe/London for you)
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0"); // Months are 0‑indexed
+    const yyyy = today.getFullYear();
+    return `${dd}.${mm}.${yyyy}`;
+}
+
+/* Auto‑populate the input if it’s empty */
+if (dateInput && !dateInput.value) {
+    dateInput.value = getTodayUK();
+}
     const executeBtn = document.getElementById("executeOnDemandReads");
     const tableBody = document.getElementById("ondemandreads-table"); // This element MUST exist in the HTML
     const tableWrapper = tableBody ? tableBody.closest('.utrn-frame') : null; // Optional: find parent wrapper
