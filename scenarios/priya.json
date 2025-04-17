@@ -1,27 +1,409 @@
 {
-  "first_Name_Last_Name": "Priya Hughes",
-  "address": "1 Main Street",
-	"elecOrGas": "Priya Hughes",
-	"BPID": "925125025",
-	"contract_Account": "1615252512",
-	"contract": "0924251525",
-	"contract_Start": "23.12.2023",
-	"operating_Mode": "PrePayment",
-	"payment_Plan": "BMW",
+	"first_Name": "Priya",
+	"last_Name": "Hughes",
+	"flatnumber": "",
+	"housenumber": "3",
+	"street": "3 Websters Meadow",
+	"city": "Emerson Valley",
+	"postcode": "MK4 2DU",
+	"email": "priya@scottishpower.com",
+	"mobile": "5551042999",
+	"workphone": "5551042124",
+	"phonenumber": "5551042444",
+	"gender": "female",
+	"preferredcomm": "5551042124",
+	"corrflatnumber": null,
+	"corrhousenumber": null,
+	"corrstreet": null,
+	"corrcity": null,
+	"corrpostcode": null,
+	"BPID": "9316472819",
+	"elecOrGas": "Electricity",
+	"contract_Account": "1616987429",
+	"contract": "0256739182",
+	"contract_Start_Offset": -420,
+	"contract_End": "",
 	"read_Retrieval": "Half Hourly",
-	"last_Comm": "23.01.2024",
-	"pod": "18000251251255",
-	"device_Guid": "4D-24-8C-00-00-12-24-3F",
-	"meter_Serial": "L124251251M",
-	"device_Start": "11.04.2021",
+	"operating_Mode": "Prepayment",
+	"payment_Plan": "BMW",
+	"SMSO_ID": "DCC",
+	"last_Comm_Offset": -1,
+	"pod": "5988847284",
+	"firmware_Version": "",
+	"device_Location": "Inside",
+	"device_Guid": "5D-44-5D-00-00-F5-12",
+	"meter_Serial": "42P948291058",
+	"device_Start": "09.09.2022",
 	"device_End": "31.12.9999",
 	"device_Status": "Commissioned",
-
-  "utrnRows": [
-    {
-      "type": "Payment",
-      "channel": "Mobile",
-      "status": "Error - UTRN application response"
-    }
-  ]
-}
+	"smets1_DCC": "No",
+	"PID": "0948288827467382881",
+	"smartortrad": "smart",
+	"metermake": "Secure",
+	"metermodel": "00004001",
+	"supplystatus": "On supply",
+	"gasbatteryremaining": "",
+	"devicepaymentmode": "Prepayment",
+  
+	"utrnRows": [
+	  {
+		"createdOffset": -1,
+		"appliedOffset": null,
+		"value": "10.00",
+		"type": "Manual",
+		"utrn": "51850353141359423383",
+		"channel": "Mobile",
+		"status": "Error - UTRN application response",
+		"auth": "099755",
+		"createdTime": "11:04",
+		"appliedTime": null
+	  },
+	  {
+		"createdOffset": -4,
+		"appliedOffset": null,
+		"value": "10.00",
+		"type": "Manual",
+		"utrn": "92512492413594233834",
+		"channel": "Mobile",
+		"status": "Error - UTRN application response",
+		"auth": "099755",
+		"createdTime": "12:00",
+		"appliedTime": null
+	  },
+	  {
+		"createdOffset": -5,
+		"appliedOffset": null,
+		"value": "30.00",
+		"type": "Manual",
+		"utrn": "22224935829251249241",
+		"channel": "Payment",
+		"status": "UTRN generated",
+		"auth": "012345",
+		"createdTime": "12:00",
+		"appliedTime": null
+	  },
+	  {
+		"createdOffset": -52,
+		"appliedOffset": null,
+		"value": "10.00",
+		"type": "Manual",
+		"utrn": "72849390129482948264",
+		"channel": "Payment",
+		"status": "UTRN generated",
+		"auth": null,
+		"createdTime": "19:40",
+		"appliedTime": null
+	  },
+	  {
+		"createdOffset": -4,
+		"appliedOffset": null,
+		"value": "30.00",
+		"type": "Payment",
+		"utrn": "21850353141259423380",
+		"channel": "Mobile",
+		"status": "UTRN generated",
+		"auth": "012345",
+		"createdTime": "22:02",
+		"appliedTime": null
+	  },
+	  {
+		"createdOffset": -15,
+		"appliedOffset": null,
+		"value": "20.00",
+		"type": "Manual",
+		"utrn": "51850327482019482738",
+		"channel": "Mobile",
+		"status": "Error - UTRN application response",
+		"auth": null,
+		"createdTime": "08:10",
+		"appliedTime": null
+	  },
+	  {
+		"createdOffset": -43,
+		"appliedOffset": -42,
+		"value": "30.00",
+		"type": "Manual",
+		"utrn": "21850353141259423380",
+		"channel": "Mobile",
+		"status": "UTRN Applied",
+		"auth": null,
+		"createdTime": "12:00",
+		"appliedTime": "11:00"
+	  }
+	],
+	"storedMeterReads": [
+	  {
+		"offset": -30,
+		"register1": "15930",
+		"register2": "15933",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -29,
+		"register1": "15939",
+		"register2": "15940",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -28,
+		"register1": "15945",
+		"register2": "15948",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -27,
+		"register1": "15952",
+		"register2": "15952",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -26,
+		"register1": "15962",
+		"register2": "15962",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -25,
+		"register1": "15971",
+		"register2": "15972",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -24,
+		"register1": "15980",
+		"register2": "15983",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -23,
+		"register1": "15986",
+		"register2": "15987",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -22,
+		"register1": "15997",
+		"register2": "16000",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -21,
+		"register1": "16002",
+		"register2": "16005",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -20,
+		"register1": "16009",
+		"register2": "16011",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -19,
+		"register1": "16017",
+		"register2": "16020",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -18,
+		"register1": "16028",
+		"register2": "16031",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -17,
+		"register1": "16037",
+		"register2": "16038",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -16,
+		"register1": "16046",
+		"register2": "16049",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -15,
+		"register1": "16052",
+		"register2": "16054",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -14,
+		"register1": "16057",
+		"register2": "16057",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -13,
+		"register1": "16066",
+		"register2": "16068",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -12,
+		"register1": "16076",
+		"register2": "16077",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -11,
+		"register1": "16087",
+		"register2": "16088",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -10,
+		"register1": "16095",
+		"register2": "16095",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -9,
+		"register1": "16104",
+		"register2": "16107",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -8,
+		"register1": "16114",
+		"register2": "16114",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -7,
+		"register1": "16125",
+		"register2": "16125",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -6,
+		"register1": "16131",
+		"register2": "16133",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -5,
+		"register1": "16140",
+		"register2": "16143",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -4,
+		"register1": "16149",
+		"register2": "16150",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -3,
+		"register1": "16155",
+		"register2": "16158",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -2,
+		"register1": "16165",
+		"register2": "16165",
+		"register3": "",
+		"register4": ""
+	  },
+	  {
+		"offset": -1,
+		"register1": "16173",
+		"register2": "16175",
+		"register3": "",
+		"register4": ""
+	  }
+	],
+  
+  
+	"ppsDebtSettings": [
+	  {
+		"source": "SAP DATA",
+		"statusTimestampOffset": -1,
+		"totalDebt": 75.50,
+		"drr": 5.00,
+		"maxRecoveryRate": 10.00
+	  },
+	  {
+		"source": "METER DATA",
+		"statusTimestampOffset": -1, 
+		"totalDebt": 120.00,
+		"drr": 5.00,
+		"maxRecoveryRate": 10.00
+	  }
+	],
+  
+  "ppsMeterBalanceData": [
+	  {
+		"mbsource": "METER DATA",
+		"mbstatusTimestampOffset": -1,
+		"mbMeterBalance": 18.50,
+		"mbEmergencyCreditAvailable": 10.00,
+		"mbLowCreditWarningThreshold": 1.00
+	  }
+	],
+  
+	"ppsEmergencyCreditSettingsData": [
+	  {
+		"ecssourceSAP": "SAP DATA",
+		"ecsstatusTimestampOffsetSAP": -1,
+		"ecsEmergencyCreditLimitSAP": 10.00,
+		"ecsEmergencyCreditThresholdSAP": 1.00
+	  },
+	  {
+		"ecssourceMeter": "METER DATA",
+		"ecsstatusTimestampOffsetMeter": -1,
+		"ecsEmergencyCreditLimitMeter": 10.00,
+		"ecsEmergencyCreditThresholdMeter": 1.00
+	  }
+	],
+  
+	"ppsNonDisablementCalendarIDData": [
+	  {
+		"ndcidsourceSAP": "SAP DATA",
+		"ndcidstatusTimestampOffsetSAP": -1,
+		"ndcidNonDisablementCalendarIDSAP": "01",
+		"ndcidDescriptionSAP": "SUNDAYS BANK HOLS 7PM TIL 12"
+	  },
+  
+	  {
+		"ndcidsourceMeter": "METER DATA",
+		"ndcidstatusTimestampOffsetMeter": -13,
+		"ndcidNonDisablementCalendarIDMeter": "01",
+		"ndcidDescriptionMeter": "SUNDAYS BANK HOLS 7PM TIL 12"
+	  }
+	]
+  
+  
+  }
+  
+  
