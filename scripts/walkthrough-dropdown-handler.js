@@ -1,3 +1,5 @@
+console.log("✅ Active version: walkthrough-dropdown-handler.js (Updated 18 April 17:05)");
+
 document.addEventListener('DOMContentLoaded', () => {
   const walkthroughMenu = document.getElementById('Smart_Menu_Bar');
   if (!walkthroughMenu) return;

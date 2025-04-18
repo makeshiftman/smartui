@@ -1,3 +1,5 @@
+console.log("✅ Active version: dropdown-scenario-level.js (Updated 18 April 17:05)");
+
 setTimeout(() => {
   const scenarioDropdown = document.getElementById("scenario_Selector");
   const walkthroughDropdown = document.getElementById("Smart_Menu_Bar");
