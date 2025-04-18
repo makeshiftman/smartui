@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link rel="icon" href="data:," />
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="utf-8"/>
+<title>SmartUI Device Payment Mode</title>
+	<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
+<link rel="stylesheet" href="../styles/styles.css" />
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      position: relative;
+      width: 1920px;
+      height: 1215px;
+      background: url('../images/diagnosticsdevicepaymentmodesilver.png') no-repeat top left;
+      background-size: cover;
+  
+    }
+    .link-area {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+<input class="input-field" id="DevicePaymentMode"
+  style="top: 368px; left: 768px; height:18px; width:75px; background: transparent; z-index: 10000;"
+  title="Payment Mode" readonly>
+<!-- Left side fields from core-input-fields.html inject here -->
+
+<!-- Top Link Areas -->
+<a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
+<a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
+<a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
+<a class="link-area" href="prepaymentsettings.html" style="top: 69px; left: 918px; height:18px; width:125px"></a>
+<a class="link-area" href="prepaymentpayments.html" style="top: 69px; left: 1049px; height:18px; width:133px"></a>
+<a class="link-area" href="additionalfunctions.html" style="top: 69px; left: 1189px; height:18px; width:119px"></a>
+<a class="link-area" href="diagnostics.html" style="top: 69px; left: 1313px; height:18px; width:76px"></a>
+<a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
+
+	<!-- Internal page links -->
+	
+<!-- 🔄 diagnosticsselection.html (sidebox) -->
+	
+<a href="diagnosticsselection.html"
+   style="position: absolute; top: 92px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔄 diagnosticsdevicelog.html (sidebox) -->
+	
+<a href="diagnosticsdevicelog.html"
+   style="position: absolute; top: 146px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔄 diagnosticsloadcontrolswitchdata.html (sidebox) -->
+<a href="diagnosticsloadcontrolswitchdata.html"
+   style="position: absolute; top: 200px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔄 diagnosticssupplystatus.html (sidebox) -->
+<a href="diagnosticssupplystatus.html"
+   style="position: absolute; top: 254px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 diagnostics.html (downbox) -->
+<a href="diagnostics.html"
+   style="position: absolute; top: 308px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/downboxgrey.png"
+       onmouseover="this.src='../images/buttons/downboxblue.png';"
+       onmouseout="this.src='../images/buttons/downboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔄 diagnosticsgasdevice.html (sidebox) -->
+<a href="diagnosticsgasdevice.html"
+   style="position: absolute; top: 443px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔄 diagnosticstariffinfo.html (sidebox) -->
+<a href="diagnosticstariffinfo.html"
+   style="position: absolute; top: 497px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+<!--Reset Button -->
+<a id="reset-scenario"
+   href="#"
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>	
+</div>
+<script src="/smartui/scripts/smartui-loader.js"></script>
+<script src="/smartui/scripts/utrn-table-loader.js"></script>
+<script src="/smartui/scripts/dropdown-scenario-level.js"></script>
+<script src="/smartui/scripts/reset-scenario-handler.js"></script>
+<!-- Tippy tooltip styles -->
+<link rel="stylesheet" href="/smartui/styles/tippy.css" />
+<!-- Tooltip scripts -->
+<script src="/smartui/scripts/popper.js"></script>
+<script src="/smartui/scripts/tippy.umd.js"></script>
+<!-- diagnosticsdevicepaymentmode.html -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const devicePaymentModeField = document.getElementById('DevicePaymentMode');
+
+  function updateFieldValue() {
+    const storedValue = localStorage.getItem('smartui_field_diagnosticsdevicepaymentmode_DevicePaymentMode');
+    if (storedValue) {
+      devicePaymentModeField.value = storedValue;
+    }
+  }
+
+  // Initial field population
+  updateFieldValue();
+
+  // Listen for changes in localStorage
+  window.addEventListener('storage', function(event) {
+    if (event.key === 'smartui_field_diagnosticsdevicepaymentmode_DevicePaymentMode') {
+      updateFieldValue();
+    }
+  });
+});
+</script>
+</body>
+</html>

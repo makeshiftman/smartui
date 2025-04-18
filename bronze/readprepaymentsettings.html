@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="data:," />
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="utf-8"/>
+<title>SmartUI Read Prepayment Settings</title>
+<link rel="stylesheet" href="../styles/styles.css" /> <link rel="stylesheet" href="/smartui/styles/tippy.css" /> <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      position: relative;
+      width: 1920px;
+      height: 1215px;
+      background: url('../images/readprepaymentsettingsbronzebronze.png') no-repeat top left; /* Assuming relative path OK */
+      background-size: cover;
+    }
+    .link-area {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      cursor: pointer;
+    }
+    /* Add specific CSS for #PPSdebtsettings-table, .table-row etc. in external CSS */
+    /* Add specific CSS for #readPPS_Display_Latest_Stored_Values etc. in external CSS */
+  </style>
+</head>
+<body data-level="standard">
+
+<div id="wrapper">
+
+    <div id="readPPS_Display_Latest_Stored_Values" class="custom-dropdown dropdown-readPPS_Display_Latest_Stored_Values" style="top: 148px; left: 651px; width: 174px; height: 24px; z-index: 10000; /* Kept positioning inline, move appearance to CSS */">
+      <div class="selected-option">Display Latest Stored Values</div> <div class="dropdown-options">
+        <div data-value="DisplayLatestStoredValues">Display Latest Stored Values</div>
+        <div data-value="NONE"></div> 
+	</div>
+    </div>
+    <div style="position: absolute; top: 153px; left: 838px;">
+      <input type="radio" id="radio_PPS_Latest" name="readMode" value="latest" title="Latest" checked /> </div>
+    <div style="position: absolute; top: 153px; left: 918px;">
+      <input type="radio" id="radio_PPS_Select" name="readMode" value="selectDate" title="Select Date" /> </div>
+
+    <input class="input-field" id="Stored_ReadPPS_Date"
+      style="top: 152px; left: 1042px; height:16px; width:80px; background: transparent; z-index: 10000;"
+      title="Stored Meter Reads Date From">
+
+    <a href="#" id="executeReadPPS" style="position: absolute; top: 149px; left: 1154px; height: 27px; width: 120px;">
+      <img src="../images/buttons/executegreyxw.png"
+           onmouseover="this.src='../images/buttons/executebluexw.png';"
+           onmouseout="this.src='../images/buttons/executegreyxw.png';"
+           alt="Execute"
+           style="width: 120px; height: 27px; display: block;" />
+    </a>
+
+    <a href="#" style="position: absolute; top: 176px; left: 898px; height: 27px; width: 152px;">
+      <img src="../images/buttons/reprocesspdocdeselected.png"
+           onmouseover="this.src='../images/buttons/reprocesspdocdeselected.png';"
+           onmouseout="this.src='../images/buttons/reprocesspdocdeselected.png';"
+           alt="Reprocess PDOC"
+           style="width: 152px; height: 27px; display: block;" />
+    </a>
+   <div class="utrn-frame pps-info-table" style="position: absolute; top: 230px; left: 579px; width: 925px; height: 70px; /* Adjust size as needed */ border: 1px solid #ccc; background-color: rgba(255, 255, 255, 0.2); overflow-y: auto; overflow-x: hidden; font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif; font-size: 13px; color: #4d4d4d; z-index: 1;">
+
+      <div class="table-header" style="display: grid; grid-template-columns: 140px 170px 180px 150px 230px; /* Adjust column widths */ min-width: 924px; height: 25px; background-color: #e5e5e5; border-bottom: 1px solid #d0d0d0; position: sticky; top: 0; z-index: 10;">
+        <div>Source</div>
+        <div>Status Timestamp</div>
+        <div>Total Debt</div>
+        <div>DRR</div>
+        <div>Max Recovery Rate (%)</div>
+      </div>
+
+      <div id="PPSdebtsettings-table">
+          </div>
+
+    </div>
+	
+	<div class="utrn-frame pps-info-table" style="position: absolute; top: 390px; left: 577px; width: 928px; height: 74px; /* Adjust size as needed */ border: 1px solid #ccc; background-color: rgba(255, 255, 255, 0.2); overflow-y: auto; overflow-x: hidden; font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif; font-size: 13px; color: #4d4d4d; z-index: 1;">
+
+  <div class="table-header" style="display: grid; grid-template-columns: 140px 170px 120px 200px 210px; /* Adjust column widths */ min-width: 924px; height: 25px; background-color: #e5e5e5; border-bottom: 1px solid #d0d0d0; position: sticky; top: 0; z-index: 10;">
+    <div>Source</div>
+    <div>Status Timestamp</div>
+    <div>Meter Balance</div>
+    <div>Emergency Credit Available</div>
+    <div>Low Credit Warning Threshold</div>
+  </div>
+
+  <div id="PPSmeterbalance-table">
+      </div>
+
+</div>
+
+  <div class="utrn-frame pps-info-table" style="position: absolute; top: 554px; left: 576px; width: 929px; height: 70px; /* Adjust size as needed */ border: 1px solid #ccc; background-color: rgba(255, 255, 255, 0.2); overflow-y: auto; overflow-x: hidden; font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif; font-size: 13px; color: #4d4d4d; z-index: 1;">
+
+  <div class="table-header" style="display: grid; grid-template-columns: 140px 170px 200px 210px; /* Adjust column widths */ min-width: 924px; height: 25px; background-color: #e5e5e5; border-bottom: 1px solid #d0d0d0; position: sticky; top: 0; z-index: 10;">
+    <div>Source</div>
+    <div>Status Timestamp</div>
+    <div>Emergency Credit Limit</div>
+    <div>Emergency Credit Threshold</div>
+  </div>
+
+  <div id="PPEmergencyCreditSettings-table">
+      </div>
+</div>
+	
+<div class="utrn-frame pps-info-table" style="position: absolute; top: 715px; left: 576px; width: 929px; height: 71px; /* Adjust size as needed */ border: 1px solid #ccc; background-color: rgba(255, 255, 255, 0.2); overflow-y: auto; overflow-x: hidden; font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif; font-size: 13px; color: #4d4d4d; z-index: 1;">
+  <div class="table-header" style="display: grid; grid-template-columns: 140px 170px 200px 200px; min-width: 924px; height: 25px; background-color: #e5e5e5; border-bottom: 1px solid #d0d0d0; position: sticky; top: 0; z-index: 10;">
+    <div>Source</div>
+    <div>Status Timestamp</div>
+    <div>Non-Disablement Calendar ID</div>
+    <div>Description</div>
+	</div>
+
+	<div id="ppsNdcid-table"> </div>
+	</div>
+  </div>
+	
+    <a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
+    <a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
+    <a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
+    <a class="link-area" href="prepaymentsettings.html" style="top: 69px; left: 918px; height:18px; width:125px"></a>
+    <a class="link-area" href="prepaymentpayments.html" style="top: 69px; left: 1049px; height:18px; width:133px"></a>
+    <a class="link-area" href="additionalfunctions.html" style="top: 69px; left: 1189px; height:18px; width:119px"></a>
+    <a class="link-area" href="diagnostics.html" style="top: 69px; left: 1313px; height:18px; width:76px"></a>
+    <a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
+
+    <a href="prepaymentsettings.html"
+       style="position: absolute; top: 92px; left: 514px; height: 27px; width: 40px;">
+      <img src="../images/buttons/downboxgrey.png"
+           onmouseover="this.src='../images/buttons/downboxblue.png';"
+           onmouseout="this.src='../images/buttons/downboxgrey.png';"
+           alt="Down"
+           style="width: 40px; height: 27px; display: block;" />
+    </a>
+
+    <a id="reset-scenario"
+   href="#"
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>
+
+</div> 
+<script src="../scripts/smartui-loader.js"></script>
+<script src="../scripts/initial-display-handler.js"></script>
+<script src="../scripts/reset-scenario-handler.js"></script> 
+<script src="../scripts/dropdown-bsr-handler.js"></script> 
+<script src="../scripts/readprepaymentsettings-loader.js"></script> 
+<script src="../scripts/dropdown-scenario-level.js"></script>
+<!-- Tippy tooltip styles -->
+<link rel="stylesheet" href="/smartui/styles/tippy.css" />
+<!-- Tooltip scripts -->
+<script src="/smartui/scripts/popper.js"></script>
+<script src="/smartui/scripts/tippy.umd.js"></script>
+</body>
+</html>

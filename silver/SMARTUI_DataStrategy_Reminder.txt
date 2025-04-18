@@ -1,0 +1,55 @@
+SMARTUI PROJECT DATA STRATEGY (REFERENCE)
+
+▶ PURPOSE:
+This project supports two modes:
+1. LOCAL DEMO MODE – stores data in localStorage for on-the-fly demos.
+2. PERMANENT DEMO MODE – exports a JSON file to host on SharePoint for consistent static demos.
+
+▶ EXPORT FORMAT FROM dataentryportal.html:
+The exported structure will look like:
+
+{
+  "metadata": {
+    "contractAccount": "...",
+    "premise": "...",
+    "smartDevice": "...",
+    "businessPartner": "...",
+    ...
+  },
+  "topups": [
+    {
+      "created": "...",
+      "applied": "...",
+      "value": "...",
+      "type": "...",
+      "utrn": "...",
+      "channel": "...",
+      "status": "...",
+      "auth": "..."
+    }
+  ]
+}
+
+▶ HOW TO LABEL FIELDS ON OTHER PAGES (e.g. SmartUI pages):
+
+Use the HTML attribute `data-field="KEY"` where KEY matches a property in metadata.
+Example:
+<input class="input-field" data-field="contractAccount" readonly />
+
+▶ LOADING DATA INTO OTHER PAGES:
+
+1. Use localStorage:
+   const fullData = JSON.parse(localStorage.getItem("smartui_demo_data"));
+   const metadata = fullData?.metadata || {};
+
+2. Apply to inputs:
+   document.querySelectorAll('[data-field]').forEach(el => {
+     const key = el.getAttribute("data-field");
+     if (metadata[key]) el.value = metadata[key];
+   });
+
+▶ TO EXPORT STATIC SCENARIOS FOR SHAREPOINT:
+- Add a button that uses Blob + JSON.stringify to export the full data as scenario.json.
+- Upload to SharePoint and switch other pages to fetch this file.
+
+This system supports both dynamic and permanent demo workflows.

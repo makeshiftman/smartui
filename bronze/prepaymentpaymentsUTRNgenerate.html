@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link rel="icon" href="data:," />
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="utf-8"/>
+<title>SmartUI UTRN Generate</title>
+	<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
+<link rel="stylesheet" href="../styles/styles.css" />
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      position: relative;
+      width: 1920px;
+      height: 1215px;
+      background: url('../images/prepaymentpaymentsUTRNgeneratedualbronze.png') no-repeat top left;
+      background-size: cover;
+    }
+    .link-area {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      cursor: pointer;
+      
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+<!-- Radio buttons --> 
+	
+	<div style="position: absolute; top: 261px; left: 582px;">
+  <input type="radio" name="historicUtrnFilter" value="7" checked title="Last 7 Days" />
+</div>
+<div style="position: absolute; top: 261px; left: 694px;">
+  <input type="radio" name="historicUtrnFilter" value="30" title="Last 30 Days" />
+</div>
+<div style="position: absolute; top: 261px; left: 814px;">
+  <input type="radio" name="historicUtrnFilter" value="custom" title="Use Date Range" />
+</div>
+<input class="input-field" id="Historic_Date_From"
+  style="top: 261px; left: 980px; height:18px; width:76px; background: transparent; z-index: 10000;"
+  title="Date From">	
+<input class="input-field" id="Historic_Date_To"
+  style="top: 261px; left: 1093px; height:18px; width:76px; background: transparent; z-index: 10000;"
+  title="Date To">	
+	
+
+
+	
+<!-- Left side fields from core-input-fields.html inject here -->
+
+<!-- Top Link Areas -->
+<a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
+<a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
+<a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
+<a class="link-area" href="prepaymentsettings.html" style="top: 69px; left: 918px; height:18px; width:125px"></a>
+<a class="link-area" href="prepaymentpayments.html" style="top: 69px; left: 1049px; height:18px; width:133px"></a>
+<a class="link-area" href="additionalfunctions.html" style="top: 69px; left: 1189px; height:18px; width:119px"></a>
+<a class="link-area" href="diagnostics.html" style="top: 69px; left: 1313px; height:18px; width:76px"></a>
+<a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
+<!-- Internal page links -->
+<!-- 🔽 prepaymentpaymentsPID.html (Sidebox) -->
+<a href="prepaymentpaymentsPID.html"
+   style="position: absolute; top: 119px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpaymentshistoricUTRN.html (Sidebox) -->
+<a href="prepaymentpaymentshistoricUTRN.html"
+   style="position: absolute; top: 173px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpaymentssearchoutlet.html (Sidebox) -->
+<a href="prepaymentpaymentssearchoutlet.html"
+   style="position: absolute; top: 578px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpayments.html (Downbox) -->
+<a href="prepaymentpayments.html"
+   style="position: absolute; top: 632px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/downboxgrey.png"
+       onmouseover="this.src='../images/buttons/downboxblue.png';"
+       onmouseout="this.src='../images/buttons/downboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpaymentsoldsupplier.html (Sidebox) -->
+<a href="prepaymentpaymentsoldsupplier.html"
+   style="position: absolute; top: 578px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+	
+	<a href="#" id="utrnGenerateExecute"
+   style="position: absolute; top: 716px; left: 962px; height: 27px; width: 104px;">
+  <img src="../images/buttons/executenormal.png"
+       onmouseover="this.src='../images/buttons/executehover.png';"
+       onmouseout="this.src='../images/buttons/executenormal.png';"
+       alt=""
+       style="width: 104px; height: 27px; display: block;" />
+	</a>
+	<a href="#" id="executeHistoricUtrn" style="position: absolute; top: 284px; left: 978px; height: 27px; width: 104px;">
+  <img src="../images/buttons/executenormal.png"
+       onmouseover="this.src='../images/buttons/executehover.png';"
+       onmouseout="this.src='../images/buttons/executenormal.png';"
+       alt="" style="width: 104px; height: 27px; display: block;" />
+</a>
+	<a href="#" id="utrnGenerateRefresh"
+   style="position: absolute; top: 716px; left: 1106px; height: 27px; width: 104px;">
+  <img src="../images/buttons/refreshdeselected.png"
+       onmouseover="this.src='../images/buttons/refreshblue.png';"
+       onmouseout="this.src='../images/buttons/refreshgrey.png';"
+       alt=""
+       style="width: 104px; height: 27px; display: block;" />
+	</a>
+		<a href="#" id="reverseBtn" style="position: absolute; top: 284px; left: 1354px; height: 27px; width: 104px;">
+  <img src="../images/buttons/reversegrey.png"
+       onmouseover="this.src='../images/buttons/reverseblue.png';"
+       onmouseout="this.src='../images/buttons/reversegrey.png';"
+       alt="Reverse UTRN" style="width: 104px; height: 27px; display: block;" />
+</a>
+	<style>
+  .utrn-frame {
+    position: absolute;
+    top: 367px;
+    left: 573px;
+    width: 864px;
+    height: 122px;
+    border: 1px solid #f2f2f2;
+    background-color: rgba(255, 255, 255, 0.2);
+    overflow-y: scroll;
+    overflow-x: scroll;
+    font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+    font-size: 13px;
+    color: #4d4d4d;
+    transform: scaleX(0.97); /* subtle horizontal squash */
+    scrollbar-width: auto; /* Firefox: always show scrollbar */
+  }
+  .table-header, .table-row {
+  display: grid;
+  grid-template-columns: 
+    160px   /* Creation Date & Time */
+    160px   /* Applied Date & Time */
+    75px    /* UTRN Value */
+    65px    /* Type */
+    160px   /* UTRN Number */
+    70px   /* Channel */
+    210px    /* Status */
+    50px    /* Payout */
+    50px    /* BPEM */
+    60px;   /* Auth Code */
+  min-width: 1050px;
+  height: 25px;
+  font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+  font-weight: normal;
+}
+  .table-header {
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #d0d0d0;
+    position: sticky;
+    font-weight: normal;
+    font-family: "MS Sans Serif", 'Segoe UI', Tahoma, sans-serif;
+
+    top: 0;
+    z-index: 10;
+  }
+  .table-row div, .table-header div {
+    padding: 3px 4px;
+    border-right: 1px solid #d0d0d0;
+    white-space: nowrap;
+    font-weight: normal;
+    text-align: right;
+    padding-right: 6px;
+  }
+  .table-row {
+    border-bottom: 1px solid #d0d0d0;
+  }
+  .table-header div:nth-child(1),
+  .table-header div:nth-child(2),
+  .table-row div:nth-child(1),
+  .table-row div:nth-child(2) {
+    text-align: right;
+  }
+ /* Align UTRN Value (3rd), Type (4th), and UTRN Number (5th) to the left */
+.table-header div:nth-child(3),
+.table-row div:nth-child(3),
+.table-header div:nth-child(4),
+.table-row div:nth-child(4),
+.table-header div:nth-child(5),
+.table-row div:nth-child(5) {
+  text-align: left;
+}
+	</style>
+
+<div class="utrn-frame">
+  <div class="table-header">
+    <div>Creation Date &amp; Time</div><div>Applied Date &amp; Time</div><div>UTRN Value</div><div>Type</div>
+    <div>UTRN Number</div><div>Channel</div><div>Status</div><div>Payout</div><div>BPEM</div><div>Auth Code</div>
+  </div>
+  <div id="utrn-table"></div>
+</div>
+<div id="context-menu">
+  <div class="context-item">Copy Text</div>
+  <div class="context-separator"></div>
+  <div class="context-item">Details</div>
+  <div class="context-separator"></div>
+  <div class="context-item">Optimize Width</div>
+  <div class="context-item">Unfreeze Columns</div>
+  <div class="context-separator"></div>
+  <div class="context-item" id="context-find">Find...</div>
+  <div class="context-item" style="color: #aaa; pointer-events: none;">Find Next</div>
+  <div class="context-item">Set Filter...</div>
+  <div class="context-separator"></div>
+  <div class="context-item">Spreadsheet...</div>
+</div>
+	
+	<!-- Internal input fields -->
+	
+<input class="input-field" id="utrn_Generate_Amount"
+  style="top:695px; left:863px; height:15px; width:51px; background: transparent; z-index: 10000;"
+  title="Device Status">
+	
+<!-- ✅ Custom Dropdown for Generate Reason -->
+<div id="UTRN_Generate_Reason" class="custom-dropdown dropdown-utrn-generate" style="top: 717px; left: 629px; width: 290px; ">
+  <div class="selected-option">&nbsp;</div>
+  <div class="dropdown-options">
+    <div data-value="AFFORDABILITY">AFFORDABILITY</div>
+    <div data-value="CREDIT_ADVANCE">CREDIT ADVANCE WITH COMMS ISSUE</div>
+    <div data-value="EX_GRATIA">EX-GRATIA PAYMENT/GOODWILL WITH COMMS ISSUE</div>
+    <div data-value="EXCEPTION_RESOLUTION">EXCEPTION RESOLUTION WITH COMMS ISSUE</div>
+    <div data-value="LONG_TERM_COMMS">LONG TERM COMMS ISSUE</div>
+    <div data-value="NEW_SUPPLIER">NEW SUPPLIER REQUEST</div>
+    <div data-value="PAYMENT_CHANNEL">PAYMENT CHANNEL ISSUE</div>
+    <div data-value="REFUND">REFUND WITH COMMS ISSUE</div>
+  </div>
+</div>
+	
+</div>
+<!-- UTRN Generated result array -->
+	
+	<input class="input-field" id="utrn_generated_result"
+  style="top:799px; left:573px; height:22px; width:154px; background: transparent; z-index: 10000;"
+  title="UTRN result">
+	<input class="input-field" id="utrn_generated_value"
+  style="top:799px; left:740px; height:22px; width:97px; background: transparent; z-index: 10000;"
+  title="UTRN Value">
+<input class="input-field" id="utrn_generated_channel"
+  style="top:799px; left:850px; height:22px; width:152px; background: transparent; z-index: 10000;"
+  title="UTRN Channel">
+<input class="input-field" id="utrn_generated_status"
+  style="top:799px; left:1016px; height:22px; width:320px; background: transparent; z-index: 10000;"
+  title="UTRN Status">
+	
+		<!--Reset Button -->
+<a id="reset-scenario"
+   href="#"
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>	
+<script src="../scripts/smartui-loader.js"></script>
+<script src="../scripts/utrn-table-loader.js"></script>
+<script src="../scripts/dropdown-utrn-generate-reason.js"></script>
+<script src="../scripts/utrn-generate-handler.js"></script>
+<script src="../scripts/refresh-button-handler.js"></script>
+<script src="../scripts/reset-scenario-handler.js"></script>
+<script src="../scripts/dropdown-scenario-level.js"></script>
+<!-- Tippy tooltip styles -->
+<link rel="stylesheet" href="/smartui/styles/tippy.css" />
+<!-- Tooltip scripts -->
+<script src="../scripts/popper.js"></script>
+<script src="../scripts/tippy.umd.js"></script>
+</body>
+<!-- Find Popup (visual only, UTRN autofills top field) -->
+<div id="find-popup"> 
+  <input type="text" id="find-popup-utrn" class="popup-input" readonly /> 
+  <div class="popup-close-button" id="popup-close-x1" title="Close"></div> 
+  <div class="popup-close-button" id="popup-close-x2" title="Close"></div> 
+  <div class="popup-close-button" id="popup-close-tick" title="Accept/Close"></div> 
+  </div>	
+</html>

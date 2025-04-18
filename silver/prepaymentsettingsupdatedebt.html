@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link rel="icon" href="data:," />
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="utf-8"/>
+<title>SmartUI Prepayment Settings Update DRR</title>
+<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
+<link rel="stylesheet" href="../styles/styles.css" />
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      position: relative;
+      width: 1920px;
+      height: 1215px;
+      background: url('../images/prepaymentsettingsupdatedebtsilver.png') no-repeat top left;
+      background-size: cover;
+    }
+ 
+    .link-area {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body data-level="standard">
+<div id="wrapper">
+<!-- Execute Button -->
+	<a href="prepaymentsettingsupdateDRR.html"
+   style="position: absolute; top: 527px; left: 570px; height: 27px; width: 104px; ">
+  <img src="../images/buttons/executenormal.png"
+       onmouseover="this.src='../images/buttons/executehover.png';"
+       onmouseout="this.src='../images/buttons/executenormal.png';"
+       alt=""
+	   style="width: 104px; height: 27px; display: block;" />	
+<input class="input-field" id="updatePPS_PPDOCno"
+  style="top:584px; left:641px; height:15px; width:160px; background: transparent; z-index: 10000;"
+  title="PPDOC No" readonly>
+<input class="input-field" id="updatePPS_Response_Code"
+  style="top:663px; left:571px; height:20px; width:157px; background: transparent; z-index: 10000;"
+  title="PPDOC No" readonly>
+<input class="input-field" id="updatePPS_Message_Text"
+  style="top:663px; left:736px; height:20px; width:419px; background: transparent; z-index: 10000;"
+  title="PPDOC No" readonly>
+		
+	
+<!-- Left side fields from core-input-fields.html inject here -->
+
+<!-- Top Link Areas -->
+<a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
+<a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
+<a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
+<a class="link-area" href="prepaymentsettings.html" style="top: 69px; left: 918px; height:18px; width:125px"></a>
+<a class="link-area" href="prepaymentpayments.html" style="top: 69px; left: 1049px; height:18px; width:133px"></a>
+<a class="link-area" href="additionalfunctions.html" style="top: 69px; left: 1189px; height:18px; width:119px"></a>
+<a class="link-area" href="diagnostics.html" style="top: 69px; left: 1313px; height:18px; width:76px"></a>
+<a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
+
+<!-- Internal links -->
+<a href="readprepaymentsettings.html"
+   style="position: absolute; top: 92px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+<a href="prepaymentsettings.html"
+   style="position: absolute; top: 146px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/downboxgrey.png"
+       onmouseover="this.src='../images/buttons/downboxblue.png';"
+       onmouseout="this.src='../images/buttons/downboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+	<!--Reset Button -->
+<a href=""
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>	
+	
+</div>
+<a class="link-area" href="prepaymentsettingsupdateDRR.html" style="top: 258px; left: 592px; height:21px; width:78px"></a>
+<a class="link-area" href="prepaymentsettingsupdatedebt.html" style="top: 258px; left: 680px; height:21px; width:116px"></a>
+<a class="link-area" href="prepaymentsettingsupdateMB.html" style="top: 258px; left: 804px; height:21px; width:130px"></a>
+<a class="link-area" href="prepaymentsettingsupdateEC.html" style="top: 258px; left: 942px; height:21px; width:300px"></a>
+	
+	<!-- Execute and Refresh rollovers -->
+	
+	
+	<a href="prepaymentsettingsupdateDRR.html"
+   style="position: absolute; top: 527px; left: 570px; height: 27px; width: 104px;">
+  <img src="../images/buttons/executenormal.png"
+       onmouseover="this.src='../images/buttons/executehover.png';"
+       onmouseout="this.src='../images/buttons/executenormal.png';"
+       alt=""
+	   style="width: 104px; height: 27px; display: block;" /><br>
+</a>
+		<!--Reset Button -->
+<a id="reset-scenario"
+   href="#"
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>	
+		<!-- Internal input fields -->
+	<input class="input-field" id="updatePPS_Date"
+  style="top:206px; left:714px; height:15px; width:79px; background: transparent; z-index: 10000;"
+  title="Update Date" readonly>
+</div>
+	
+<!-- Internal links Left Side -->
+
+<input class="input-field" id="updatePPS_Debt_Adjustment"
+  style="top:310px; left:764px; height:15px; width:150px; background: transparent; z-index: 10000;"
+  title="Debt Adjustment" readonly>
+</div>
+<input class="input-field" id="updatePPS_New_DRR"
+  style="top:337px; left:764px; height:15px; width:150px; background: transparent; z-index: 10000;"
+  title="New DRR" readonly>
+</div>
+<input class="input-field" id="updatePPS_Agreed_DRR"
+  style="top:365px; left:764px; height:15px; width:150px; background: transparent; z-index: 10000;"
+  title="Agreed DRR" readonly>
+
+<!-- Dropdown for Adjustment Type -->
+
+<div id="updatePPS_Adjustment_Type" class="custom-dropdown dropdown-adjustmenttype" style="top: 286px; left: 768px;">
+  <div class="selected-option"></div>
+  <div class="dropdown-options">
+    <div data-value="NOTSET">NOT SET</div>
+    <div data-value="NOTSET">NOT SET</div>
+  </div>
+</div>	
+
+<!-- Dropdown for DRR Type -->
+
+<div id="updatePPS_DRR_Type" class="custom-dropdown dropdown-drrtype" style="top: 391px; left: 764px;">
+  <div class="selected-option"></div>
+  <div class="dropdown-options">
+    <div data-value="NOTSET">NOT SET</div>
+    <div data-value="NOTSET">NOT SET</div>
+    <div data-value="NOTSET">NOT SET</div>
+    <div data-value="NOTSET">NOT SET</div>
+  </div>
+</div>
+
+<!-- Dropdown for communication requested -->
+
+<div id="updatePPS_Comm_Requested2" class="custom-dropdown dropdown-commrequested2" style="top: 420px; left: 780px;">
+  <div class="selected-option"></div>
+  <div class="dropdown-options">
+    <div data-value="YES">Yes</div>
+    <div data-value="NO">No</div>
+  </div>
+</div>
+		
+
+
+
+
+<!-- Right Side -->
+<input class="input-field" id="expected_System_Debt"
+  style="top:284px; left:1140px; height:15px; width:150px; background: transparent; z-index: 10000;"
+  title="Expected System Debt" readonly>
+</div>
+<input class="input-field" id="updatePPS_New_DRR"
+  style="top:310px; left:1140px; height:15px; width:150px; background: transparent; z-index: 10000;"
+  title="New DRR" readonly>
+</div>
+<input class="input-field" id="updatePPS_Suggested_DRR"
+  style="top:337px; left:1140px; height:15px; width:150px; background: transparent; z-index: 10000;"
+  title="Suggested DRR" readonly>
+</div>
+<input class="input-field" id="updatePPS_Arrears_Cleared_By"
+  style="top:365px; left:1140px; height:15px; width:78px; background: transparent; z-index: 10000;"
+  title="Arrears Cleared By" readonly>
+<input class="input-field" id="updatePPS_Time_To_Clear_Arrears"
+  style="top:391px; left:1140px; height:15px; width:150px; background: transparent; z-index: 10000;"
+  title="Time To Clear Arrears" readonly>
+
+<!-- Checkbox for Agreed by Customer -->
+<input type="checkbox" id="updatePPS_UpdatedebtDRR_Checkbox" border="#7d7f7c" style="position:absolute; top:418px; left:1111px; width:14px; height:14px;">
+</div>
+
+
+<script src="../scripts/smartui-loader.js"></script>
+<script src="../scripts/utrn-table-loader.js"></script>
+<script src="../scripts/dropdown-scenario-level.js"></script>
+<script src="../scripts/dropdown-bsr-handler.js"></script>
+<script src="../scripts/storedreads-loader.js"></script>
+<script src="../scripts/reset-scenario-handler.js"></script>
+<script src="../scripts/w3.js"></script>
+<script>w3.includeHTML();</script>	
+<!-- Tippy tooltip styles -->
+<link rel="stylesheet" href="/smartui/styles/tippy.css" />
+<!-- Tooltip scripts -->
+<script src="../scripts/popper.js"></script>
+<script src="../scripts/tippy.umd.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>SmartUI UTRN Generate</title>
+	<!-- ✅ External stylesheet. Make changes to the fonts and style for project in that file -->
+<link rel="stylesheet" href="../styles/styles.css" />
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrapper {
+      position: relative;
+      width: 1920px;
+      height: 1215px;
+      background: url('../images/prepaymentpaymentsUTRNgenerategold.png') no-repeat top left;
+      background-size: cover;
+    }
+    .link-area {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      cursor: pointer;
+      
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+<!-- Left side fields from core-input-fields.html inject here -->
+
+<!-- Top Link Areas -->
+<a class="link-area" href="openingpage.html" style="top: 69px; left: 524px; height:18px; width:130px"></a>
+<a class="link-area" href="BSRinformation.html" style="top: 69px; left: 660px; height:18px; width:100px"></a>
+<a class="link-area" href="meterreads.html" style="top: 69px; left: 766px; height:18px; width:146px"></a>
+<a class="link-area" href="prepaymentsettings.html" style="top: 69px; left: 918px; height:18px; width:125px"></a>
+<a class="link-area" href="prepaymentpayments.html" style="top: 69px; left: 1049px; height:18px; width:133px"></a>
+<a class="link-area" href="additionalfunctions.html" style="top: 69px; left: 1189px; height:18px; width:119px"></a>
+<a class="link-area" href="diagnostics.html" style="top: 69px; left: 1313px; height:18px; width:76px"></a>
+<a class="link-area" href="enhancedprepaymentservice.html" style="top: 69px; left: 1394px; height:18px; width:183px"></a>
+<!-- Internal page links -->
+<!-- 🔽 prepaymentpaymentsPID.html (Sidebox) -->
+<a href="prepaymentpaymentsPID.html"
+   style="position: absolute; top: 119px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpaymentshistoricUTRN.html (Sidebox) -->
+<a href="prepaymentpaymentshistoricUTRN.html"
+   style="position: absolute; top: 173px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpaymentssearchoutlet.html (Sidebox) -->
+<a href="prepaymentpaymentssearchoutlet.html"
+   style="position: absolute; top: 254px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpayments.html (Downbox) -->
+<a href="prepaymentpayments.html"
+   style="position: absolute; top: 308px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/downboxgrey.png"
+       onmouseover="this.src='../images/buttons/downboxblue.png';"
+       onmouseout="this.src='../images/buttons/downboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+
+<!-- 🔽 prepaymentpaymentsoldsupplier.html (Sidebox) -->
+<a href="prepaymentpaymentsoldsupplier.html"
+   style="position: absolute; top: 578px; left: 514px; height: 27px; width: 40px;">
+  <img src="../images/buttons/sideboxgrey.png"
+       onmouseover="this.src='../images/buttons/sideboxblue.png';"
+       onmouseout="this.src='../images/buttons/sideboxgrey.png';"
+       alt=""
+       style="width: 40px; height: 27px; display: block;" />
+</a>
+	
+	<a href="#" id="utrnGenerateExecute"
+   style="position: absolute; top: 392px; left: 962px; height: 27px; width: 104px;">
+  <img src="../images/buttons/executenormal.png"
+       onmouseover="this.src='../images/buttons/executehover.png';"
+       onmouseout="this.src='../images/buttons/executenormal.png';"
+       alt=""
+       style="width: 104px; height: 27px; display: block;" />
+	</a>
+	
+	<a href="#" id="utrnGenerateRefresh"
+   style="position: absolute; top: 392px; left: 1106px; height: 27px; width: 104px;">
+  <img src="../images/buttons/refreshgrey.png"
+       onmouseover="this.src='../images/buttons/refreshblue.png';"
+       onmouseout="this.src='../images/buttons/refreshgrey.png';"
+       alt=""
+       style="width: 104px; height: 27px; display: block;" />
+	</a>
+	<!-- Internal input fields -->
+	
+<input class="input-field" id="utrn_Generate_Amount"
+  style="top:370px; left:869px; height:15px; width:53px; background: transparent; z-index: 10000;"
+  title="Device Status">
+<!-- ✅ Custom Dropdown for Generate Reason -->
+<div id="UTRN_Generate_Reason" class="custom-dropdown dropdown-utrn-generate" style="top: 392px; left: 625px;">
+  <div class="selected-option">&nbsp;</div>
+  <div class="dropdown-options">
+    <div data-value="AFFORDABILITY">AFFORDABILITY</div>
+    <div data-value="CREDIT_ADVANCE">CREDIT ADVANCE WITH COMMS ISSUE</div>
+    <div data-value="EX_GRATIA">EX-GRATIA PAYMENT/GOODWILL WITH COMMS ISSUE</div>
+    <div data-value="EXCEPTION_RESOLUTION">EXCEPTION RESOLUTION WITH COMMS ISSUE</div>
+    <div data-value="LONG_TERM_COMMS">LONG TERM COMMS ISSUE</div>
+    <div data-value="NEW_SUPPLIER">NEW SUPPLIER REQUEST</div>
+    <div data-value="PAYMENT_CHANNEL">PAYMENT CHANNEL ISSUE</div>
+    <div data-value="REFUND">REFUND WITH COMMS ISSUE</div>
+  </div>
+</div>
+	
+</div>
+		<!--Reset Button -->
+<a href=""
+   style="position: absolute; top: 99px; left: 377px; height: 27px; width: 96px;">
+  <img src="../images/buttons/resetgrey.png"
+       onmouseover="this.src='../images/buttons/resetblue.png';"
+       onmouseout="this.src='../images/buttons/resetgrey.png';"
+       alt=""
+       style="width: 96px; height: 27px; display: block;" />
+</a>	
+<!-- UTRN Generated result array -->
+	
+	<input class="input-field" id="utrn_generated_result"
+  style="top:473px; left:573px; height:22px; width:154px; background: transparent; z-index: 10000;"
+  title="UTRN result">
+	<input class="input-field" id="utrn_generated_value"
+  style="top:473px; left:740px; height:22px; width:97px; background: transparent; z-index: 10000;"
+  title="UTRN Value">
+<input class="input-field" id="utrn_generated_channel"
+  style="top:473px; left:850px; height:22px; width:152px; background: transparent; z-index: 10000;"
+  title="UTRN Channel">
+<input class="input-field" id="utrn_generated_status"
+  style="top:473px; left:1016px; height:22px; width:320px; background: transparent; z-index: 10000;"
+  title="UTRN Status">
+	
+<script src="/smartui/scripts/smartui-loader.js"></script>
+<script src="/smartui/scripts/dropdown-utrn-generate-reason.js"></script>
+<script src="/smartui/scripts/dropdown-scenario-level.js"></script>
+<script src="../scripts/utrn-generate-handler.js"></script>
+</body>
+</html>
