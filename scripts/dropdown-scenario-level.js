@@ -1,3 +1,6 @@
+// Last updated: ${new Date().toISOString()}
+console.log('Walkthrough dropdown handler loaded at:', new Date().toISOString());
+
 console.log("✅ Active version: dropdown-scenario-level.js (Updated 18 April 17:29)");
 
 setTimeout(() => {
