@@ -582,6 +582,7 @@ body {
 .custom-dropdown.dropdown-walkthrough {
   width: 167px;
   height: 20px;
+  z-index: 12000;
 }
 
 .custom-dropdown.dropdown-walkthrough .selected-option {
@@ -594,6 +595,7 @@ body {
   background-color: transparent;
   color: black;
   box-sizing: border-box;
+  z-index: 12000;
 }
 
 .custom-dropdown.dropdown-walkthrough .dropdown-options {
@@ -604,7 +606,7 @@ body {
   position: absolute;
   top: 100%;
   left: -5px;
-  z-index: 10001;
+  z-index: 12001;
   line-height: 18px;
   padding: 4px 8px;
 }
