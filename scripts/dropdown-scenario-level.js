@@ -41,7 +41,7 @@ setTimeout(() => {
         if (selectedType === "standard") {
           basePath = "/smartui/html/openingpage.html";
         } else {
-          basePath = `/smartui/html/html${selectedType}/openingpage${selectedType.toUpperCase()}.html`;
+          basePath = `/smartui/${selectedType}/openingpage.html`;
         }
 
         window.location.href = `${basePath}?scenario=${currentScenario || ""}`;
