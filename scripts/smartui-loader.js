@@ -4,17 +4,23 @@ console.log("✅ Active version: smartui-loader.js (Updated 16 April 2025, 21:07
 const level = document.body.dataset.level || "standard";
 // Corrected fragment path logic assuming server root is parent of 'smartui'
 // If server root IS 'smartui', this should be '/fragments/...'
-const fragmentPath = `/smartui/fragments/core-input-fields-${level}.html`;
+const fragmentPath = `../fragments/core-input-fields-${level}.html`;
 
 // Load SmartUI input fields fragment (core fields on left side)
 fetch(fragmentPath)
   .then(res => {
-    if (!res.ok) throw new Error(`Failed to fetch fragment ${fragmentPath}. Status: ${res.status}`);
+    if (!res.ok) {
+      console.error(`Failed to fetch fragment ${fragmentPath}. Status: ${res.status}`);
+      throw new Error(`Failed to fetch fragment ${fragmentPath}. Status: ${res.status}`);
+    }
     return res.text();
   })
   .then(html => {
     const wrapper = document.getElementById("wrapper");
-    if (!wrapper) throw new Error("No #wrapper element found in the page");
+    if (!wrapper) {
+      console.error("Critical error: No #wrapper element found in the page. This element is required for the application to function.");
+      throw new Error("No #wrapper element found in the page");
+    }
     wrapper.insertAdjacentHTML("afterbegin", html);
 
     // Initialize Tippy tooltips after fragment is loaded
@@ -26,13 +32,13 @@ fetch(fragmentPath)
           delay: [100, 0],
           allowHTML: true
         });
-        console.log("Tippy initialized.");
+        console.log("Tippy initialized successfully");
       } else {
-        // Wait and retry if tippy library hasn't loaded yet
+        console.warn("Tippy library not loaded yet, retrying in 50ms...");
         setTimeout(initTippyWhenReady, 50);
       }
     }
-    initTippyWhenReady(); // Call the function to initialize Tippy
+    initTippyWhenReady();
   })
   .then(() => {
     // Determine scenario path and data source after fragment is loaded and Tippy setup is initiated
@@ -57,7 +63,7 @@ fetch(fragmentPath)
     // Determine if we need to load a fresh scenario
     if (scenario) {
       // URL parameter explicitly requests a scenario - always load it fresh
-      scenarioPath = scenario.includes('/') ? scenario : `/smartui/scenarios/${scenario}`;
+      scenarioPath = scenario.includes('/') ? scenario : `../scenarios/${scenario}`;
       const prevPath = localStorage.getItem("smartui_scenarioPath");
       
       // Note: We load fresh even if it's the same path to allow for explicit refreshing
@@ -66,12 +72,12 @@ fetch(fragmentPath)
       console.log(`Loading scenario requested in URL: ${scenarioPath}`);
     } else if (!existingData) {
       // No data in localStorage - need to load default scenario
-      scenarioPath = localStorage.getItem("smartui_scenarioPath") || "/smartui/scenarios/default.json";
+      scenarioPath = localStorage.getItem("smartui_scenarioPath") || "../scenarios/default.json";
       shouldLoadFreshScenario = true;
       console.log(`No existing data, loading default scenario: ${scenarioPath}`);
     } else {
       // We have existing data and no explicit scenario request - use localStorage data
-      scenarioPath = localStorage.getItem("smartui_scenarioPath") || "/smartui/scenarios/default.json";
+      scenarioPath = localStorage.getItem("smartui_scenarioPath") || "../scenarios/default.json";
       shouldLoadFreshScenario = false;
       console.log(`Using existing data from localStorage (scenario: ${scenarioPath})`);
     }
@@ -107,11 +113,17 @@ fetch(fragmentPath)
       setupUTRNReverseHelper();
     }
   })
-  .catch(err => {
-    console.error("SmartUI Load Error:", err);
-    // Display error message gracefully without wiping entire body if possible
-    const wrapper = document.getElementById("wrapper") || document.body;
-    wrapper.innerHTML = `<pre style='color:red; padding: 2em;'>Error loading page components: ${err.message}</pre>`;
+  .catch(error => {
+    console.error("Error loading SmartUI components:", error);
+    // Display user-friendly error message
+    const errorDiv = document.createElement('div');
+    errorDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:20px;border:1px solid #ff0000;border-radius:5px;box-shadow:0 0 10px rgba(0,0,0,0.1);';
+    errorDiv.innerHTML = `
+      <h3 style="color:#ff0000;margin:0 0 10px 0;">Error Loading SmartUI</h3>
+      <p style="margin:0;">There was a problem loading the application. Please try refreshing the page.</p>
+      <p style="margin:10px 0 0 0;font-size:0.9em;color:#666;">Error details: ${error.message}</p>
+    `;
+    document.body.appendChild(errorDiv);
   });
 
 // Helper function to set up the UTRN reverse functionality
@@ -279,90 +291,77 @@ function populatePageFields(data) {
     return;
   }
 
-  // --- Helper function for offset date calculation and formatting ---
-  function calculateAndFormatDate(offset) {
-    if (typeof offset !== 'number') {
-      console.warn("Invalid offset value received:", offset);
-      return ""; // Return empty string or some default for invalid offsets
-    }
-    try {
-      const today = new Date();
-      const targetDate = new Date(today);
-      targetDate.setDate(today.getDate() + offset); // Add offset (can be negative)
-      const dd = String(targetDate.getDate()).padStart(2, '0');
-      const mm = String(targetDate.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
-      const yyyy = targetDate.getFullYear();
-      return `${dd}.${mm}.${yyyy}`; // Format as DD.MM.YYYY
-    } catch (dateError) {
-      console.error("Error calculating date from offset:", offset, dateError);
-      return ""; // Return empty on error
-    }
-  }
-
-  // List of field IDs to populate
+  // Define required fields
   const fields = [
-    "contract_Account", "contract", "contract_Start", "operating_Mode", "payment_Plan",
-    "read_Retrieval", "last_Comm", "pod", "device_Guid", "meter_Serial",
-    "device_Start", "device_End", "device_Status", "elecOrGas", "BPID",
-    "firmware_Version", "SMSO_ID", "device_Location", "smets1_DCC", "contract_End"
+    'contract_Start',
+    'last_Comm',
+    'first_Name',
+    'last_Name',
+    'full_Name',
+    'full_address'
   ];
+
+  // Track missing fields
+  const missingFields = [];
 
   // Iterate through fields and populate corresponding elements
   fields.forEach(id => {
     const el = document.getElementById(id);
-    if (el) { // Check if element exists
-      let valueToSet = undefined;
+    if (!el) {
+      missingFields.push(id);
+      return;
+    }
 
-      // *** Special handling for offset-based date fields ***
-      if (id === 'contract_Start' && data.contract_Start_Offset !== undefined) {
-        valueToSet = calculateAndFormatDate(data.contract_Start_Offset);
-        console.log(`Calculated contract_Start (${data.contract_Start_Offset}) as: ${valueToSet}`);
-      } else if (id === 'last_Comm' && data.last_Comm_Offset !== undefined) {
-        valueToSet = calculateAndFormatDate(data.last_Comm_Offset);
-        console.log(`Calculated last_Comm (${data.last_Comm_Offset}) as: ${valueToSet}`);
-      }
-      // *** Handle fields where data key matches ID directly (including fixed dates) ***
-      else if (data[id] !== undefined) {
-        valueToSet = data[id];
-      }
+    let valueToSet = undefined;
 
-      // If a value was determined, set the element's value
-      if (valueToSet !== undefined) {
-        el.value = valueToSet;
+    // Special handling for offset-based date fields
+    if (id === 'contract_Start' && data.contract_Start_Offset !== undefined) {
+      valueToSet = calculateAndFormatDate(data.contract_Start_Offset);
+      console.log(`Calculated contract_Start (${data.contract_Start_Offset}) as: ${valueToSet}`);
+    } else if (id === 'last_Comm' && data.last_Comm_Offset !== undefined) {
+      valueToSet = calculateAndFormatDate(data.last_Comm_Offset);
+      console.log(`Calculated last_Comm (${data.last_Comm_Offset}) as: ${valueToSet}`);
+    }
+    // Handle fields where data key matches ID directly
+    else if (data[id] !== undefined) {
+      valueToSet = data[id];
+    }
 
-        // Also update any duplicate fields marked with data-field attribute
-        const duplicates = document.querySelectorAll(`[data-field="${id}"]`);
-        duplicates.forEach(dup => {
-          dup.value = valueToSet;
-        });
-      }
+    // If a value was determined, set the element's value
+    if (valueToSet !== undefined) {
+      el.value = valueToSet;
+
+      // Update any duplicate fields marked with data-field attribute
+      const duplicates = document.querySelectorAll(`[data-field="${id}"]`);
+      duplicates.forEach(dup => {
+        dup.value = valueToSet;
+      });
     }
   });
 
-  // --- Populate Composite Fields ---
-  // Populate full name
-  const fullNameEl = document.getElementById("full_Name");
-  if (fullNameEl && data.first_Name && data.last_Name) {
-    fullNameEl.value = `${data.first_Name} ${data.last_Name}`;
+  // Log any missing fields
+  if (missingFields.length > 0) {
+    console.warn(`The following required fields were not found in the DOM: ${missingFields.join(', ')}`);
   }
 
-  // Populate full address
+  // Populate composite fields with error handling
+  const fullNameEl = document.getElementById("full_Name");
+  if (fullNameEl) {
+    if (data.first_Name && data.last_Name) {
+      fullNameEl.value = `${data.first_Name} ${data.last_Name}`;
+    } else {
+      console.warn("Missing first_Name or last_Name data for full_Name field");
+    }
+  }
+
   const addressEl = document.getElementById("full_address");
   if (addressEl) {
-    const parts = [];
-    // Build address string carefully, handling potential missing parts
-    if (data.flatnumber) parts.push(`FLAT ${String(data.flatnumber).toUpperCase()}`);
-    if (data.housenumber || data.street) {
-      const house = data.housenumber ? String(data.housenumber).toUpperCase() : '';
-      const street = data.street ? String(data.street).toUpperCase() : '';
-      parts.push(`${house} ${street}`.trim());
+    if (data.address_Line_1 && data.postcode) {
+      addressEl.value = `${data.address_Line_1}, ${data.postcode}`;
+    } else {
+      console.warn("Missing address_Line_1 or postcode data for full_address field");
     }
-    if (data.city) parts.push(String(data.city).toUpperCase());
-    if (data.postcode) parts.push(String(data.postcode).toUpperCase());
-    addressEl.value = parts.join(", ");
   }
-
-  console.log("Page fields successfully populated with data.");
 }
 
 // --- Optional: UTRN row click highlighting (if needed globally) ---
@@ -391,5 +390,21 @@ document.addEventListener("DOMContentLoaded", () => {
         row.classList.add("selected");
       }
     });
+  }
+});
+
+// Add transition handling
+document.body.classList.add('loading');
+
+window.addEventListener('load', () => {
+  document.body.classList.remove('loading');
+  document.body.classList.add('loaded');
+});
+
+// Handle navigation
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a');
+  if (link && !e.ctrlKey && !e.shiftKey && !e.metaKey) {
+    document.body.classList.add('loading');
   }
 });

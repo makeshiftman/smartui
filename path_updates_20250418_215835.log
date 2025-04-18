@@ -1,0 +1,253 @@
+2025-04-18 21:58:35,195 - INFO - Performing dry run - no changes will be made
+2025-04-18 21:58:35,196 - INFO - Found 41 HTML files in gold
+2025-04-18 21:58:35,196 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,196 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdatedebt.html
+2025-04-18 21:58:35,196 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpageOV.html
+2025-04-18 21:58:35,196 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,197 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,197 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsUTRNgenerate.html
+2025-04-18 21:58:35,197 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettings.html
+2025-04-18 21:58:35,197 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateEC.html
+2025-04-18 21:58:35,197 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,197 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,197 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsreplayjoindevices.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctions.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/readprepaymentsettings.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,198 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateDRR.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,199 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/dataentryportal.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreadsstored.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,200 - INFO - Updated paths in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsUTRNgenerateSINGLE.html
+2025-04-18 21:58:35,201 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/w3.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/messagesandincidents.html
+2025-04-18 21:58:35,201 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpageOV.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpageOV.html
+2025-04-18 21:58:35,201 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpageOV.html
+2025-04-18 21:58:35,202 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicepaymentmode.html
+2025-04-18 21:58:35,202 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticssupplystatus.html
+2025-04-18 21:58:35,202 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateEC.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateEC.html
+2025-04-18 21:58:35,202 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateEC.html
+2025-04-18 21:58:35,203 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentECauto.html
+2025-04-18 21:58:35,203 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/diagselect-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsselection.html
+2025-04-18 21:58:35,203 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsreplayjoindevices.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsreplayjoindevices.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsreplayjoindevices.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsreplayjoindevices.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsreplayjoindevices.html
+2025-04-18 21:58:35,203 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsreplayjoindevices.html
+2025-04-18 21:58:35,203 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/reset-pin.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsresetmeterpin.html
+2025-04-18 21:58:35,204 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctions.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctions.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctions.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctions.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctions.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctions.html
+2025-04-18 21:58:35,204 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js. referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformation.html
+2025-04-18 21:58:35,204 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/readprepaymentsettings.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/readprepaymentsettings.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/readprepaymentsettings.html
+2025-04-18 21:58:35,204 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,204 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentlowbalance.html
+2025-04-18 21:58:35,205 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsoldsupplier.html
+2025-04-18 21:58:35,205 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/w3.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/dropdown-bsr-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,205 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/BSRinformationexec.html
+2025-04-18 21:58:35,206 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,206 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentaddtopup.html
+2025-04-18 21:58:35,206 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsloadcontrolswitchdata.html
+2025-04-18 21:58:35,207 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsdevicelog.html
+2025-04-18 21:58:35,207 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,207 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/additionalfunctionsdevicecatalogue.html
+2025-04-18 21:58:35,207 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnostics.html
+2025-04-18 21:58:35,208 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/dropdown-bsr-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreads.html
+2025-04-18 21:58:35,208 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentshistoricUTRN.html
+2025-04-18 21:58:35,209 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpayments.html
+2025-04-18 21:58:35,209 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,209 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentserviceautotopup.html
+2025-04-18 21:58:35,209 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentsettingsupdateMB.html
+2025-04-18 21:58:35,210 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentservice.html
+2025-04-18 21:58:35,210 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/openingpage.html
+2025-04-18 21:58:35,210 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/dataentryportal.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/dataentryportal.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/dataentryportal.html
+2025-04-18 21:58:35,210 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,210 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/enhancedprepaymentautotopup.html
+2025-04-18 21:58:35,211 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticstariffinfo.html
+2025-04-18 21:58:35,211 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreadsstored.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreadsstored.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/meterreadsstored.html
+2025-04-18 21:58:35,211 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/utrn-table-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/reset-scenario-handler.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/popper.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/tippy.umd.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/diagnosticsgasdevice.html
+2025-04-18 21:58:35,211 - WARNING - Absolute paths still found in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsUTRNgenerateSINGLE.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/smartui-loader.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsUTRNgenerateSINGLE.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/dropdown-utrn-generate-reason.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsUTRNgenerateSINGLE.html
+2025-04-18 21:58:35,211 - WARNING - Missing file /smartui/scripts/dropdown-scenario-level.js referenced in /Users/kevincasey/Documents/GitHub/smartui/gold/prepaymentpaymentsUTRNgenerateSINGLE.html
+2025-04-18 21:58:35,212 - INFO - Changes made: 37
+2025-04-18 21:58:35,212 - INFO - Errors encountered: 0

@@ -1,4 +1,4 @@
-// Last updated: ${new Date().toISOString()}
+// Last updated: 2024-04-18
 console.log('Walkthrough dropdown handler loaded at:', new Date().toISOString());
 
 console.log("✅ Active version: dropdown-scenario-level.js (Updated 18 April 17:29)");
@@ -42,9 +42,9 @@ setTimeout(() => {
         let basePath;
         
         if (selectedType === "standard") {
-          basePath = "/smartui/html/openingpage.html";
+          basePath = "../html/openingpage.html";
         } else {
-          basePath = `/smartui/${selectedType}/openingpage.html`;
+          basePath = `../${selectedType}/openingpage.html`;
         }
 
         window.location.href = `${basePath}?scenario=${currentScenario || ""}`;
@@ -58,7 +58,7 @@ setTimeout(() => {
     const scenarioOptions = scenarioDropdown.querySelector(".dropdown-options");
 
     if (scenarioSelected && scenarioOptions) {
-      fetch("/smartui/scenarios/scenario-list.json")
+      fetch("../scenarios/scenario-list.json")
         .then(res => res.json())
         .then(scenarios => {
           scenarios.forEach(s => {

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem('smartui_data');
       localStorage.removeItem('smartui_scenarioPath');
       // Force reload using default scenario
-      window.location.href = "openingpage.html?scenario=/smartui/scenarios/default.json";
+      window.location.href = "openingpage.html?scenario=../scenarios/default.json";
     });
   }
 });

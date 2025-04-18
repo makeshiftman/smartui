@@ -1,9 +1,8 @@
-
 setTimeout(() => {
   const dropdown = document.getElementById('scenario_Selector');
   if (!dropdown) return;
 
-  fetch('/smartui/scenarios/scenario-list.json')
+  fetch('../scenarios/scenario-list.json')
     .then(res => res.json())
     .then(scenarios => {
       dropdown.innerHTML = '<option value="">Contract Account</option>';
