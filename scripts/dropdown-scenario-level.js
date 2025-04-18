@@ -18,7 +18,7 @@ setTimeout(() => {
     if (walkthroughSelected && walkthroughOptions) {
       // Add Standard option
       const standardDiv = document.createElement("div");
-      standardDiv.textContent = "Standard Walkthrough";
+      standardDiv.textContent = "Standard";
       standardDiv.dataset.value = "standard";
       walkthroughOptions.insertBefore(standardDiv, walkthroughOptions.firstChild);
 

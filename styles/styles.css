@@ -542,6 +542,7 @@ body {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  z-index: 1000;
 }
 
 .custom-dropdown.dropdown-scenario {
