@@ -16,6 +16,12 @@ setTimeout(() => {
     const walkthroughOptions = walkthroughDropdown.querySelector(".dropdown-options");
 
     if (walkthroughSelected && walkthroughOptions) {
+      // Add Standard option
+      const standardDiv = document.createElement("div");
+      standardDiv.textContent = "Standard Walkthrough";
+      standardDiv.dataset.value = "standard";
+      walkthroughOptions.insertBefore(standardDiv, walkthroughOptions.firstChild);
+
       walkthroughSelected.addEventListener("click", () => {
         const isOpen = walkthroughOptions.style.display === "block";
         closeAllDropdowns();
