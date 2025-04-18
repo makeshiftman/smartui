@@ -1,9 +1,9 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const walkthroughMenu = document.getElementById('Smart_Menu_Bar');
   if (!walkthroughMenu) return;
 
   const walkthroughs = [
+    { label: "Standard Walkthrough", url: "/smartui/html/openingpage.html" },
     { label: "Bronze Walkthrough", url: "/smartui/html/htmlbronze/openingpageBRONZE.html" },
     { label: "Silver Walkthrough", url: "/smartui/html/htmlsilver/openingpageSILVER.html" },
     { label: "Gold Walkthrough", url: "/smartui/html/htmlgold/openingpageGOLD.html" }
