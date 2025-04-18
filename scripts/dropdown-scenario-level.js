@@ -1,4 +1,3 @@
-
 setTimeout(() => {
   const scenarioDropdown = document.getElementById("scenario_Selector");
   const walkthroughDropdown = document.getElementById("Smart_Menu_Bar");
@@ -29,7 +28,13 @@ setTimeout(() => {
         walkthroughSelected.textContent = opt.textContent;
 
         const currentScenario = new URLSearchParams(window.location.search).get("scenario");
-        const basePath = `/smartui/html${selectedType}/openingpage${selectedType.toUpperCase()}.html`;
+        let basePath;
+        
+        if (selectedType === "standard") {
+          basePath = "/smartui/html/openingpage.html";
+        } else {
+          basePath = `/smartui/html/html${selectedType}/openingpage${selectedType.toUpperCase()}.html`;
+        }
 
         window.location.href = `${basePath}?scenario=${currentScenario || ""}`;
       });
