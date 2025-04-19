@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     dropdowns.forEach(dropdown => {
-        const selected = dropdown.querySelector('.selected');
-        const optionsList = dropdown.querySelector('.options-list');
+        const selected = dropdown.querySelector('.selected-option');
+        const optionsList = dropdown.querySelector('.dropdown-options');
         
         if (!selected || !optionsList) {
             console.error('Dropdown structure is invalid. Missing required elements:', {
@@ -28,20 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Toggle dropdown visibility
         selected.addEventListener('click', () => {
-            const isOpen = optionsList.classList.contains('show');
+            const isOpen = optionsList.style.display === "block";
             
             // Close all other dropdowns first
-            document.querySelectorAll('.options-list.show').forEach(list => {
+            document.querySelectorAll('.dropdown-options').forEach(list => {
                 if (list !== optionsList) {
-                    list.classList.remove('show');
+                    list.style.display = "none";
                 }
             });
             
-            optionsList.classList.toggle('show');
+            optionsList.style.display = isOpen ? "none" : "block";
         });
 
         // Handle option selection
-        const options = optionsList.querySelectorAll('.option');
+        const options = optionsList.querySelectorAll('div');
         options.forEach(option => {
             option.addEventListener('click', () => {
                 const value = option.dataset.value;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
                 selected.textContent = option.textContent;
-                optionsList.classList.remove('show');
+                optionsList.style.display = "none";
                 
                 // Trigger change event
                 const event = new Event('change');
@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const selectedElement = readPPSDropdown.querySelector('.selected');
-    const optionsListElement = readPPSDropdown.querySelector('.options-list');
+    const selectedElement = readPPSDropdown.querySelector('.selected-option');
+    const optionsListElement = readPPSDropdown.querySelector('.dropdown-options');
     
     if (!selectedElement || !optionsListElement) {
         console.error('readPPS dropdown structure is invalid. Missing required elements:', {
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Save selected value to localStorage
     readPPSDropdown.addEventListener('change', () => {
         const selectedOption = selectedElement.textContent;
-        const optionElement = optionsListElement.querySelector(`.option:contains("${selectedOption}")`);
+        const optionElement = optionsListElement.querySelector(`[data-value="${selectedOption}"]`);
         
         if (optionElement) {
             const value = optionElement.dataset.value;

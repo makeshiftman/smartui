@@ -1,26 +1,26 @@
 [
   {
     "name": "Default",
-    "file": "/smartui/scenarios/default.json"
+    "file": "../scenarios/default.json"
   },
   {
     "name": "Hiroshi",
-    "file": "/smartui/scenarios/hiroshi.json"
+    "file": "../scenarios/hiroshi.json"
   },
   {
     "name": "Priya",
-    "file": "/smartui/scenarios/priya.json"
+    "file": "../scenarios/priya.json"
   },
   {
     "name": "Carlos",
-    "file": "/smartui/scenarios/carlos.json"
+    "file": "../scenarios/carlos.json"
   },
   {
     "name": "Josh",
-    "file": "/smartui/scenarios/josh.json"
+    "file": "../scenarios/josh.json"
   },
   {
     "name": "Margaret",
-    "file": "/smartui/scenarios/margaret.json"
+    "file": "../scenarios/margaret.json"
   }
 ]

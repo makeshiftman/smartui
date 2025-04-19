@@ -49,47 +49,41 @@
   <h1>Click a Customer to Launch Their Scenario</h1>
   <div class="grid">
 
-    <div class="scenario" onclick="launchScenario('priya')">
+    <a class="scenario" href="html/openingpage.html?scenario=../scenarios/priya.json" target="_blank">
       <img src="scenarios/images/priya.jpg" alt="Priya" />
       <p>Priya has made a payment and the money has left her bank but it isn't showing on the meter. Help Priya find where her payment has gone.</p>
-    </div>
+    </a>
 
-   <a class="scenario" href="html/openingpage.html?scenario=/smartui/scenarios/hiroshi.json" target="_blank">
+   <a class="scenario" href="html/openingpage.html?scenario=../scenarios/hiroshi.json" target="_blank">
   <img src="scenarios/images/hiroshi.jpg" alt="Hiroshi" />
   <p>Hiroshi hasn't received his barcode and wants to go to the shop to top up his smart meter. Email him a copy of it and provide him the numerical version as well.</p>
 </a>
 
-    <div class="scenario" onclick="launchScenario('carlos')">
+    <a class="scenario" href="html/openingpage.html?scenario=../scenarios/carlos.json" target="_blank">
       <img src="scenarios/images/carlos.jpg" alt="Carlos" />
       <p>Carlos is unable to access his meter due to it having a pin set on it. Help him reset the pin.</p>
-    </div>
+    </a>
 
-    <div class="scenario" onclick="launchScenario('josh')">
+    <a class="scenario" href="html/openingpage.html?scenario=../scenarios/josh.json" target="_blank">
       <img src="scenarios/images/josh.jpg" alt="Josh" />
       <p>Josh wants to change from PrePayment to Direct Debit. We need to bill him up to date to do this but UI5 isn't pulling a new read. Go into SmartUI and manually get a reading for today. </p>
-    </div>
+    </a>
 
-    <div class="scenario" onclick="launchScenario('amina')">
+    <a class="scenario" href="html/openingpage.html?scenario=../scenarios/amina.json" target="_blank">
       <img src="scenarios/images/amina.jpg" alt="Amina" />
       <p>Amina has lost her phone so has no access to the app and is out of town. She is concerned the power will go off when she is away so wants to get a rough idea of her meter balance to see if she needs to top up over the phone. Can you check that on SmartUI?</p>
-    </div>
+    </a>
 
-    <div class="scenario" onclick="launchScenario('margaret')">
+    <a class="scenario" href="html/openingpage.html?scenario=../scenarios/margaret.json" target="_blank">
       <img src="scenarios/images/margaret.jpg" alt="Margaret" />
       <p>Margaret is unable to top up. You suspect her meter might not be in PrePayment mode. Check to see the operating mode in BOTH places you can see it on SmartUI.</p>
-    </div>
+    </a>
 	  
-    <a class="scenario" href="html/htmlOV/openingpageOV.html?scenario=/smartui/scenarios/default.json" target="_blank">
+    <a class="scenario" href="html/htmlOV/openingpageOV.html?scenario=../scenarios/default.json" target="_blank">
   <img src="scenarios/images/smartuioverview.png" alt="SmartUI Overview" />
   <p>This visual walkthrough of SmartUI highlights the main functions and layout using Bruce as your guide.</p>
 </a>
 
-  <script>
-    function launchScenario(name) {
-      window.open("html/openingpage.html?scenario=" + name, "_blank");
-      window.open("html/UI5.html", "_blank");
-    }
-  </script>
-	 
+  </div>
 </body>
 </html>
